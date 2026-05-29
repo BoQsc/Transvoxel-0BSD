@@ -19,6 +19,7 @@ docs/DROP_IN.md                   how to embed
 docs/WHAT_THIS_PROVES.md          proof boundary
 docs/C_COMPILER.md                C compiler notes
 docs/KNOWN_LIMITS.md              known limits and non-claims
+docs/TESTING_BY_USERS.md          third-party testing and report guide
 LICENSE                           0BSD license
 PROVENANCE.md                     clean-room provenance
 SOURCES.md                        public sources used
