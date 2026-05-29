@@ -2,23 +2,21 @@
 
 ## Title
 
-`transvoxel_0bsd v33 - independent 0BSD Transvoxel-style core release candidate`
+`Transvoxel 0BSD Core v0.1.0-rc1`
 
 ## Summary
 
 This release packages an engine-independent, dependency-free C core for an independently generated **Transvoxel-style voxel LOD transition system** under 0BSD.
 
-Use the small public artifact for embedding:
+Use this release asset for embedding:
 
 ```text
-dist/transvoxel_0bsd_core.zip
+transvoxel_0bsd_core.zip
 ```
 
-The full repository package includes generators, validators, Godot proof stages, scripted auto-interaction tests, and official-equivalence research reports.
+The full repository includes generators, validators, Godot proof stages, scripted auto-interaction tests, and official-equivalence research reports.
 
-## What is included
-
-The public core zip contains:
+## What is included in the core zip
 
 ```text
 include/transvoxel.h
@@ -40,7 +38,7 @@ README_CORE.txt
 
 ## Current proof status
 
-Expected full proof state for this release line:
+Expected proof state for this release line:
 
 ```text
 independent 0BSD core: PASS
@@ -67,18 +65,13 @@ With a normal C compiler:
 cc -std=c99 -Iinclude -Igenerated src/transvoxel.c examples/c_minimal/main.c -o c_minimal
 ```
 
-## Recommended release assets
-
-Upload these as release assets:
-
-```text
-transvoxel_0bsd_v33.zip          full proof/development package
-transvoxel_0bsd_core.zip         small drop-in C core package
-```
-
 ## Known limits
 
 - Official 73-equivalence-class mapping is still research-only and `NOT_PROVEN`.
 - Exact sign/orientation equivalence to MIT `Transvoxel.cpp` tables is `NOT_PROVEN`.
 - The current core is a proven independent Transvoxel-style candidate, not a byte-compatible clone of the official table file.
 - Visual/gameplay terrain quality still depends on the user's terrain system, materials, LOD policy, collision, editing rules, and streaming.
+
+## Recommended feedback
+
+Please open an issue if you test the core in another engine, compiler, operating system, or voxel terrain pipeline. Correctness reports are especially useful when they include generated mesh data, exact scalar field setup, LOD layout, and the smallest reproducible case.
