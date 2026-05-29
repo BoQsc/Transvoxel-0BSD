@@ -1,0 +1,94 @@
+name: release-core
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag, for example v0.1.0-rc1"
+        required: true
+        default: "v0.1.0-rc1"
+      prerelease:
+        description: "Mark release as pre-release"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release-core:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Run generator/proof suite
+        run: python tools/prove_tables.py
+
+      - name: Compile C core smoke test
+        run: python tools/test_core_c.py
+
+      - name: Build public core package
+        run: python tools/build_dist.py
+
+      - name: Check release candidate package
+        run: python tools/release_candidate_report.py
+
+      - name: Check GitHub-ready package
+        run: python tools/github_ready_report.py
+
+      - name: Resolve release tag
+        id: release_info
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.tag }}"
+            PRERELEASE="${{ inputs.prerelease }}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+            case "$TAG" in
+              *-rc*|*-alpha*|*-beta*) PRERELEASE="true" ;;
+              *) PRERELEASE="false" ;;
+            esac
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "prerelease=$PRERELEASE" >> "$GITHUB_OUTPUT"
+          echo "Release tag: $TAG"
+          echo "Prerelease: $PRERELEASE"
+
+      - name: Create or update GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.release_info.outputs.tag }}
+          name: Transvoxel 0BSD Core ${{ steps.release_info.outputs.tag }}
+          body_path: docs/GITHUB_RELEASE_PAGE.md
+          prerelease: ${{ steps.release_info.outputs.prerelease }}
+          files: |
+            dist/transvoxel_0bsd_core.zip
+            validation/release_candidate_report.json
+            validation/github_ready_report.json
+            validation/external_alignment_report.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload validation reports artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-reports-${{ steps.release_info.outputs.tag }}
+          path: |
+            validation/*.json
+            validation/*.md
+            proof/*.json
+            dist/transvoxel_0bsd_core.zip
