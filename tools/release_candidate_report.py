@@ -26,6 +26,7 @@ REQUIRED = {
     "transvoxel_0bsd_core/docs/C_COMPILER.md",
     "transvoxel_0bsd_core/docs/CORE_PACKAGE_CONTENTS.md",
     "transvoxel_0bsd_core/docs/KNOWN_LIMITS.md",
+    "transvoxel_0bsd_core/docs/TESTING_BY_USERS.md",
 }
 
 FORBIDDEN_PARTS = [
@@ -78,6 +79,7 @@ def main() -> int:
     if report["forbidden"]:
         print("forbidden:", report["forbidden"][:20])
     return 0 if report["status"] == "PASS" else 1
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
