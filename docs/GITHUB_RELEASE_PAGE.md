@@ -1,9 +1,5 @@
 # GitHub Release Page Text
 
-## Title
-
-`Transvoxel 0BSD Core v0.1.0-rc1`
-
 ## Summary
 
 This release packages an engine-independent, dependency-free C core for an independently generated **Transvoxel-style voxel LOD transition system** under 0BSD.
