@@ -1,5 +1,11 @@
 # Changelog
 
+## v34
+
+- Fixed GitHub-ready repository check so local generated proof/cache files created during CI do not fail unless they are tracked by Git.
+- Added `docs/RELEASE_NOTES_V34.md`.
+
+
 ## v33
 
 GitHub-ready repository cleanup.

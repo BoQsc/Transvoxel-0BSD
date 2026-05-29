@@ -1,12 +1,15 @@
 {
-  "forbidden_present": [],
+  "forbidden_tracked": [],
+  "git_warning": "fatal: not a git repository (or any of the parent directories): .git",
+  "local_forbidden_present_ignored": [],
   "missing": [],
   "notes": [
     "This checks repository publishing files only.",
-    "It does not rerun Godot runtime validation.",
+    "git ls-files was unavailable, so forbidden tracked-file detection was skipped.",
+    "Local generated proof files may exist after a run; they are ignored by .gitignore and should not be committed.",
     "Official Transvoxel.cpp / 73-class equivalence remains NOT_PROVEN unless separately proven by the research track."
   ],
-  "schema": "boqsc.transvoxel.github_ready_report.v1",
+  "schema": "boqsc.transvoxel.github_ready_report.v2",
   "status": "PASS",
-  "version": "v33"
+  "version": "v34"
 }

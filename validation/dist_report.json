@@ -20,7 +20,7 @@
     "examples/c_terrain_export/BUILD_WITH_ZIG.cmd",
     "examples/c_terrain_export/BUILD_WITH_CC.sh"
   ],
-  "core_zip": "/mnt/data/v33work/transvoxel_0bsd/dist/transvoxel_0bsd_core.zip",
+  "core_zip": "/mnt/data/v34work/transvoxel_0bsd/dist/transvoxel_0bsd_core.zip",
   "missing": [],
   "note": "Minimal core zip intentionally excludes generated JSON proof data. Use the full repository package for generator/proof data.",
   "schema": "boqsc.transvoxel.dist_report.v5",
