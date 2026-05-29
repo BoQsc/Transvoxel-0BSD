@@ -31,6 +31,7 @@ CORE_FILES = [
     "examples/c_minimal/BUILD_WITH_ZIG.cmd",
     "examples/c_minimal/BUILD_WITH_CC.sh",
     "examples/c_terrain_export/main.c",
+    "examples/c_terrain_export/README.md",
     "examples/c_terrain_export/BUILD_WITH_ZIG.cmd",
     "examples/c_terrain_export/BUILD_WITH_CC.sh",
 ]
