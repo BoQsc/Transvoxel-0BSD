@@ -24,6 +24,7 @@ CORE_FILES = [
     "docs/WHAT_THIS_PROVES.md",
     "docs/CORE_PACKAGE_CONTENTS.md",
     "docs/KNOWN_LIMITS.md",
+    "docs/TESTING_BY_USERS.md",
     "include/transvoxel.h",
     "src/transvoxel.c",
     "generated/transvoxel_tables.h",
