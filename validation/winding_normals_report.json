@@ -1,0 +1,28 @@
+{
+  "meaning": "Internal generated-table winding/normal audit. It does not prove the same sign convention as Eric Lengyel's MIT tables.",
+  "reference_orientation_equivalence": "NOT_PROVEN",
+  "schema": "boqsc.transvoxel.winding_normals_audit.v1",
+  "status": "PASS",
+  "tables": [
+    {
+      "case_count": 256,
+      "complement_winding_mismatch_examples": [],
+      "degenerate_triangle_examples": [],
+      "duplicate_triangle_examples": [],
+      "meaning": "Checks generated table geometry for duplicate/degenerate triangles and verifies complement cases expose opposite normals. This proves internal winding consistency, not identity with an external reference table.",
+      "name": "regular",
+      "ok": true,
+      "triangle_count": 1920
+    },
+    {
+      "case_count": 512,
+      "complement_winding_mismatch_examples": [],
+      "degenerate_triangle_examples": [],
+      "duplicate_triangle_examples": [],
+      "meaning": "Checks generated table geometry for duplicate/degenerate triangles and verifies complement cases expose opposite normals. This proves internal winding consistency, not identity with an external reference table.",
+      "name": "transition",
+      "ok": true,
+      "triangle_count": 12288
+    }
+  ]
+}

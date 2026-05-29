@@ -1,0 +1,193 @@
+{
+  "class_summaries": {
+    "d4_complement_sample_edge_topology": {
+      "class_count": 201,
+      "largest_class_size": 8,
+      "representative_cases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "size_histogram": {
+        "2": 160,
+        "4": 30,
+        "6": 8,
+        "8": 3
+      },
+      "smallest_class_size": 2
+    },
+    "d4_sample_edge_topology": {
+      "class_count": 201,
+      "largest_class_size": 8,
+      "representative_cases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "size_histogram": {
+        "2": 160,
+        "4": 30,
+        "6": 8,
+        "8": 3
+      },
+      "smallest_class_size": 2
+    },
+    "exact_sample_edge_topology": {
+      "class_count": 256,
+      "largest_class_size": 2,
+      "representative_cases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "size_histogram": {
+        "2": 256
+      },
+      "smallest_class_size": 2
+    },
+    "graph_only_topology_coarse": {
+      "class_count": 484,
+      "largest_class_size": 4,
+      "representative_cases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "size_histogram": {
+        "1": 466,
+        "2": 12,
+        "3": 2,
+        "4": 4
+      },
+      "smallest_class_size": 1
+    },
+    "raw_d4_complement_orbit": {
+      "class_count": 51,
+      "largest_class_size": 16,
+      "representative_cases": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        23,
+        26,
+        27
+      ],
+      "size_histogram": {
+        "2": 4,
+        "4": 4,
+        "8": 25,
+        "16": 18
+      },
+      "smallest_class_size": 2
+    }
+  },
+  "closest_count_to_official_target": {
+    "class_count": 51,
+    "distance_from_73": 22,
+    "name": "raw_d4_complement_orbit"
+  },
+  "interpretation": [
+    "This project's generated topology classes do not prove official Transvoxel 73-class equivalence.",
+    "If none of the topology signature counts equals 73, the current tetrahedralized transition topology is structurally different from the official 73-class table design, or the official classes depend on a richer equivalence relation not represented by these signatures.",
+    "Even if a count equaled 73, that would still be only a structural clue, not proof of matching official class IDs or triangle encodings."
+  ],
+  "limitations": [
+    "graph_only_topology is a coarse color-refinement signature, not a formal graph-isomorphism proof.",
+    "sample-edge topology uses midpoint/sample-edge references from this generator, not arbitrary density interpolation positions.",
+    "No official MIT table values are loaded, compared, or copied."
+  ],
+  "matches_official_73_count": false,
+  "no_copy_boundary": {
+    "external_table_values_read": false,
+    "external_table_values_used_as_golden_output": false,
+    "inputs": [
+      "generated/transition_tables.json"
+    ]
+  },
+  "official_class_target": 73,
+  "official_equivalence_proof": "NOT_PROVEN",
+  "schema": "boqsc.transvoxel.topology_signature_analysis.v1",
+  "status": "RESEARCH_PASS_TOPOLOGY_CLASSES_DERIVED_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
+}

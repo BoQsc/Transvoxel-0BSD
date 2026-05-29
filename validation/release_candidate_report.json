@@ -1,0 +1,12 @@
+{
+  "core_zip": "/mnt/data/v33work/transvoxel_0bsd/dist/transvoxel_0bsd_core.zip",
+  "file_count": 19,
+  "forbidden": [],
+  "missing": [],
+  "notes": [
+    "This checks the small public core zip, not the full proof repository package.",
+    "Official Transvoxel.cpp / 73-class equivalence remains NOT_PROVEN by design."
+  ],
+  "schema": "boqsc.transvoxel.release_candidate_report.v1",
+  "status": "PASS"
+}

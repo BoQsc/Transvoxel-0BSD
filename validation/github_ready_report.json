@@ -1,0 +1,12 @@
+{
+  "forbidden_present": [],
+  "missing": [],
+  "notes": [
+    "This checks repository publishing files only.",
+    "It does not rerun Godot runtime validation.",
+    "Official Transvoxel.cpp / 73-class equivalence remains NOT_PROVEN unless separately proven by the research track."
+  ],
+  "schema": "boqsc.transvoxel.github_ready_report.v1",
+  "status": "PASS",
+  "version": "v33"
+}

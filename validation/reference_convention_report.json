@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "full_resolution_transition_samples_are_9": true,
+    "half_resolution_corner_sources_exist": true,
+    "synthetic_center_source_exists": true,
+    "total_transition_samples_are_14": true,
+    "transition_case_count_is_512": true
+  },
+  "future_pass_condition": [
+    "write an independent convention document for sample order, face orientation, case-bit meaning, and inside/outside sign",
+    "derive transforms from that document to the published dissertation diagrams without copying table values",
+    "validate a public-domain reference-case corpus if one becomes available or is generated independently"
+  ],
+  "reason": "The project intentionally does not load or compare against Eric Lengyel's MIT Transvoxel.cpp tables. Therefore exact reference sign/orientation convention equivalence is not proven.",
+  "reference_equivalence_status": "NOT_PROVEN",
+  "schema": "boqsc.transvoxel.reference_convention_audit.v1",
+  "status": "PASS_INTERNAL_CONVENTION"
+}

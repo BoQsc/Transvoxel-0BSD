@@ -1,0 +1,23 @@
+name: Feature request
+about: Suggest a practical core/API/docs improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: request
+    attributes:
+      label: What should change?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it useful?
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Constraints
+      options:
+        - label: Must keep the C core dependency-free.
+        - label: Must keep 0BSD/provenance clean.
+        - label: Must not require Godot for core usage.
+        - label: Must not copy MIT Transvoxel table values.

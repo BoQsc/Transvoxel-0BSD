@@ -1,0 +1,32 @@
+name: Bug report
+about: Report a build, API, or packaging problem
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the problem and the expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reports
+    attributes:
+      label: Reports / logs
+      description: Attach proof/SEND_TO_CHATGPT.zip if available, or paste the relevant report text.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: v33
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - C core
+        - generated tables
+        - proof tools
+        - Godot validator
+        - docs/release package
+        - official-equivalence research

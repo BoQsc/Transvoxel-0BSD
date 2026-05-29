@@ -1,0 +1,19 @@
+{
+  "case_count": 512,
+  "compression": "direct one-class-per-case; no 73-class compression yet",
+  "current_class_count": 512,
+  "meaning": "This audit keeps the claim honest: the project covers all 512 transition cases, but it does not yet prove the official 73-class mapping.",
+  "official_equivalence_proof": "NOT_PROVEN",
+  "official_transition_equivalence_class_count": 73,
+  "pass_condition_for_future_official_equivalence": [
+    "derive 73 canonical classes without copying MIT table values",
+    "prove every one of the 512 cases maps to one of those classes by documented symmetry/inversion transforms",
+    "prove transformed triangle winding and vertex references round-trip to the direct 512-case canonical table"
+  ],
+  "reasons": [
+    "current class_count is 512; official Transvoxel uses 73 transition equivalence classes",
+    "current export intentionally uses direct one-class-per-case mapping for readability/provenance"
+  ],
+  "schema": "boqsc.transvoxel.equivalence_class_audit.v1",
+  "status": "PASS_INTERNAL_DIRECT_MAPPING_NOT_OFFICIAL_73"
+}

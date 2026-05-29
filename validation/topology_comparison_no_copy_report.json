@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "auto_interaction_failed_checks_zero": false,
+    "auto_interaction_has_many_scripted_edits": false,
+    "boundary_fingerprints_pass": true,
+    "chunk_strip_shared_faces_pass": true,
+    "godot_seam_open_edges_zero": false,
+    "has_512_transition_cases": true,
+    "neighbor_side_faces_pass": true
+  },
+  "comparison_type": "public structural expectations only; no external table values used",
+  "current_project_evidence": {
+    "auto_interaction_failed_checks": null,
+    "auto_interaction_scripted_edits": null,
+    "boundary_report_status": "PASS",
+    "chunk_report_status": "PASS",
+    "neighbor_report_status": "PASS",
+    "seam_open_edges": null,
+    "transition_case_count": 512,
+    "transition_class_count": 512
+  },
+  "external_structural_expectations": {
+    "lod_relation": "same resolution or 2:1 adjacent blocks",
+    "seam_goal": "no cracks between meshes of different resolution",
+    "transition_cases": 512,
+    "transition_equivalence_classes": 73
+  },
+  "not_compared": [
+    "official table bytes",
+    "official class IDs",
+    "official packed vertex encodings",
+    "official triangle index sequences"
+  ],
+  "schema": "boqsc.transvoxel.topology_comparison_no_copy.v1",
+  "status": "FAIL_OR_NOT_RUN"
+}

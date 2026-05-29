@@ -1,0 +1,28 @@
+{
+  "copied": [
+    "LICENSE",
+    "README_CORE.txt",
+    "PROVENANCE.md",
+    "SOURCES.md",
+    "docs/DROP_IN.md",
+    "docs/API.md",
+    "docs/C_COMPILER.md",
+    "docs/WHAT_THIS_PROVES.md",
+    "docs/CORE_PACKAGE_CONTENTS.md",
+    "docs/KNOWN_LIMITS.md",
+    "include/transvoxel.h",
+    "src/transvoxel.c",
+    "generated/transvoxel_tables.h",
+    "examples/c_minimal/main.c",
+    "examples/c_minimal/BUILD_WITH_ZIG.cmd",
+    "examples/c_minimal/BUILD_WITH_CC.sh",
+    "examples/c_terrain_export/main.c",
+    "examples/c_terrain_export/BUILD_WITH_ZIG.cmd",
+    "examples/c_terrain_export/BUILD_WITH_CC.sh"
+  ],
+  "core_zip": "/mnt/data/v33work/transvoxel_0bsd/dist/transvoxel_0bsd_core.zip",
+  "missing": [],
+  "note": "Minimal core zip intentionally excludes generated JSON proof data. Use the full repository package for generator/proof data.",
+  "schema": "boqsc.transvoxel.dist_report.v5",
+  "status": "PASS"
+}

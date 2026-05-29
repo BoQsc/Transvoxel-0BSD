@@ -1,0 +1,27 @@
+# Local proof outputs
+proof/SEND_TO_CHATGPT.zip
+proof/one_click_log.txt
+proof/one_click_report.json
+proof/ONE_CLICK_RESULT.txt
+proof/c_compiler_cache.json
+runs/
+
+# Build outputs
+build/
+*.exe
+*.obj
+*.o
+
+# Godot generated/runtime files
+.godot/
+godot/.godot/
+godot/validation/**/*.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Local tool paths
+c_compiler_path.txt
+godot_path.txt
+zig_path.txt

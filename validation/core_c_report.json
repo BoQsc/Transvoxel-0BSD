@@ -1,0 +1,69 @@
+{
+  "attempts": [
+    {
+      "candidate": {
+        "args": [
+          "/usr/bin/cc"
+        ],
+        "kind": "generic",
+        "source": "PATH:cc"
+      },
+      "compile_output": "",
+      "compile_returncode": 0
+    }
+  ],
+  "candidates": [
+    {
+      "args": [
+        "/usr/bin/cc"
+      ],
+      "kind": "generic",
+      "source": "PATH:cc"
+    },
+    {
+      "args": [
+        "/usr/bin/gcc"
+      ],
+      "kind": "generic",
+      "source": "PATH:gcc"
+    },
+    {
+      "args": [
+        "/usr/local/swift/usr/bin/clang"
+      ],
+      "kind": "generic",
+      "source": "PATH:clang"
+    }
+  ],
+  "commands": [
+    [
+      "/usr/bin/cc",
+      "-std=c99",
+      "-Wall",
+      "-Wextra",
+      "-pedantic",
+      "-Iinclude",
+      "-Igenerated",
+      "src/transvoxel.c",
+      "examples/c_minimal/main.c",
+      "-o",
+      "/mnt/data/v33work/transvoxel_0bsd/build/core_c/c_minimal"
+    ],
+    [
+      "/mnt/data/v33work/transvoxel_0bsd/build/core_c/c_minimal"
+    ]
+  ],
+  "os_name": "posix",
+  "platform": "linux",
+  "run_output": "regular case=23 vertices=13 triangles=12\nregular first_vertex=(0.625, 0.625, 0.000)\ntransition case=11 vertices=16 triangles=18\ntransition first_vertex=(0.625, 0.625, 0.000)\n",
+  "run_returncode": 0,
+  "schema": "boqsc.transvoxel.core_c_report.v4",
+  "selected": {
+    "args": [
+      "/usr/bin/cc"
+    ],
+    "kind": "generic",
+    "source": "PATH:cc"
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,42 @@
+name: core-proof
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  core-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run generator/proof suite
+        run: python tools/prove_tables.py
+
+      - name: Compile C core smoke test
+        run: python tools/test_core_c.py
+
+      - name: Build public core package
+        run: python tools/build_dist.py
+
+      - name: Check release candidate package
+        run: python tools/release_candidate_report.py
+
+      - name: Check GitHub-ready package
+        run: python tools/github_ready_report.py
+
+      - name: Upload reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-reports
+          path: |
+            validation/*.json
+            validation/*.md
+            proof/*.json

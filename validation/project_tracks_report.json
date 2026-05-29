@@ -1,0 +1,34 @@
+{
+  "meaning": "The independent core can be released/evaluated without waiting for official-equivalence research. Official topology research remains separate and explicitly NOT_PROVEN.",
+  "schema": "boqsc.transvoxel.project_tracks_report.v1",
+  "status": "PASS",
+  "supporting_reports": {
+    "official_73_candidate_derivation_status": "RESEARCH_PASS_OFFICIAL_73_NOT_DERIVED",
+    "official_equivalence_research_status": "RESEARCH_PASS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+    "official_reference_convention_status": "REFERENCE_EQUIVALENCE_NOT_PROVEN",
+    "official_topology_constraints_status": "PASS_STRUCTURAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+    "official_transition_class_derivation_status": "RESEARCH_TARGET_NOT_PROVEN",
+    "official_transvoxel_equivalence_proof": "NOT_PROVEN",
+    "reference_convention_matrix_status": "PASS_INTERNAL_CONVENTION_MATRIX",
+    "strict_correctness_audit_status": "PASS_WITH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+    "topology_signature_status": "RESEARCH_PASS_TOPOLOGY_CLASSES_DERIVED_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+    "transvoxel_style_proof": "PASS"
+  },
+  "tracks": {
+    "independent_core": {
+      "missing": [],
+      "official_equivalence": "NOT_CLAIMED",
+      "purpose": "Proven practical 0BSD drop-in core.",
+      "status": "PASS"
+    },
+    "official_topology_research": {
+      "missing": [],
+      "official_73_class_mapping": "NOT_PROVEN",
+      "original_topology_equivalence": "NOT_PROVEN",
+      "purpose": "Research official 73-class/topology/reference-convention equivalence without copying MIT table values.",
+      "reference_convention_equivalence": "NOT_PROVEN",
+      "status": "IN_PROGRESS"
+    }
+  },
+  "version": "v33"
+}

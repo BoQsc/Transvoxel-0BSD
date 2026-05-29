@@ -1,0 +1,13 @@
+; SPDX-License-Identifier: 0BSD
+; Godot 4 validation project for the 0BSD Transvoxel table package.
+
+config_version=5
+
+[application]
+config/name="Transvoxel 0BSD Validation"
+run/main_scene="res://stages/04_viewer/TransvoxelValidation.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon=""
+
+[rendering]
+renderer/rendering_method="forward_plus"

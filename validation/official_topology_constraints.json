@@ -1,0 +1,19 @@
+{
+  "official_equivalence": "NOT_PROVEN",
+  "public_constraints_checked": {
+    "has_2_to_1_lod_assumption_in_docs": true,
+    "has_six_face_reference_matrix": true,
+    "internal_sample_count": 14,
+    "official_73_derivation_exists": false,
+    "regular_case_count_is_256": true,
+    "transition_case_count_is_512": true,
+    "transition_public_case_bits_are_9": true
+  },
+  "schema": "boqsc.transvoxel.official_topology_constraints.v1",
+  "status": "PASS_STRUCTURAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "why_not_proven": [
+    "The project has not derived a no-copy 73-class mapping.",
+    "The project has not matched Eric's reference sign/orientation convention without table comparison.",
+    "The project has not derived the official transition topology family from paper diagrams alone."
+  ]
+}

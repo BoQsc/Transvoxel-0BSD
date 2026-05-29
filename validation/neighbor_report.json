@@ -1,0 +1,20 @@
+{
+  "determinism_failures": 0,
+  "faces_checked": [
+    "y_min",
+    "y_max",
+    "x_min",
+    "x_max"
+  ],
+  "first_determinism_failures": [],
+  "first_opposite_face_failures": [],
+  "meaning": "Side-face contours are a pure function of the shared face signs, and opposite side faces use the same normalized fingerprints. Adjacent transition cells that share signs therefore expose matching side boundaries.",
+  "opposite_face_failures": 0,
+  "patterns_per_face": {
+    "x_max": 8,
+    "x_min": 8,
+    "y_max": 8,
+    "y_min": 8
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,28 @@
+{
+  "limitations": [
+    "This is a conservative generated-case geometry audit, not a formal computational geometry proof for all floating point interpolation values.",
+    "It uses midpoint edge vertices because the current generated tables store sample-edge references, not arbitrary density interpolation positions."
+  ],
+  "schema": "boqsc.transvoxel.self_intersection_audit.v1",
+  "status": "PASS",
+  "tables": [
+    {
+      "case_count": 256,
+      "failure_count": 0,
+      "failure_examples": [],
+      "meaning": "Checks non-adjacent triangle pairs inside each generated case for obvious intersections. Adjacent triangles sharing vertices are ignored.",
+      "name": "regular",
+      "ok": true,
+      "triangle_pairs_checked": 7008
+    },
+    {
+      "case_count": 512,
+      "failure_count": 0,
+      "failure_examples": [],
+      "meaning": "Checks non-adjacent triangle pairs inside each generated case for obvious intersections. Adjacent triangles sharing vertices are ignored.",
+      "name": "transition",
+      "ok": true,
+      "triangle_pairs_checked": 152352
+    }
+  ]
+}

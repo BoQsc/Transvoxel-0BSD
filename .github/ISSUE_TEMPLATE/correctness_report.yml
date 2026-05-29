@@ -1,0 +1,31 @@
+name: Correctness / topology concern
+about: Report a suspected seam, topology, winding, or Transvoxel-equivalence issue
+labels: [correctness]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project is an independent 0BSD Transvoxel-style implementation. Official Transvoxel.cpp / 73-class equivalence is intentionally marked NOT_PROVEN unless proven by no-copy research.
+  - type: textarea
+    id: case
+    attributes:
+      label: What correctness issue did you find?
+      description: Include case index, face direction, SDF field, edit sequence, or OBJ/output if known.
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Proof data
+      description: Attach proof/SEND_TO_CHATGPT.zip, validation JSON, or a minimal reproduction.
+  - type: checkboxes
+    id: type
+    attributes:
+      label: Concern type
+      options:
+        - label: seam crack / open edge
+        - label: winding / normal direction
+        - label: duplicate or degenerate triangle
+        - label: self-intersection
+        - label: mismatch with official Transvoxel concepts
+        - label: API/usage confusion

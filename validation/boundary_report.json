@@ -1,0 +1,18 @@
+{
+  "case_count": 512,
+  "failure_count": 0,
+  "failures": [],
+  "meaning": "Every generated transition case exposes exactly the same boundary contour as the documented transition-cell boundary triangulation. This proves internal boundary consistency of this clean-room table, not identity with any external table.",
+  "per_face_expected_segments": {
+    "high": 3072,
+    "low": 768,
+    "x_max": 896,
+    "x_min": 896,
+    "y_max": 896,
+    "y_min": 896
+  },
+  "status": "PASS",
+  "total_actual_boundary_segments": 7424,
+  "total_expected_boundary_segments": 7424,
+  "truncated_failures": 0
+}

@@ -1,0 +1,24 @@
+{
+  "auto_interaction_status": "NOT_AVAILABLE",
+  "chunk_report_status": "PASS",
+  "failed_auto_checks": 0,
+  "meaning": "This audit proves the current six-face and scripted-edit evidence when present. It does not claim exhaustive proof for every possible production corner/multi-neighbor junction topology.",
+  "not_fully_proven": [
+    "all possible multi-LOD corner junction topologies with three or more LOD levels meeting",
+    "all possible chunk-edge and chunk-corner edit neighborhoods in a production streaming world",
+    "concurrency/streaming races where several neighboring chunks rebuild out of order",
+    "GPU compute implementation parity; this audit is CPU/Godot/Python proof oriented"
+  ],
+  "proven_checks": {
+    "automated_scripted_edits_pass": false,
+    "godot_seam_metrics_all_six_faces": false,
+    "godot_seam_metrics_multiple_fields": false,
+    "transition_side_faces_match_in_python_chunk_strips": true
+  },
+  "schema": "boqsc.transvoxel.corner_junction_audit.v1",
+  "scripted_edits": 0,
+  "seam_metrics_status": "NOT_AVAILABLE",
+  "status": "PARTIAL_OR_BLOCKED",
+  "tested_face_directions": 0,
+  "tested_fields": 0
+}

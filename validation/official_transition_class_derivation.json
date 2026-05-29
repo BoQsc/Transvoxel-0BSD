@@ -1,0 +1,20 @@
+{
+  "current_known_counts": {
+    "d4_complement_sample_edge_topology": null,
+    "d4_sample_edge_topology": null,
+    "exact_sample_edge_topology": null,
+    "graph_only_topology_coarse": null,
+    "raw_d4_complement_orbit": null
+  },
+  "next_steps": [
+    "derive official-style transition topology from paper diagrams / first principles",
+    "define a topology signature that can collapse to 73 without reading table values",
+    "prove orientation/sign convention separately",
+    "run the same production gate on any official-style candidate core"
+  ],
+  "no_copy_rule": "Does not read official MIT table arrays or use them as golden output.",
+  "official_target_class_count": 73,
+  "schema": "boqsc.transvoxel.official_transition_class_derivation.v1",
+  "status": "RESEARCH_TARGET_NOT_PROVEN",
+  "verdict": "Current independent generator has not derived the official 73-class mapping."
+}

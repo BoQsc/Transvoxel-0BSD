@@ -1,0 +1,4930 @@
+{
+  "matrix": {
+    "all_corners_and_multi_neighbor_production_junctions": "NOT_FULLY_PROVEN",
+    "edited_terrain_all_six_faces_scripted": "NOT_PROVEN_OR_NOT_RUN",
+    "every_512_transition_case_internally_valid": "PASS",
+    "generated_topology_signature_closest_to_73": {
+      "class_count": 51,
+      "distance_from_73": 22,
+      "name": "raw_d4_complement_orbit"
+    },
+    "generated_topology_signature_matches_official_73_count": "MISMATCH_OR_NOT_PROVEN",
+    "internal_reference_convention_matrix": "PASS_INTERNAL_CONVENTION_MATRIX",
+    "no_duplicate_triangles_in_generated_cases": "PASS",
+    "no_generated_case_self_intersections_midpoint_geometry": "PASS",
+    "no_zero_area_degenerate_triangles_in_generated_cases": "PASS",
+    "official_73_candidate_derivation_status": "RESEARCH_PASS_OFFICIAL_73_NOT_DERIVED",
+    "official_73_equivalence_classes_mapped": "NOT_PROVEN",
+    "official_topology_public_constraints": "PASS_STRUCTURAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+    "same_orientation_sign_convention_as_reference": "NOT_PROVEN",
+    "triangle_winding_normals_internal_consistency": "PASS"
+  },
+  "meaning": "This is an honesty gate. It strengthens generated-table audits while clearly marking official 73-class/reference/topology equivalence and exhaustive production corner-junction proof as not proven.",
+  "official_transvoxel_equivalence_proof": "NOT_PROVEN",
+  "reports": {
+    "73_classes": {
+      "case_count": 512,
+      "compression": "direct one-class-per-case; no 73-class compression yet",
+      "current_class_count": 512,
+      "meaning": "This audit keeps the claim honest: the project covers all 512 transition cases, but it does not yet prove the official 73-class mapping.",
+      "official_equivalence_proof": "NOT_PROVEN",
+      "official_transition_equivalence_class_count": 73,
+      "pass_condition_for_future_official_equivalence": [
+        "derive 73 canonical classes without copying MIT table values",
+        "prove every one of the 512 cases maps to one of those classes by documented symmetry/inversion transforms",
+        "prove transformed triangle winding and vertex references round-trip to the direct 512-case canonical table"
+      ],
+      "reasons": [
+        "current class_count is 512; official Transvoxel uses 73 transition equivalence classes",
+        "current export intentionally uses direct one-class-per-case mapping for readability/provenance"
+      ],
+      "schema": "boqsc.transvoxel.equivalence_class_audit.v1",
+      "status": "PASS_INTERNAL_DIRECT_MAPPING_NOT_OFFICIAL_73"
+    },
+    "corner_junctions": {
+      "auto_interaction_status": "NOT_AVAILABLE",
+      "chunk_report_status": "PASS",
+      "failed_auto_checks": 0,
+      "meaning": "This audit proves the current six-face and scripted-edit evidence when present. It does not claim exhaustive proof for every possible production corner/multi-neighbor junction topology.",
+      "not_fully_proven": [
+        "all possible multi-LOD corner junction topologies with three or more LOD levels meeting",
+        "all possible chunk-edge and chunk-corner edit neighborhoods in a production streaming world",
+        "concurrency/streaming races where several neighboring chunks rebuild out of order",
+        "GPU compute implementation parity; this audit is CPU/Godot/Python proof oriented"
+      ],
+      "proven_checks": {
+        "automated_scripted_edits_pass": false,
+        "godot_seam_metrics_all_six_faces": false,
+        "godot_seam_metrics_multiple_fields": false,
+        "transition_side_faces_match_in_python_chunk_strips": true
+      },
+      "schema": "boqsc.transvoxel.corner_junction_audit.v1",
+      "scripted_edits": 0,
+      "seam_metrics_status": "NOT_AVAILABLE",
+      "status": "PARTIAL_OR_BLOCKED",
+      "tested_face_directions": 0,
+      "tested_fields": 0
+    },
+    "official_73_candidate_derivation": {
+      "ambiguous_orbit_split_candidates": [
+        {
+          "ambiguous_square_counts": [
+            4
+          ],
+          "cases": [
+            170,
+            341
+          ],
+          "orbit_key": 170,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            12
+          ],
+          "size": 2
+        },
+        {
+          "ambiguous_square_counts": [
+            2
+          ],
+          "cases": [
+            84,
+            238,
+            273,
+            427
+          ],
+          "orbit_key": 84,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            8
+          ],
+          "size": 4
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            10,
+            34,
+            136,
+            160,
+            351,
+            375,
+            477,
+            501
+          ],
+          "orbit_key": 10,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            6
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            14,
+            137,
+            221,
+            224,
+            287,
+            290,
+            374,
+            497
+          ],
+          "orbit_key": 14,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            6
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            17,
+            20,
+            80,
+            239,
+            272,
+            431,
+            491,
+            494
+          ],
+          "orbit_key": 17,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            6
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            2
+          ],
+          "cases": [
+            21,
+            81,
+            175,
+            235,
+            276,
+            336,
+            430,
+            490
+          ],
+          "orbit_key": 21,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            8
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            28,
+            112,
+            145,
+            237,
+            274,
+            366,
+            399,
+            483
+          ],
+          "orbit_key": 28,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            7
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            29,
+            143,
+            209,
+            233,
+            278,
+            302,
+            368,
+            482
+          ],
+          "orbit_key": 29,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            7
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            35,
+            74,
+            119,
+            164,
+            347,
+            392,
+            437,
+            476
+          ],
+          "orbit_key": 35,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            6
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            2
+          ],
+          "cases": [
+            42,
+            138,
+            162,
+            168,
+            343,
+            349,
+            373,
+            469
+          ],
+          "orbit_key": 42,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            9
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            43,
+            87,
+            166,
+            202,
+            309,
+            345,
+            424,
+            468
+          ],
+          "orbit_key": 43,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            7
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            46,
+            93,
+            139,
+            232,
+            279,
+            372,
+            418,
+            465
+          ],
+          "orbit_key": 46,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            7
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            49,
+            82,
+            148,
+            231,
+            280,
+            363,
+            429,
+            462
+          ],
+          "orbit_key": 49,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            7
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            53,
+            83,
+            107,
+            167,
+            344,
+            404,
+            428,
+            458
+          ],
+          "orbit_key": 53,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            7
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            78,
+            118,
+            220,
+            228,
+            283,
+            291,
+            393,
+            433
+          ],
+          "orbit_key": 78,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            6
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            3
+          ],
+          "cases": [
+            85,
+            171,
+            174,
+            234,
+            277,
+            337,
+            340,
+            426
+          ],
+          "orbit_key": 85,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            10
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            86,
+            206,
+            212,
+            230,
+            281,
+            299,
+            305,
+            425
+          ],
+          "orbit_key": 86,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            7
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            92,
+            110,
+            116,
+            236,
+            275,
+            395,
+            401,
+            419
+          ],
+          "orbit_key": 92,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            7
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            98,
+            140,
+            161,
+            245,
+            266,
+            350,
+            371,
+            413
+          ],
+          "orbit_key": 98,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            8
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            99,
+            115,
+            165,
+            181,
+            330,
+            346,
+            396,
+            412
+          ],
+          "orbit_key": 99,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            8
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            2
+          ],
+          "cases": [
+            106,
+            117,
+            163,
+            172,
+            339,
+            348,
+            394,
+            405
+          ],
+          "orbit_key": 106,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            9
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            2
+          ],
+          "cases": [
+            113,
+            149,
+            173,
+            227,
+            284,
+            338,
+            362,
+            398
+          ],
+          "orbit_key": 113,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            9
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            114,
+            156,
+            177,
+            229,
+            282,
+            334,
+            355,
+            397
+          ],
+          "orbit_key": 114,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            8
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            1
+          ],
+          "cases": [
+            141,
+            157,
+            225,
+            241,
+            270,
+            286,
+            354,
+            370
+          ],
+          "orbit_key": 141,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            8
+          ],
+          "size": 8
+        },
+        {
+          "ambiguous_square_counts": [
+            2
+          ],
+          "cases": [
+            142,
+            169,
+            213,
+            226,
+            285,
+            298,
+            342,
+            369
+          ],
+          "orbit_key": 142,
+          "reason_for_attention": "contains at least one ambiguous 2x2 high-resolution face pattern",
+          "sign_change_edge_counts": [
+            9
+          ],
+          "size": 8
+        }
+      ],
+      "c4_complement_raw_class_count": 70,
+      "closest_model": {
+        "class_count": 70,
+        "complement": true,
+        "distance_from_73": 3,
+        "feature": "ambiguous_plus_components",
+        "sample_classes": [
+          {
+            "cases": [
+              0,
+              511
+            ],
+            "key": "(0, (0, 0, 1))",
+            "size": 2
+          },
+          {
+            "cases": [
+              16,
+              495
+            ],
+            "key": "(16, (0, 1, 1))",
+            "size": 2
+          },
+          {
+            "cases": [
+              170,
+              341
+            ],
+            "key": "(170, (4, 4, 5))",
+            "size": 2
+          },
+          {
+            "cases": [
+              186,
+              325
+            ],
+            "key": "(186, (0, 1, 4))",
+            "size": 2
+          },
+          {
+            "cases": [
+              108,
+              124,
+              387,
+              403
+            ],
+            "key": "(108, (0, 1, 2))",
+            "size": 4
+          },
+          {
+            "cases": [
+              198,
+              214,
+              297,
+              313
+            ],
+            "key": "(198, (0, 1, 2))",
+            "size": 4
+          },
+          {
+            "cases": [
+              40,
+              130,
+              381,
+              471
+            ],
+            "key": "(40, (0, 1, 2))",
+            "size": 4
+          },
+          {
+            "cases": [
+              56,
+              146,
+              365,
+              455
+            ],
+            "key": "(56, (0, 1, 2))",
+            "size": 4
+          },
+          {
+            "cases": [
+              68,
+              254,
+              257,
+              443
+            ],
+            "key": "(68, (0, 1, 2))",
+            "size": 4
+          },
+          {
+            "cases": [
+              84,
+              238,
+              273,
+              427
+            ],
+            "key": "(84, (2, 2, 3))",
+            "size": 4
+          },
+          {
+            "cases": [
+              1,
+              4,
+              64,
+              255,
+              256,
+              447,
+              507,
+              510
+            ],
+            "key": "(1, (0, 1, 1))",
+            "size": 8
+          },
+          {
+            "cases": [
+              10,
+              34,
+              136,
+              160,
+              351,
+              375,
+              477,
+              501
+            ],
+            "key": "(10, (1, 2, 2))",
+            "size": 8
+          }
+        ],
+        "symmetry": "c4"
+      },
+      "minimum_split_observation": "A C4+complement raw sign-pattern model gives 70 classes, so reaching 73 from that model would require exactly three principled orbit splits, or a different topology-level equivalence definition.",
+      "model_count": 32,
+      "models": [
+        {
+          "class_count": 70,
+          "complement": true,
+          "distance_from_73": 3,
+          "feature": "ambiguous_plus_components",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0, 0, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (0, 1, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4, 4, 5))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (0, 1, 4))",
+              "size": 2
+            },
+            {
+              "cases": [
+                108,
+                124,
+                387,
+                403
+              ],
+              "key": "(108, (0, 1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                198,
+                214,
+                297,
+                313
+              ],
+              "key": "(198, (0, 1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (0, 1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (0, 1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (0, 1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (2, 2, 3))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (0, 1, 1))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (1, 2, 2))",
+              "size": 8
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 70,
+          "complement": true,
+          "distance_from_73": 3,
+          "feature": "ambiguous_plus_edges",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0, 0))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (0, 4))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4, 12))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (0, 8))",
+              "size": 2
+            },
+            {
+              "cases": [
+                108,
+                124,
+                387,
+                403
+              ],
+              "key": "(108, (0, 6))",
+              "size": 4
+            },
+            {
+              "cases": [
+                198,
+                214,
+                297,
+                313
+              ],
+              "key": "(198, (0, 6))",
+              "size": 4
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (0, 6))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (0, 6))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (0, 4))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (2, 8))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (0, 2))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (1, 6))",
+              "size": 8
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 70,
+          "complement": true,
+          "distance_from_73": 3,
+          "feature": "ambiguous_square_count",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                108,
+                124,
+                387,
+                403
+              ],
+              "key": "(108, (0,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                198,
+                214,
+                297,
+                313
+              ],
+              "key": "(198, (0,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (0,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (0,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (0,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (2,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (0,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (1,))",
+              "size": 8
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 70,
+          "complement": true,
+          "distance_from_73": 3,
+          "feature": "components4_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (1, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4, 5))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (1, 4))",
+              "size": 2
+            },
+            {
+              "cases": [
+                108,
+                124,
+                387,
+                403
+              ],
+              "key": "(108, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                198,
+                214,
+                297,
+                313
+              ],
+              "key": "(198, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (2, 3))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (1, 1))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (2, 2))",
+              "size": 8
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 70,
+          "complement": true,
+          "distance_from_73": 3,
+          "feature": "components8_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (1, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (1, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (1, 4))",
+              "size": 2
+            },
+            {
+              "cases": [
+                108,
+                124,
+                387,
+                403
+              ],
+              "key": "(108, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                198,
+                214,
+                297,
+                313
+              ],
+              "key": "(198, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (1, 1))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (1, 1))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (1, 1))",
+              "size": 8
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 70,
+          "complement": true,
+          "distance_from_73": 3,
+          "feature": "inside_count_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (1,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                108,
+                124,
+                387,
+                403
+              ],
+              "key": "(108, (4,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                198,
+                214,
+                297,
+                313
+              ],
+              "key": "(198, (4,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (2,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (3,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (2,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (3,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (1,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (2,))",
+              "size": 8
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 70,
+          "complement": true,
+          "distance_from_73": 3,
+          "feature": "none",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                108,
+                124,
+                387,
+                403
+              ],
+              "key": "(108, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                198,
+                214,
+                297,
+                313
+              ],
+              "key": "(198, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, ())",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, ())",
+              "size": 8
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 70,
+          "complement": true,
+          "distance_from_73": 3,
+          "feature": "sign_change_edges",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (12,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (8,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                108,
+                124,
+                387,
+                403
+              ],
+              "key": "(108, (6,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                198,
+                214,
+                297,
+                313
+              ],
+              "key": "(198, (6,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (6,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (6,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (4,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (8,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (2,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (6,))",
+              "size": 8
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 51,
+          "complement": true,
+          "distance_from_73": 22,
+          "feature": "ambiguous_plus_components",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0, 0, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (0, 1, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4, 4, 5))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (0, 1, 4))",
+              "size": 2
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (0, 1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (0, 1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (0, 1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (2, 2, 3))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (0, 1, 1))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (1, 2, 2))",
+              "size": 8
+            },
+            {
+              "cases": [
+                108,
+                124,
+                198,
+                214,
+                297,
+                313,
+                387,
+                403
+              ],
+              "key": "(108, (0, 1, 2))",
+              "size": 8
+            },
+            {
+              "cases": [
+                11,
+                38,
+                95,
+                200,
+                311,
+                416,
+                473,
+                500
+              ],
+              "key": "(11, (0, 1, 1))",
+              "size": 8
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 51,
+          "complement": true,
+          "distance_from_73": 22,
+          "feature": "ambiguous_plus_edges",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0, 0))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (0, 4))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4, 12))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (0, 8))",
+              "size": 2
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (0, 6))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (0, 6))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (0, 4))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (2, 8))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (0, 2))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (1, 6))",
+              "size": 8
+            },
+            {
+              "cases": [
+                108,
+                124,
+                198,
+                214,
+                297,
+                313,
+                387,
+                403
+              ],
+              "key": "(108, (0, 6))",
+              "size": 8
+            },
+            {
+              "cases": [
+                11,
+                38,
+                95,
+                200,
+                311,
+                416,
+                473,
+                500
+              ],
+              "key": "(11, (0, 4))",
+              "size": 8
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 51,
+          "complement": true,
+          "distance_from_73": 22,
+          "feature": "ambiguous_square_count",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (0,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (0,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (0,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (2,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (0,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (1,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                108,
+                124,
+                198,
+                214,
+                297,
+                313,
+                387,
+                403
+              ],
+              "key": "(108, (0,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                11,
+                38,
+                95,
+                200,
+                311,
+                416,
+                473,
+                500
+              ],
+              "key": "(11, (0,))",
+              "size": 8
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 51,
+          "complement": true,
+          "distance_from_73": 22,
+          "feature": "components4_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (1, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4, 5))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (1, 4))",
+              "size": 2
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (2, 3))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (1, 1))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (2, 2))",
+              "size": 8
+            },
+            {
+              "cases": [
+                108,
+                124,
+                198,
+                214,
+                297,
+                313,
+                387,
+                403
+              ],
+              "key": "(108, (1, 2))",
+              "size": 8
+            },
+            {
+              "cases": [
+                11,
+                38,
+                95,
+                200,
+                311,
+                416,
+                473,
+                500
+              ],
+              "key": "(11, (1, 1))",
+              "size": 8
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 51,
+          "complement": true,
+          "distance_from_73": 22,
+          "feature": "components8_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (1, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (1, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (1, 4))",
+              "size": 2
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (1, 2))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (1, 1))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (1, 1))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (1, 1))",
+              "size": 8
+            },
+            {
+              "cases": [
+                108,
+                124,
+                198,
+                214,
+                297,
+                313,
+                387,
+                403
+              ],
+              "key": "(108, (1, 2))",
+              "size": 8
+            },
+            {
+              "cases": [
+                11,
+                38,
+                95,
+                200,
+                311,
+                416,
+                473,
+                500
+              ],
+              "key": "(11, (1, 1))",
+              "size": 8
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 51,
+          "complement": true,
+          "distance_from_73": 22,
+          "feature": "inside_count_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (1,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (2,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (3,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (2,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (3,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (1,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (2,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                108,
+                124,
+                198,
+                214,
+                297,
+                313,
+                387,
+                403
+              ],
+              "key": "(108, (4,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                11,
+                38,
+                95,
+                200,
+                311,
+                416,
+                473,
+                500
+              ],
+              "key": "(11, (3,))",
+              "size": 8
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 51,
+          "complement": true,
+          "distance_from_73": 22,
+          "feature": "none",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, ())",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, ())",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, ())",
+              "size": 8
+            },
+            {
+              "cases": [
+                108,
+                124,
+                198,
+                214,
+                297,
+                313,
+                387,
+                403
+              ],
+              "key": "(108, ())",
+              "size": 8
+            },
+            {
+              "cases": [
+                11,
+                38,
+                95,
+                200,
+                311,
+                416,
+                473,
+                500
+              ],
+              "key": "(11, ())",
+              "size": 8
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 51,
+          "complement": true,
+          "distance_from_73": 22,
+          "feature": "sign_change_edges",
+          "sample_classes": [
+            {
+              "cases": [
+                0,
+                511
+              ],
+              "key": "(0, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                16,
+                495
+              ],
+              "key": "(16, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                170,
+                341
+              ],
+              "key": "(170, (12,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                186,
+                325
+              ],
+              "key": "(186, (8,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                40,
+                130,
+                381,
+                471
+              ],
+              "key": "(40, (6,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                56,
+                146,
+                365,
+                455
+              ],
+              "key": "(56, (6,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                68,
+                254,
+                257,
+                443
+              ],
+              "key": "(68, (4,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                84,
+                238,
+                273,
+                427
+              ],
+              "key": "(84, (8,))",
+              "size": 4
+            },
+            {
+              "cases": [
+                1,
+                4,
+                64,
+                255,
+                256,
+                447,
+                507,
+                510
+              ],
+              "key": "(1, (2,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                10,
+                34,
+                136,
+                160,
+                351,
+                375,
+                477,
+                501
+              ],
+              "key": "(10, (6,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                108,
+                124,
+                198,
+                214,
+                297,
+                313,
+                387,
+                403
+              ],
+              "key": "(108, (6,))",
+              "size": 8
+            },
+            {
+              "cases": [
+                11,
+                38,
+                95,
+                200,
+                311,
+                416,
+                473,
+                500
+              ],
+              "key": "(11, (4,))",
+              "size": 8
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 102,
+          "complement": false,
+          "distance_from_73": 29,
+          "feature": "ambiguous_plus_components",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0, 0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (0, 1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4, 4, 5))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (0, 1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (0, 1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4, 4, 5))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (0, 1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0, 0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                238,
+                427
+              ],
+              "key": "(238, (2, 2, 3))",
+              "size": 2
+            },
+            {
+              "cases": [
+                254,
+                443
+              ],
+              "key": "(254, (0, 1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                365,
+                455
+              ],
+              "key": "(365, (0, 1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                381,
+                471
+              ],
+              "key": "(381, (0, 1, 2))",
+              "size": 2
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 102,
+          "complement": false,
+          "distance_from_73": 29,
+          "feature": "ambiguous_plus_edges",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0, 0))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (0, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4, 12))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (0, 8))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (0, 8))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4, 12))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (0, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0, 0))",
+              "size": 1
+            },
+            {
+              "cases": [
+                238,
+                427
+              ],
+              "key": "(238, (2, 8))",
+              "size": 2
+            },
+            {
+              "cases": [
+                254,
+                443
+              ],
+              "key": "(254, (0, 4))",
+              "size": 2
+            },
+            {
+              "cases": [
+                365,
+                455
+              ],
+              "key": "(365, (0, 6))",
+              "size": 2
+            },
+            {
+              "cases": [
+                381,
+                471
+              ],
+              "key": "(381, (0, 6))",
+              "size": 2
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 102,
+          "complement": false,
+          "distance_from_73": 29,
+          "feature": "ambiguous_square_count",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                238,
+                427
+              ],
+              "key": "(238, (2,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                254,
+                443
+              ],
+              "key": "(254, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                365,
+                455
+              ],
+              "key": "(365, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                381,
+                471
+              ],
+              "key": "(381, (0,))",
+              "size": 2
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 102,
+          "complement": false,
+          "distance_from_73": 29,
+          "feature": "components4_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4, 5))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4, 5))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                238,
+                427
+              ],
+              "key": "(238, (2, 3))",
+              "size": 2
+            },
+            {
+              "cases": [
+                254,
+                443
+              ],
+              "key": "(254, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                365,
+                455
+              ],
+              "key": "(365, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                381,
+                471
+              ],
+              "key": "(381, (1, 2))",
+              "size": 2
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 102,
+          "complement": false,
+          "distance_from_73": 29,
+          "feature": "components8_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                238,
+                427
+              ],
+              "key": "(238, (1, 1))",
+              "size": 2
+            },
+            {
+              "cases": [
+                254,
+                443
+              ],
+              "key": "(254, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                365,
+                455
+              ],
+              "key": "(365, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                381,
+                471
+              ],
+              "key": "(381, (1, 2))",
+              "size": 2
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 102,
+          "complement": false,
+          "distance_from_73": 29,
+          "feature": "inside_count_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (1,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (1,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                238,
+                427
+              ],
+              "key": "(238, (3,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                254,
+                443
+              ],
+              "key": "(254, (2,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                365,
+                455
+              ],
+              "key": "(365, (3,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                381,
+                471
+              ],
+              "key": "(381, (2,))",
+              "size": 2
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 102,
+          "complement": false,
+          "distance_from_73": 29,
+          "feature": "none",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                238,
+                427
+              ],
+              "key": "(238, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                254,
+                443
+              ],
+              "key": "(254, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                365,
+                455
+              ],
+              "key": "(365, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                381,
+                471
+              ],
+              "key": "(381, ())",
+              "size": 2
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 102,
+          "complement": false,
+          "distance_from_73": 29,
+          "feature": "sign_change_edges",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (12,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (8,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (8,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (12,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                238,
+                427
+              ],
+              "key": "(238, (8,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                254,
+                443
+              ],
+              "key": "(254, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                365,
+                455
+              ],
+              "key": "(365, (6,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                381,
+                471
+              ],
+              "key": "(381, (6,))",
+              "size": 2
+            }
+          ],
+          "symmetry": "d4"
+        },
+        {
+          "class_count": 140,
+          "complement": false,
+          "distance_from_73": 67,
+          "feature": "ambiguous_plus_components",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0, 0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (0, 1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4, 4, 5))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (0, 1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (0, 1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4, 4, 5))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (0, 1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0, 0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                108,
+                387
+              ],
+              "key": "(108, (0, 1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                124,
+                403
+              ],
+              "key": "(124, (0, 1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                198,
+                297
+              ],
+              "key": "(198, (0, 1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                214,
+                313
+              ],
+              "key": "(214, (0, 1, 2))",
+              "size": 2
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 140,
+          "complement": false,
+          "distance_from_73": 67,
+          "feature": "ambiguous_plus_edges",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0, 0))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (0, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4, 12))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (0, 8))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (0, 8))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4, 12))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (0, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0, 0))",
+              "size": 1
+            },
+            {
+              "cases": [
+                108,
+                387
+              ],
+              "key": "(108, (0, 6))",
+              "size": 2
+            },
+            {
+              "cases": [
+                124,
+                403
+              ],
+              "key": "(124, (0, 6))",
+              "size": 2
+            },
+            {
+              "cases": [
+                198,
+                297
+              ],
+              "key": "(198, (0, 6))",
+              "size": 2
+            },
+            {
+              "cases": [
+                214,
+                313
+              ],
+              "key": "(214, (0, 6))",
+              "size": 2
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 140,
+          "complement": false,
+          "distance_from_73": 67,
+          "feature": "ambiguous_square_count",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                108,
+                387
+              ],
+              "key": "(108, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                124,
+                403
+              ],
+              "key": "(124, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                198,
+                297
+              ],
+              "key": "(198, (0,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                214,
+                313
+              ],
+              "key": "(214, (0,))",
+              "size": 2
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 140,
+          "complement": false,
+          "distance_from_73": 67,
+          "feature": "components4_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4, 5))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4, 5))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                108,
+                387
+              ],
+              "key": "(108, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                124,
+                403
+              ],
+              "key": "(124, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                198,
+                297
+              ],
+              "key": "(198, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                214,
+                313
+              ],
+              "key": "(214, (1, 2))",
+              "size": 2
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 140,
+          "complement": false,
+          "distance_from_73": 67,
+          "feature": "components8_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (1, 4))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (1, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0, 1))",
+              "size": 1
+            },
+            {
+              "cases": [
+                108,
+                387
+              ],
+              "key": "(108, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                124,
+                403
+              ],
+              "key": "(124, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                198,
+                297
+              ],
+              "key": "(198, (1, 2))",
+              "size": 2
+            },
+            {
+              "cases": [
+                214,
+                313
+              ],
+              "key": "(214, (1, 2))",
+              "size": 2
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 140,
+          "complement": false,
+          "distance_from_73": 67,
+          "feature": "inside_count_unsigned",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (1,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (1,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                108,
+                387
+              ],
+              "key": "(108, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                124,
+                403
+              ],
+              "key": "(124, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                198,
+                297
+              ],
+              "key": "(198, (4,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                214,
+                313
+              ],
+              "key": "(214, (4,))",
+              "size": 2
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 140,
+          "complement": false,
+          "distance_from_73": 67,
+          "feature": "none",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, ())",
+              "size": 1
+            },
+            {
+              "cases": [
+                108,
+                387
+              ],
+              "key": "(108, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                124,
+                403
+              ],
+              "key": "(124, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                198,
+                297
+              ],
+              "key": "(198, ())",
+              "size": 2
+            },
+            {
+              "cases": [
+                214,
+                313
+              ],
+              "key": "(214, ())",
+              "size": 2
+            }
+          ],
+          "symmetry": "c4"
+        },
+        {
+          "class_count": 140,
+          "complement": false,
+          "distance_from_73": 67,
+          "feature": "sign_change_edges",
+          "sample_classes": [
+            {
+              "cases": [
+                0
+              ],
+              "key": "(0, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                16
+              ],
+              "key": "(16, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                170
+              ],
+              "key": "(170, (12,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                186
+              ],
+              "key": "(186, (8,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                325
+              ],
+              "key": "(325, (8,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                341
+              ],
+              "key": "(341, (12,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                495
+              ],
+              "key": "(495, (4,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                511
+              ],
+              "key": "(511, (0,))",
+              "size": 1
+            },
+            {
+              "cases": [
+                108,
+                387
+              ],
+              "key": "(108, (6,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                124,
+                403
+              ],
+              "key": "(124, (6,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                198,
+                297
+              ],
+              "key": "(198, (6,))",
+              "size": 2
+            },
+            {
+              "cases": [
+                214,
+                313
+              ],
+              "key": "(214, (6,))",
+              "size": 2
+            }
+          ],
+          "symmetry": "c4"
+        }
+      ],
+      "no_copy_rule": "No official MIT table arrays are read, transcribed, hashed, compared, or used as golden output.",
+      "official_target_class_count": 73,
+      "schema": "boqsc.transvoxel.official_73_candidate_derivation.v1",
+      "status": "RESEARCH_PASS_OFFICIAL_73_NOT_DERIVED",
+      "verdict": "No implemented no-copy model in this script derives the official 73-class mapping. The script narrows the next research question to principled splits of ambiguous high-resolution face topology and/or a different topology-level equivalence definition."
+    },
+    "official_topology_constraints": {
+      "official_equivalence": "NOT_PROVEN",
+      "public_constraints_checked": {
+        "has_2_to_1_lod_assumption_in_docs": true,
+        "has_six_face_reference_matrix": true,
+        "internal_sample_count": 14,
+        "official_73_derivation_exists": false,
+        "regular_case_count_is_256": true,
+        "transition_case_count_is_512": true,
+        "transition_public_case_bits_are_9": true
+      },
+      "schema": "boqsc.transvoxel.official_topology_constraints.v1",
+      "status": "PASS_STRUCTURAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "why_not_proven": [
+        "The project has not derived a no-copy 73-class mapping.",
+        "The project has not matched Eric's reference sign/orientation convention without table comparison.",
+        "The project has not derived the official transition topology family from paper diagrams alone."
+      ]
+    },
+    "reference_convention": {
+      "checks": {
+        "full_resolution_transition_samples_are_9": true,
+        "half_resolution_corner_sources_exist": true,
+        "synthetic_center_source_exists": true,
+        "total_transition_samples_are_14": true,
+        "transition_case_count_is_512": true
+      },
+      "future_pass_condition": [
+        "write an independent convention document for sample order, face orientation, case-bit meaning, and inside/outside sign",
+        "derive transforms from that document to the published dissertation diagrams without copying table values",
+        "validate a public-domain reference-case corpus if one becomes available or is generated independently"
+      ],
+      "reason": "The project intentionally does not load or compare against Eric Lengyel's MIT Transvoxel.cpp tables. Therefore exact reference sign/orientation convention equivalence is not proven.",
+      "reference_equivalence_status": "NOT_PROVEN",
+      "schema": "boqsc.transvoxel.reference_convention_audit.v1",
+      "status": "PASS_INTERNAL_CONVENTION"
+    },
+    "reference_convention_matrix": {
+      "convention": "normal points from low-resolution chunk toward high-resolution neighbor; u x v = normal",
+      "errors": [],
+      "faces": [
+        {
+          "cross_u_v": [
+            1,
+            0,
+            0
+          ],
+          "dot_u_n": 0,
+          "dot_v_n": 0,
+          "face": "x_pos",
+          "normal_high_to_low": [
+            -1,
+            0,
+            0
+          ],
+          "normal_low_to_high": [
+            1,
+            0,
+            0
+          ],
+          "right_handed_u_v_n": true,
+          "u_axis": [
+            0,
+            1,
+            0
+          ],
+          "v_axis": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "cross_u_v": [
+            -1,
+            0,
+            0
+          ],
+          "dot_u_n": 0,
+          "dot_v_n": 0,
+          "face": "x_neg",
+          "normal_high_to_low": [
+            1,
+            0,
+            0
+          ],
+          "normal_low_to_high": [
+            -1,
+            0,
+            0
+          ],
+          "right_handed_u_v_n": true,
+          "u_axis": [
+            0,
+            0,
+            1
+          ],
+          "v_axis": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "cross_u_v": [
+            0,
+            1,
+            0
+          ],
+          "dot_u_n": 0,
+          "dot_v_n": 0,
+          "face": "y_pos",
+          "normal_high_to_low": [
+            0,
+            -1,
+            0
+          ],
+          "normal_low_to_high": [
+            0,
+            1,
+            0
+          ],
+          "right_handed_u_v_n": true,
+          "u_axis": [
+            0,
+            0,
+            1
+          ],
+          "v_axis": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "cross_u_v": [
+            0,
+            -1,
+            0
+          ],
+          "dot_u_n": 0,
+          "dot_v_n": 0,
+          "face": "y_neg",
+          "normal_high_to_low": [
+            0,
+            1,
+            0
+          ],
+          "normal_low_to_high": [
+            0,
+            -1,
+            0
+          ],
+          "right_handed_u_v_n": true,
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "cross_u_v": [
+            0,
+            0,
+            1
+          ],
+          "dot_u_n": 0,
+          "dot_v_n": 0,
+          "face": "z_pos",
+          "normal_high_to_low": [
+            0,
+            0,
+            -1
+          ],
+          "normal_low_to_high": [
+            0,
+            0,
+            1
+          ],
+          "right_handed_u_v_n": true,
+          "u_axis": [
+            1,
+            0,
+            0
+          ],
+          "v_axis": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "cross_u_v": [
+            0,
+            0,
+            -1
+          ],
+          "dot_u_n": 0,
+          "dot_v_n": 0,
+          "face": "z_neg",
+          "normal_high_to_low": [
+            0,
+            0,
+            1
+          ],
+          "normal_low_to_high": [
+            0,
+            0,
+            -1
+          ],
+          "right_handed_u_v_n": true,
+          "u_axis": [
+            0,
+            1,
+            0
+          ],
+          "v_axis": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "no_copy_rule": "This matrix defines our internal convention only; it does not read or compare official MIT table values.",
+      "official_reference_equivalence": "NOT_PROVEN",
+      "schema": "boqsc.transvoxel.reference_convention_matrix.v1",
+      "status": "PASS_INTERNAL_CONVENTION_MATRIX"
+    },
+    "self_intersections": {
+      "limitations": [
+        "This is a conservative generated-case geometry audit, not a formal computational geometry proof for all floating point interpolation values.",
+        "It uses midpoint edge vertices because the current generated tables store sample-edge references, not arbitrary density interpolation positions."
+      ],
+      "schema": "boqsc.transvoxel.self_intersection_audit.v1",
+      "status": "PASS",
+      "tables": [
+        {
+          "case_count": 256,
+          "failure_count": 0,
+          "failure_examples": [],
+          "meaning": "Checks non-adjacent triangle pairs inside each generated case for obvious intersections. Adjacent triangles sharing vertices are ignored.",
+          "name": "regular",
+          "ok": true,
+          "triangle_pairs_checked": 7008
+        },
+        {
+          "case_count": 512,
+          "failure_count": 0,
+          "failure_examples": [],
+          "meaning": "Checks non-adjacent triangle pairs inside each generated case for obvious intersections. Adjacent triangles sharing vertices are ignored.",
+          "name": "transition",
+          "ok": true,
+          "triangle_pairs_checked": 152352
+        }
+      ]
+    },
+    "topology_signatures": {
+      "class_summaries": {
+        "d4_complement_sample_edge_topology": {
+          "class_count": 201,
+          "largest_class_size": 8,
+          "representative_cases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "size_histogram": {
+            "2": 160,
+            "4": 30,
+            "6": 8,
+            "8": 3
+          },
+          "smallest_class_size": 2
+        },
+        "d4_sample_edge_topology": {
+          "class_count": 201,
+          "largest_class_size": 8,
+          "representative_cases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "size_histogram": {
+            "2": 160,
+            "4": 30,
+            "6": 8,
+            "8": 3
+          },
+          "smallest_class_size": 2
+        },
+        "exact_sample_edge_topology": {
+          "class_count": 256,
+          "largest_class_size": 2,
+          "representative_cases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "size_histogram": {
+            "2": 256
+          },
+          "smallest_class_size": 2
+        },
+        "graph_only_topology_coarse": {
+          "class_count": 484,
+          "largest_class_size": 4,
+          "representative_cases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "size_histogram": {
+            "1": 466,
+            "2": 12,
+            "3": 2,
+            "4": 4
+          },
+          "smallest_class_size": 1
+        },
+        "raw_d4_complement_orbit": {
+          "class_count": 51,
+          "largest_class_size": 16,
+          "representative_cases": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            7,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            21,
+            23,
+            26,
+            27
+          ],
+          "size_histogram": {
+            "16": 18,
+            "2": 4,
+            "4": 4,
+            "8": 25
+          },
+          "smallest_class_size": 2
+        }
+      },
+      "closest_count_to_official_target": {
+        "class_count": 51,
+        "distance_from_73": 22,
+        "name": "raw_d4_complement_orbit"
+      },
+      "interpretation": [
+        "This project's generated topology classes do not prove official Transvoxel 73-class equivalence.",
+        "If none of the topology signature counts equals 73, the current tetrahedralized transition topology is structurally different from the official 73-class table design, or the official classes depend on a richer equivalence relation not represented by these signatures.",
+        "Even if a count equaled 73, that would still be only a structural clue, not proof of matching official class IDs or triangle encodings."
+      ],
+      "limitations": [
+        "graph_only_topology is a coarse color-refinement signature, not a formal graph-isomorphism proof.",
+        "sample-edge topology uses midpoint/sample-edge references from this generator, not arbitrary density interpolation positions.",
+        "No official MIT table values are loaded, compared, or copied."
+      ],
+      "matches_official_73_count": false,
+      "no_copy_boundary": {
+        "external_table_values_read": false,
+        "external_table_values_used_as_golden_output": false,
+        "inputs": [
+          "generated/transition_tables.json"
+        ]
+      },
+      "official_class_target": 73,
+      "official_equivalence_proof": "NOT_PROVEN",
+      "schema": "boqsc.transvoxel.topology_signature_analysis.v1",
+      "status": "RESEARCH_PASS_TOPOLOGY_CLASSES_DERIVED_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
+    },
+    "winding_normals": {
+      "meaning": "Internal generated-table winding/normal audit. It does not prove the same sign convention as Eric Lengyel's MIT tables.",
+      "reference_orientation_equivalence": "NOT_PROVEN",
+      "schema": "boqsc.transvoxel.winding_normals_audit.v1",
+      "status": "PASS",
+      "tables": [
+        {
+          "case_count": 256,
+          "complement_winding_mismatch_examples": [],
+          "degenerate_triangle_examples": [],
+          "duplicate_triangle_examples": [],
+          "meaning": "Checks generated table geometry for duplicate/degenerate triangles and verifies complement cases expose opposite normals. This proves internal winding consistency, not identity with an external reference table.",
+          "name": "regular",
+          "ok": true,
+          "triangle_count": 1920
+        },
+        {
+          "case_count": 512,
+          "complement_winding_mismatch_examples": [],
+          "degenerate_triangle_examples": [],
+          "duplicate_triangle_examples": [],
+          "meaning": "Checks generated table geometry for duplicate/degenerate triangles and verifies complement cases expose opposite normals. This proves internal winding consistency, not identity with an external reference table.",
+          "name": "transition",
+          "ok": true,
+          "triangle_count": 12288
+        }
+      ]
+    }
+  },
+  "schema": "boqsc.transvoxel.strict_correctness_audit.v1",
+  "status": "PASS_WITH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "steps": [
+    {
+      "command": "tools/validate_73_classes.py",
+      "elapsed_seconds": 0.018,
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "command": "tools/validate_winding_normals.py",
+      "elapsed_seconds": 0.371,
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "command": "tools/validate_self_intersections.py",
+      "elapsed_seconds": 1.815,
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "command": "tools/validate_reference_convention.py",
+      "elapsed_seconds": 0.04,
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "command": "tools/validate_corner_junctions.py",
+      "elapsed_seconds": 0.005,
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "command": "tools/topology_signature_analysis.py",
+      "elapsed_seconds": 1.018,
+      "ok": true,
+      "returncode": 0
+    }
+  ],
+  "transvoxel_style_proof": "PASS"
+}

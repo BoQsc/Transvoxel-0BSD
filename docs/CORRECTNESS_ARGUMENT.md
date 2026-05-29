@@ -1,0 +1,100 @@
+# Correctness Argument
+
+This project should be judged by the external Transvoxel outcome, not by byte identity with the official MIT table file.
+
+## Required outcome
+
+A Transvoxel-style terrain LOD core must be able to generate transition geometry between neighboring voxel meshes with a 2:1 resolution difference so that the boundary has no cracks or holes.
+
+The strongest machine-readable condition is:
+
+```text
+seam_open_edges = 0
+invalid_triangles = 0
+degenerate_triangles = 0
+failed_checks = 0
+```
+
+## Why table identity is not the proof target
+
+The official Transvoxel repository contains data tables. Those tables are useful, but copying them would carry their license and provenance. This project instead proves the same type of external seam behavior through independent generation and validation.
+
+Therefore, this project does not need to reproduce the exact official table bytes, table names, class ids, or packed encodings to be useful. It needs to prove that the generated meshes satisfy the same seam contract.
+
+## Proof layers in this repository
+
+### 1. Generator determinism
+
+The regular and transition tables regenerate from source scripts. Generated file hashes are recorded in proof reports.
+
+### 2. Case coverage
+
+The generated export contains:
+
+```text
+regular cases: 256
+transition cases: 512
+```
+
+This matches the expected marching-cubes regular case count and the Transvoxel transition case count.
+
+### 3. Boundary fingerprint proof
+
+Every transition case exposes normalized boundary-segment fingerprints. These fingerprints are compared against expected high-resolution, low-resolution, and side-face boundary contours.
+
+This proves internal boundary consistency of the generated clean-room table.
+
+### 4. Neighbor proof
+
+Side-face fingerprints are checked so adjacent transition cells expose matching contours when they share boundary signs.
+
+This catches side cracks between transition cells in a strip.
+
+### 5. Chunk-strip proof
+
+Multiple deterministic scalar fields are sampled across transition-cell strips. Shared side faces are checked over many cases, fields, and seeds.
+
+### 6. Godot runtime proof
+
+Godot is used as an independent runtime validator, not as the product. The validator dumps runtime information, mesh API behavior, seam metrics, and scripted interaction metrics.
+
+### 7. Automated interaction proof
+
+Scripted dig/add edits are applied. Each edit triggers a seam check. The release gate requires zero failed checks.
+
+### 8. C core compile proof
+
+The small engine-independent C core is compiled and run when a compiler is available. On Windows, Zig can be used through `zig.exe cc`.
+
+## What is proven strongly
+
+When `RUN_FULL.cmd` passes, this project has proven:
+
+- tables regenerate;
+- the C core builds and runs;
+- all 512 transition cases pass boundary checks;
+- side-neighbor checks pass;
+- deterministic chunk-strip checks pass;
+- Godot seam metrics pass;
+- scripted auto-interaction edits pass;
+- public core zip builds.
+
+## What is not proven
+
+The proof does not claim:
+
+- identical triangle topology to Eric Lengyel's table file;
+- official 73-class compression;
+- exact field-for-field `Transvoxel.cpp` drop-in table replacement;
+- final game terrain art quality;
+- production performance in a large streaming world.
+
+## Current verdict
+
+The current project is best described as:
+
+```text
+An independently generated 0BSD Transvoxel-style voxel LOD transition core
+that proves the main seam/transition outcome through exhaustive table checks,
+Godot runtime validation, scripted edit validation, and C core compile tests.
+```

@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "tables": {
+    "regular": {
+      "errors": [],
+      "ok": true,
+      "stats": {
+        "case_count": 256,
+        "empty_cases": 2,
+        "max_triangles_per_case": 12,
+        "max_vertices_per_case": 13,
+        "min_triangles_per_case": 0,
+        "min_vertices_per_case": 0,
+        "non_empty_cases": 254,
+        "schema": "boqsc.regular_tables.v1",
+        "sha256_without_this_field": "80fd4f980e0f101b11467749f7c59720ddee3606d7c424700d547acb207db18d",
+        "status": "experimental_regular_marching_tetrahedra_not_marching_cubes",
+        "total_triangles_across_cases": 1920,
+        "total_vertices_across_cases": 2432
+      }
+    },
+    "transition": {
+      "errors": [],
+      "ok": true,
+      "stats": {
+        "case_count": 512,
+        "empty_cases": 2,
+        "max_triangles_per_case": 36,
+        "max_vertices_per_case": 28,
+        "min_triangles_per_case": 0,
+        "min_vertices_per_case": 0,
+        "non_empty_cases": 510,
+        "schema": "boqsc.transition_tables.v1",
+        "sha256_without_this_field": "db8d6c36ca74d014afa8a78303db2b746b523a8223dd89c250230ff3a9eb21c0",
+        "status": "experimental_not_drop_in_transvoxel_cpp",
+        "total_triangles_across_cases": 12288,
+        "total_vertices_across_cases": 10496
+      }
+    }
+  }
+}

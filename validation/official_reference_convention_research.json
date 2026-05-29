@@ -1,0 +1,14 @@
+{
+  "internal_convention_status": "PASS_IN_CURRENT_CORE",
+  "no_copy_rule": "Research must use public structural descriptions, independent generated probes, and diagrams; not official MIT table values.",
+  "official_convention_status": "NOT_PROVEN",
+  "questions": [
+    "Which side is considered high-resolution versus low-resolution in the official table orientation?",
+    "Which sign means inside/solid in official table case bits?",
+    "Which winding convention is assumed for front-facing triangles?",
+    "How are inverted cases represented and wound?",
+    "How are lateral transition faces oriented between neighboring transition cells?"
+  ],
+  "schema": "boqsc.transvoxel.official_reference_convention_research.v1",
+  "status": "REFERENCE_EQUIVALENCE_NOT_PROVEN"
+}

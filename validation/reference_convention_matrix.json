@@ -1,0 +1,196 @@
+{
+  "convention": "normal points from low-resolution chunk toward high-resolution neighbor; u x v = normal",
+  "errors": [],
+  "faces": [
+    {
+      "cross_u_v": [
+        1,
+        0,
+        0
+      ],
+      "dot_u_n": 0,
+      "dot_v_n": 0,
+      "face": "x_pos",
+      "normal_high_to_low": [
+        -1,
+        0,
+        0
+      ],
+      "normal_low_to_high": [
+        1,
+        0,
+        0
+      ],
+      "right_handed_u_v_n": true,
+      "u_axis": [
+        0,
+        1,
+        0
+      ],
+      "v_axis": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "cross_u_v": [
+        -1,
+        0,
+        0
+      ],
+      "dot_u_n": 0,
+      "dot_v_n": 0,
+      "face": "x_neg",
+      "normal_high_to_low": [
+        1,
+        0,
+        0
+      ],
+      "normal_low_to_high": [
+        -1,
+        0,
+        0
+      ],
+      "right_handed_u_v_n": true,
+      "u_axis": [
+        0,
+        0,
+        1
+      ],
+      "v_axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "cross_u_v": [
+        0,
+        1,
+        0
+      ],
+      "dot_u_n": 0,
+      "dot_v_n": 0,
+      "face": "y_pos",
+      "normal_high_to_low": [
+        0,
+        -1,
+        0
+      ],
+      "normal_low_to_high": [
+        0,
+        1,
+        0
+      ],
+      "right_handed_u_v_n": true,
+      "u_axis": [
+        0,
+        0,
+        1
+      ],
+      "v_axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "cross_u_v": [
+        0,
+        -1,
+        0
+      ],
+      "dot_u_n": 0,
+      "dot_v_n": 0,
+      "face": "y_neg",
+      "normal_high_to_low": [
+        0,
+        1,
+        0
+      ],
+      "normal_low_to_high": [
+        0,
+        -1,
+        0
+      ],
+      "right_handed_u_v_n": true,
+      "u_axis": [
+        1,
+        0,
+        0
+      ],
+      "v_axis": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "cross_u_v": [
+        0,
+        0,
+        1
+      ],
+      "dot_u_n": 0,
+      "dot_v_n": 0,
+      "face": "z_pos",
+      "normal_high_to_low": [
+        0,
+        0,
+        -1
+      ],
+      "normal_low_to_high": [
+        0,
+        0,
+        1
+      ],
+      "right_handed_u_v_n": true,
+      "u_axis": [
+        1,
+        0,
+        0
+      ],
+      "v_axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "cross_u_v": [
+        0,
+        0,
+        -1
+      ],
+      "dot_u_n": 0,
+      "dot_v_n": 0,
+      "face": "z_neg",
+      "normal_high_to_low": [
+        0,
+        0,
+        1
+      ],
+      "normal_low_to_high": [
+        0,
+        0,
+        -1
+      ],
+      "right_handed_u_v_n": true,
+      "u_axis": [
+        0,
+        1,
+        0
+      ],
+      "v_axis": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "no_copy_rule": "This matrix defines our internal convention only; it does not read or compare official MIT table values.",
+  "official_reference_equivalence": "NOT_PROVEN",
+  "schema": "boqsc.transvoxel.reference_convention_matrix.v1",
+  "status": "PASS_INTERNAL_CONVENTION_MATRIX"
+}

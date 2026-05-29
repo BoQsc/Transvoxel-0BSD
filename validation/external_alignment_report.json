@@ -1,0 +1,75 @@
+{
+  "checks": [
+    {
+      "requirement": "regular cell case count is 256",
+      "source_basis": "marching-cubes / Transvoxel regular-cell practice",
+      "status": "PASS",
+      "value": 256
+    },
+    {
+      "requirement": "transition cell case count is 512",
+      "source_basis": "Transvoxel uses 9 transition face signs, giving 512 cases",
+      "status": "PASS",
+      "value": 512
+    },
+    {
+      "requirement": "all transition boundaries match expected fingerprints",
+      "source_basis": "transition cells must seal high/low LOD boundaries",
+      "status": "PASS",
+      "value": 0
+    },
+    {
+      "requirement": "neighboring transition cells have matching side contours",
+      "source_basis": "transition strips must not crack between adjacent transition cells",
+      "status": "PASS",
+      "value": {
+        "determinism_failures": 0,
+        "opposite_face_failures": 0
+      }
+    },
+    {
+      "requirement": "chunk-strip scalar-field proof passes",
+      "source_basis": "real terrain fields should not create strip side cracks",
+      "status": "PASS",
+      "value": {
+        "failures": 0,
+        "fields": [
+          "plane_x",
+          "plane_y",
+          "diagonal",
+          "circle",
+          "saddle",
+          "hash_noise",
+          "wavy"
+        ],
+        "shared_faces_checked": 9408
+      }
+    },
+    {
+      "requirement": "automated dig/add interaction proof passes when present",
+      "source_basis": "dynamic terrain should support local retriangulation without seam failures",
+      "status": "SKIPPED",
+      "value": {
+        "check_count": null,
+        "failed_checks": null,
+        "scripted_edits": null,
+        "status": ""
+      }
+    },
+    {
+      "requirement": "full production gate passes when full data exists",
+      "source_basis": "release gate for this repository",
+      "status": "SKIPPED",
+      "value": null
+    }
+  ],
+  "important_limitations": [
+    "This report does not prove byte/table identity with Eric Lengyel's MIT Transvoxel.cpp.",
+    "This report does not prove official 73-class compression.",
+    "This report does not prove final game art quality or large-world streaming performance."
+  ],
+  "proof_report_ok": true,
+  "schema": "boqsc.transvoxel.external_alignment_report.v1",
+  "status": "PASS",
+  "summary": "Checks this clean-room 0BSD core against externally derived Transvoxel-style outcome requirements."
+}

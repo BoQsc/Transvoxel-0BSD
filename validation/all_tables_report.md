@@ -1,0 +1,37 @@
+# All Table Validation Report
+
+This validates only the clean-room generators in this repository. It does not compare against or copy Eric Lengyel's MIT-licensed Transvoxel.cpp table values.
+
+Overall OK: `True`
+
+## regular
+
+- OK: `True`
+- Schema: `boqsc.regular_tables.v1`
+- Status: `experimental_regular_marching_tetrahedra_not_marching_cubes`
+- SHA-256: `80fd4f980e0f101b11467749f7c59720ddee3606d7c424700d547acb207db18d`
+- Cases: `256`
+- Non-empty cases: `254`
+- Empty cases: `2`
+- Vertices per case: `0` .. `13`
+- Triangles per case: `0` .. `12`
+- Total vertex-pairs across cases: `2432`
+- Total triangles across cases: `1920`
+
+## transition
+
+- OK: `True`
+- Schema: `boqsc.transition_tables.v1`
+- Status: `experimental_not_drop_in_transvoxel_cpp`
+- SHA-256: `db8d6c36ca74d014afa8a78303db2b746b523a8223dd89c250230ff3a9eb21c0`
+- Cases: `512`
+- Non-empty cases: `510`
+- Empty cases: `2`
+- Vertices per case: `0` .. `28`
+- Triangles per case: `0` .. `36`
+- Total vertex-pairs across cases: `10496`
+- Total triangles across cases: `12288`
+
+## Meaning
+
+These checks prove deterministic generation and structural sanity for the local 0BSD tables. They do not prove that the tables are equivalent to official Transvoxel lookup tables or production-ready for every terrain edit.

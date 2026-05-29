@@ -1,0 +1,21 @@
+{
+  "failure_count": 0,
+  "failures": [],
+  "field_count": 7,
+  "fields": [
+    "plane_x",
+    "plane_y",
+    "diagonal",
+    "circle",
+    "saddle",
+    "hash_noise",
+    "wavy"
+  ],
+  "grid_size": 8,
+  "meaning": "Many neighboring transition-cell strips were sampled from deterministic sign fields. Every shared side face had matching contour fingerprints. This catches side cracks that would appear between transition cells in a real chunk seam strip.",
+  "seed_count": 12,
+  "shared_faces_checked": 9408,
+  "status": "PASS",
+  "strips_checked": 84,
+  "truncated_failures": 0
+}
