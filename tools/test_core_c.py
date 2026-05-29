@@ -16,6 +16,43 @@ ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "validation" / "core_c_report.json"
 CACHE = ROOT / "proof" / "c_compiler_cache.json"
 
+EXAMPLES = [
+    {
+        "name": "c_minimal",
+        "source": "examples/c_minimal/main.c",
+        "exe_base": "c_minimal",
+        "expected_files": [],
+        "stdout_contains": ["regular case=", "transition case="],
+    },
+    {
+        "name": "c_terrain_export",
+        "source": "examples/c_terrain_export/main.c",
+        "exe_base": "terrain_export",
+        "expected_files": [
+            "terrain_lod_seam.obj",
+            "terrain_lod_seam.mtl",
+            "terrain_lod_seam_report.txt",
+        ],
+        "stdout_contains": [
+            "wrote terrain_lod_seam.obj",
+            "high_lod0 triangles=",
+            "transition triangles=",
+            "low_lod1 triangles=",
+        ],
+        "file_contains": {
+            "terrain_lod_seam.obj": [
+                "o high_lod0_regular_cells",
+                "o transition_strip_between_lod0_and_lod1",
+                "o low_lod1_regular_cells_scale_2",
+            ],
+            "terrain_lod_seam_report.txt": [
+                "Triangle counts:",
+                "transition:",
+            ],
+        },
+    },
+]
+
 
 def _read_path_file(names: List[str]) -> List[str]:
     out: List[str] = []
@@ -69,8 +106,8 @@ def _is_same_platform(cached: Dict[str, Any]) -> bool:
         return False
     if cached_os_name and cached_os_name != os.name:
         return False
-    # Old v15/v16 cache files did not store platform. They are unsafe because a
-    # Linux `/usr/bin/cc` cache can be copied into a Windows zip and then fail.
+    # Old cache files did not store platform. They are unsafe because a Linux
+    # /usr/bin/cc cache can be copied into a Windows zip and then fail.
     if not cached_platform and not cached_os_name:
         return False
     return True
@@ -151,7 +188,7 @@ def _resolve_executable(args: List[str]) -> Tuple[Optional[str], Optional[str]]:
     return None, "compiler executable not found on PATH: " + exe
 
 
-def build_command(candidate: Dict[str, Any], exe: Path) -> List[str]:
+def build_command(candidate: Dict[str, Any], source: str, exe: Path) -> List[str]:
     args = list(candidate["args"])
     kind = candidate.get("kind")
     if kind == "msvc":
@@ -161,7 +198,7 @@ def build_command(candidate: Dict[str, Any], exe: Path) -> List[str]:
             "/Iinclude",
             "/Igenerated",
             "src\\transvoxel.c",
-            "examples\\c_minimal\\main.c",
+            source.replace("/", "\\"),
             "/Fe:" + str(exe),
         ]
     # Generic C compiler and Zig's `zig cc` both accept this form.
@@ -173,7 +210,7 @@ def build_command(candidate: Dict[str, Any], exe: Path) -> List[str]:
         "-Iinclude",
         "-Igenerated",
         "src/transvoxel.c",
-        "examples/c_minimal/main.c",
+        source,
         "-o",
         str(exe),
     ]
@@ -191,19 +228,110 @@ def _compiler_label(candidate: Dict[str, Any]) -> str:
     return str(args[0]) if args else "<empty>"
 
 
-def main() -> int:
-    out_dir = ROOT / "build" / "core_c"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    exe = out_dir / ("c_minimal.exe" if os.name == "nt" else "c_minimal")
+def _read_text(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8", errors="replace")
+    except Exception:
+        return ""
 
+
+def _verify_example_outputs(example: Dict[str, Any], run_dir: Path, stdout: str) -> List[str]:
+    errors: List[str] = []
+    for needle in example.get("stdout_contains", []):
+        if needle not in stdout:
+            errors.append("stdout missing: " + needle)
+    for rel in example.get("expected_files", []):
+        path = run_dir / rel
+        if not path.exists():
+            errors.append("missing output file: " + rel)
+        elif path.stat().st_size <= 0:
+            errors.append("empty output file: " + rel)
+    file_contains = example.get("file_contains", {})
+    if isinstance(file_contains, dict):
+        for rel, needles in file_contains.items():
+            text = _read_text(run_dir / rel)
+            for needle in needles:
+                if needle not in text:
+                    errors.append(rel + " missing: " + needle)
+    return errors
+
+
+def _run_example(candidate: Dict[str, Any], example: Dict[str, Any]) -> Dict[str, Any]:
+    name = str(example["name"])
+    build_dir = ROOT / "build" / "core_c" / name
+    if build_dir.exists():
+        shutil.rmtree(build_dir)
+    build_dir.mkdir(parents=True, exist_ok=True)
+    exe = build_dir / (str(example["exe_base"]) + (".exe" if os.name == "nt" else ""))
+    cmd = build_command(candidate, str(example["source"]), exe)
+
+    result: Dict[str, Any] = {
+        "name": name,
+        "source": example["source"],
+        "build_dir": str(build_dir),
+        "exe": str(exe),
+        "compile_command": cmd,
+        "compile_returncode": None,
+        "compile_output": "",
+        "run_command": [str(exe)],
+        "run_returncode": None,
+        "run_output": "",
+        "output_errors": [],
+        "status": "FAIL",
+    }
+
+    try:
+        proc = subprocess.run(cmd, cwd=str(ROOT), text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    except Exception as exc:
+        result["compile_error"] = repr(exc)
+        return result
+
+    result["compile_returncode"] = proc.returncode
+    result["compile_output"] = proc.stdout
+    if proc.returncode != 0:
+        return result
+
+    try:
+        run = subprocess.run([str(exe)], cwd=str(build_dir), text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    except Exception as exc:
+        result["run_error"] = repr(exc)
+        return result
+
+    result["run_returncode"] = run.returncode
+    result["run_output"] = run.stdout
+    if run.returncode != 0:
+        return result
+
+    errors = _verify_example_outputs(example, build_dir, run.stdout)
+    result["output_errors"] = errors
+    result["status"] = "PASS" if not errors else "FAIL"
+    return result
+
+
+def _write_compiler_cache(candidate: Dict[str, Any]) -> None:
+    try:
+        CACHE.parent.mkdir(parents=True, exist_ok=True)
+        CACHE.write_text(json.dumps({
+            "args": candidate.get("args", []),
+            "kind": candidate.get("kind"),
+            "source": candidate.get("source"),
+            "platform": sys.platform,
+            "os_name": os.name,
+        }, indent=2, sort_keys=True), encoding="utf-8")
+    except Exception:
+        pass
+
+
+def main() -> int:
     candidates = compiler_candidates()
     report: Dict[str, Any] = {
-        "schema": "boqsc.transvoxel.core_c_report.v4",
+        "schema": "boqsc.transvoxel.core_c_report.v5",
         "status": "SKIPPED",
+        "meaning": "Compiles and runs the public C examples: c_minimal and c_terrain_export.",
         "candidates": candidates,
         "selected": None,
-        "commands": [],
         "attempts": [],
+        "examples_required": [example["name"] for example in EXAMPLES],
         "platform": sys.platform,
         "os_name": os.name,
     }
@@ -218,10 +346,7 @@ def main() -> int:
 
     last_output = ""
     for candidate in candidates:
-        cmd = build_command(candidate, exe)
-        report["commands"].append(cmd)
         print("trying C compiler:", _compiler_label(candidate))
-
         resolved, missing_reason = _resolve_executable(list(candidate.get("args", [])))
         if missing_reason:
             attempt = {
@@ -234,82 +359,48 @@ def main() -> int:
             print("skip:", missing_reason)
             continue
 
-        try:
-            proc = subprocess.run(cmd, cwd=str(ROOT), text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        except FileNotFoundError as exc:
-            attempt = {
-                "candidate": candidate,
-                "compile_returncode": None,
-                "compile_output": "",
-                "error": repr(exc),
-            }
-            report["attempts"].append(attempt)
-            write_report(report)
-            print("skip:", repr(exc))
-            continue
-        except Exception as exc:
-            attempt = {
-                "candidate": candidate,
-                "compile_returncode": None,
-                "compile_output": "",
-                "error": repr(exc),
-            }
-            report["attempts"].append(attempt)
-            write_report(report)
-            print("compiler start failed:", repr(exc))
-            continue
-
         attempt = {
             "candidate": candidate,
-            "compile_returncode": proc.returncode,
-            "compile_output": proc.stdout,
+            "resolved_executable": resolved,
+            "examples": [],
+            "status": "FAIL",
         }
+        all_ok = True
+        for example in EXAMPLES:
+            example_result = _run_example(candidate, example)
+            attempt["examples"].append(example_result)
+            if example_result.get("compile_output"):
+                last_output = str(example_result.get("compile_output", ""))
+            if example_result.get("run_output"):
+                print(str(example_result.get("run_output", "")), end="")
+            if example_result.get("status") != "PASS":
+                all_ok = False
+                if example_result.get("compile_output"):
+                    print(str(example_result.get("compile_output", "")), end="")
+                if example_result.get("run_output"):
+                    print(str(example_result.get("run_output", "")), end="")
+                if example_result.get("output_errors"):
+                    print("output errors:", example_result.get("output_errors"))
+                break
+
+        attempt["status"] = "PASS" if all_ok else "FAIL"
         report["attempts"].append(attempt)
-        last_output = proc.stdout
         write_report(report)
-        if proc.returncode != 0:
-            continue
 
-        run_cmd = [str(exe)]
-        report["commands"].append(run_cmd)
-        try:
-            run = subprocess.run(run_cmd, cwd=str(ROOT), text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        except Exception as exc:
+        if all_ok:
             report["selected"] = candidate
-            report["run_returncode"] = None
-            report["run_output"] = ""
-            report["run_error"] = repr(exc)
-            report["status"] = "FAIL"
+            report["status"] = "PASS"
+            _write_compiler_cache(candidate)
             write_report(report)
-            print("core C test: FAIL run")
-            return 1
-
-        report["selected"] = candidate
-        try:
-            CACHE.parent.mkdir(parents=True, exist_ok=True)
-            CACHE.write_text(json.dumps({
-                "args": candidate.get("args", []),
-                "kind": candidate.get("kind"),
-                "source": candidate.get("source"),
-                "platform": sys.platform,
-                "os_name": os.name,
-            }, indent=2, sort_keys=True), encoding="utf-8")
-        except Exception:
-            pass
-        report["run_returncode"] = run.returncode
-        report["run_output"] = run.stdout
-        report["status"] = "PASS" if run.returncode == 0 else "FAIL"
-        write_report(report)
-        print(run.stdout, end="")
-        print("core C test:", report["status"])
-        return 0 if run.returncode == 0 else 1
+            print("core C test: PASS")
+            return 0
 
     report["status"] = "FAIL"
-    report["reason"] = "all detected C compiler candidates failed to compile the minimal example"
+    report["reason"] = "all detected C compiler candidates failed to compile/run the required C examples"
     write_report(report)
     if last_output:
         print(last_output)
-    print("core C test: FAIL compile")
+    print("core C test: FAIL compile/run")
     return 1
 
 
