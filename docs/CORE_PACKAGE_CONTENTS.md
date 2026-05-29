@@ -13,11 +13,12 @@ include/transvoxel.h              public C API
 src/transvoxel.c                  implementation
 generated/transvoxel_tables.h     generated tables
 examples/c_minimal/               smallest compile/run example
-examples/c_terrain_export/        writes a small OBJ example
+examples/c_terrain_export/        writes a chunk + LOD seam OBJ example
 docs/API.md                       API reference
 docs/DROP_IN.md                   how to embed
 docs/WHAT_THIS_PROVES.md          proof boundary
 docs/C_COMPILER.md                C compiler notes
+docs/KNOWN_LIMITS.md              known limits and non-claims
 LICENSE                           0BSD license
 PROVENANCE.md                     clean-room provenance
 SOURCES.md                        public sources used
