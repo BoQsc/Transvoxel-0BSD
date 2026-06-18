@@ -1,0 +1,94 @@
+{
+  "attempts": [
+    {
+      "candidate": "zig cc",
+      "command": [
+        "zig",
+        "cc",
+        "-std=c99",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-Iinclude",
+        "-Igenerated",
+        "src/transvoxel.c",
+        "src/transvoxel_m4_candidate.c",
+        "examples/c_m6_m4_seams/main.c",
+        "-o",
+        "<temp>/m6_m4_seams.exe"
+      ],
+      "parsed": {
+        "comparison": {
+          "cases": 512,
+          "count_differences": 510,
+          "default_failures": 0,
+          "default_triangles": 12288,
+          "default_vertices": 10496,
+          "m4_failures": 0,
+          "m4_triangles": 2640,
+          "m4_vertices": 4096,
+          "structurally_distinct": 1
+        },
+        "comparison_line": "m6 default comparison cases=512 default_failures=0 m4_failures=0 count_differences=510 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 structurally_distinct=1",
+        "seam": {
+          "builds": 5376,
+          "failures": 0,
+          "fields": 7,
+          "grid": 8,
+          "seeds": 12,
+          "shared_faces": 9408,
+          "total_triangles": 9503,
+          "total_vertices": 14909
+        },
+        "seam_line": "m6 m4 seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503"
+      },
+      "resolved_executable": "<zig>",
+      "returncode": 0,
+      "source": "auto-search",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "m6 m4 seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\nm6 default comparison cases=512 default_failures=0 m4_failures=0 count_differences=510 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 structurally_distinct=1"
+    }
+  ],
+  "checks": [
+    "compiled with Zig C99",
+    "built M4 candidate transition cells across deterministic strips",
+    "compared shared side-face fingerprints",
+    "verified zero strip seam mismatches",
+    "built default transition backend for all 512 cases",
+    "confirmed M4 candidate is structurally distinct from default backend"
+  ],
+  "comparison": {
+    "cases": 512,
+    "count_differences": 510,
+    "default_failures": 0,
+    "default_triangles": 12288,
+    "default_vertices": 10496,
+    "m4_failures": 0,
+    "m4_triangles": 2640,
+    "m4_vertices": 4096,
+    "structurally_distinct": 1
+  },
+  "compiler": "zig cc",
+  "ok": true,
+  "schema": "boqsc.transvoxel.official_topology.m6.c_validation.v1",
+  "seam": {
+    "builds": 5376,
+    "failures": 0,
+    "fields": 7,
+    "grid": 8,
+    "seeds": 12,
+    "shared_faces": 9408,
+    "total_triangles": 9503,
+    "total_vertices": 14909
+  },
+  "source": "auto-search",
+  "status": "PASS_M6_ZIG_M4_SEAM_VALIDATION",
+  "stdout": "m6 m4 seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\nm6 default comparison cases=512 default_failures=0 m4_failures=0 count_differences=510 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 structurally_distinct=1",
+  "validated_files": [
+    "include/transvoxel_m4_candidate.h",
+    "src/transvoxel_m4_candidate.c",
+    "src/transvoxel.c",
+    "examples/c_m6_m4_seams/main.c"
+  ]
+}

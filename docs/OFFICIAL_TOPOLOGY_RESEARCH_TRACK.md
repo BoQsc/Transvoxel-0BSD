@@ -129,3 +129,40 @@ Run:
 ```text
 RUN_M5.cmd
 ```
+
+## M6 result
+
+M6 validates the opt-in M4 C backend across assembled transition-cell strips.
+It compiles with Zig and runs:
+
+```text
+examples/c_m6_m4_seams/main.c
+```
+
+The validation uses seven deterministic integer fields, twelve seeds per field,
+and an 8 x 8 transition-cell grid per field/seed.
+
+Current M6 result:
+
+```text
+Zig C99 compile/run: PASS
+M4 strip builds: 5376
+shared side faces checked: 9408
+seam failures: 0
+M4 strip vertices: 14909
+M4 strip triangles: 9503
+default backend 512-case build failures: 0
+M4 backend 512-case build failures: 0
+default 512-case triangles: 12288
+M4 512-case triangles: 2640
+M4/default count differences: 510
+M4/default structurally distinct: PASS
+official Transvoxel.cpp equivalence: NOT_PROVEN
+default core replaced: false
+```
+
+Run:
+
+```text
+RUN_M6.cmd
+```

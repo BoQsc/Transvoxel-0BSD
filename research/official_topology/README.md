@@ -99,6 +99,31 @@ src/transvoxel_m4_candidate.c
 tv_m4_build_transition_cell_candidate(...)
 ```
 
+## M6
+
+`m6/` validates the opt-in M4 C backend across deterministic transition-cell
+strips and compares it against the existing default backend.
+
+Run:
+
+```text
+RUN_M6.cmd
+```
+
+Current M6 result:
+
+```text
+Zig C99 compile/run: PASS
+M4 strip builds: 5376
+shared side faces checked: 9408
+seam failures: 0
+default backend 512-case build: PASS
+M4 backend 512-case build: PASS
+M4/default structurally distinct: PASS
+default core replaced: false
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
 Allowed:
 
 ```text
