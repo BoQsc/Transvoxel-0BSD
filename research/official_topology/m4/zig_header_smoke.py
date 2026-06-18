@@ -78,6 +78,33 @@ int main(void) {
 '''.lstrip()
 
 
+def stable_compiler_label(candidate: Dict[str, Any]) -> str:
+    if candidate.get("kind") == "zig":
+        return "zig cc"
+    return test_core_c._compiler_label(candidate)
+
+
+def stable_command(
+    command: List[str],
+    source: Path,
+    exe: Path,
+    candidate: Dict[str, Any],
+) -> List[str]:
+    result = []
+    source_text = str(source)
+    exe_text = str(exe)
+    for index, item in enumerate(command):
+        if index == 0 and candidate.get("kind") == "zig":
+            result.append("zig")
+        elif item == source_text:
+            result.append("<temp>/m4_header_smoke.c")
+        elif item == exe_text:
+            result.append("<temp>/m4_header_smoke.exe")
+        else:
+            result.append(item)
+    return result
+
+
 def main() -> int:
     if not HEADER_PATH.exists():
         report = {
@@ -136,8 +163,8 @@ def main() -> int:
                 "status": "FAIL_ZIG_HEADER_COMPILE",
                 "ok": False,
                 "header": str(HEADER_PATH.relative_to(ROOT)),
-                "compiler": test_core_c._compiler_label(candidate),
-                "command": command,
+                "compiler": stable_compiler_label(candidate),
+                "command": stable_command(command, source, exe, candidate),
                 "stdout": compile_proc.stdout[-4000:],
                 "stderr": compile_proc.stderr[-4000:],
                 "returncode": compile_proc.returncode,
@@ -158,8 +185,8 @@ def main() -> int:
             "status": "PASS_ZIG_HEADER_SMOKE" if run_proc.returncode == 0 else "FAIL_ZIG_HEADER_RUN",
             "ok": run_proc.returncode == 0,
             "header": str(HEADER_PATH.relative_to(ROOT)),
-            "compiler": test_core_c._compiler_label(candidate),
-            "command": command,
+            "compiler": stable_compiler_label(candidate),
+            "command": stable_command(command, source, exe, candidate),
             "stdout": run_proc.stdout[-4000:],
             "stderr": run_proc.stderr[-4000:],
             "returncode": run_proc.returncode,

@@ -68,6 +68,37 @@ generated/official_topology_candidate_tables.h
 research/official_topology/m4/results.md
 ```
 
+## M5
+
+`m5/` adds an opt-in C runtime builder for the M4 candidate tables. The default
+`tv_build_transition_cell()` backend is unchanged.
+
+Run:
+
+```text
+RUN_M5.cmd
+```
+
+Current M5 result:
+
+```text
+opt-in M4 C builder: PASS
+Zig C99 compile/run: PASS
+512 transition cases built: PASS
+runtime vertex pairs: 4096
+runtime triangles: 2640
+default core replaced: false
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
+Primary API:
+
+```text
+include/transvoxel_m4_candidate.h
+src/transvoxel_m4_candidate.c
+tv_m4_build_transition_cell_candidate(...)
+```
+
 Allowed:
 
 ```text

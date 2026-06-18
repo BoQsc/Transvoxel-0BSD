@@ -89,3 +89,43 @@ RUN_M4.cmd
 
 The current default C core is not silently replaced by M4. M4 is the candidate
 replacement path that later milestones must integrate and test more strictly.
+
+## M5 result
+
+M5 integrates the M4 candidate tables into an opt-in C runtime builder:
+
+```text
+include/transvoxel_m4_candidate.h
+src/transvoxel_m4_candidate.c
+examples/c_m4_candidate/main.c
+```
+
+The default `tv_build_transition_cell()` path is unchanged. Engines must opt in
+with:
+
+```text
+tv_m4_build_transition_cell_candidate(...)
+```
+
+The M5 Zig validation compiles and runs the opt-in C path and exhaustively
+builds all 512 transition cases:
+
+```text
+Zig C99 compile/run: PASS
+512 M4 transition cases built: PASS
+per-case vertex/triangle counts: PASS
+vertex-pair sign crossings: PASS
+interpolation positions: PASS
+triangle indices/table copies: PASS
+small-buffer errors: PASS
+runtime vertex pairs: 4096
+runtime triangles: 2640
+official Transvoxel.cpp equivalence: NOT_PROVEN
+default core replaced: false
+```
+
+Run:
+
+```text
+RUN_M5.cmd
+```

@@ -452,6 +452,8 @@ def emit_header(table: Dict[str, object]) -> str:
         "#define OTC_M4_CASE_COUNT 512u",
         "#define OTC_M4_RESEARCH_CLASS_COUNT 73u",
         "#define OTC_M4_SAMPLE_COUNT 13u",
+        f"#define OTC_M4_MAX_VERTICES_PER_CASE {stats['max_vertices_per_case']}u",
+        f"#define OTC_M4_MAX_TRIANGLES_PER_CASE {stats['max_triangles_per_case']}u",
         f"#define OTC_M4_VERTEX_PAIR_COUNT {stats['total_vertex_pairs']}u",
         f"#define OTC_M4_TRIANGLE_COUNT {stats['total_triangles']}u",
         "",

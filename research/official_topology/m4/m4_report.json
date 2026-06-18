@@ -93,18 +93,18 @@
   },
   "zig_header_smoke": {
     "command": [
-      "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe",
+      "zig",
       "cc",
       "-std=c99",
       "-Wall",
       "-Wextra",
       "-pedantic",
       "-I.",
-      "C:\\Users\\WINDOW~2\\AppData\\Local\\Temp\\transvoxel_m4_zig__inouqpn\\m4_header_smoke.c",
+      "<temp>/m4_header_smoke.c",
       "-o",
-      "C:\\Users\\WINDOW~2\\AppData\\Local\\Temp\\transvoxel_m4_zig__inouqpn\\m4_header_smoke.exe"
+      "<temp>/m4_header_smoke.exe"
     ],
-    "compiler": "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe cc",
+    "compiler": "zig cc",
     "header": "generated\\official_topology_candidate_tables.h",
     "ok": true,
     "returncode": 0,

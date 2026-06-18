@@ -1,0 +1,48 @@
+{
+  "attempts": [
+    {
+      "candidate": "zig cc",
+      "command": [
+        "zig",
+        "cc",
+        "-std=c99",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-Iinclude",
+        "-Igenerated",
+        "src/transvoxel_m4_candidate.c",
+        "examples/c_m4_candidate/main.c",
+        "-o",
+        "<temp>/m4_candidate.exe"
+      ],
+      "resolved_executable": "<zig>",
+      "returncode": 0,
+      "source": "auto-search",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "m4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12"
+    }
+  ],
+  "checks": [
+    "compiled with Zig C99",
+    "built all 512 M4 transition cases",
+    "matched generated per-case vertex and triangle counts",
+    "verified generated vertex pairs cross signs",
+    "verified emitted vertex interpolation positions",
+    "verified emitted triangle indices and table copies",
+    "verified small vertex/triangle buffer error handling"
+  ],
+  "compiler": "zig cc",
+  "ok": true,
+  "schema": "boqsc.transvoxel.official_topology.m5.c_validation.v1",
+  "source": "auto-search",
+  "status": "PASS_M5_ZIG_CANDIDATE_BUILDER",
+  "stdout": "m4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12",
+  "validated_files": [
+    "include/transvoxel_m4_candidate.h",
+    "src/transvoxel_m4_candidate.c",
+    "generated/official_topology_candidate_tables.h",
+    "examples/c_m4_candidate/main.c"
+  ]
+}

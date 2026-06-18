@@ -1,0 +1,79 @@
+{
+  "c_validation": {
+    "attempts": [
+      {
+        "candidate": "zig cc",
+        "command": [
+          "zig",
+          "cc",
+          "-std=c99",
+          "-Wall",
+          "-Wextra",
+          "-pedantic",
+          "-Iinclude",
+          "-Igenerated",
+          "src/transvoxel_m4_candidate.c",
+          "examples/c_m4_candidate/main.c",
+          "-o",
+          "<temp>/m4_candidate.exe"
+        ],
+        "resolved_executable": "<zig>",
+        "returncode": 0,
+        "source": "auto-search",
+        "status": "PASS",
+        "stderr": "",
+        "stdout": "m4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12"
+      }
+    ],
+    "checks": [
+      "compiled with Zig C99",
+      "built all 512 M4 transition cases",
+      "matched generated per-case vertex and triangle counts",
+      "verified generated vertex pairs cross signs",
+      "verified emitted vertex interpolation positions",
+      "verified emitted triangle indices and table copies",
+      "verified small vertex/triangle buffer error handling"
+    ],
+    "compiler": "zig cc",
+    "ok": true,
+    "schema": "boqsc.transvoxel.official_topology.m5.c_validation.v1",
+    "source": "auto-search",
+    "status": "PASS_M5_ZIG_CANDIDATE_BUILDER",
+    "stdout": "m4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12",
+    "validated_files": [
+      "include/transvoxel_m4_candidate.h",
+      "src/transvoxel_m4_candidate.c",
+      "generated/official_topology_candidate_tables.h",
+      "examples/c_m4_candidate/main.c"
+    ]
+  },
+  "default_core_replaced": false,
+  "m4_status": "PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "official_class_id_mapping": "NOT_PROVEN",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "outputs": {
+    "c_validation": "research\\official_topology\\m5\\m5_c_validation.json",
+    "results": "research\\official_topology\\m5\\results.md"
+  },
+  "schema": "boqsc.transvoxel.official_topology.m5.report.v1",
+  "status": "PASS_M5_OPT_IN_C_RUNTIME_CANDIDATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "steps": [
+    {
+      "command": [
+        "C:\\Users\\Windows10_new\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/official_topology/m4/run_m4.py"
+      ],
+      "output": "M4 runtime candidate table: C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\generated\\official_topology_candidate_tables.json\nM4 C header: C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\generated\\official_topology_candidate_tables.h\nstatus: candidate_runtime_tables_official_equivalence_not_proven\nsha256: 0ae3d220b7a3c6519c7504aba7731164c0b9d0c3587152adc78117717875674d\nM4 runtime table validation: C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\research\\official_topology\\m4\\runtime_table_validation.json\nstatus: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\ntotal triangles: 2640\ntotal vertex pairs: 4096\nM4 Zig header smoke: PASS_ZIG_HEADER_SMOKE\n\nM4: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\nC:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\research\\official_topology\\m4\\results.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Windows10_new\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/official_topology/m5/test_m4_candidate_c.py"
+      ],
+      "output": "M5 C validation: PASS_M5_ZIG_CANDIDATE_BUILDER\nm4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12\n",
+      "returncode": 0
+    }
+  ]
+}
