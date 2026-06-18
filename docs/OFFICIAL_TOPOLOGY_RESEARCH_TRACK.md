@@ -53,3 +53,39 @@ Run the separate milestone with:
 ```text
 RUN_M3.cmd
 ```
+
+## M4 result
+
+M4 converts the M3 clean-room topology result into runtime-ready candidate
+tables:
+
+```text
+generated/official_topology_candidate_tables.json
+generated/official_topology_candidate_tables.h
+```
+
+The generated candidate table has 512 transition cases, 73 M3 research classes,
+D4/complement transform metadata, flat C-friendly arrays, 4096 runtime vertex
+pairs, and 2640 runtime triangles.
+
+The M4 validator proves internal constraints only:
+
+```text
+512 runtime cases: PASS
+73 research classes: PASS
+D4/complement reconstruction: PASS
+boundary preservation: PASS
+flat runtime arrays: PASS
+deterministic regeneration: PASS
+Zig C header smoke: PASS
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
+Run:
+
+```text
+RUN_M4.cmd
+```
+
+The current default C core is not silently replaced by M4. M4 is the candidate
+replacement path that later milestones must integrate and test more strictly.

@@ -1,0 +1,22 @@
+{
+  "command": [
+    "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe",
+    "cc",
+    "-std=c99",
+    "-Wall",
+    "-Wextra",
+    "-pedantic",
+    "-I.",
+    "C:\\Users\\WINDOW~2\\AppData\\Local\\Temp\\transvoxel_m4_zig__inouqpn\\m4_header_smoke.c",
+    "-o",
+    "C:\\Users\\WINDOW~2\\AppData\\Local\\Temp\\transvoxel_m4_zig__inouqpn\\m4_header_smoke.exe"
+  ],
+  "compiler": "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe cc",
+  "header": "generated\\official_topology_candidate_tables.h",
+  "ok": true,
+  "returncode": 0,
+  "schema": "boqsc.transvoxel.official_topology.m4.zig_header_smoke.v1",
+  "status": "PASS_ZIG_HEADER_SMOKE",
+  "stderr": "",
+  "stdout": ""
+}

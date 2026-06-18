@@ -37,6 +37,37 @@ Current M3 result:
 official triangulation equivalence: NOT_PROVEN
 ```
 
+## M4
+
+`m4/` converts the M3 clean-room topology result into runtime-ready candidate
+tables without replacing the current default C core.
+
+Run:
+
+```text
+RUN_M4.cmd
+```
+
+Current M4 result:
+
+```text
+512 runtime cases: PASS
+73 research classes: PASS
+D4/complement reconstruction: PASS
+runtime vertex pairs: 4096
+runtime triangles: 2640
+Zig C header smoke: PASS
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
+Primary outputs:
+
+```text
+generated/official_topology_candidate_tables.json
+generated/official_topology_candidate_tables.h
+research/official_topology/m4/results.md
+```
+
 Allowed:
 
 ```text
