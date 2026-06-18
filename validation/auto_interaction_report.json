@@ -1,0 +1,14 @@
+{
+  "expected_file": "godot/validation/07_auto_interaction/auto_interaction.json",
+  "issues": [],
+  "schema": "boqsc.transvoxel.auto_interaction_report.v1",
+  "status": "PASS",
+  "summary": {
+    "check_count": 182,
+    "checked_shared_faces_total": 12194,
+    "failed_checks": 0,
+    "field_count": 7,
+    "scenario_count": 14,
+    "scripted_edits": 168
+  }
+}

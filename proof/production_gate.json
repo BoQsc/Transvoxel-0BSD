@@ -1,0 +1,20 @@
+{
+  "hard_requirements": {
+    "auto_interaction_failed_checks": 0,
+    "auto_interaction_scripted_edits_minimum": 100,
+    "degenerate_triangles": 0,
+    "invalid_triangles": 0,
+    "requires_godot_auto_interaction": true,
+    "requires_godot_mesh_api_dump": true,
+    "requires_godot_runtime_dump": true,
+    "seam_open_edges": 0,
+    "tested_face_directions_minimum": 6,
+    "tested_fields_minimum": 5
+  },
+  "meaning": "PASS here means enough non-visual data exists to start trusting visual validation. It is not a gameplay performance certification.",
+  "missing_data_files": [],
+  "missing_or_failed_reports": [],
+  "schema": "boqsc.transvoxel.production_gate.v1",
+  "seam_reasons": [],
+  "status": "PASS"
+}

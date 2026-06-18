@@ -1,0 +1,10 @@
+{
+  "expected_files": [
+    "godot\\validation\\01_runtime\\runtime_dump.json",
+    "godot\\validation\\02_mesh_api\\mesh_api_dump.json",
+    "godot\\validation\\03_seam_metrics\\seam_metrics.json",
+    "godot\\validation\\07_auto_interaction\\auto_interaction.json"
+  ],
+  "issues": [],
+  "status": "PASS"
+}
