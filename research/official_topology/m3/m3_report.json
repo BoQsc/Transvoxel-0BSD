@@ -1,0 +1,52 @@
+{
+  "answers": {
+    "can_boundary_contours_be_derived": "YES_FOR_ALL_512_CASES",
+    "can_valid_candidate_triangulations_be_generated": "YES_FOR_ALL_512_CASES",
+    "does_the_current_independent_core_use_the_same_topology_family": "NO_STRUCTURAL_MATCH",
+    "does_this_prove_official_triangulation_equivalence": "NO",
+    "is_a_second_official_style_candidate_core_justified": "YES"
+  },
+  "boundary_loops": {
+    "case_count": 512,
+    "failure_count": 0,
+    "loop_count_histogram": {
+      "0": 2,
+      "1": 314,
+      "2": 173,
+      "3": 22,
+      "4": 1
+    },
+    "status": "PASS_BOUNDARY_LOOPS_DERIVED_OFFICIAL_TRIANGULATION_NOT_PROVEN"
+  },
+  "candidate_triangulations": {
+    "case_count": 512,
+    "class_topology_signature_failure_count": 0,
+    "failure_count": 0,
+    "fallback_enumeration_cases": [
+      337,
+      340
+    ],
+    "nested_contour_cases": [
+      341
+    ],
+    "status": "PASS_CANDIDATE_TRIANGULATIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+    "total_triangle_count": 2640
+  },
+  "class_partition": {
+    "research_class_count": 73,
+    "structure": "51 base + 18 full-resolution inverse splits + 4 half-resolution-only inverse splits"
+  },
+  "independent_core_comparison": {
+    "contracted_anchor_connectivity_match_count": 374,
+    "contracted_anchor_connectivity_mismatch_count": 138,
+    "exact_boundary_segment_match_count": 2,
+    "independent_total_triangle_count": 12288,
+    "m3_candidate_total_triangle_count": 2640,
+    "status": "PASS_COMPARISON_INDEPENDENT_CORE_IS_STRUCTURALLY_DISTINCT"
+  },
+  "milestone": "Official topology M3: class-level triangulation constraints",
+  "next_milestone": "M4 should derive orientation-preserving class transforms and build a separate official-style candidate table from these constraints.",
+  "official_equivalence": "NOT_PROVEN",
+  "schema": "boqsc.transvoxel.official_topology.m3.report.v1",
+  "status": "PASS_M3_CONSTRAINT_DERIVATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
+}

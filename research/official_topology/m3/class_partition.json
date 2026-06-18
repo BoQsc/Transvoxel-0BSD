@@ -1,0 +1,2381 @@
+{
+  "base_class_count": 51,
+  "case_count": 512,
+  "case_to_research_class": [
+    0,
+    1,
+    2,
+    4,
+    1,
+    5,
+    4,
+    12,
+    2,
+    4,
+    6,
+    13,
+    7,
+    14,
+    15,
+    28,
+    3,
+    8,
+    9,
+    16,
+    8,
+    17,
+    16,
+    29,
+    9,
+    16,
+    18,
+    30,
+    19,
+    31,
+    32,
+    28,
+    2,
+    7,
+    6,
+    15,
+    4,
+    14,
+    13,
+    28,
+    10,
+    20,
+    21,
+    33,
+    20,
+    34,
+    33,
+    29,
+    9,
+    19,
+    18,
+    32,
+    16,
+    31,
+    30,
+    28,
+    22,
+    35,
+    36,
+    37,
+    35,
+    44,
+    37,
+    12,
+    1,
+    5,
+    7,
+    14,
+    11,
+    23,
+    24,
+    37,
+    4,
+    12,
+    15,
+    28,
+    24,
+    37,
+    38,
+    30,
+    8,
+    17,
+    19,
+    31,
+    25,
+    39,
+    40,
+    60,
+    16,
+    29,
+    32,
+    28,
+    40,
+    60,
+    71,
+    13,
+    7,
+    26,
+    27,
+    41,
+    24,
+    42,
+    43,
+    32,
+    20,
+    44,
+    45,
+    59,
+    46,
+    35,
+    63,
+    16,
+    19,
+    47,
+    48,
+    64,
+    40,
+    65,
+    61,
+    53,
+    35,
+    34,
+    42,
+    14,
+    72,
+    20,
+    70,
+    4,
+    2,
+    7,
+    10,
+    20,
+    7,
+    26,
+    20,
+    44,
+    6,
+    15,
+    21,
+    33,
+    27,
+    41,
+    45,
+    59,
+    9,
+    19,
+    22,
+    35,
+    19,
+    47,
+    35,
+    34,
+    18,
+    32,
+    36,
+    37,
+    48,
+    64,
+    42,
+    14,
+    6,
+    27,
+    21,
+    45,
+    15,
+    41,
+    33,
+    59,
+    21,
+    45,
+    49,
+    62,
+    45,
+    66,
+    62,
+    54,
+    18,
+    48,
+    36,
+    42,
+    32,
+    64,
+    37,
+    14,
+    36,
+    42,
+    50,
+    23,
+    42,
+    26,
+    23,
+    5,
+    4,
+    14,
+    20,
+    34,
+    24,
+    42,
+    46,
+    35,
+    13,
+    28,
+    33,
+    29,
+    43,
+    32,
+    63,
+    16,
+    16,
+    31,
+    35,
+    44,
+    40,
+    65,
+    72,
+    20,
+    30,
+    28,
+    37,
+    12,
+    61,
+    53,
+    70,
+    4,
+    15,
+    41,
+    45,
+    66,
+    38,
+    67,
+    63,
+    55,
+    33,
+    59,
+    62,
+    54,
+    63,
+    55,
+    57,
+    52,
+    32,
+    64,
+    42,
+    26,
+    71,
+    58,
+    70,
+    7,
+    37,
+    14,
+    23,
+    5,
+    70,
+    7,
+    69,
+    1,
+    1,
+    11,
+    7,
+    24,
+    5,
+    23,
+    14,
+    37,
+    7,
+    24,
+    27,
+    43,
+    26,
+    42,
+    41,
+    32,
+    8,
+    25,
+    19,
+    40,
+    17,
+    39,
+    31,
+    60,
+    19,
+    40,
+    48,
+    61,
+    47,
+    65,
+    64,
+    53,
+    4,
+    24,
+    15,
+    38,
+    12,
+    37,
+    28,
+    30,
+    20,
+    46,
+    45,
+    63,
+    44,
+    35,
+    59,
+    16,
+    16,
+    40,
+    32,
+    71,
+    29,
+    60,
+    28,
+    13,
+    35,
+    72,
+    42,
+    70,
+    34,
+    20,
+    14,
+    4,
+    5,
+    23,
+    26,
+    42,
+    23,
+    50,
+    42,
+    36,
+    14,
+    37,
+    41,
+    32,
+    42,
+    36,
+    67,
+    18,
+    17,
+    39,
+    47,
+    65,
+    39,
+    68,
+    65,
+    56,
+    31,
+    60,
+    64,
+    53,
+    65,
+    56,
+    58,
+    51,
+    14,
+    42,
+    41,
+    67,
+    37,
+    36,
+    32,
+    18,
+    34,
+    35,
+    66,
+    55,
+    35,
+    22,
+    55,
+    9,
+    31,
+    65,
+    64,
+    58,
+    60,
+    56,
+    53,
+    51,
+    44,
+    20,
+    26,
+    7,
+    20,
+    10,
+    7,
+    2,
+    4,
+    24,
+    20,
+    46,
+    14,
+    42,
+    34,
+    35,
+    15,
+    38,
+    45,
+    63,
+    41,
+    67,
+    66,
+    55,
+    16,
+    40,
+    35,
+    72,
+    31,
+    65,
+    44,
+    20,
+    32,
+    71,
+    42,
+    70,
+    64,
+    58,
+    26,
+    7,
+    13,
+    43,
+    33,
+    63,
+    28,
+    32,
+    29,
+    16,
+    33,
+    63,
+    62,
+    57,
+    59,
+    55,
+    54,
+    52,
+    30,
+    61,
+    37,
+    70,
+    28,
+    53,
+    12,
+    4,
+    37,
+    70,
+    23,
+    69,
+    14,
+    7,
+    5,
+    1,
+    12,
+    37,
+    44,
+    35,
+    37,
+    36,
+    35,
+    22,
+    28,
+    30,
+    59,
+    16,
+    32,
+    18,
+    55,
+    9,
+    29,
+    60,
+    34,
+    20,
+    60,
+    56,
+    20,
+    10,
+    28,
+    13,
+    14,
+    4,
+    53,
+    51,
+    7,
+    2,
+    28,
+    32,
+    59,
+    55,
+    30,
+    18,
+    16,
+    9,
+    29,
+    16,
+    54,
+    52,
+    16,
+    9,
+    52,
+    3,
+    28,
+    53,
+    14,
+    7,
+    13,
+    51,
+    4,
+    2,
+    12,
+    4,
+    5,
+    1,
+    4,
+    2,
+    1,
+    0
+  ],
+  "class_size_histogram": {
+    "1": 2,
+    "16": 10,
+    "2": 7,
+    "4": 24,
+    "8": 30
+  },
+  "classes": [
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        0,
+        511
+      ],
+      "class_size": 2,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 0,
+      "representative_inside_count": 0,
+      "research_class_id": 0,
+      "source_base_research_class_id": 0
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        1,
+        4,
+        64,
+        255,
+        256,
+        447,
+        507,
+        510
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 1,
+      "representative_inside_count": 1,
+      "research_class_id": 1,
+      "source_base_research_class_id": 1
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        2,
+        8,
+        32,
+        128,
+        383,
+        479,
+        503,
+        509
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 2,
+      "representative_inside_count": 1,
+      "research_class_id": 2,
+      "source_base_research_class_id": 2
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        16,
+        495
+      ],
+      "class_size": 2,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 16,
+      "representative_inside_count": 1,
+      "research_class_id": 3,
+      "source_base_research_class_id": 3
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        3,
+        6,
+        9,
+        36,
+        72,
+        127,
+        192,
+        223,
+        288,
+        319,
+        384,
+        439,
+        475,
+        502,
+        505,
+        508
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 3,
+      "representative_inside_count": 2,
+      "research_class_id": 4,
+      "source_base_research_class_id": 4
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        5,
+        65,
+        191,
+        251,
+        260,
+        320,
+        446,
+        506
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 5,
+      "representative_inside_count": 2,
+      "research_class_id": 5,
+      "source_base_research_class_id": 5
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        10,
+        34,
+        136,
+        160
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 51,
+      "kind": "base_without_inversion",
+      "representative_case": 10,
+      "representative_inside_count": 2,
+      "research_class_id": 6,
+      "source_base_research_class_id": 6
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        12,
+        33,
+        66,
+        96,
+        129,
+        132,
+        247,
+        253,
+        258,
+        264,
+        379,
+        382,
+        415,
+        445,
+        478,
+        499
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 12,
+      "representative_inside_count": 2,
+      "research_class_id": 7,
+      "source_base_research_class_id": 7
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        17,
+        20,
+        80,
+        272
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 52,
+      "kind": "base_without_inversion",
+      "representative_case": 17,
+      "representative_inside_count": 2,
+      "research_class_id": 8,
+      "source_base_research_class_id": 8
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        18,
+        24,
+        48,
+        144,
+        367,
+        463,
+        487,
+        493
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 18,
+      "representative_inside_count": 2,
+      "research_class_id": 9,
+      "source_base_research_class_id": 9
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        40,
+        130,
+        381,
+        471
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 40,
+      "representative_inside_count": 2,
+      "research_class_id": 10,
+      "source_base_research_class_id": 10
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        68,
+        257
+      ],
+      "class_size": 2,
+      "inverse_research_class_id": 69,
+      "kind": "base_without_inversion",
+      "representative_case": 68,
+      "representative_inside_count": 2,
+      "research_class_id": 11,
+      "source_base_research_class_id": 11
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        7,
+        63,
+        73,
+        219,
+        292,
+        438,
+        448,
+        504
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 7,
+      "representative_inside_count": 3,
+      "research_class_id": 12,
+      "source_base_research_class_id": 12
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        11,
+        38,
+        95,
+        200,
+        311,
+        416,
+        473,
+        500
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 11,
+      "representative_inside_count": 3,
+      "research_class_id": 13,
+      "source_base_research_class_id": 13
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        13,
+        37,
+        67,
+        123,
+        159,
+        183,
+        193,
+        249,
+        262,
+        318,
+        328,
+        352,
+        388,
+        444,
+        474,
+        498
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 13,
+      "representative_inside_count": 3,
+      "research_class_id": 14,
+      "source_base_research_class_id": 14
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        14,
+        35,
+        74,
+        137,
+        164,
+        224,
+        290,
+        392
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 53,
+      "kind": "base_without_inversion",
+      "representative_case": 14,
+      "representative_inside_count": 3,
+      "research_class_id": 15,
+      "source_base_research_class_id": 15
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        19,
+        22,
+        25,
+        52,
+        88,
+        111,
+        207,
+        208,
+        303,
+        304,
+        400,
+        423,
+        459,
+        486,
+        489,
+        492
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 19,
+      "representative_inside_count": 3,
+      "research_class_id": 16,
+      "source_base_research_class_id": 16
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00",
+          "full_q10"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        21,
+        81,
+        276,
+        336
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 54,
+      "kind": "base_without_inversion",
+      "representative_case": 21,
+      "representative_inside_count": 3,
+      "research_class_id": 17,
+      "source_base_research_class_id": 17
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        26,
+        50,
+        152,
+        176,
+        335,
+        359,
+        461,
+        485
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 26,
+      "representative_inside_count": 3,
+      "research_class_id": 18,
+      "source_base_research_class_id": 18
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q10"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        28,
+        49,
+        82,
+        112,
+        145,
+        148,
+        274,
+        280
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 55,
+      "kind": "base_without_inversion",
+      "representative_case": 28,
+      "representative_inside_count": 3,
+      "research_class_id": 19,
+      "source_base_research_class_id": 19
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        41,
+        44,
+        104,
+        125,
+        131,
+        134,
+        194,
+        215,
+        296,
+        317,
+        377,
+        380,
+        386,
+        407,
+        467,
+        470
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 41,
+      "representative_inside_count": 3,
+      "research_class_id": 20,
+      "source_base_research_class_id": 20
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00",
+          "full_q10"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        42,
+        138,
+        162,
+        168
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 56,
+      "kind": "base_without_inversion",
+      "representative_case": 42,
+      "representative_inside_count": 3,
+      "research_class_id": 21,
+      "source_base_research_class_id": 21
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        56,
+        146,
+        365,
+        455
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 56,
+      "representative_inside_count": 3,
+      "research_class_id": 22,
+      "source_base_research_class_id": 22
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        69,
+        187,
+        190,
+        250,
+        261,
+        321,
+        324,
+        442
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 69,
+      "representative_inside_count": 3,
+      "research_class_id": 23,
+      "source_base_research_class_id": 23
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        70,
+        76,
+        100,
+        196,
+        259,
+        265,
+        289,
+        385
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 70,
+      "kind": "base_without_inversion",
+      "representative_case": 70,
+      "representative_inside_count": 3,
+      "research_class_id": 24,
+      "source_base_research_class_id": 24
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q10",
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        84,
+        273
+      ],
+      "class_size": 2,
+      "inverse_research_class_id": 57,
+      "kind": "base_without_inversion",
+      "representative_case": 84,
+      "representative_inside_count": 3,
+      "research_class_id": 25,
+      "source_base_research_class_id": 25
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        97,
+        133,
+        189,
+        243,
+        268,
+        322,
+        378,
+        414
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 97,
+      "representative_inside_count": 3,
+      "research_class_id": 26,
+      "source_base_research_class_id": 26
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q10"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        98,
+        140,
+        161,
+        266
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 58,
+      "kind": "base_without_inversion",
+      "representative_case": 98,
+      "representative_inside_count": 3,
+      "research_class_id": 27,
+      "source_base_research_class_id": 27
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        15,
+        31,
+        39,
+        55,
+        75,
+        91,
+        201,
+        217,
+        294,
+        310,
+        420,
+        436,
+        456,
+        472,
+        480,
+        496
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 15,
+      "representative_inside_count": 4,
+      "research_class_id": 28,
+      "source_base_research_class_id": 28
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        23,
+        47,
+        89,
+        203,
+        308,
+        422,
+        464,
+        488
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 23,
+      "representative_inside_count": 4,
+      "research_class_id": 29,
+      "source_base_research_class_id": 29
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        27,
+        54,
+        79,
+        216,
+        295,
+        432,
+        457,
+        484
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 27,
+      "representative_inside_count": 4,
+      "research_class_id": 30,
+      "source_base_research_class_id": 30
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q10"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        29,
+        53,
+        83,
+        209,
+        278,
+        344,
+        368,
+        404
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 59,
+      "kind": "base_without_inversion",
+      "representative_case": 29,
+      "representative_inside_count": 4,
+      "research_class_id": 31,
+      "source_base_research_class_id": 31
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        30,
+        51,
+        90,
+        103,
+        153,
+        180,
+        205,
+        240,
+        271,
+        306,
+        331,
+        358,
+        408,
+        421,
+        460,
+        481
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 30,
+      "representative_inside_count": 4,
+      "research_class_id": 32,
+      "source_base_research_class_id": 32
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q10"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        43,
+        46,
+        139,
+        166,
+        202,
+        232,
+        418,
+        424
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 60,
+      "kind": "base_without_inversion",
+      "representative_case": 43,
+      "representative_inside_count": 4,
+      "research_class_id": 33,
+      "source_base_research_class_id": 33
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        45,
+        121,
+        151,
+        195,
+        316,
+        360,
+        390,
+        466
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 45,
+      "representative_inside_count": 4,
+      "research_class_id": 34,
+      "source_base_research_class_id": 34
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        57,
+        60,
+        109,
+        120,
+        147,
+        150,
+        199,
+        210,
+        301,
+        312,
+        361,
+        364,
+        391,
+        402,
+        451,
+        454
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 57,
+      "representative_inside_count": 4,
+      "research_class_id": 35,
+      "source_base_research_class_id": 35
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        58,
+        154,
+        178,
+        184,
+        327,
+        333,
+        357,
+        453
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 58,
+      "representative_inside_count": 4,
+      "research_class_id": 36,
+      "source_base_research_class_id": 36
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        59,
+        62,
+        71,
+        77,
+        155,
+        182,
+        218,
+        248,
+        263,
+        293,
+        329,
+        356,
+        434,
+        440,
+        449,
+        452
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 71,
+      "representative_inside_count": 4,
+      "research_class_id": 37,
+      "source_base_research_class_id": 37
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        78,
+        228,
+        291,
+        393
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 61,
+      "kind": "base_without_inversion",
+      "representative_case": 78,
+      "representative_inside_count": 4,
+      "research_class_id": 38,
+      "source_base_research_class_id": 38
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00",
+          "full_q10",
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        85,
+        277,
+        337,
+        340
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 62,
+      "kind": "base_without_inversion",
+      "representative_case": 85,
+      "representative_inside_count": 4,
+      "research_class_id": 39,
+      "source_base_research_class_id": 39
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        86,
+        92,
+        116,
+        212,
+        275,
+        281,
+        305,
+        401
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 63,
+      "kind": "base_without_inversion",
+      "representative_case": 86,
+      "representative_inside_count": 4,
+      "research_class_id": 40,
+      "source_base_research_class_id": 40
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q10"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        99,
+        141,
+        165,
+        225,
+        270,
+        330,
+        354,
+        396
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 64,
+      "kind": "base_without_inversion",
+      "representative_case": 99,
+      "representative_inside_count": 4,
+      "research_class_id": 41,
+      "source_base_research_class_id": 41
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        101,
+        122,
+        158,
+        179,
+        185,
+        188,
+        197,
+        242,
+        269,
+        314,
+        323,
+        326,
+        332,
+        353,
+        389,
+        410
+      ],
+      "class_size": 16,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 101,
+      "representative_inside_count": 4,
+      "research_class_id": 42,
+      "source_base_research_class_id": 42
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        102,
+        204,
+        267,
+        417
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 71,
+      "kind": "base_without_inversion",
+      "representative_case": 102,
+      "representative_inside_count": 4,
+      "research_class_id": 43,
+      "source_base_research_class_id": 43
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        61,
+        105,
+        135,
+        211,
+        300,
+        376,
+        406,
+        450
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 105,
+      "representative_inside_count": 4,
+      "research_class_id": 44,
+      "source_base_research_class_id": 44
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00",
+          "full_q10"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        106,
+        142,
+        163,
+        169,
+        172,
+        226,
+        298,
+        394
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 65,
+      "kind": "base_without_inversion",
+      "representative_case": 106,
+      "representative_inside_count": 4,
+      "research_class_id": 45,
+      "source_base_research_class_id": 45
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        108,
+        198,
+        297,
+        387
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 72,
+      "kind": "base_without_inversion",
+      "representative_case": 108,
+      "representative_inside_count": 4,
+      "research_class_id": 46,
+      "source_base_research_class_id": 46
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00",
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        113,
+        149,
+        284,
+        338
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 66,
+      "kind": "base_without_inversion",
+      "representative_case": 113,
+      "representative_inside_count": 4,
+      "research_class_id": 47,
+      "source_base_research_class_id": 47
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        114,
+        156,
+        177,
+        282
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 67,
+      "kind": "base_without_inversion",
+      "representative_case": 114,
+      "representative_inside_count": 4,
+      "research_class_id": 48,
+      "source_base_research_class_id": 48
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00",
+          "full_q10",
+          "full_q01",
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        170
+      ],
+      "class_size": 1,
+      "inverse_research_class_id": 68,
+      "kind": "base_without_inversion",
+      "representative_case": 170,
+      "representative_inside_count": 4,
+      "research_class_id": 49,
+      "source_base_research_class_id": 49
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": false,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        186,
+        325
+      ],
+      "class_size": 2,
+      "inverse_research_class_id": null,
+      "kind": "base_with_inversion",
+      "representative_case": 325,
+      "representative_inside_count": 4,
+      "research_class_id": 50,
+      "source_base_research_class_id": 50
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        351,
+        375,
+        477,
+        501
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 6,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 351,
+      "representative_inside_count": 7,
+      "research_class_id": 51,
+      "source_base_research_class_id": 6
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        239,
+        431,
+        491,
+        494
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 8,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 239,
+      "representative_inside_count": 7,
+      "research_class_id": 52,
+      "source_base_research_class_id": 8
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        119,
+        221,
+        287,
+        347,
+        374,
+        437,
+        476,
+        497
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 15,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 119,
+      "representative_inside_count": 6,
+      "research_class_id": 53,
+      "source_base_research_class_id": 15
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q01",
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        175,
+        235,
+        430,
+        490
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 17,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 175,
+      "representative_inside_count": 6,
+      "research_class_id": 54,
+      "source_base_research_class_id": 17
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        231,
+        237,
+        363,
+        366,
+        399,
+        429,
+        462,
+        483
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 19,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 231,
+      "representative_inside_count": 6,
+      "research_class_id": 55,
+      "source_base_research_class_id": 19
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q01",
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        343,
+        349,
+        373,
+        469
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 21,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 343,
+      "representative_inside_count": 6,
+      "research_class_id": 56,
+      "source_base_research_class_id": 21
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00",
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        238,
+        427
+      ],
+      "class_size": 2,
+      "inverse_research_class_id": 25,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 238,
+      "representative_inside_count": 6,
+      "research_class_id": 57,
+      "source_base_research_class_id": 25
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        245,
+        350,
+        371,
+        413
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 27,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 245,
+      "representative_inside_count": 6,
+      "research_class_id": 58,
+      "source_base_research_class_id": 27
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q10"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        107,
+        143,
+        167,
+        233,
+        302,
+        428,
+        458,
+        482
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 31,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 107,
+      "representative_inside_count": 5,
+      "research_class_id": 59,
+      "source_base_research_class_id": 31
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        87,
+        93,
+        279,
+        309,
+        345,
+        372,
+        465,
+        468
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 33,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 87,
+      "representative_inside_count": 5,
+      "research_class_id": 60,
+      "source_base_research_class_id": 33
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        118,
+        220,
+        283,
+        433
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 38,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 118,
+      "representative_inside_count": 5,
+      "research_class_id": 61,
+      "source_base_research_class_id": 38
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q10",
+          "full_q01",
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        171,
+        174,
+        234,
+        426
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 39,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 171,
+      "representative_inside_count": 5,
+      "research_class_id": 62,
+      "source_base_research_class_id": 39
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        110,
+        206,
+        230,
+        236,
+        299,
+        395,
+        419,
+        425
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 40,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 110,
+      "representative_inside_count": 5,
+      "research_class_id": 63,
+      "source_base_research_class_id": 40
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        115,
+        157,
+        181,
+        241,
+        286,
+        346,
+        370,
+        412
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 41,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 115,
+      "representative_inside_count": 5,
+      "research_class_id": 64,
+      "source_base_research_class_id": 41
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00",
+          "full_q01"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        117,
+        213,
+        285,
+        339,
+        342,
+        348,
+        369,
+        405
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 45,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 117,
+      "representative_inside_count": 5,
+      "research_class_id": 65,
+      "source_base_research_class_id": 45
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q01",
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        173,
+        227,
+        362,
+        398
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 47,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 173,
+      "representative_inside_count": 5,
+      "research_class_id": 66,
+      "source_base_research_class_id": 47
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        229,
+        334,
+        355,
+        397
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 48,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 229,
+      "representative_inside_count": 5,
+      "research_class_id": 67,
+      "source_base_research_class_id": 48
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [
+          "full_q00",
+          "full_q10",
+          "full_q01",
+          "full_q11"
+        ],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": true,
+        "has_half_resolution_ambiguity": false
+      },
+      "cases": [
+        341
+      ],
+      "class_size": 1,
+      "inverse_research_class_id": 49,
+      "kind": "inverse_split_full_resolution_ambiguity",
+      "representative_case": 341,
+      "representative_inside_count": 5,
+      "research_class_id": 68,
+      "source_base_research_class_id": 49
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        254,
+        443
+      ],
+      "class_size": 2,
+      "inverse_research_class_id": 11,
+      "kind": "inverse_split_half_resolution_only_ambiguity",
+      "representative_case": 254,
+      "representative_inside_count": 7,
+      "research_class_id": 69,
+      "source_base_research_class_id": 11
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        126,
+        222,
+        246,
+        252,
+        315,
+        411,
+        435,
+        441
+      ],
+      "class_size": 8,
+      "inverse_research_class_id": 24,
+      "kind": "inverse_split_half_resolution_only_ambiguity",
+      "representative_case": 126,
+      "representative_inside_count": 6,
+      "research_class_id": 70,
+      "source_base_research_class_id": 24
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        94,
+        244,
+        307,
+        409
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 43,
+      "kind": "inverse_split_half_resolution_only_ambiguity",
+      "representative_case": 94,
+      "representative_inside_count": 5,
+      "research_class_id": 71,
+      "source_base_research_class_id": 43
+    },
+    {
+      "ambiguity": {
+        "full_resolution_quadrants": [],
+        "has_any_ambiguity": true,
+        "has_full_resolution_ambiguity": false,
+        "has_half_resolution_ambiguity": true
+      },
+      "cases": [
+        124,
+        214,
+        313,
+        403
+      ],
+      "class_size": 4,
+      "inverse_research_class_id": 46,
+      "kind": "inverse_split_half_resolution_only_ambiguity",
+      "representative_case": 124,
+      "representative_inside_count": 5,
+      "research_class_id": 72,
+      "source_base_research_class_id": 46
+    }
+  ],
+  "full_resolution_inverse_split_count": 18,
+  "half_resolution_only_inverse_split_count": 4,
+  "missing_cases": [],
+  "official_class_id_mapping": "NOT_PROVEN",
+  "official_triangulation_equivalence": "NOT_PROVEN",
+  "overlap_cases": [],
+  "research_class_count": 73,
+  "schema": "boqsc.transvoxel.official_topology.m3.class_partition.v1",
+  "status": "PASS_DERIVED_73_RESEARCH_CLASSES_OFFICIAL_IDS_NOT_PROVEN"
+}

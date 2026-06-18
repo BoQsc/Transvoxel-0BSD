@@ -29,3 +29,27 @@ official_equivalence: NOT_PROVEN
 ```
 
 The most important diagnostic is that a raw C4+complement sign-pattern model gives 70 classes. Reaching the public target of 73 would require principled splitting of three orbits or a different topology-level equivalence definition.
+
+## M3 result
+
+M3 replaces that early C4 diagnostic with the public D4 ambiguity rule:
+
+```text
+51 base D4 classes
++18 inverse classes split by full-resolution ambiguity
++ 4 inverse classes split by half-resolution-only ambiguity
+=73 clean-room research classes
+```
+
+It derives closed boundary loops and validated candidate triangulations for all
+512 cases. The current independent tetrahedral core is structurally distinct,
+especially in ambiguity-bearing cases.
+
+This still does not prove official class IDs, official triangle choices,
+official vertex encodings, winding compatibility, or table identity.
+
+Run the separate milestone with:
+
+```text
+RUN_M3.cmd
+```
