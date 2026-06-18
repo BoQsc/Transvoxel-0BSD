@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: 0BSD
-"""Compile and run M6 C seam validation for the opt-in M4 backend."""
+"""Compile and run M7 backend-switch validation with Zig."""
 from __future__ import annotations
 
 import json
@@ -12,8 +12,8 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 ROOT = Path(__file__).resolve().parents[3]
-M6_DIR = ROOT / "research" / "official_topology" / "m6"
-REPORT_PATH = M6_DIR / "m6_c_validation.json"
+M7_DIR = ROOT / "research" / "official_topology" / "m7"
+REPORT_PATH = M7_DIR / "m7_c_validation.json"
 
 sys.path.insert(0, str(ROOT / "tools"))
 import test_core_c  # noqa: E402
@@ -55,7 +55,8 @@ def compile_command(candidate: Dict[str, Any], exe: Path) -> List[str]:
         "-Igenerated",
         "src/transvoxel.c",
         "src/transvoxel_m4_candidate.c",
-        "examples/c_m6_m4_seams/main.c",
+        "src/transvoxel_m4_backend.c",
+        "examples/c_m7_backend_switch/main.c",
         "-o",
         str(exe),
     ]
@@ -68,7 +69,7 @@ def stable_command(command: List[str], exe: Path, candidate: Dict[str, Any]) -> 
         if index == 0 and candidate.get("kind") == "zig":
             out.append("zig")
         elif item == exe_text:
-            out.append("<temp>/m6_m4_seams.exe")
+            out.append("<temp>/m7_backend_switch.exe")
         else:
             out.append(item)
     return out
@@ -82,25 +83,37 @@ def parse_key_values(line: str) -> Dict[str, int]:
 
 
 def parse_stdout(stdout: str) -> Dict[str, Any]:
+    switch_line = ""
     seam_line = ""
-    comparison_line = ""
     for line in stdout.splitlines():
-        if line.startswith("m6 m4 seams "):
+        if line.startswith("m7 backend switch "):
+            switch_line = line
+        elif line.startswith("m7 normal_api_m4_seams "):
             seam_line = line
-        elif line.startswith("m6 default comparison "):
-            comparison_line = line
     return {
+        "switch_line": switch_line,
         "seam_line": seam_line,
-        "comparison_line": comparison_line,
+        "switch": parse_key_values(switch_line),
         "seam": parse_key_values(seam_line),
-        "comparison": parse_key_values(comparison_line),
     }
 
 
 def parsed_output_is_valid(parsed: Dict[str, Any]) -> List[str]:
     errors = []
+    switch = parsed["switch"]
     seam = parsed["seam"]
-    comparison = parsed["comparison"]
+    required_switch = {
+        "cases": 512,
+        "default_vertices": 10496,
+        "default_triangles": 12288,
+        "m4_vertices": 4096,
+        "m4_triangles": 2640,
+        "count_differences": 510,
+        "restored_default": 1,
+    }
+    for key, expected in required_switch.items():
+        if switch.get(key) != expected:
+            errors.append(f"switch {key} expected {expected}, got {switch.get(key)}")
     required_seam = {
         "fields": 7,
         "seeds": 12,
@@ -108,29 +121,12 @@ def parsed_output_is_valid(parsed: Dict[str, Any]) -> List[str]:
         "builds": 5376,
         "shared_faces": 9408,
         "failures": 0,
+        "total_vertices": 14909,
+        "total_triangles": 9503,
     }
     for key, expected in required_seam.items():
         if seam.get(key) != expected:
             errors.append(f"seam {key} expected {expected}, got {seam.get(key)}")
-    if seam.get("total_triangles", 0) <= 0:
-        errors.append("seam total_triangles must be positive")
-    if seam.get("total_vertices", 0) <= 0:
-        errors.append("seam total_vertices must be positive")
-
-    required_comparison = {
-        "cases": 512,
-        "default_failures": 0,
-        "m4_failures": 0,
-        "m4_triangles": 2640,
-        "structurally_distinct": 1,
-    }
-    for key, expected in required_comparison.items():
-        if comparison.get(key) != expected:
-            errors.append(f"comparison {key} expected {expected}, got {comparison.get(key)}")
-    if comparison.get("count_differences", 0) <= 0:
-        errors.append("comparison count_differences must be positive")
-    if comparison.get("default_triangles", 0) <= comparison.get("m4_triangles", 0):
-        errors.append("default backend should remain structurally larger than M4 candidate in this diagnostic")
     return errors
 
 
@@ -146,8 +142,8 @@ def try_candidate(candidate: Dict[str, Any]) -> Dict[str, Any]:
             "error": resolve_error,
         }
 
-    with tempfile.TemporaryDirectory(prefix="transvoxel_m6_zig_") as tmp:
-        exe = Path(tmp) / ("m6_m4_seams.exe" if sys.platform.startswith("win") else "m6_m4_seams")
+    with tempfile.TemporaryDirectory(prefix="transvoxel_m7_zig_") as tmp:
+        exe = Path(tmp) / ("m7_backend_switch.exe" if sys.platform.startswith("win") else "m7_backend_switch")
         command = compile_command(candidate, exe)
         compile_proc = subprocess.run(
             command,
@@ -209,14 +205,14 @@ def main() -> int:
     candidates = zig_candidates()
     if not candidates:
         report = {
-            "schema": "boqsc.transvoxel.official_topology.m6.c_validation.v1",
+            "schema": "boqsc.transvoxel.official_topology.m7.c_validation.v1",
             "status": "FAIL_MISSING_ZIG",
             "ok": False,
-            "reason": "Zig is required for M6 seam validation.",
+            "reason": "Zig is required for M7 backend-switch validation.",
             "attempts": [],
         }
         write_json(REPORT_PATH, report)
-        print("M6 C seam validation:", report["status"])
+        print("M7 C backend-switch validation:", report["status"])
         return 1
 
     for candidate in candidates:
@@ -225,43 +221,47 @@ def main() -> int:
         if result["status"] == "PASS":
             parsed = result["parsed"]
             report = {
-                "schema": "boqsc.transvoxel.official_topology.m6.c_validation.v1",
-                "status": "PASS_M6_ZIG_M4_SEAM_VALIDATION",
+                "schema": "boqsc.transvoxel.official_topology.m7.c_validation.v1",
+                "status": "PASS_M7_ZIG_NORMAL_API_BACKEND_SWITCH",
                 "ok": True,
                 "compiler": result["candidate"],
                 "source": result["source"],
                 "validated_files": [
+                    "include/transvoxel.h",
+                    "include/transvoxel_m4_backend.h",
                     "include/transvoxel_m4_candidate.h",
-                    "src/transvoxel_m4_candidate.c",
                     "src/transvoxel.c",
-                    "examples/c_m6_m4_seams/main.c",
+                    "src/transvoxel_m4_backend.c",
+                    "src/transvoxel_m4_candidate.c",
+                    "examples/c_m7_backend_switch/main.c",
                 ],
                 "checks": [
                     "compiled with Zig C99",
-                    "built M4 candidate transition cells across deterministic strips",
-                    "compared shared side-face fingerprints",
-                    "verified zero strip seam mismatches",
-                    "built default transition backend for all 512 cases",
-                    "confirmed M4 candidate is structurally distinct from default backend",
+                    "normal API default backend builds all 512 cases",
+                    "M4 backend installs into normal tv_build_transition_cell API",
+                    "normal API with M4 installed matches M4 generated counts for all 512 cases",
+                    "normal API with M4 installed passes deterministic strip seam validation",
+                    "M4 backend uninstalls and restores default backend totals",
+                    "default backend and M4 backend remain structurally distinct",
                 ],
+                "switch": parsed["switch"],
                 "seam": parsed["seam"],
-                "comparison": parsed["comparison"],
                 "stdout": result["stdout"],
                 "attempts": attempts,
             }
             write_json(REPORT_PATH, report)
-            print("M6 C seam validation:", report["status"])
+            print("M7 C backend-switch validation:", report["status"])
             print(result["stdout"])
             return 0
 
     report = {
-        "schema": "boqsc.transvoxel.official_topology.m6.c_validation.v1",
-        "status": "FAIL_M6_ZIG_M4_SEAM_VALIDATION",
+        "schema": "boqsc.transvoxel.official_topology.m7.c_validation.v1",
+        "status": "FAIL_M7_ZIG_NORMAL_API_BACKEND_SWITCH",
         "ok": False,
         "attempts": attempts,
     }
     write_json(REPORT_PATH, report)
-    print("M6 C seam validation:", report["status"])
+    print("M7 C backend-switch validation:", report["status"])
     return 1
 
 

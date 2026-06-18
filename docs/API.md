@@ -143,6 +143,52 @@ TvBuildInfo tv_build_transition_cell(
 
 The transition case index uses samples `0..8`. Samples `9..13` are used for interpolation and boundary contract behavior.
 
+## Optional transition backend hook
+
+The default transition builder is the independent backend compiled into
+`src/transvoxel.c`. Advanced users can install an alternate transition builder
+without changing call sites:
+
+```c
+typedef TvBuildInfo (*TvTransitionBuilderFn)(
+    const float sample_values[TV_TRANSITION_SAMPLE_COUNT],
+    float iso_level,
+    TvVec3 origin,
+    TvVec3 scale,
+    TvVec3 *out_vertices,
+    int max_vertices,
+    TvTriangle *out_triangles,
+    int max_triangles);
+
+int tv_set_transition_backend_callback(TvTransitionBuilderFn builder);
+TvTransitionBuilderFn tv_get_transition_backend_callback(void);
+void tv_reset_transition_backend_callback(void);
+int tv_transition_backend_is_custom(void);
+```
+
+Passing `NULL` or calling `tv_reset_transition_backend_callback()` restores the
+default backend.
+
+The official-topology research track provides an opt-in M4 candidate adapter:
+
+```c
+#include "transvoxel_m4_backend.h"
+
+tv_install_m4_transition_backend_candidate();
+/* Existing tv_build_transition_cell() calls now use the M4 candidate backend. */
+tv_uninstall_m4_transition_backend_candidate();
+```
+
+To use that adapter, compile these additional files:
+
+```text
+src/transvoxel_m4_candidate.c
+src/transvoxel_m4_backend.c
+```
+
+The M4 backend is still a candidate path. Official `Transvoxel.cpp` equivalence
+remains unproven.
+
 ## Ownership
 
 The API does not allocate memory. The caller owns all buffers.

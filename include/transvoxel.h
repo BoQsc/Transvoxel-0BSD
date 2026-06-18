@@ -49,6 +49,16 @@ typedef struct TvBuildInfo {
     int triangle_count;
 } TvBuildInfo;
 
+typedef TvBuildInfo (*TvTransitionBuilderFn)(
+    const float sample_values[TV_TRANSITION_SAMPLE_COUNT],
+    float iso_level,
+    TvVec3 origin,
+    TvVec3 scale,
+    TvVec3 *out_vertices,
+    int max_vertices,
+    TvTriangle *out_triangles,
+    int max_triangles);
+
 /* Utility constructors. */
 TvVec3 tv_vec3(float x, float y, float z);
 
@@ -93,6 +103,18 @@ TvBuildInfo tv_build_transition_cell(
     int max_vertices,
     TvTriangle *out_triangles,
     int max_triangles);
+
+/* Optional transition backend hook.
+ *
+ * By default this is unset and tv_build_transition_cell() uses the original
+ * independent backend. Projects that compile an alternate backend may install
+ * it here so existing calls to tv_build_transition_cell() route through that
+ * backend. Passing NULL resets to the default backend.
+ */
+int tv_set_transition_backend_callback(TvTransitionBuilderFn builder);
+TvTransitionBuilderFn tv_get_transition_backend_callback(void);
+void tv_reset_transition_backend_callback(void);
+int tv_transition_backend_is_custom(void);
 
 /* Local sample positions used by the generated tables. These are exposed so an
  * engine can sample its own scalar field before calling the builders.

@@ -18,7 +18,7 @@
       ],
       "resolved_executable": "<zig>",
       "returncode": 0,
-      "source": "auto-search",
+      "source": "configured-zig",
       "status": "PASS",
       "stderr": "",
       "stdout": "m4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12"
@@ -36,7 +36,7 @@
   "compiler": "zig cc",
   "ok": true,
   "schema": "boqsc.transvoxel.official_topology.m5.c_validation.v1",
-  "source": "auto-search",
+  "source": "configured-zig",
   "status": "PASS_M5_ZIG_CANDIDATE_BUILDER",
   "stdout": "m4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12",
   "validated_files": [

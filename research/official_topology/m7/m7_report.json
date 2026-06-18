@@ -1,0 +1,126 @@
+{
+  "c_validation": {
+    "attempts": [
+      {
+        "candidate": "zig cc",
+        "command": [
+          "zig",
+          "cc",
+          "-std=c99",
+          "-Wall",
+          "-Wextra",
+          "-pedantic",
+          "-Iinclude",
+          "-Igenerated",
+          "src/transvoxel.c",
+          "src/transvoxel_m4_candidate.c",
+          "src/transvoxel_m4_backend.c",
+          "examples/c_m7_backend_switch/main.c",
+          "-o",
+          "<temp>/m7_backend_switch.exe"
+        ],
+        "parsed": {
+          "seam": {
+            "builds": 5376,
+            "failures": 0,
+            "fields": 7,
+            "grid": 8,
+            "seeds": 12,
+            "shared_faces": 9408,
+            "total_triangles": 9503,
+            "total_vertices": 14909
+          },
+          "seam_line": "m7 normal_api_m4_seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503",
+          "switch": {
+            "cases": 512,
+            "count_differences": 510,
+            "default_triangles": 12288,
+            "default_vertices": 10496,
+            "m4_triangles": 2640,
+            "m4_vertices": 4096,
+            "restored_default": 1
+          },
+          "switch_line": "m7 backend switch cases=512 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 count_differences=510 restored_default=1"
+        },
+        "resolved_executable": "<zig>",
+        "returncode": 0,
+        "source": "configured-zig",
+        "status": "PASS",
+        "stderr": "",
+        "stdout": "m7 backend switch cases=512 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 count_differences=510 restored_default=1\nm7 normal_api_m4_seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503"
+      }
+    ],
+    "checks": [
+      "compiled with Zig C99",
+      "normal API default backend builds all 512 cases",
+      "M4 backend installs into normal tv_build_transition_cell API",
+      "normal API with M4 installed matches M4 generated counts for all 512 cases",
+      "normal API with M4 installed passes deterministic strip seam validation",
+      "M4 backend uninstalls and restores default backend totals",
+      "default backend and M4 backend remain structurally distinct"
+    ],
+    "compiler": "zig cc",
+    "ok": true,
+    "schema": "boqsc.transvoxel.official_topology.m7.c_validation.v1",
+    "seam": {
+      "builds": 5376,
+      "failures": 0,
+      "fields": 7,
+      "grid": 8,
+      "seeds": 12,
+      "shared_faces": 9408,
+      "total_triangles": 9503,
+      "total_vertices": 14909
+    },
+    "source": "configured-zig",
+    "status": "PASS_M7_ZIG_NORMAL_API_BACKEND_SWITCH",
+    "stdout": "m7 backend switch cases=512 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 count_differences=510 restored_default=1\nm7 normal_api_m4_seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503",
+    "switch": {
+      "cases": 512,
+      "count_differences": 510,
+      "default_triangles": 12288,
+      "default_vertices": 10496,
+      "m4_triangles": 2640,
+      "m4_vertices": 4096,
+      "restored_default": 1
+    },
+    "validated_files": [
+      "include/transvoxel.h",
+      "include/transvoxel_m4_backend.h",
+      "include/transvoxel_m4_candidate.h",
+      "src/transvoxel.c",
+      "src/transvoxel_m4_backend.c",
+      "src/transvoxel_m4_candidate.c",
+      "examples/c_m7_backend_switch/main.c"
+    ]
+  },
+  "default_core_replaced": false,
+  "m6_status": "PASS_M6_M4_C_SEAM_VALIDATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "official_class_id_mapping": "NOT_PROVEN",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "outputs": {
+    "c_validation": "research\\official_topology\\m7\\m7_c_validation.json",
+    "results": "research\\official_topology\\m7\\results.md"
+  },
+  "schema": "boqsc.transvoxel.official_topology.m7.report.v1",
+  "status": "PASS_M7_NORMAL_API_M4_BACKEND_SWITCH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "steps": [
+    {
+      "command": [
+        "C:\\Users\\Windows10_new\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/official_topology/m6/run_m6.py"
+      ],
+      "output": "M4 runtime candidate table: C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\generated\\official_topology_candidate_tables.json\nM4 C header: C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\generated\\official_topology_candidate_tables.h\nstatus: candidate_runtime_tables_official_equivalence_not_proven\nsha256: 0ae3d220b7a3c6519c7504aba7731164c0b9d0c3587152adc78117717875674d\nM4 runtime table validation: C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\research\\official_topology\\m4\\runtime_table_validation.json\nstatus: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\ntotal triangles: 2640\ntotal vertex pairs: 4096\nM4 Zig header smoke: PASS_ZIG_HEADER_SMOKE\n\nM4: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\nC:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\research\\official_topology\\m4\\results.md\nM5 C validation: PASS_M5_ZIG_CANDIDATE_BUILDER\nm4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12\n\nM5: PASS_M5_OPT_IN_C_RUNTIME_CANDIDATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN\nC:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\research\\official_topology\\m5\\results.md\nM6 C seam validation: PASS_M6_ZIG_M4_SEAM_VALIDATION\nm6 m4 seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\nm6 default comparison cases=512 default_failures=0 m4_failures=0 count_differences=510 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 structurally_distinct=1\n\nM6: PASS_M6_M4_C_SEAM_VALIDATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN\nC:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\research\\official_topology\\m6\\results.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Windows10_new\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/official_topology/m7/test_backend_switch_c.py"
+      ],
+      "output": "M7 C backend-switch validation: PASS_M7_ZIG_NORMAL_API_BACKEND_SWITCH\nm7 backend switch cases=512 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 count_differences=510 restored_default=1\nm7 normal_api_m4_seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\n",
+      "returncode": 0
+    }
+  ]
+}

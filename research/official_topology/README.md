@@ -124,6 +124,33 @@ default core replaced: false
 official Transvoxel.cpp equivalence: NOT_PROVEN
 ```
 
+## M7
+
+`m7/` makes the M4 candidate selectable through the normal
+`tv_build_transition_cell()` API using an explicit backend install/uninstall
+adapter. The default backend remains active unless the adapter is compiled and
+installed.
+
+Run:
+
+```text
+RUN_M7.cmd
+```
+
+Current M7 result:
+
+```text
+normal API default backend 512-case build: PASS
+M4 backend install into normal API: PASS
+normal API with M4 installed 512-case build: PASS
+normal API with M4 installed strip seams: PASS
+shared side faces checked: 9408
+seam failures: 0
+uninstall restores default backend: PASS
+default core replaced by default: false
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
 Allowed:
 
 ```text

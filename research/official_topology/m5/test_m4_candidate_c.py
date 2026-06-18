@@ -54,8 +54,10 @@ def stable_compiler_label(candidate: Dict[str, Any]) -> str:
 
 def stable_source(candidate: Dict[str, Any]) -> Any:
     source = candidate.get("source")
+    if source == "cache":
+        return "configured-zig"
     if isinstance(source, str) and source.startswith("auto-search:"):
-        return "auto-search"
+        return "configured-zig"
     return source
 
 

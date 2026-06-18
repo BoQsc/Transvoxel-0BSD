@@ -45,7 +45,7 @@
         },
         "resolved_executable": "<zig>",
         "returncode": 0,
-        "source": "auto-search",
+        "source": "configured-zig",
         "status": "PASS",
         "stderr": "",
         "stdout": "m6 m4 seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\nm6 default comparison cases=512 default_failures=0 m4_failures=0 count_differences=510 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 structurally_distinct=1"
@@ -83,7 +83,7 @@
       "total_triangles": 9503,
       "total_vertices": 14909
     },
-    "source": "auto-search",
+    "source": "configured-zig",
     "status": "PASS_M6_ZIG_M4_SEAM_VALIDATION",
     "stdout": "m6 m4 seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\nm6 default comparison cases=512 default_failures=0 m4_failures=0 count_differences=510 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 structurally_distinct=1",
     "validated_files": [

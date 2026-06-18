@@ -166,3 +166,45 @@ Run:
 ```text
 RUN_M6.cmd
 ```
+
+## M7 result
+
+M7 makes the M4 candidate backend selectable through the normal public
+`tv_build_transition_cell()` API. The default backend remains active unless a
+project compiles the M4 adapter and installs it explicitly:
+
+```text
+include/transvoxel_m4_backend.h
+src/transvoxel_m4_backend.c
+```
+
+API:
+
+```text
+tv_install_m4_transition_backend_candidate()
+tv_uninstall_m4_transition_backend_candidate()
+```
+
+Current M7 result:
+
+```text
+Zig C99 compile/run: PASS
+normal API default backend 512-case build: PASS
+M4 backend install into normal API: PASS
+normal API with M4 installed 512-case build: PASS
+normal API with M4 installed strip seam validation: PASS
+shared side faces checked: 9408
+seam failures: 0
+uninstall restores default backend: PASS
+default 512-case triangles: 12288
+M4 512-case triangles: 2640
+M4/default count differences: 510
+official Transvoxel.cpp equivalence: NOT_PROVEN
+default core replaced by default: false
+```
+
+Run:
+
+```text
+RUN_M7.cmd
+```
