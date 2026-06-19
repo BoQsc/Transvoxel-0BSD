@@ -10,6 +10,16 @@ oracle. The current implementation is not yet an exact drop-in replacement.
 Exact replacement is the active finish line, and M24 targets topology
 convergence before field/symbol compatibility and unchanged-consumer tests.
 
+M24 reaches exact edge-labeled oriented topology for all 768 cases in an
+isolated research candidate. It does not yet reproduce official vertex order,
+reuse/cache metadata, class/table layout, or the unchanged `Transvoxel.cpp`
+consumer surface. The public default therefore remains the functional M21
+table.
+
+The M24 generated rule/table artifacts are research-only. Their generator code
+is 0BSD, but the oracle-calibrated generated data is not yet cleared for an
+0BSD release.
+
 Still not claimed:
 
 ```text

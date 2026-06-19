@@ -135,13 +135,23 @@ def main() -> int:
             "M23_OFFICIAL_ORACLE_BASELINE",
             "M24_EXACT_TOPOLOGY_CONVERGENCE",
         }
-        and set(readiness.get("blocking_gate_ids", []))
-        == {
-            "official_class_id_mapping",
-            "official_vertex_encoding_equivalence",
-            "official_triangle_triangulation_identity",
-            "official_regular_table_identity",
-            "official_transvoxel_cpp_byte_identity",
+        and frozenset(readiness.get("blocking_gate_ids", []))
+        in {
+            frozenset({
+                "official_class_id_mapping",
+                "official_vertex_encoding_equivalence",
+                "official_triangle_triangulation_identity",
+                "official_regular_table_identity",
+                "exact_0bsd_provenance_clearance",
+                "official_transvoxel_cpp_byte_identity",
+            }),
+            frozenset({
+                "official_class_id_mapping",
+                "official_vertex_encoding_equivalence",
+                "official_regular_table_identity",
+                "exact_0bsd_provenance_clearance",
+                "official_transvoxel_cpp_byte_identity",
+            }),
         }
         and godot_runtime.get("status") == "PASS"
         and project_tracks.get("status") == "PASS"

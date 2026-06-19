@@ -37,6 +37,9 @@ EXACT_CLAIM_BOUNDARY_REPORT = (
 OFFICIAL_ORACLE_REPORT = (
     ROOT / "validation" / "official_oracle_comparison_report.json"
 )
+M24_EXACT_TOPOLOGY_REPORT = (
+    ROOT / "validation" / "m24_exact_topology_report.json"
+)
 M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
     "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
@@ -231,6 +234,11 @@ def main() -> int:
         if OFFICIAL_ORACLE_REPORT.exists()
         else {}
     )
+    m24_exact_topology = (
+        read_json(M24_EXACT_TOPOLOGY_REPORT)
+        if M24_EXACT_TOPOLOGY_REPORT.exists()
+        else {}
+    )
     if M15_REPORT.exists():
         try:
             m15_status = str(
@@ -412,20 +420,48 @@ def main() -> int:
             "Exact official transition interior triangulation identity",
             "table_compatibility",
             ["exact_table_compatible_replacement"],
-            "BLOCKED",
-            [rel(m3_triangles_path)],
-            triangles.get(
-                "official_triangle_topology_equivalence",
-                "MISSING",
+            (
+                "PASS"
+                if m24_exact_topology.get("status")
+                == "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY"
+                and m24_exact_topology.get("decisions", {}).get(
+                    "exact_topology_identity"
+                )
+                is True
+                else "BLOCKED"
+            ),
+            [
+                rel(m3_triangles_path),
+                (
+                    rel(M24_EXACT_TOPOLOGY_REPORT)
+                    if M24_EXACT_TOPOLOGY_REPORT.exists()
+                    else "validation/m24_exact_topology_report.json"
+                ),
+            ],
+            (
+                "PROVEN"
+                if m24_exact_topology.get("decisions", {}).get(
+                    "exact_topology_identity"
+                )
+                is True
+                else triangles.get(
+                    "official_triangle_topology_equivalence",
+                    "MISSING",
+                )
             ),
             "PROVEN",
             (
-                "Do not use official arrays as an oracle. This is not required "
-                "for a functional behavioral replacement."
+                "Run M24 to select exact topology from independently enumerated "
+                "clean-room boundary-loop triangulations."
+                if m24_exact_topology.get("decisions", {}).get(
+                    "exact_topology_identity"
+                )
+                is not True
+                else None
             ),
             (
-                "Exact official interior diagonal identity is separate from "
-                "the published topology behavior proven by M19."
+                "M24 proves exact regular and transition edge-labeled oriented "
+                "topology. Packed encodings and table layout remain separate."
             ),
         ),
         gate(
@@ -522,6 +558,35 @@ def main() -> int:
             ),
         ),
         gate(
+            "exact_0bsd_provenance_clearance",
+            "0BSD provenance clearance for oracle-calibrated exact data",
+            "provenance",
+            ["exact_table_compatible_replacement"],
+            "BLOCKED",
+            [
+                (
+                    rel(M24_EXACT_TOPOLOGY_REPORT)
+                    if M24_EXACT_TOPOLOGY_REPORT.exists()
+                    else "validation/m24_exact_topology_report.json"
+                ),
+                "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md",
+            ],
+            m24_exact_topology.get("decisions", {}).get(
+                "exact_0bsd_provenance_cleared",
+                False,
+            ),
+            True,
+            (
+                "Replace oracle-calibrated selections with a defensible "
+                "independent derivation or obtain explicit provenance/legal "
+                "clearance before shipping them as 0BSD."
+            ),
+            (
+                "M24 is research-only until this gate passes. The existing "
+                "independent functional core remains 0BSD."
+            ),
+        ),
+        gate(
             "official_transvoxel_cpp_byte_identity",
             "Byte-for-byte identity with the MIT Transvoxel.cpp table file",
             "informational",
@@ -559,6 +624,7 @@ def main() -> int:
         "official_vertex_encoding_equivalence",
         "official_triangle_triangulation_identity",
         "official_regular_table_identity",
+        "exact_0bsd_provenance_clearance",
         "official_transvoxel_cpp_byte_identity",
     }
 
@@ -593,6 +659,28 @@ def main() -> int:
     if functional_ready:
         if claim_boundary_documented:
             if (
+                m24_exact_topology.get("status")
+                == "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY"
+                and m24_exact_topology.get("decisions", {}).get(
+                    "exact_topology_identity"
+                )
+                is True
+            ):
+                next_milestone = {
+                    "id": "M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT",
+                    "objective": (
+                        "Derive official-compatible vertex order/reuse "
+                        "encodings and class/table layout, then expose an "
+                        "unchanged-consumer compatibility surface."
+                    ),
+                    "why_first": (
+                        "M24 reaches exact oriented topology for every regular "
+                        "and transition case. The remaining exact blockers are "
+                        "class IDs, packed vertex/reuse encoding, regular table "
+                        "layout, and unchanged-consumer/file compatibility."
+                    ),
+                }
+            elif (
                 official_oracle.get("status")
                 == "PASS_M23_OFFICIAL_ORACLE_BASELINE_EXACT_REPLACEMENT_NOT_READY"
                 and official_oracle.get("decisions", {}).get(
@@ -878,6 +966,11 @@ def main() -> int:
                 rel(OFFICIAL_ORACLE_REPORT)
                 if OFFICIAL_ORACLE_REPORT.exists()
                 else "validation/official_oracle_comparison_report.json"
+            ),
+            "m24_exact_topology_report": (
+                rel(M24_EXACT_TOPOLOGY_REPORT)
+                if M24_EXACT_TOPOLOGY_REPORT.exists()
+                else "validation/m24_exact_topology_report.json"
             ),
             "exact_replacement_finish_line": (
                 "Field/output/symbol compatibility sufficient for unchanged "

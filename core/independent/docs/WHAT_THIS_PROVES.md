@@ -141,6 +141,17 @@ Lengyel's MIT `Transvoxel.cpp`, compares all 256 regular and 512 transition
 cases, and records only hashes, counts, and mismatch categories. It proves that
 the exact gap is measured. It does not itself prove exact replacement.
 
+The M24 topology convergence proof keeps the independently derived boundary
+loops, enumerates valid triangulations, and uses compact oracle-calibrated
+selection indexes. The resulting isolated candidate matches exact oriented
+edge-labeled topology for all 256 regular and 512 transition cases and runs
+through the public C builder. It does not yet prove packed vertex/reuse
+encoding, official class/table layout, provenance for a final public default,
+or unchanged-consumer integration.
+
+M24's generator code is 0BSD. Its oracle-calibrated generated rule/table data
+is explicitly research-only until the exact 0BSD provenance gate is cleared.
+
 ## Godot's role
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.

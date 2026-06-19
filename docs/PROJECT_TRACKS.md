@@ -48,8 +48,10 @@ official_73_class_mapping: NOT_PROVEN
 published_reference_sign_orientation_equivalence: PROVEN_M18
 published_transition_topology_behavior: PROVEN_M19
 clean_room_regular_cell_equivalence: PROVEN_M20
-exact_official_triangulation_identity: NOT_PROVEN
+exact_official_triangulation_identity: PROVEN_M24
 official_oracle_baseline: COMPLETE_M23
+exact_regular_transition_topology: PROVEN_M24
+exact_candidate_0bsd_provenance: NOT_CLEARED
 exact_replacement_finish_line: ACTIVE
 ```
 
@@ -59,6 +61,11 @@ M23 uses a verified external MIT checkout only as an isolated comparison
 oracle. The repository stores case-level booleans, counts, and hashes, not
 oracle arrays. M24 targets the measured topology mismatches before any
 unchanged-consumer integration claim.
+
+M24 now resolves those topology mismatches in the isolated research candidate:
+256/256 regular and 512/512 transition oriented topologies match. M25 owns
+vertex ordering/reuse encoding, class/table layout, and unchanged-consumer
+compatibility.
 
 ## Why this split exists
 

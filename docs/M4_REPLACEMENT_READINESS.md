@@ -79,8 +79,14 @@ RUN_M22.cmd
 The current expected result is a passing readiness analysis with the
 functional full replacement decision ready, exact table-compatible replacement
 blocked, the M22 claim boundary documented, the M23 exhaustive oracle baseline
-complete, and M24 exact topology convergence selected as the next milestone.
+complete, M24 exact topology convergence proven, and M25 exact vertex
+encoding/table layout selected as the next milestone.
 
 The exact-replacement finish line requires field/output/symbol compatibility
 and unchanged-consumer integration. It does not require byte-identical source
 text.
+
+After M24 passes, exact regular and transition edge-labeled oriented topology
+is proven. Readiness then selects M25 exact vertex encoding and table layout.
+The exact replacement decision remains blocked until those encodings and an
+unchanged-consumer integration surface pass.

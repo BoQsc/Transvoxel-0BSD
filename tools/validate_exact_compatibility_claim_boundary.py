@@ -33,8 +33,10 @@ EXPECTED_EXACT_BLOCKERS = {
     "official_vertex_encoding_equivalence",
     "official_triangle_triangulation_identity",
     "official_regular_table_identity",
+    "exact_0bsd_provenance_clearance",
     "official_transvoxel_cpp_byte_identity",
 }
+M24_REPORT = ROOT / "validation" / "m24_exact_topology_report.json"
 
 CLAIM_FILES = [
     "README.md",
@@ -145,11 +147,22 @@ def validate_reports() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         add_error(errors, "functional_ready", "functional replacement is not ready", rel(READINESS))
     if decisions.get("exact_table_compatible_replacement_ready") is not False:
         add_error(errors, "exact_not_ready", "exact compatibility must remain false", rel(READINESS))
-    if blockers != EXPECTED_EXACT_BLOCKERS:
+    expected_blockers = set(EXPECTED_EXACT_BLOCKERS)
+    if M24_REPORT.exists():
+        m24 = read_json(M24_REPORT)
+        if (
+            m24.get("status")
+            == "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY"
+            and m24.get("decisions", {}).get("exact_topology_identity") is True
+        ):
+            expected_blockers.discard(
+                "official_triangle_triangulation_identity"
+            )
+    if blockers != expected_blockers:
         add_error(
             errors,
             "exact_blockers",
-            f"expected {sorted(EXPECTED_EXACT_BLOCKERS)}, got {sorted(blockers)}",
+            f"expected {sorted(expected_blockers)}, got {sorted(blockers)}",
             rel(READINESS),
         )
     if claim_boundary.get("byte_identity_required_for_functional_replacement") is not False:

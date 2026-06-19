@@ -26,6 +26,7 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
 - `m4_selected_full_production_gate`
 - `official_reference_convention_equivalence`
 - `official_transition_topology_equivalence`
+- `official_triangle_triangulation_identity`
 - `official_regular_cell_equivalence`
 - `transvoxel_cpp_consumer_compatibility_contract`
 
@@ -39,14 +40,14 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN`
   - Next: Define and prove an independently derived vertex-code/cache-reuse encoding contract.
-- `official_triangle_triangulation_identity`: Exact official transition interior triangulation identity
-  - Actual: `NOT_PROVEN`
-  - Required: `PROVEN`
-  - Next: Do not use official arrays as an oracle. This is not required for a functional behavioral replacement.
 - `official_regular_table_identity`: Exact official regular-cell class/encoding/table identity
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN`
   - Next: Do not use official arrays as an oracle. Exact regular table identity is not required for functional replacement.
+- `exact_0bsd_provenance_clearance`: 0BSD provenance clearance for oracle-calibrated exact data
+  - Actual: `False`
+  - Required: `True`
+  - Next: Replace oracle-calibrated selections with a defensible independent derivation or obtain explicit provenance/legal clearance before shipping them as 0BSD.
 - `official_transvoxel_cpp_byte_identity`: Byte-for-byte identity with the MIT Transvoxel.cpp table file
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN only if exact table-file compatibility is claimed`
@@ -54,6 +55,6 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
 
 ## Next milestone
 
-`M24_EXACT_TOPOLOGY_CONVERGENCE` — Converge all 256 regular and 512 transition cases on the verified official edge-labeled oriented topology.
+`M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT` — Derive official-compatible vertex order/reuse encodings and class/table layout, then expose an unchanged-consumer compatibility surface.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

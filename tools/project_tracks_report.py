@@ -60,6 +60,9 @@ def main() -> int:
     official_oracle = read_json(
         "validation/official_oracle_comparison_report.json"
     )
+    m24_exact_topology = read_json(
+        "validation/m24_exact_topology_report.json"
+    )
 
     independent_ok = not missing_independent
     official_track_ok = not missing_official
@@ -120,6 +123,20 @@ def main() -> int:
                     "decisions",
                     {},
                 ).get("exact_replacement_ready", False),
+                "exact_oriented_topology_identity": (
+                    "PROVEN"
+                    if m24_exact_topology.get("decisions", {}).get(
+                        "exact_topology_identity"
+                    )
+                    is True
+                    else "NOT_PROVEN"
+                ),
+                "exact_0bsd_provenance_cleared": (
+                    m24_exact_topology.get("decisions", {}).get(
+                        "exact_0bsd_provenance_cleared",
+                        False,
+                    )
+                ),
             },
         },
         "supporting_reports": {
@@ -149,6 +166,7 @@ def main() -> int:
             "official_oracle_comparison_status": official_oracle.get(
                 "status"
             ),
+            "m24_exact_topology_status": m24_exact_topology.get("status"),
         },
         "meaning": (
             "The independent core can be released/evaluated independently. "
@@ -158,7 +176,9 @@ def main() -> int:
             "transition export and public C/C++ consumer contract. M22 locks "
             "the exact compatibility claim boundary. M23 measures every "
             "regular and transition case against the verified external "
-            "official oracle; exact replacement remains active work."
+            "official oracle. M24 proves exact edge-labeled oriented topology; "
+            "encoding/layout and unchanged-consumer compatibility remain "
+            "active work."
         ),
     }
     VALIDATION.mkdir(exist_ok=True)

@@ -64,3 +64,22 @@ never copy or package oracle arrays in the 0BSD repository
 Exact replacement means compatible topology, table fields/encodings, exported
 symbols, and unchanged-consumer integration. Byte-identical source text is not
 required.
+
+## M24 topology rule boundary
+
+M24 is an isolated research candidate. It retains the independently derived
+boundary loops and enumerates valid triangulations without oracle data. The
+verified oracle selects compact option indexes from that enumeration.
+
+M24 proves:
+
+```text
+256/256 exact regular edge-labeled oriented topologies
+512/512 exact transition edge-labeled oriented topologies
+```
+
+It does not yet authorize an exact replacement claim. The option-index
+provenance must remain explicit, and official vertex ordering/reuse encoding,
+class/table layout, and unchanged-consumer integration remain blocked.
+The M24-generated rules and candidate tables are research-only and are not
+marked as cleared 0BSD release data.

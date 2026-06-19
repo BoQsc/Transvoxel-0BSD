@@ -1,0 +1,18 @@
+{
+  "attempts": [
+    {
+      "compile_returncode": 0,
+      "compile_stderr": "",
+      "compile_stdout": "",
+      "compiler": "zig cc",
+      "run_returncode": 0,
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "m24 candidate regular_vertices=1536 regular_triangles=820 transition_vertices=4096 transition_triangles=2640 failures=0\n"
+    }
+  ],
+  "compiler": "zig cc",
+  "schema": "boqsc.transvoxel.m24.c_validation.v1",
+  "status": "PASS_M24_ZIG_EXACT_TOPOLOGY_CANDIDATE",
+  "stdout": "m24 candidate regular_vertices=1536 regular_triangles=820 transition_vertices=4096 transition_triangles=2640 failures=0\n"
+}

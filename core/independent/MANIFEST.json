@@ -26,14 +26,14 @@
       "sha256": "26f9d9dfbc79d14bd6f7fe3e2e61ae502516bb78acc29bbd8920e3385a3972c7"
     },
     {
-      "bytes": 2031,
+      "bytes": 2757,
       "path": "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md",
-      "sha256": "f436f1cc1de766ecc1ff6848615012c6b9f7a27aa73853e5ecd10a02977d43f0"
+      "sha256": "fa27a75d4edac0f4ccd8af6e9c74b57026009ce2114a9009adf6765bbdd8992b"
     },
     {
-      "bytes": 2490,
+      "bytes": 2969,
       "path": "docs/KNOWN_LIMITS.md",
-      "sha256": "73f16101d884cfbc77fdfdb3bef78f8c8a7233ac954261e4f6ba5f9a7daf7563"
+      "sha256": "dad7cd59c34295375487da0bb6d8fc8158ab7683da3894291cff4b0b67862e90"
     },
     {
       "bytes": 3486,
@@ -66,9 +66,9 @@
       "sha256": "9828955b7825ea3159595e521d924b1717eac6601710c442b92c5c4ca609781a"
     },
     {
-      "bytes": 9785,
+      "bytes": 10429,
       "path": "docs/WHAT_THIS_PROVES.md",
-      "sha256": "67cd2481f7feebfbd86e3bc5257cf7e765ac082d4d5d20f10862ac319fc8dfed"
+      "sha256": "5fd0852feeedb3a9aa87454b59b1ab293a271facfef6bac5a4f4fb370cc84324"
     },
     {
       "bytes": 11187,

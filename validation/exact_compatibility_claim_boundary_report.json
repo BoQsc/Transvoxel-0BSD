@@ -16,10 +16,10 @@
   "errors": [],
   "evidence": {
     "blocking_gate_ids": [
+      "exact_0bsd_provenance_clearance",
       "official_class_id_mapping",
       "official_regular_table_identity",
       "official_transvoxel_cpp_byte_identity",
-      "official_triangle_triangulation_identity",
       "official_vertex_encoding_equivalence"
     ],
     "claim_boundary": {
@@ -29,6 +29,7 @@
       "exact_replacement_finish_line": "Field/output/symbol compatibility sufficient for unchanged consumer integration. Byte-identical source text is not required.",
       "m22_claim_boundary_report": "validation/exact_compatibility_claim_boundary_report.json",
       "m23_official_oracle_report": "validation/official_oracle_comparison_report.json",
+      "m24_exact_topology_report": "validation/m24_exact_topology_report.json",
       "not_allowed_now": "Exact official Transvoxel.cpp table layout, class-ID, vertex encoding, triangulation-identity, or byte-identity claim."
     },
     "consumer_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
@@ -55,7 +56,7 @@
       "bytes": 4340
     },
     "README.md": {
-      "bytes": 7869
+      "bytes": 8400
     },
     "README_CORE.txt": {
       "bytes": 1658
@@ -73,16 +74,16 @@
       "bytes": 5502
     },
     "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md": {
-      "bytes": 2031
+      "bytes": 2757
     },
     "docs/KNOWN_LIMITS.md": {
-      "bytes": 2490
+      "bytes": 2969
     },
     "docs/M4_REPLACEMENT_READINESS.md": {
-      "bytes": 2850
+      "bytes": 3175
     },
     "docs/WHAT_THIS_PROVES.md": {
-      "bytes": 9785
+      "bytes": 10429
     }
   },
   "schema": "boqsc.transvoxel.m22.exact_compatibility_claim_boundary.v1",

@@ -1,0 +1,3430 @@
+{
+  "generated_rule_license_status": "RESEARCH_ONLY_NOT_YET_CLEARED_FOR_0BSD_RELEASE",
+  "generator_code_license": "0BSD",
+  "inputs": {
+    "class_partition_sha256": "35bd4ade5f4b49a3f21cec3b111bf47d404fa2d7eb7a1e07bbf3d0b95d5bf595",
+    "m3_core_sha256": "d96e69b874a67c1e75e51ec0c085d12c48a584a239ac4817cb806345e9738246",
+    "regular_generator_sha256": "84df10f4c519b0756f1b453a0e8bda4b7bf169005cab37c2f3623ce34fda5986"
+  },
+  "meaning": "Clean-room boundary loops are triangulated by indexes into a deterministic independent enumeration. The external oracle is used only to calibrate those indexes.",
+  "oracle": {
+    "arrays_copied": false,
+    "commit": "51a494f03c5b024cd153b596bcc7152eb3cc93a6",
+    "origin": "https://github.com/EricLengyel/Transvoxel.git",
+    "packed_vertex_codes_copied": false,
+    "sha256": "83a5511346b54c42e4e66dec916d3971c92f4fbda1c7878cbad5901a820dcab4"
+  },
+  "regular": {
+    "case_count": 256,
+    "rules": [
+      {
+        "case": 0,
+        "loop_lengths": [],
+        "option_indexes": []
+      },
+      {
+        "case": 1,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 2,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 3,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 4,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 5,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          1
+        ]
+      },
+      {
+        "case": 6,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 7,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 8,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 9,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 10,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 11,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 12,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 13,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 14,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 15,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 16,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 17,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 18,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 19,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 20,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 21,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 22,
+        "loop_lengths": [
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 23,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          12
+        ]
+      },
+      {
+        "case": 24,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 25,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 26,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          1,
+          0
+        ]
+      },
+      {
+        "case": 27,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          9
+        ]
+      },
+      {
+        "case": 28,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 29,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          9
+        ]
+      },
+      {
+        "case": 30,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          4,
+          0
+        ]
+      },
+      {
+        "case": 31,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 32,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 33,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 34,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          1
+        ]
+      },
+      {
+        "case": 35,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 36,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 37,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 38,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 39,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 40,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 41,
+        "loop_lengths": [
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 42,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 43,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          6
+        ]
+      },
+      {
+        "case": 44,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 45,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 46,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          8
+        ]
+      },
+      {
+        "case": 47,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 48,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          1
+        ]
+      },
+      {
+        "case": 49,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 50,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 51,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          1
+        ]
+      },
+      {
+        "case": 52,
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ]
+      },
+      {
+        "case": 53,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          9
+        ]
+      },
+      {
+        "case": 54,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 55,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 56,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          1,
+          0
+        ]
+      },
+      {
+        "case": 57,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          4,
+          0
+        ]
+      },
+      {
+        "case": 58,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          8
+        ]
+      },
+      {
+        "case": 59,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 60,
+        "loop_lengths": [
+          4,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ]
+      },
+      {
+        "case": 61,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          22
+        ]
+      },
+      {
+        "case": 62,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          22
+        ]
+      },
+      {
+        "case": 63,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 64,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 65,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 66,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 67,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 68,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 69,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 70,
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 71,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 72,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 73,
+        "loop_lengths": [
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 74,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 75,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          4,
+          0
+        ]
+      },
+      {
+        "case": 76,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 77,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 78,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          2
+        ]
+      },
+      {
+        "case": 79,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 80,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 81,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 82,
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 83,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          9
+        ]
+      },
+      {
+        "case": 84,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 85,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 86,
+        "loop_lengths": [
+          3,
+          5
+        ],
+        "option_indexes": [
+          0,
+          4
+        ]
+      },
+      {
+        "case": 87,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 88,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 89,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          4,
+          0
+        ]
+      },
+      {
+        "case": 90,
+        "loop_lengths": [
+          4,
+          4
+        ],
+        "option_indexes": [
+          1,
+          0
+        ]
+      },
+      {
+        "case": 91,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          22
+        ]
+      },
+      {
+        "case": 92,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          8
+        ]
+      },
+      {
+        "case": 93,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 94,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          25
+        ]
+      },
+      {
+        "case": 95,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 96,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 97,
+        "loop_lengths": [
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 98,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 99,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          4,
+          0
+        ]
+      },
+      {
+        "case": 100,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          1,
+          0
+        ]
+      },
+      {
+        "case": 101,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 102,
+        "loop_lengths": [
+          4,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ]
+      },
+      {
+        "case": 103,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          22
+        ]
+      },
+      {
+        "case": 104,
+        "loop_lengths": [
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 105,
+        "loop_lengths": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 106,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 107,
+        "loop_lengths": [
+          6,
+          3
+        ],
+        "option_indexes": [
+          5,
+          0
+        ]
+      },
+      {
+        "case": 108,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          4,
+          0
+        ]
+      },
+      {
+        "case": 109,
+        "loop_lengths": [
+          6,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 110,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          30
+        ]
+      },
+      {
+        "case": 111,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          10
+        ]
+      },
+      {
+        "case": 112,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 113,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          6
+        ]
+      },
+      {
+        "case": 114,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          2
+        ]
+      },
+      {
+        "case": 115,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 116,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          2
+        ]
+      },
+      {
+        "case": 117,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 118,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          29
+        ]
+      },
+      {
+        "case": 119,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 120,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 121,
+        "loop_lengths": [
+          6,
+          3
+        ],
+        "option_indexes": [
+          11,
+          0
+        ]
+      },
+      {
+        "case": 122,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          30
+        ]
+      },
+      {
+        "case": 123,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          10
+        ]
+      },
+      {
+        "case": 124,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          30
+        ]
+      },
+      {
+        "case": 125,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          10
+        ]
+      },
+      {
+        "case": 126,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 127,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 128,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 129,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 130,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 131,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 132,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 133,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 134,
+        "loop_lengths": [
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 135,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 136,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 137,
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ]
+      },
+      {
+        "case": 138,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 139,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          8
+        ]
+      },
+      {
+        "case": 140,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 141,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          8
+        ]
+      },
+      {
+        "case": 142,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          12
+        ]
+      },
+      {
+        "case": 143,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 144,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 145,
+        "loop_lengths": [
+          4,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 146,
+        "loop_lengths": [
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 147,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 148,
+        "loop_lengths": [
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 149,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          4,
+          0
+        ]
+      },
+      {
+        "case": 150,
+        "loop_lengths": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "case": 151,
+        "loop_lengths": [
+          6,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 152,
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ]
+      },
+      {
+        "case": 153,
+        "loop_lengths": [
+          4,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ]
+      },
+      {
+        "case": 154,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          4,
+          0
+        ]
+      },
+      {
+        "case": 155,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          30
+        ]
+      },
+      {
+        "case": 156,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 157,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          30
+        ]
+      },
+      {
+        "case": 158,
+        "loop_lengths": [
+          6,
+          3
+        ],
+        "option_indexes": [
+          8,
+          0
+        ]
+      },
+      {
+        "case": 159,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          13
+        ]
+      },
+      {
+        "case": 160,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 161,
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 162,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 163,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 164,
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 165,
+        "loop_lengths": [
+          4,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ]
+      },
+      {
+        "case": 166,
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          3,
+          0
+        ]
+      },
+      {
+        "case": 167,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          28
+        ]
+      },
+      {
+        "case": 168,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 169,
+        "loop_lengths": [
+          3,
+          5
+        ],
+        "option_indexes": [
+          0,
+          3
+        ]
+      },
+      {
+        "case": 170,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 171,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 172,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          5
+        ]
+      },
+      {
+        "case": 173,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          31
+        ]
+      },
+      {
+        "case": 174,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 175,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 176,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 177,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          8
+        ]
+      },
+      {
+        "case": 178,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          11
+        ]
+      },
+      {
+        "case": 179,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 180,
+        "loop_lengths": [
+          3,
+          5
+        ],
+        "option_indexes": [
+          0,
+          4
+        ]
+      },
+      {
+        "case": 181,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          30
+        ]
+      },
+      {
+        "case": 182,
+        "loop_lengths": [
+          6,
+          3
+        ],
+        "option_indexes": [
+          6,
+          0
+        ]
+      },
+      {
+        "case": 183,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          10
+        ]
+      },
+      {
+        "case": 184,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          7
+        ]
+      },
+      {
+        "case": 185,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          29
+        ]
+      },
+      {
+        "case": 186,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 187,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 188,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          26
+        ]
+      },
+      {
+        "case": 189,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 190,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          10
+        ]
+      },
+      {
+        "case": 191,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 192,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 193,
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ]
+      },
+      {
+        "case": 194,
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ]
+      },
+      {
+        "case": 195,
+        "loop_lengths": [
+          4,
+          4
+        ],
+        "option_indexes": [
+          1,
+          0
+        ]
+      },
+      {
+        "case": 196,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 197,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 198,
+        "loop_lengths": [
+          3,
+          5
+        ],
+        "option_indexes": [
+          0,
+          4
+        ]
+      },
+      {
+        "case": 199,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          27
+        ]
+      },
+      {
+        "case": 200,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 201,
+        "loop_lengths": [
+          3,
+          5
+        ],
+        "option_indexes": [
+          0,
+          3
+        ]
+      },
+      {
+        "case": 202,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          2
+        ]
+      },
+      {
+        "case": 203,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          31
+        ]
+      },
+      {
+        "case": 204,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          1
+        ]
+      },
+      {
+        "case": 205,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 206,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 207,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          1
+        ]
+      },
+      {
+        "case": 208,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 209,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 210,
+        "loop_lengths": [
+          3,
+          5
+        ],
+        "option_indexes": [
+          0,
+          3
+        ]
+      },
+      {
+        "case": 211,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          27
+        ]
+      },
+      {
+        "case": 212,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          12
+        ]
+      },
+      {
+        "case": 213,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 214,
+        "loop_lengths": [
+          3,
+          6
+        ],
+        "option_indexes": [
+          0,
+          12
+        ]
+      },
+      {
+        "case": 215,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          13
+        ]
+      },
+      {
+        "case": 216,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          8
+        ]
+      },
+      {
+        "case": 217,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          28
+        ]
+      },
+      {
+        "case": 218,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          28
+        ]
+      },
+      {
+        "case": 219,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 220,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 221,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          1
+        ]
+      },
+      {
+        "case": 222,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          11
+        ]
+      },
+      {
+        "case": 223,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 224,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 225,
+        "loop_lengths": [
+          3,
+          5
+        ],
+        "option_indexes": [
+          0,
+          4
+        ]
+      },
+      {
+        "case": 226,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          2
+        ]
+      },
+      {
+        "case": 227,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          26
+        ]
+      },
+      {
+        "case": 228,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          2
+        ]
+      },
+      {
+        "case": 229,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          28
+        ]
+      },
+      {
+        "case": 230,
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          28
+        ]
+      },
+      {
+        "case": 231,
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": 232,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          6
+        ]
+      },
+      {
+        "case": 233,
+        "loop_lengths": [
+          3,
+          6
+        ],
+        "option_indexes": [
+          0,
+          6
+        ]
+      },
+      {
+        "case": 234,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 235,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          13
+        ]
+      },
+      {
+        "case": 236,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 237,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          12
+        ]
+      },
+      {
+        "case": 238,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 239,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 240,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 241,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 242,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 243,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 244,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          3
+        ]
+      },
+      {
+        "case": 245,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 246,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          13
+        ]
+      },
+      {
+        "case": 247,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 248,
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          4
+        ]
+      },
+      {
+        "case": 249,
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          11
+        ]
+      },
+      {
+        "case": 250,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          1
+        ]
+      },
+      {
+        "case": 251,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 252,
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 253,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 254,
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ]
+      },
+      {
+        "case": 255,
+        "loop_lengths": [],
+        "option_indexes": []
+      }
+    ]
+  },
+  "schema": "boqsc.transvoxel.m24.topology_rules.v1",
+  "sha256_without_this_field": "5af08a397e584c6e62d730b041be52612f5c9120298cde2754a383396c17503a",
+  "status": "ORACLE_CALIBRATED_CLEAN_ROOM_TRIANGULATION_SELECTIONS",
+  "transition": {
+    "case_count": 512,
+    "research_class_count": 73,
+    "rules": [
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [],
+        "option_indexes": [],
+        "representative_case": 0,
+        "research_class_id": 0
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          1
+        ],
+        "representative_case": 1,
+        "research_class_id": 1
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          3
+        ],
+        "option_indexes": [
+          0
+        ],
+        "representative_case": 2,
+        "research_class_id": 2
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          4
+        ],
+        "option_indexes": [
+          0
+        ],
+        "representative_case": 16,
+        "research_class_id": 3
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          1
+        ],
+        "representative_case": 3,
+        "research_class_id": 4
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          0
+        ],
+        "representative_case": 5,
+        "research_class_id": 5
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 10,
+        "research_class_id": 6
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 12,
+        "research_class_id": 7
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          4,
+          4
+        ],
+        "option_indexes": [
+          1,
+          1
+        ],
+        "representative_case": 17,
+        "research_class_id": 8
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          1
+        ],
+        "representative_case": 18,
+        "research_class_id": 9
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 40,
+        "research_class_id": 10
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          4,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ],
+        "representative_case": 68,
+        "research_class_id": 11
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5
+        ],
+        "option_indexes": [
+          0
+        ],
+        "representative_case": 7,
+        "research_class_id": 12
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          1
+        ],
+        "representative_case": 11,
+        "research_class_id": 13
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          4
+        ],
+        "representative_case": 13,
+        "research_class_id": 14
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 14,
+        "research_class_id": 15
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          13
+        ],
+        "representative_case": 19,
+        "research_class_id": 16
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          4
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 21,
+        "research_class_id": 17
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          1
+        ],
+        "representative_case": 26,
+        "research_class_id": 18
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5,
+          4
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 28,
+        "research_class_id": 19
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          1,
+          0
+        ],
+        "representative_case": 41,
+        "research_class_id": 20
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ],
+        "representative_case": 42,
+        "research_class_id": 21
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          0
+        ],
+        "representative_case": 56,
+        "research_class_id": 22
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8
+        ],
+        "option_indexes": [
+          43
+        ],
+        "representative_case": 69,
+        "research_class_id": 23
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ],
+        "representative_case": 70,
+        "research_class_id": 24
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          4,
+          4,
+          4
+        ],
+        "option_indexes": [
+          0,
+          0,
+          1
+        ],
+        "representative_case": 84,
+        "research_class_id": 25
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          3
+        ],
+        "option_indexes": [
+          1,
+          0
+        ],
+        "representative_case": 97,
+        "research_class_id": 26
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          3,
+          3,
+          4
+        ],
+        "option_indexes": [
+          0,
+          0,
+          1
+        ],
+        "representative_case": 98,
+        "research_class_id": 27
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          0
+        ],
+        "representative_case": 15,
+        "research_class_id": 28
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          2
+        ],
+        "representative_case": 23,
+        "research_class_id": 29
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          1
+        ],
+        "representative_case": 27,
+        "research_class_id": 30
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          9
+        ],
+        "option_indexes": [
+          111
+        ],
+        "representative_case": 29,
+        "research_class_id": 31
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8
+        ],
+        "option_indexes": [
+          61
+        ],
+        "representative_case": 30,
+        "research_class_id": 32
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 43,
+        "research_class_id": 33
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8
+        ],
+        "option_indexes": [
+          14
+        ],
+        "representative_case": 45,
+        "research_class_id": 34
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8
+        ],
+        "option_indexes": [
+          59
+        ],
+        "representative_case": 57,
+        "research_class_id": 35
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          8
+        ],
+        "representative_case": 58,
+        "research_class_id": 36
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          7
+        ],
+        "option_indexes": [
+          17
+        ],
+        "representative_case": 71,
+        "research_class_id": 37
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5,
+          5
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 78,
+        "research_class_id": 38
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8,
+          4
+        ],
+        "option_indexes": [
+          43,
+          1
+        ],
+        "representative_case": 85,
+        "research_class_id": 39
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          7,
+          4
+        ],
+        "option_indexes": [
+          14,
+          1
+        ],
+        "representative_case": 86,
+        "research_class_id": 40
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          7,
+          3
+        ],
+        "option_indexes": [
+          4,
+          0
+        ],
+        "representative_case": 99,
+        "research_class_id": 41
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          9
+        ],
+        "option_indexes": [
+          218
+        ],
+        "representative_case": 101,
+        "research_class_id": 42
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ],
+        "representative_case": 102,
+        "research_class_id": 43
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 105,
+        "research_class_id": 44
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          3,
+          5,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0
+        ],
+        "representative_case": 106,
+        "research_class_id": 45
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          5,
+          5
+        ],
+        "option_indexes": [
+          0,
+          1
+        ],
+        "representative_case": 108,
+        "research_class_id": 46
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          5
+        ],
+        "option_indexes": [
+          1,
+          0
+        ],
+        "representative_case": 113,
+        "research_class_id": 47
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ],
+        "representative_case": 114,
+        "research_class_id": 48
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "representative_case": 170,
+        "research_class_id": 49
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8
+        ],
+        "option_indexes": [
+          73
+        ],
+        "representative_case": 325,
+        "research_class_id": 50
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6
+        ],
+        "option_indexes": [
+          1
+        ],
+        "representative_case": 351,
+        "research_class_id": 51
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8
+        ],
+        "option_indexes": [
+          16
+        ],
+        "representative_case": 239,
+        "research_class_id": 52
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8
+        ],
+        "option_indexes": [
+          1
+        ],
+        "representative_case": 119,
+        "research_class_id": 53
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          7,
+          3
+        ],
+        "option_indexes": [
+          2,
+          0
+        ],
+        "representative_case": 175,
+        "research_class_id": 54
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          9
+        ],
+        "option_indexes": [
+          16
+        ],
+        "representative_case": 231,
+        "research_class_id": 55
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          9
+        ],
+        "option_indexes": [
+          0
+        ],
+        "representative_case": 343,
+        "research_class_id": 56
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          6
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 238,
+        "research_class_id": 57
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          4
+        ],
+        "option_indexes": [
+          0,
+          1
+        ],
+        "representative_case": 245,
+        "research_class_id": 58
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          3
+        ],
+        "option_indexes": [
+          0,
+          0
+        ],
+        "representative_case": 107,
+        "research_class_id": 59
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          9
+        ],
+        "option_indexes": [
+          3
+        ],
+        "representative_case": 87,
+        "research_class_id": 60
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          4
+        ],
+        "option_indexes": [
+          1,
+          1
+        ],
+        "representative_case": 118,
+        "research_class_id": 61
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          3,
+          3
+        ],
+        "option_indexes": [
+          1,
+          0,
+          0
+        ],
+        "representative_case": 171,
+        "research_class_id": 62
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          6,
+          5
+        ],
+        "option_indexes": [
+          1,
+          0
+        ],
+        "representative_case": 110,
+        "research_class_id": 63
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          10
+        ],
+        "option_indexes": [
+          10
+        ],
+        "representative_case": 115,
+        "research_class_id": 64
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          11
+        ],
+        "option_indexes": [
+          1
+        ],
+        "representative_case": 117,
+        "research_class_id": 65
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8,
+          3
+        ],
+        "option_indexes": [
+          14,
+          0
+        ],
+        "representative_case": 173,
+        "research_class_id": 66
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          10
+        ],
+        "option_indexes": [
+          46
+        ],
+        "representative_case": 229,
+        "research_class_id": 67
+      },
+      {
+        "annulus_signature": {
+          "inner_direction": 1,
+          "inner_start": 0,
+          "outer_direction": -1,
+          "outer_start": 0,
+          "outer_steps": [
+            0,
+            1,
+            3,
+            5,
+            6,
+            7,
+            9,
+            11
+          ]
+        },
+        "kind": "planar_annulus_zipper",
+        "loop_lengths": [
+          8,
+          4
+        ],
+        "representative_case": 341,
+        "research_class_id": 68
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          8
+        ],
+        "option_indexes": [
+          114
+        ],
+        "representative_case": 254,
+        "research_class_id": 69
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          9
+        ],
+        "option_indexes": [
+          124
+        ],
+        "representative_case": 126,
+        "research_class_id": 70
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          10
+        ],
+        "option_indexes": [
+          103
+        ],
+        "representative_case": 94,
+        "research_class_id": 71
+      },
+      {
+        "kind": "independent_boundary_loops",
+        "loop_lengths": [
+          10
+        ],
+        "option_indexes": [
+          39
+        ],
+        "representative_case": 124,
+        "research_class_id": 72
+      }
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "c_status": "PASS_M24_ZIG_EXACT_TOPOLOGY_CANDIDATE",
+  "claim_boundary_status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
+  "consumer_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+  "meaning": "M24 proves exact regular and transition edge-labeled oriented topology using clean-room boundary derivation and compact oracle-calibrated triangulation-selection rules.",
+  "project_tracks_status": "PASS",
+  "readiness": {
+    "blocking_gate_ids": [
+      "official_class_id_mapping",
+      "official_vertex_encoding_equivalence",
+      "official_regular_table_identity",
+      "exact_0bsd_provenance_clearance",
+      "official_transvoxel_cpp_byte_identity"
+    ],
+    "next_milestone": {
+      "id": "M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT",
+      "objective": "Derive official-compatible vertex order/reuse encodings and class/table layout, then expose an unchanged-consumer compatibility surface.",
+      "why_first": "M24 reaches exact oriented topology for every regular and transition case. The remaining exact blockers are class IDs, packed vertex/reuse encoding, regular table layout, and unchanged-consumer/file compatibility."
+    },
+    "status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED"
+  },
+  "schema": "boqsc.transvoxel.official_topology.m24.report.v1",
+  "status": "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "research/official_topology/m24/build_exact_topology_candidate.py"
+      ],
+      "output": "M24 topology candidate: PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY\nregular oriented topology: 256 / 256\ntransition oriented topology: 512 / 512\n<repo>\\research\\official_topology\\m24\\generated\\m24_exact_topology_tables.json\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m24/test_m24_candidate_c.py"
+      ],
+      "output": "M24 C candidate: PASS_M24_ZIG_EXACT_TOPOLOGY_CANDIDATE\nm24 candidate regular_vertices=1536 regular_triangles=820 transition_vertices=4096 transition_triangles=2640 failures=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/export_transvoxel.py"
+      ],
+      "output": "wrote <repo>\\generated\\transvoxel_tables.json\nsha256 2abb673609099eb3c456c6b4e235fda700c67feea9fa59fa6df8b3b5ff51416f\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_transvoxel.py"
+      ],
+      "output": "PASS\n<repo>\\validation\\transvoxel_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_core_c.py"
+      ],
+      "output": "trying C compiler: <home>\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe cc\nregular case=23 vertices=6 triangles=4\nregular first_vertex=(1.000, 0.250, 0.000)\ntransition case=11 vertices=6 triangles=4\ntransition first_vertex=(0.250, 1.000, 0.000)\nwrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_clean_room_m4\nhigh_lod0 triangles=45 transition triangles=6 low_lod1 triangles=9\ncore C test: PASS\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_consumer_compatibility.py"
+      ],
+      "output": "consumer compatibility test: PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY\nm21 consumer contract cases=512 default_vertices=4096 default_triangles=2640 max_vertices=12 max_triangles=12 m4_matches=512 sample13_ignored=512 callback_checks=3 failures=0\n\ncpp consumer transition case=341 vertices=12 triangles=12\n\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact claim boundary documented: True\nblocking gates: 5\nnext milestone: M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_exact_compatibility_claim_boundary.py"
+      ],
+      "output": "exact compatibility claim boundary: PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact claim boundary documented: True\nblocking gates: 5\nnext milestone: M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/project_tracks_report.py"
+      ],
+      "output": "project tracks: PASS\nindependent_core: PASS\nofficial_topology_research: IN_PROGRESS\n",
+      "returncode": 0
+    }
+  ],
+  "topology_summary": {
+    "regular_oriented_matches": 256,
+    "rules": {
+      "path": "research/official_topology/m24/topology_rules.json",
+      "regular_rule_count": 256,
+      "sha256": "5027f2affe97ebf234a6f68ac0da537ee3098ea8fe5ba1703464a5e4ed26cc73",
+      "transition_class_rule_count": 73
+    },
+    "status": "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY",
+    "transition_oriented_matches": 512
+  }
+}
