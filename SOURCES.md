@@ -34,6 +34,11 @@ contours, Figure 3.8 and Listing 3.1 for regular-corner numbering and case bits,
 and Section 3.2 for the active-edge, 12-vertex, and 5-triangle limits. No
 official regular lookup-table arrays are used.
 
+M21 uses the clean-room M4 published-topology table proven by M18/M19 as the
+default transition source and the clean-room regular table proven by M20 as the
+default regular source. It proves the public C/C++ functional consumer contract.
+No official transition or regular lookup-table arrays are used.
+
 ## License references
 
 - SPDX 0BSD page.

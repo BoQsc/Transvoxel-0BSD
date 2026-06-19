@@ -43,6 +43,8 @@ CORE_FILES = [
     "examples/c_m4_backend_switch/main.c",
     "examples/c_m4_backend_switch/BUILD_WITH_ZIG.cmd",
     "examples/c_m4_backend_switch/BUILD_WITH_CC.sh",
+    "examples/c_m21_consumer_contract/main.c",
+    "examples/cpp_consumer/main.cpp",
 ]
 
 
@@ -79,7 +81,7 @@ def main() -> int:
         "core_zip": str(CORE_ZIP),
         "copied": copied,
         "missing": missing,
-        "note": "Core zip includes the default independent backend and the opt-in M4 candidate backend source path. It intentionally excludes generated JSON proof data. Use the full repository package for generator/proof data.",
+        "note": "Core zip includes the default clean-room regular/M4 transition backend plus explicit M4 direct APIs and callback-adapter source path. It intentionally excludes generated JSON proof data. Use the full repository package for generator/proof data.",
     }
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")

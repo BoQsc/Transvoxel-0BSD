@@ -50,6 +50,10 @@ def main() -> int:
     regular_equivalence = read_json(
         "validation/regular_cell_equivalence_report.json"
     )
+    consumer_compatibility = read_json(
+        "validation/consumer_compatibility_report.json"
+    )
+    readiness = read_json("validation/m4_replacement_readiness_report.json")
 
     independent_ok = not missing_independent
     official_track_ok = not missing_official
@@ -63,6 +67,18 @@ def main() -> int:
                 "purpose": "Proven practical 0BSD drop-in core.",
                 "missing": missing_independent,
                 "official_equivalence": "NOT_CLAIMED",
+                "functional_transvoxel_cpp_replacement": (
+                    "PROVEN"
+                    if readiness.get("decisions", {}).get(
+                        "functional_full_replacement_ready"
+                    )
+                    is True
+                    else "NOT_PROVEN"
+                ),
+                "consumer_compatibility": consumer_compatibility.get(
+                    "functional_transvoxel_cpp_consumer_compatibility",
+                    "NOT_PROVEN",
+                ),
             },
             "official_topology_research": {
                 "status": "IN_PROGRESS" if official_track_ok else "MISSING_FILES",
@@ -105,12 +121,18 @@ def main() -> int:
             "regular_cell_equivalence_status": regular_equivalence.get(
                 "status"
             ),
+            "consumer_compatibility_status": consumer_compatibility.get(
+                "status"
+            ),
+            "replacement_readiness_status": readiness.get("status"),
         },
         "meaning": (
             "The independent core can be released/evaluated independently. "
             "The published transition reference convention, transition "
             "topology behavior, and clean-room regular-cell behavior are "
-            "proven by M18-M20; exact table compatibility remains separate."
+            "proven by M18-M20. M21 proves the default clean-room M4 "
+            "transition export and public C/C++ consumer contract; exact "
+            "table compatibility remains separate."
         ),
     }
     VALIDATION.mkdir(exist_ok=True)

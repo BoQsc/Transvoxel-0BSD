@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: 0BSD
-"""Compile and run the optional M4 backend package example."""
+"""Compile and run the M4 callback-adapter package example."""
 from __future__ import annotations
 
 import json
@@ -128,17 +128,17 @@ def parsed_output_errors(parsed: Dict[str, int]) -> List[str]:
     errors: List[str] = []
     required_exact = {
         "case": 341,
+        "default_vertices": 12,
+        "default_triangles": 12,
         "m4_vertices": 12,
         "m4_triangles": 12,
+        "same_as_default": 1,
         "restored_default": 1,
         "custom_after": 0,
     }
     for key, expected in required_exact.items():
         if parsed.get(key) != expected:
             errors.append(f"{key} expected {expected}, got {parsed.get(key)}")
-    for key in ["default_vertices", "default_triangles"]:
-        if parsed.get(key, 0) <= 0:
-            errors.append(f"{key} must be positive, got {parsed.get(key)}")
     return errors
 
 
@@ -218,13 +218,14 @@ def main() -> int:
         "schema": "boqsc.transvoxel.m4_backend_c_report.v1",
         "status": "SKIPPED_NO_C_COMPILER",
         "meaning": (
-            "Compiles and runs the optional M4 backend package example through "
-            "the normal transvoxel.h API. This is not an official "
-            "Transvoxel.cpp equivalence proof."
+            "Compiles and runs the M4 backend callback adapter package example "
+            "through the normal transvoxel.h API. Since M21 makes clean-room "
+            "M4 the default transition path, this proves callback install/"
+            "uninstall compatibility rather than a distinct optional topology."
         ),
         "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
         "official_triangle_topology_equivalence": "NOT_PROVEN",
-        "default_core_replaced": False,
+        "default_core_replaced": True,
         "validated_files": VALIDATED_FILES,
         "attempts": attempts,
     }
@@ -243,12 +244,12 @@ def main() -> int:
                 "compiler": result["candidate"],
                 "source": result["source"],
                 "checks": [
-                    "compiled default independent backend and optional M4 backend sources together",
-                    "public transvoxel.h transition API starts on the default backend",
-                    "M4 backend installs through transvoxel_m4_backend.h",
-                    "tv_build_transition_cell routes through M4 after explicit install",
-                    "M4 candidate builds the max-triangle package smoke case",
-                    "M4 backend uninstalls and restores the default backend",
+                    "compiled default clean-room M4 backend and explicit M4 adapter sources together",
+                    "public transvoxel.h transition API starts on the default clean-room M4 backend",
+                    "default backend builds the max-triangle M4 package smoke case",
+                    "M4 callback adapter installs through transvoxel_m4_backend.h",
+                    "tv_build_transition_cell preserves M4 behavior after explicit adapter install",
+                    "M4 callback adapter uninstalls and restores the default clean-room M4 backend",
                 ],
                 "stdout": result["stdout"],
                 "parsed": result["parsed"],
@@ -259,7 +260,7 @@ def main() -> int:
             return 0
 
     report["status"] = "FAIL_M4_BACKEND_PACKAGE_C_EXAMPLE"
-    report["reason"] = "all detected C compiler candidates failed the optional M4 backend package example"
+    report["reason"] = "all detected C compiler candidates failed the M4 callback-adapter package example"
     write_json(REPORT_PATH, report)
     print("M4 backend package C test:", report["status"])
     return 1

@@ -5,18 +5,17 @@
     "official_vertex_encoding_equivalence",
     "official_triangle_triangulation_identity",
     "official_regular_table_identity",
-    "transvoxel_cpp_consumer_compatibility_contract",
     "official_transvoxel_cpp_byte_identity"
   ],
   "claim_boundary": {
-    "allowed_now": "Clean-room M4 transition backend with enough runtime and production evidence to replace the independent default transition backend; the switch has not been made.",
+    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.",
     "byte_identity_required_for_exact_table_identity_claim": true,
     "byte_identity_required_for_functional_replacement": false,
-    "not_allowed_now": "Proven full Transvoxel.cpp replacement or official topology equivalence."
+    "not_allowed_now": "Exact official Transvoxel.cpp table layout, class-ID, vertex encoding, triangulation-identity, or byte-identity claim."
   },
   "decisions": {
     "exact_table_compatible_replacement_ready": false,
-    "functional_full_replacement_ready": false,
+    "functional_full_replacement_ready": true,
     "optional_transition_backend_candidate_ready": true,
     "ready_to_replace_default_transition_backend": true
   },
@@ -346,19 +345,21 @@
       "title": "Exact official regular-cell class/encoding/table identity"
     },
     {
-      "actual": "NOT_CLAIMED",
+      "actual": "PROVEN",
       "category": "full_replacement",
       "evidence": [
-        "The current public product is a plain C API and does not claim field-for-field Transvoxel.cpp consumer compatibility."
+        "validation/consumer_compatibility_report.json",
+        "examples/c_m21_consumer_contract/main.c",
+        "examples/cpp_consumer/main.cpp"
       ],
-      "expected": "Explicit adapter/compatibility contract with compile and behavior tests",
+      "expected": "PROVEN",
       "id": "transvoxel_cpp_consumer_compatibility_contract",
-      "next_action": "Specify whether the final product is behavioral replacement, source adapter, or table-layout compatible, then test that contract.",
+      "note": "This gate proves the behavioral public API replacement contract. It does not claim field-for-field or byte-for-byte Transvoxel.cpp table compatibility.",
       "required_for": [
         "functional_full_replacement",
         "exact_table_compatible_replacement"
       ],
-      "status": "BLOCKED",
+      "status": "PASS",
       "title": "Documented and tested compatibility contract for Transvoxel.cpp consumers"
     },
     {
@@ -379,11 +380,11 @@
     }
   ],
   "load_errors": [],
-  "meaning": "M4 and the clean-room regular core now pass all functional geometry gates, but a full Transvoxel.cpp replacement remains blocked on the consumer compatibility and default-selection contract.",
+  "meaning": "The public clean-room C/C++ API is ready to use as a functional Transvoxel.cpp replacement: default regular cells, default M4 transition cells, published behavior proofs, and consumer compile/link tests pass. Exact official table layout, class IDs, vertex encoding, triangulation identity, and byte identity remain separate blocked claims.",
   "next_milestone": {
-    "id": "M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
-    "objective": "Define and test the functional compatibility contract for Transvoxel.cpp consumers, then select the clean-room M4 transition path by default.",
-    "why_first": "Transition and regular-cell functional behavior now pass. The remaining functional replacement blocker is the consumer compatibility/default-selection contract."
+    "id": "M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
+    "objective": "Keep functional replacement evidence green while deciding whether exact table-layout/class-ID/encoding compatibility is a required product goal.",
+    "why_first": "M21 makes the public C/C++ functional replacement ready. The remaining blockers are exact official compatibility claims, not functional behavior blockers."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -401,8 +402,9 @@
     "m4_selected_full_production_gate",
     "official_reference_convention_equivalence",
     "official_transition_topology_equivalence",
-    "official_regular_cell_equivalence"
+    "official_regular_cell_equivalence",
+    "transvoxel_cpp_consumer_compatibility_contract"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
-  "status": "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED"
+  "status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED"
 }

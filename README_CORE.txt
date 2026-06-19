@@ -13,7 +13,9 @@ Examples:
 
   examples/c_minimal/
   examples/c_terrain_export/
-  examples/c_m4_backend_switch/  optional M4 candidate backend
+  examples/c_m4_backend_switch/  M4 callback-adapter smoke
+  examples/c_m21_consumer_contract/
+  examples/cpp_consumer/
 
 Read first:
 
@@ -24,10 +26,10 @@ Read first:
 
 License: 0BSD.
 
-Important: this is an independent Transvoxel-style transition core. It is not a relicensed copy of Eric Lengyel's MIT Transvoxel.cpp and does not claim official 73-class table equivalence.
+Important: this is an independent clean-room Transvoxel-style core. It is not a relicensed copy of Eric Lengyel's MIT Transvoxel.cpp and does not claim official 73-class table or byte identity.
 
-The default regular-cell table is a clean-room preferred-polarity modified-Marching-Cubes derivation proven by M20. It uses 256 cases, 18 behavior classes, at most 12 vertices and 5 triangles, and is seam-compatible with the optional M4 transition backend.
+The default regular-cell table is a clean-room preferred-polarity modified-Marching-Cubes derivation proven by M20. It uses 256 cases, 18 behavior classes, at most 12 vertices and 5 triangles.
 
-Optional: the package includes an M4 official-topology candidate backend. It must be compiled and installed explicitly with transvoxel_m4_backend.h. It is not the default backend and still does not prove official Transvoxel.cpp equivalence.
+The default transition-cell table is the clean-room M4 published-topology derivation selected and proven for the public API by M21. It uses 512 cases, at most 12 vertices and 12 triangles, and keeps the 14-sample public ABI while ignoring sample 13 in the default M4 path.
 
-For terrain-style smoke testing, examples/c_terrain_export can be compiled with TV_EXAMPLE_USE_M4_BACKEND_CANDIDATE and the optional M4 source files.
+The package still includes explicit M4 direct/oriented/mapped APIs and the transvoxel_m4_backend.h callback adapter. Those files are compatibility and advanced-use surfaces, not a different default topology.

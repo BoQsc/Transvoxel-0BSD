@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: 0BSD
-"""Validate the Transvoxel table export against canonical tables."""
+"""Validate the Transvoxel table export against its canonical source tables."""
 from __future__ import annotations
 
 import hashlib
@@ -122,11 +122,11 @@ int main(void) {{
 def main() -> int:
     VALIDATION.mkdir(exist_ok=True)
     regular = load(GENERATED / "regular_tables.json")
-    transition = load(GENERATED / "transition_tables.json")
+    transition = load(GENERATED / "official_topology_candidate_tables.json")
     transvoxel = load(GENERATED / "transvoxel_tables.json")
     reports = [
         validate_table("regular", regular, transvoxel["regular"]),
-        validate_table("transition", transition, transvoxel["transition"]),
+        validate_table("transition_m4_default", transition, transvoxel["transition"]),
     ]
     c_smoke = compile_c_smoke_test(GENERATED / "transvoxel_tables.h")
     ok = all(r["ok"] for r in reports) and (c_smoke["ok"] is not False)
@@ -134,9 +134,14 @@ def main() -> int:
         "ok": ok,
         "transvoxel_schema": transvoxel.get("schema"),
         "transvoxel_sha256": transvoxel.get("sha256"),
+        "default_transition_source": transvoxel.get("source_tables", {}).get("transition_source"),
         "tables": reports,
         "c_smoke_test": c_smoke,
-        "status": "validates Transvoxel table ABI against canonical JSON; not official Transvoxel.cpp byte clone",
+        "status": (
+            "validates Transvoxel table ABI against canonical JSON; default "
+            "transition source is clean-room M4 published-topology behavior; "
+            "not official Transvoxel.cpp byte clone"
+        ),
     }
     (VALIDATION / "transvoxel_report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
@@ -147,6 +152,7 @@ def main() -> int:
     md.append("")
     md.append(f"Transvoxel schema: `{report['transvoxel_schema']}`")
     md.append(f"Transvoxel SHA-256: `{report['transvoxel_sha256']}`")
+    md.append(f"Default transition source: `{report['default_transition_source']}`")
     md.append("")
     for r in reports:
         md.append(f"## {r['name']}")
@@ -179,7 +185,7 @@ def main() -> int:
         md.append(c_smoke["stderr"])
         md.append("```")
     md.append("")
-    md.append("This proves that the generated table ABI round-trips back to the canonical JSON and can be consumed by a minimal C-style table reader. It does not prove byte-for-byte identity with Eric Lengyel's MIT-licensed table file.")
+    md.append("This proves that the generated table ABI round-trips back to the canonical JSON and can be consumed by a minimal C-style table reader. The default transition table is the clean-room M4 published-topology source. This does not prove byte-for-byte identity with Eric Lengyel's MIT-licensed table file.")
     (VALIDATION / "transvoxel_report.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     print("PASS" if ok else "FAIL")
     print(VALIDATION / "transvoxel_report.md")

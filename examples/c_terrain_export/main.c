@@ -61,9 +61,9 @@ static TvVec3 sample_world(TvVec3 origin, TvVec3 scale, TvVec3 local) {
 
 static const char *transition_backend_name(void) {
 #ifdef TV_EXAMPLE_USE_M4_BACKEND_CANDIDATE
-    return "m4_candidate";
+    return "m4_callback_adapter";
 #else
-    return "default_independent";
+    return "default_clean_room_m4";
 #endif
 }
 

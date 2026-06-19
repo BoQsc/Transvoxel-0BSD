@@ -57,8 +57,23 @@ func _init() -> void:
 	data["tables"]["regular_schema"] = regular.get("schema", "missing")
 	data["tables"]["transition_schema"] = transition.get("schema", "missing")
 	data["tables"]["transvoxel_schema"] = transvoxel.get("schema", "missing")
+	var source_tables: Dictionary = {}
+	var raw_source_tables: Variant = transvoxel.get("source_tables", {})
+	if typeof(raw_source_tables) == TYPE_DICTIONARY:
+		source_tables = raw_source_tables as Dictionary
+	var transvoxel_transition: Dictionary = {}
+	var raw_transvoxel_transition: Variant = transvoxel.get("transition", {})
+	if typeof(raw_transvoxel_transition) == TYPE_DICTIONARY:
+		transvoxel_transition = raw_transvoxel_transition as Dictionary
 	data["tables"]["regular_cases"] = (regular.get("cases", []) as Array).size() if regular.has("cases") else 0
 	data["tables"]["transition_cases"] = (transition.get("cases", []) as Array).size() if transition.has("cases") else 0
+	data["tables"]["transvoxel_transition_source"] = source_tables.get("transition_source", "missing")
+	data["tables"]["transvoxel_transition_cases"] = int(transvoxel_transition.get("case_count", 0))
+	data["tables"]["transvoxel_transition_classes"] = int(transvoxel_transition.get("class_count", 0))
+	data["tables"]["transvoxel_transition_vertex_refs"] = (transvoxel_transition.get("vertex_refs", []) as Array).size()
+	data["tables"]["transvoxel_transition_triangles"] = (transvoxel_transition.get("triangles", []) as Array).size()
+	data["tables"]["transvoxel_transition_max_vertices"] = int(transvoxel_transition.get("max_vertex_count", 0))
+	data["tables"]["transvoxel_transition_max_triangles"] = int(transvoxel_transition.get("max_triangle_count", 0))
 	data["tables"]["regular_status"] = regular.get("status", "missing")
 	data["tables"]["regular_total_vertices"] = 0
 	data["tables"]["regular_total_triangles"] = 0
@@ -95,6 +110,18 @@ func _init() -> void:
 	if int(data["tables"]["regular_max_triangles"]) != 5:
 		data["status"] = "FAIL"
 	if int(data["tables"]["transition_cases"]) != 512:
+		data["status"] = "FAIL"
+	if String(data["tables"]["transvoxel_transition_source"]) != "generated/official_topology_candidate_tables.json":
+		data["status"] = "FAIL"
+	if int(data["tables"]["transvoxel_transition_cases"]) != 512:
+		data["status"] = "FAIL"
+	if int(data["tables"]["transvoxel_transition_vertex_refs"]) != 4096:
+		data["status"] = "FAIL"
+	if int(data["tables"]["transvoxel_transition_triangles"]) != 2640:
+		data["status"] = "FAIL"
+	if int(data["tables"]["transvoxel_transition_max_vertices"]) != 12:
+		data["status"] = "FAIL"
+	if int(data["tables"]["transvoxel_transition_max_triangles"]) != 12:
 		data["status"] = "FAIL"
 
 	_write_json("res://validation/01_runtime/runtime_dump.json", data)

@@ -14,8 +14,8 @@ Godot runtime and mesh API dumps can be produced
 Godot seam metrics report seam_open_edges = 0
 scripted auto-interaction edits keep the seam checks green
 C core compiles and runs when a C compiler is available
-optional M4 candidate backend package example compiles and runs when a C compiler is available
-optional M4 candidate backend terrain export compiles and runs when a C compiler is available
+M4 callback-adapter package example compiles and runs when a C compiler is available
+default M4 terrain export and M4 callback-adapter terrain export compile and match when a C compiler is available
 optional M4 candidate table is synced into the Godot data path and passes Godot-style metrics without executing Godot
 optional M4 candidate table can feed a real Godot ArrayMesh/MeshDataTool viewer/export path when RUN_M11 is executed with Godot
 default and optional M4 Godot transition-strip mesh paths can be compared side by side when RUN_M12 is executed with Godot
@@ -26,6 +26,7 @@ the M4-selected combined production gate passes when RUN_M17 is executed
 the published M4 transition reference convention passes exhaustive Python and Zig C proof when RUN_M18 is executed
 published M4 transition topology behavior passes all 512 cases when RUN_M19 is executed
 the default clean-room regular-cell table passes preferred-polarity, neighbor-seam, M4-boundary, Zig C, and Godot proof when RUN_M20 is executed
+the default clean-room M4 transition table and C/C++ consumer contract pass when RUN_M21 is executed
 M4 replacement readiness is split into explicit machine-readable candidate/default/full/exact compatibility decisions
 small dist/transvoxel_0bsd_core.zip can be built
 ```
@@ -51,13 +52,14 @@ generated/transvoxel_tables.h
 
 and call a plain C API with no Godot dependency.
 
-The package also proves an optional M4 candidate backend can be compiled from
-package files and installed explicitly through `transvoxel_m4_backend.h`.
-That candidate path is still separate from the default backend.
+The package also proves the M4 callback adapter can be compiled from package
+files and installed explicitly through `transvoxel_m4_backend.h`. Since M21,
+that adapter uses the same clean-room M4 topology source as the default
+transition backend.
 
-The C terrain export proof also checks the same terrain/LOD OBJ export path with
-M4 installed. It confirms regular-cell output is unchanged while the transition
-strip uses the installed M4 backend.
+The C terrain export proof also checks the same terrain/LOD OBJ export path in
+default mode and adapter mode. It confirms regular-cell output and transition
+strip triangle counts match through the callback adapter.
 
 The M4 Godot data-path proof checks that Godot can receive the M4 candidate
 table as staged generated data and that the table satisfies the same non-visual
@@ -122,6 +124,12 @@ table with a preferred-polarity modified-Marching-Cubes derivation. It proves
 regular-neighbor comparisons, 40,960 regular/M4 boundary comparisons, the
 public C runtime, and actual Godot loading.
 
+The M21 default-transition/consumer proof exports the default transition table
+from the clean-room M4 published-topology source, validates 512 default cases,
+4096 vertex refs, 2640 triangles, 12/12 transition maxima, C callback behavior,
+sample-13 ABI retention, C++ include/link smoke, and actual Godot runtime
+loading of the default transvoxel export.
+
 ## Godot's role
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.
@@ -134,8 +142,8 @@ This project does not claim:
 byte-for-byte identity with Eric Lengyel's MIT Transvoxel.cpp
 field-for-field drop-in compatibility with every existing Transvoxel.cpp consumer
 official numeric 73-class IDs
-exact official interior triangulation identity for the optional M4 candidate backend
-finished Godot gameplay terrain/GDExtension integration through the optional M4 candidate backend
+exact official interior triangulation identity
+finished Godot gameplay terrain/GDExtension integration
 a complete game terrain engine
 chunk streaming
 physics/collision generation
@@ -148,9 +156,10 @@ performance certification
 Use this wording:
 
 ```text
-Independent 0BSD Transvoxel-style voxel LOD transition core with generated tables,
-plain C API, reproducible proof tools, Godot validation, and scripted automated
-interaction tests.
+Independent 0BSD Transvoxel-style voxel LOD transition core with generated
+clean-room regular and M4 transition tables, plain C API, C/C++ consumer proof,
+reproducible proof tools, Godot validation, and scripted automated interaction
+tests.
 ```
 
 Avoid this wording:

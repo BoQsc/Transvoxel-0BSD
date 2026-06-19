@@ -34,7 +34,7 @@
           "run_command": [
             "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_minimal\\c_minimal.exe"
           ],
-          "run_output": "regular case=23 vertices=6 triangles=4\nregular first_vertex=(1.000, 0.250, 0.000)\ntransition case=11 vertices=16 triangles=18\ntransition first_vertex=(0.625, 0.625, 0.000)\n",
+          "run_output": "regular case=23 vertices=6 triangles=4\nregular first_vertex=(1.000, 0.250, 0.000)\ntransition case=11 vertices=6 triangles=4\ntransition first_vertex=(0.250, 1.000, 0.000)\n",
           "run_returncode": 0,
           "source": "examples/c_minimal/main.c",
           "status": "PASS"
@@ -63,7 +63,7 @@
           "run_command": [
             "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_terrain_export\\terrain_export.exe"
           ],
-          "run_output": "wrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_independent\nhigh_lod0 triangles=45 transition triangles=36 low_lod1 triangles=9\n",
+          "run_output": "wrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_clean_room_m4\nhigh_lod0 triangles=45 transition triangles=6 low_lod1 triangles=9\n",
           "run_returncode": 0,
           "source": "examples/c_terrain_export/main.c",
           "status": "PASS"

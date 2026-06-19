@@ -28,6 +28,8 @@ REQUIRED = {
     "transvoxel_0bsd_core/examples/c_m4_backend_switch/main.c",
     "transvoxel_0bsd_core/examples/c_m4_backend_switch/BUILD_WITH_ZIG.cmd",
     "transvoxel_0bsd_core/examples/c_m4_backend_switch/BUILD_WITH_CC.sh",
+    "transvoxel_0bsd_core/examples/c_m21_consumer_contract/main.c",
+    "transvoxel_0bsd_core/examples/cpp_consumer/main.cpp",
     "transvoxel_0bsd_core/docs/API.md",
     "transvoxel_0bsd_core/docs/DROP_IN.md",
     "transvoxel_0bsd_core/docs/WHAT_THIS_PROVES.md",

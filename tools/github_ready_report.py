@@ -45,6 +45,7 @@ REQUIRED_FILES = [
     "RUN_M18.cmd",
     "RUN_M19.cmd",
     "RUN_M20.cmd",
+    "RUN_M21.cmd",
     "include/transvoxel.h",
     "include/transvoxel_m4_candidate.h",
     "include/transvoxel_m4_backend.h",
@@ -58,6 +59,7 @@ REQUIRED_FILES = [
     "examples/c_m4_backend_switch/main.c",
     "tools/test_m4_backend_c.py",
     "tools/test_m4_terrain_c.py",
+    "tools/test_consumer_compatibility.py",
     "tools/validate_m4_godot_candidate.py",
     "tools/validate_m4_godot_viewer.py",
     "tools/validate_m4_godot_backend_compare.py",
@@ -96,6 +98,11 @@ REQUIRED_FILES = [
     "examples/c_m20_regular_cell/main.c",
     "research/official_topology/m20/m20_report.json",
     "validation/regular_cell_equivalence_report.json",
+    "examples/c_m21_consumer_contract/main.c",
+    "examples/cpp_consumer/main.cpp",
+    "research/official_topology/m21/run_m21.py",
+    "research/official_topology/m21/m21_report.json",
+    "validation/consumer_compatibility_report.json",
     "dist/transvoxel_0bsd_core.zip",
 ]
 

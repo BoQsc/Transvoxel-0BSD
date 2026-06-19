@@ -1,94 +1,14 @@
 {
   "files": [
     {
-      "bytes": 640,
-      "path": "LICENSE",
-      "sha256": "b5eaf2ff2802acf6fe47565db835c9061d5710a7c41b2dba6d45852a73745f5c"
-    },
-    {
-      "bytes": 1472,
-      "path": "README_CORE.txt",
-      "sha256": "b6cfcb952e01a8703c45f5ca5fc5b25a93d415c94d35de7f353973578b02a31c"
-    },
-    {
-      "bytes": 2713,
-      "path": "PROVENANCE.md",
-      "sha256": "1907f7349d138dd419a17e6fb7cafbd87115bc7aff6db1942b5df2cee65957e0"
-    },
-    {
-      "bytes": 2099,
-      "path": "SOURCES.md",
-      "sha256": "f34dbfbb329990b07e09b56532c7a1a659b3c229541cf72fe40769ab95c7dc94"
-    },
-    {
       "bytes": 648,
       "path": "CLEAN_ROOM_RULES.md",
       "sha256": "059a5dce9c316e5b797c9696f92d1d76c496812778bf26a870aa636ff07ac4d9"
     },
     {
-      "bytes": 3191,
-      "path": "include/transvoxel.h",
-      "sha256": "4c5798d37c9e6dff10ec30f343e6f0e92efa49041592a01c043935215b09fd57"
-    },
-    {
-      "bytes": 7616,
-      "path": "src/transvoxel.c",
-      "sha256": "c0164dbe18c1bb5a147e79a4fbdecf00abd32075cfb1266b1e35d71cfe03a2d8"
-    },
-    {
-      "bytes": 341172,
-      "path": "generated/transvoxel_tables.h",
-      "sha256": "2fb6fa25ed0d8edeb3eb0a7ec15d7634e3cc93f2069ae8a1e6ae9a5fee5c3f95"
-    },
-    {
-      "bytes": 2340,
-      "path": "examples/c_minimal/main.c",
-      "sha256": "9076037d0dc01785e9bcbbf96b61bde6b760a1c8d97d463f226c55fc47ebd7fd"
-    },
-    {
-      "bytes": 297,
-      "path": "examples/c_minimal/BUILD_WITH_ZIG.cmd",
-      "sha256": "12aa3b9fe4d30210e36ab504a2c3528a9c667aa7b606258b3dc474db144aba5b"
-    },
-    {
-      "bytes": 227,
-      "path": "examples/c_minimal/BUILD_WITH_CC.sh",
-      "sha256": "dfdf93b81482419bb2829e855c78b78bae68096f1cd0ea065f3a36eaf2dd5c29"
-    },
-    {
-      "bytes": 4252,
-      "path": "examples/c_terrain_export/main.c",
-      "sha256": "dc234e3f3f902fcaa8cc64d57413b6679e4d7c120f0eb849747793a3e4d2c06c"
-    },
-    {
-      "bytes": 246,
-      "path": "examples/c_terrain_export/BUILD_WITH_ZIG.cmd",
-      "sha256": "d3015cf3ce440296beadda02aa2a79d7e15dc75a7aa9df27818546977fc149c8"
-    },
-    {
-      "bytes": 214,
-      "path": "examples/c_terrain_export/BUILD_WITH_CC.sh",
-      "sha256": "146f3019fa761f2e41e13faecbe3a8e0e56460314f69e17db66ea91a9b0193db"
-    },
-    {
-      "bytes": 3359,
+      "bytes": 8235,
       "path": "docs/API.md",
-      "sha256": "11611bd25925e92e39dd02acd27e119015e036e90a24e00477200341965f18d6"
-    },
-    {
-      "bytes": 3005,
-      "path": "docs/DROP_IN.md",
-      "sha256": "bec190d47d5b83edf5b504e27467effbb5f388dc22791b1a7dc7c55eaa33db76"
-    },
-    {
-      "bytes": 2938,
-      "path": "docs/WHAT_THIS_PROVES.md",
-      "sha256": "43b1bc5d26a05ed7f6accc4599d03ca9744a1aab868519c66ba3f44e7949877b"
-    },
-    {
-      "bytes": 2787,
-      "path": "docs/PROOF_MATRIX.md",
-      "sha256": "629a074f3e00ad4dfd7b3d0efb3aed108c0893abaff8339eafc6facb0f194c9c"
+      "sha256": "667fb99f43e05be70f18fc86b2f0afc27b0af444360af75e5dcc4027ef028bab"
     },
     {
       "bytes": 1045,
@@ -96,14 +16,39 @@
       "sha256": "63bca0628c20bc1e67eb3d3377fe6e50d74f7ddea9ea0d9ab4755e49544dd8f6"
     },
     {
+      "bytes": 2060,
+      "path": "docs/CORE_PACKAGE_CONTENTS.md",
+      "sha256": "6329dc1d41cc1653a9d77d57e93e1cec09e89172049373bfe6dbb1cd18434773"
+    },
+    {
+      "bytes": 5502,
+      "path": "docs/DROP_IN.md",
+      "sha256": "26f9d9dfbc79d14bd6f7fe3e2e61ae502516bb78acc29bbd8920e3385a3972c7"
+    },
+    {
+      "bytes": 1990,
+      "path": "docs/KNOWN_LIMITS.md",
+      "sha256": "4867aac6bedfc583c596fecea646d16498afba6998871e0b5063330e7ca0c484"
+    },
+    {
       "bytes": 3486,
       "path": "docs/OFFICIAL_EQUIVALENCE_RESEARCH.md",
       "sha256": "914269464b27ba55a30db21c2f4636a2598cf7840e6f128c8276467c82e6ef8b"
     },
     {
-      "bytes": 2968,
-      "path": "docs/TOPOLOGY_SIGNATURE_ANALYSIS.md",
-      "sha256": "9828955b7825ea3159595e521d924b1717eac6601710c442b92c5c4ca609781a"
+      "bytes": 2787,
+      "path": "docs/PROOF_MATRIX.md",
+      "sha256": "629a074f3e00ad4dfd7b3d0efb3aed108c0893abaff8339eafc6facb0f194c9c"
+    },
+    {
+      "bytes": 1576,
+      "path": "docs/REFERENCE_CONVENTION_STUDY.md",
+      "sha256": "62b2fd5b6f72a64361a890a256bd9f155e657494c39ae5ecdb54916bb1bafe33"
+    },
+    {
+      "bytes": 3591,
+      "path": "docs/TESTING_BY_USERS.md",
+      "sha256": "a355cc66f5c23309f834db842fe5dec5d1530e70d980c91cad3547904be2e0fb"
     },
     {
       "bytes": 1122,
@@ -111,14 +56,140 @@
       "sha256": "7c070a3a47e8c2556a3e438319b103e04f81aa2af77254f5bca8e00d940dec49"
     },
     {
-      "bytes": 1576,
-      "path": "docs/REFERENCE_CONVENTION_STUDY.md",
-      "sha256": "62b2fd5b6f72a64361a890a256bd9f155e657494c39ae5ecdb54916bb1bafe33"
+      "bytes": 2968,
+      "path": "docs/TOPOLOGY_SIGNATURE_ANALYSIS.md",
+      "sha256": "9828955b7825ea3159595e521d924b1717eac6601710c442b92c5c4ca609781a"
+    },
+    {
+      "bytes": 9118,
+      "path": "docs/WHAT_THIS_PROVES.md",
+      "sha256": "b8b49782de312b47b70fe9b2bcd53418f7d5acc5c0a4fda91debd64ea33522de"
+    },
+    {
+      "bytes": 11187,
+      "path": "examples/c_m21_consumer_contract/main.c",
+      "sha256": "bf8d26e5ff3952af9cb220a97ffa72a640a8e8736ea5b26551f37571f5889900"
+    },
+    {
+      "bytes": 287,
+      "path": "examples/c_m4_backend_switch/BUILD_WITH_CC.sh",
+      "sha256": "e60e6c188e7977af8f44331bf016244b2ea1e8e49d3065b396eb5677cf4eac50"
+    },
+    {
+      "bytes": 289,
+      "path": "examples/c_m4_backend_switch/BUILD_WITH_ZIG.cmd",
+      "sha256": "3217fd8165abaf56d8d36007ebd35662a143244df12711820929329e0636c579"
+    },
+    {
+      "bytes": 3832,
+      "path": "examples/c_m4_backend_switch/main.c",
+      "sha256": "4cde037c41f4d1f6c6bcac824f80f7dbaec9809db17cf883a0731c076b471e79"
+    },
+    {
+      "bytes": 227,
+      "path": "examples/c_minimal/BUILD_WITH_CC.sh",
+      "sha256": "dfdf93b81482419bb2829e855c78b78bae68096f1cd0ea065f3a36eaf2dd5c29"
+    },
+    {
+      "bytes": 297,
+      "path": "examples/c_minimal/BUILD_WITH_ZIG.cmd",
+      "sha256": "12aa3b9fe4d30210e36ab504a2c3528a9c667aa7b606258b3dc474db144aba5b"
+    },
+    {
+      "bytes": 2340,
+      "path": "examples/c_minimal/main.c",
+      "sha256": "9076037d0dc01785e9bcbbf96b61bde6b760a1c8d97d463f226c55fc47ebd7fd"
+    },
+    {
+      "bytes": 214,
+      "path": "examples/c_terrain_export/BUILD_WITH_CC.sh",
+      "sha256": "146f3019fa761f2e41e13faecbe3a8e0e56460314f69e17db66ea91a9b0193db"
+    },
+    {
+      "bytes": 246,
+      "path": "examples/c_terrain_export/BUILD_WITH_ZIG.cmd",
+      "sha256": "d3015cf3ce440296beadda02aa2a79d7e15dc75a7aa9df27818546977fc149c8"
+    },
+    {
+      "bytes": 11197,
+      "path": "examples/c_terrain_export/main.c",
+      "sha256": "8407f3e5c854547967bfd840c35f8ed9def541a58ac7b77eb91ce8db87d3187c"
+    },
+    {
+      "bytes": 1656,
+      "path": "examples/c_terrain_export/README.md",
+      "sha256": "8c0b0956a5d5ab48fdca0a6c423a9e2561184fa2d113a62daf6b763ee34bfb6c"
+    },
+    {
+      "bytes": 1838,
+      "path": "examples/cpp_consumer/main.cpp",
+      "sha256": "ab0afd3576e919d3937a6e105ee1d96eef23414908cf0a89b8b36253ae01bb1f"
+    },
+    {
+      "bytes": 115200,
+      "path": "generated/official_topology_candidate_tables.h",
+      "sha256": "c59256adef6538382e6def3e7997dd04b5f9ee99bfc6ebfcb9bf15c95f84116b"
+    },
+    {
+      "bytes": 119683,
+      "path": "generated/transvoxel_tables.h",
+      "sha256": "198c46aae3bfe5a949d02dadb41edcdd19b8f8cb1ed173de916dc5ce118ac1e5"
+    },
+    {
+      "bytes": 4347,
+      "path": "include/transvoxel.h",
+      "sha256": "4b8958cefbd4ea61e5f0f512a3b91c7cfef716c3e5bd7f013d8cd0614e69d2f0"
+    },
+    {
+      "bytes": 829,
+      "path": "include/transvoxel_m4_backend.h",
+      "sha256": "7af5f32c7e51c6143a9be5707dbe46ded21b32ccc5e69c7fb5f3cb4365731f9e"
+    },
+    {
+      "bytes": 4764,
+      "path": "include/transvoxel_m4_candidate.h",
+      "sha256": "ef0cef47895aa78870b389701577a8f38aad6df27da61a2ab29d5867a6e0e6d4"
+    },
+    {
+      "bytes": 640,
+      "path": "LICENSE",
+      "sha256": "b5eaf2ff2802acf6fe47565db835c9061d5710a7c41b2dba6d45852a73745f5c"
+    },
+    {
+      "bytes": 4047,
+      "path": "PROVENANCE.md",
+      "sha256": "454bd004dd1f3e5e437d3124ad376ec8a3db38049bb50c55cd065f6023b8f95a"
+    },
+    {
+      "bytes": 978,
+      "path": "README.md",
+      "sha256": "26e541edc494ef7aca486daf0e80eefe505c87855d8fc6ca73712a000c79da12"
+    },
+    {
+      "bytes": 1349,
+      "path": "README_CORE.txt",
+      "sha256": "d7c0a64a46cbc81b0b1eaaa1bc6613b1aa42e95ab186c64092d12ddb449fd6b4"
+    },
+    {
+      "bytes": 2992,
+      "path": "SOURCES.md",
+      "sha256": "96ec52a7d334cea2b253c4813d46aeb9dc70006efe0fb4e7072ad434f3cc1eee"
+    },
+    {
+      "bytes": 8412,
+      "path": "src/transvoxel.c",
+      "sha256": "ff9de5345775622a05362dec11a0af4f1a680a80e346a797efcad0b7fe085f7a"
+    },
+    {
+      "bytes": 1526,
+      "path": "src/transvoxel_m4_backend.c",
+      "sha256": "6d3b8dc7af631daff087060e250db3cffc8772ee35f84f8f6b2081dec39880db"
+    },
+    {
+      "bytes": 14764,
+      "path": "src/transvoxel_m4_candidate.c",
+      "sha256": "564525b513f287bcb5e79338bb8f4cf210f34152c1d2bb85ae084b1c9f4b46dc"
     }
   ],
-  "note": "This is not the official Transvoxel.cpp table topology. Official-equivalence research lives under research/official_topology/.",
-  "purpose": "A frozen copy of the currently proven engine-independent 0BSD core and its public docs/examples.",
-  "schema": "boqsc.transvoxel.core_independent_manifest.v1",
-  "status": "FROZEN_SNAPSHOT",
-  "version": "v31"
+  "schema": "boqsc.transvoxel.independent_core_manifest.v1"
 }

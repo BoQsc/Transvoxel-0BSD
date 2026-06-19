@@ -44,7 +44,72 @@ zig cc -std=c99 -Iinclude -Igenerated src/transvoxel.c examples/c_terrain_export
 It writes:
 
 ```text
-terrain_export.obj
+terrain_lod_seam.obj
+terrain_lod_seam.mtl
+terrain_lod_seam_report.txt
+```
+
+## M4 direct API and callback adapter
+
+The normal `tv_build_transition_cell()` path already uses the clean-room M4
+published-topology table by default. The package also includes explicit M4
+direct/oriented/mapped APIs and a callback adapter. These are useful for
+advanced face-frame calls, mapped edge/corner transition cells, and testing the
+public callback hook.
+
+Add these files only if you want those explicit APIs or the callback-adapter
+example:
+
+```text
+include/transvoxel_m4_candidate.h
+include/transvoxel_m4_backend.h
+src/transvoxel_m4_candidate.c
+src/transvoxel_m4_backend.c
+generated/official_topology_candidate_tables.h
+```
+
+Compile:
+
+```sh
+zig cc -std=c99 -Iinclude -Igenerated src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_m4_backend_switch/main.c -o c_m4_backend_switch
+```
+
+Install the adapter explicitly if you want to test or override the callback
+route:
+
+```c
+#include "transvoxel_m4_backend.h"
+
+tv_install_m4_transition_backend_candidate();
+/* Existing tv_build_transition_cell() calls now route through the M4 adapter. */
+tv_uninstall_m4_transition_backend_candidate();
+```
+
+This adapter uses the same clean-room M4 topology source as the default path.
+Official `Transvoxel.cpp` byte/table identity, class IDs, reuse encoding, and
+exact triangulation identity are still `NOT_PROVEN`.
+
+For an explicitly oriented transition face, call the direct candidate API:
+
+```c
+TvBuildInfo info = tv_m4_build_transition_cell_candidate_oriented(
+    samples, 0.0f, TV_M4_FACE_POSITIVE_X, origin, scale,
+    vertices, TV_M4_TRANSITION_MAX_VERTICES,
+    triangles, TV_M4_TRANSITION_MAX_TRIANGLES);
+```
+
+The six built-in face frames are validated by `RUN_M15.cmd`.
+
+For edge/corner cells whose half-resolution face must be inset, generate mapped
+sample positions with `tv_m4_transition_frame_sample_positions()` and call
+`tv_m4_build_transition_cell_candidate_mapped()`. `RUN_M16.cmd` validates this
+path where three perpendicular transition faces meet.
+
+The terrain export example can also be compiled with the M4 callback adapter:
+
+```sh
+zig cc -std=c99 -Iinclude -Igenerated -DTV_EXAMPLE_USE_M4_BACKEND_CANDIDATE src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_terrain_export/main.c -o terrain_export_m4
+./terrain_export_m4
 ```
 
 ## Mental model
@@ -118,7 +183,11 @@ TvBuildInfo info = tv_build_transition_cell(
     TV_TRANSITION_MAX_TRIANGLES);
 ```
 
-`tv_transition_fill_derived_samples()` matches the conservative transition boundary contract used by the proof suite. If your engine has true coarse samples, you can provide all 14 transition samples yourself.
+`tv_transition_fill_derived_samples()` matches the conservative transition
+boundary contract used by the proof suite. The default M4 transition path uses
+samples `0..12`; sample `13` is kept for ABI compatibility and ignored by the
+default backend. If your engine has true coarse samples, you can provide all 14
+transition samples yourself.
 
 ## Error handling
 

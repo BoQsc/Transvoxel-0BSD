@@ -20,21 +20,21 @@ https://github.com/BoQsc/Transvoxel-0BSD/releases
 
 The small core package contains the public C API, generated tables, examples, docs, license, provenance notes, and sources list. Godot is **not** required by the core. Godot exists in this repository only as one validation and sandbox environment.
 
-The package also carries an optional M4 candidate backend for the official-topology research track. It must be compiled and installed explicitly; the default backend is unchanged.
+The default regular and transition builders now use clean-room generated 0BSD tables. The M4 files are still included for explicit M4 direct/oriented/mapped APIs and for the callback-adapter smoke example, but the normal `tv_build_transition_cell()` default path is already the clean-room M4 published-topology table.
 
 ## Current status
 
 ```text
 Independent 0BSD core: release-candidate track
 Functional Transvoxel-style proof: PASS when the full proof gate passes
-Optional M4 official-topology candidate backend: package-validated candidate
-Optional M4 terrain export path: validated through normal C API
+Default M4 transition backend: selected and validated by M21
+M4 direct/adapter APIs: package-validated compatibility surfaces
+M4 terrain export path: default and adapter modes validated through normal C API
 Optional M4 Godot data path: metrics, backend/edit comparison, six-face orientation, and mapped corner junctions runtime-validated
-M4 default transition-backend readiness: READY by the M17 production gate; switch not yet made
 Published transition reference convention: PROVEN by M18 through an explicit 512-case index bijection
 Published transition topology behavior: PROVEN by M19 for all 512 cases
 Clean-room regular-cell behavior: PROVEN and default regular table replaced by M20
-Functional full replacement readiness: BLOCKED on consumer compatibility/default-selection evidence
+Functional full replacement readiness: READY by M21 through public C/C++ API
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -63,18 +63,18 @@ Run the example:
 Expected kind of output:
 
 ```text
-regular case=23 vertices=13 triangles=12
-transition case=11 vertices=16 triangles=18
+regular case=23 vertices=6 triangles=4
+transition case=11 vertices=6 triangles=4
 ```
 
-Optional M4 backend package smoke:
+M4 callback-adapter package smoke:
 
 ```sh
 zig cc -std=c99 -Iinclude -Igenerated src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_m4_backend_switch/main.c -o c_m4_backend_switch
 ./c_m4_backend_switch
 ```
 
-Optional M4 terrain export smoke:
+M4 terrain export adapter smoke:
 
 ```sh
 zig cc -std=c99 -Iinclude -Igenerated -DTV_EXAMPLE_USE_M4_BACKEND_CANDIDATE src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_terrain_export/main.c -o terrain_export_m4
@@ -95,6 +95,8 @@ generated/official_topology_candidate_tables.h
 examples/c_minimal/
 examples/c_terrain_export/
 examples/c_m4_backend_switch/
+examples/c_m21_consumer_contract/
+examples/cpp_consumer/
 docs/API.md
 docs/DROP_IN.md
 docs/WHAT_THIS_PROVES.md
@@ -121,12 +123,12 @@ RUN_AUTO.cmd        headless scripted auto-interaction
 RUN_FULL.cmd        full release proof
 RUN.cmd             same as RUN_FULL.cmd
 RUN_INTERACTIVE.cmd human sandbox evaluation
-RUN_M8.cmd          optional M4 backend package proof
-RUN_M9.cmd          optional M4 terrain export proof
-RUN_M10.cmd         optional M4 Godot data-path metrics proof
-RUN_M11.cmd         optional M4 Godot viewer/export mesh proof
-RUN_M12.cmd         optional M4 Godot default-vs-M4 comparison proof
-RUN_M13.cmd         optional M4 Godot scripted edit comparison proof
+RUN_M8.cmd          M4 callback-adapter package proof
+RUN_M9.cmd          M4 terrain export proof
+RUN_M10.cmd         M4 Godot data-path metrics proof
+RUN_M11.cmd         M4 Godot viewer/export mesh proof
+RUN_M12.cmd         historical Godot default-vs-M4 comparison proof
+RUN_M13.cmd         historical Godot default-vs-M4 scripted edit comparison proof
 RUN_M14.cmd         M4 default/full replacement-readiness decision gate
 RUN_M15.cmd         M4 all-six-face C/Godot orientation proof
 RUN_M16.cmd         M4 mapped three-face corner-junction proof
@@ -134,6 +136,7 @@ RUN_M17.cmd         M4-selected combined production gate
 RUN_M18.cmd         published reference-convention/index-mapping proof
 RUN_M19.cmd         published transition-topology behavior proof
 RUN_M20.cmd         clean-room regular-cell replacement/equivalence proof
+RUN_M21.cmd         default M4 transition + C/C++ consumer compatibility proof
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:
@@ -142,7 +145,7 @@ After a local run, this file can be uploaded for debugging or confirmation:
 proof/SEND_TO_CHATGPT.zip
 ```
 
-GitHub Actions run the generator/proof suite, default C smoke test, optional M4 backend package smoke test, optional M4 terrain export smoke test, dist build, release-candidate report, and GitHub-ready report. Godot runtime validation still needs a local machine with Godot installed.
+GitHub Actions run the generator/proof suite, default C smoke test, M4 callback-adapter package smoke test, M4 terrain export smoke test, dist build, release-candidate report, and GitHub-ready report. Godot runtime validation still needs a local machine with Godot installed.
 
 ## Project tracks
 
@@ -153,7 +156,9 @@ research/official_topology/ no-copy research into official 73-class/topology equ
 
 The independent core is the usable product candidate. M18 proves the published
 transition reference convention and M19 proves published transition topology
-behavior. Exact table compatibility remains separate and currently
+behavior. M20 replaces the default regular table, and M21 selects the default
+clean-room M4 transition table and proves public C/C++ functional consumer
+compatibility. Exact table compatibility remains separate and currently
 `NOT_PROVEN`.
 
 ## What this proves

@@ -24,6 +24,21 @@ full-resolution face with nine samples, an opposite half-resolution face whose
 corner values equal the matching full-resolution corners, and 512 possible
 case-index configurations.
 
+M18 uses the dissertation's public Section 4.3, Figures 4.8 and 4.10, and
+Section 4.5, Figures 4.16 and 4.17, to derive sample coordinates, full/half face
+semantics, negative-inside polarity, case-index bit weights, outward winding,
+and inversion behavior. It does not use the official lookup-table arrays.
+
+M20 uses dissertation Section 3.1.2 and Figure 3.5 for preferred-polarity face
+contours, Figure 3.8 and Listing 3.1 for regular-corner numbering and case bits,
+and Section 3.2 for the active-edge, 12-vertex, and 5-triangle limits. No
+official regular lookup-table arrays are used.
+
+M21 uses the clean-room M4 published-topology table proven by M18/M19 as the
+default transition source and the clean-room regular table proven by M20 as the
+default regular source. It proves the public C/C++ functional consumer contract.
+No official transition or regular lookup-table arrays are used.
+
 ## License references
 
 - SPDX 0BSD page.

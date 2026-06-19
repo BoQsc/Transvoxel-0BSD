@@ -6,7 +6,8 @@ This report separates:
 
 1. optional M4 transition-backend runtime readiness;
 2. readiness to make M4 the default transition backend;
-3. readiness to claim a full clean-room Transvoxel.cpp replacement.
+3. readiness to claim a functional clean-room Transvoxel.cpp replacement;
+4. readiness to claim exact table/encoding/byte compatibility.
 
 A blocked replacement decision is an expected successful analysis result. The
 tool returns nonzero only when required evidence files are missing/malformed or
@@ -26,6 +27,9 @@ PUBLISHED_TOPOLOGY_REPORT = (
 )
 REGULAR_EQUIVALENCE_REPORT = (
     ROOT / "validation" / "regular_cell_equivalence_report.json"
+)
+CONSUMER_COMPATIBILITY_REPORT = (
+    ROOT / "validation" / "consumer_compatibility_report.json"
 )
 M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
@@ -204,6 +208,11 @@ def main() -> int:
     regular_equivalence = (
         read_json(REGULAR_EQUIVALENCE_REPORT)
         if REGULAR_EQUIVALENCE_REPORT.exists()
+        else {}
+    )
+    consumer_compatibility = (
+        read_json(CONSUMER_COMPATIBILITY_REPORT)
+        if CONSUMER_COMPATIBILITY_REPORT.exists()
         else {}
     )
     if M15_REPORT.exists():
@@ -459,11 +468,42 @@ def main() -> int:
             "Documented and tested compatibility contract for Transvoxel.cpp consumers",
             "full_replacement",
             ["functional_full_replacement", "exact_table_compatible_replacement"],
-            "BLOCKED",
-            ["The current public product is a plain C API and does not claim field-for-field Transvoxel.cpp consumer compatibility."],
-            "NOT_CLAIMED",
-            "Explicit adapter/compatibility contract with compile and behavior tests",
-            "Specify whether the final product is behavioral replacement, source adapter, or table-layout compatible, then test that contract.",
+            (
+                "PASS"
+                if consumer_compatibility.get(
+                    "functional_transvoxel_cpp_consumer_compatibility"
+                )
+                == "PROVEN"
+                and consumer_compatibility.get("status")
+                == "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY"
+                else "BLOCKED"
+            ),
+            [
+                rel(CONSUMER_COMPATIBILITY_REPORT)
+                if CONSUMER_COMPATIBILITY_REPORT.exists()
+                else "validation/consumer_compatibility_report.json",
+                "examples/c_m21_consumer_contract/main.c",
+                "examples/cpp_consumer/main.cpp",
+            ],
+            consumer_compatibility.get(
+                "functional_transvoxel_cpp_consumer_compatibility",
+                "MISSING",
+            ),
+            "PROVEN",
+            (
+                "Run tools/test_consumer_compatibility.py to compile and test "
+                "the public C and C++ consumer contract."
+                if consumer_compatibility.get(
+                    "functional_transvoxel_cpp_consumer_compatibility"
+                )
+                != "PROVEN"
+                else None
+            ),
+            (
+                "This gate proves the behavioral public API replacement "
+                "contract. It does not claim field-for-field or byte-for-byte "
+                "Transvoxel.cpp table compatibility."
+            ),
         ),
         gate(
             "official_transvoxel_cpp_byte_identity",
@@ -518,7 +558,6 @@ def main() -> int:
         not load_errors
         and not failed_ids
         and runtime_pass
-        and not functional_ready
     )
     reference_proven = (
         reference.get("official_reference_equivalence") == "PROVEN"
@@ -531,7 +570,21 @@ def main() -> int:
         regular_equivalence.get("functional_regular_cell_equivalence")
         == "PROVEN"
     )
-    if (
+    if functional_ready:
+        next_milestone = {
+            "id": "M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
+            "objective": (
+                "Keep functional replacement evidence green while deciding "
+                "whether exact table-layout/class-ID/encoding compatibility is "
+                "a required product goal."
+            ),
+            "why_first": (
+                "M21 makes the public C/C++ functional replacement ready. The "
+                "remaining blockers are exact official compatibility claims, "
+                "not functional behavior blockers."
+            ),
+        }
+    elif (
         m15_status == M15_EXPECTED_STATUS
         and m16_status == M16_EXPECTED_STATUS
         and m17_status == M17_EXPECTED_STATUS
@@ -652,47 +705,97 @@ def main() -> int:
                 "and corner-junction proofs."
             ),
         }
+
+    if not analysis_ok:
+        readiness_status = "FAIL_M4_REPLACEMENT_READINESS_ANALYSIS"
+    elif exact_ready:
+        readiness_status = "READY_EXACT_TABLE_COMPATIBLE_TRANSVOXEL_CPP_REPLACEMENT"
+    elif functional_ready:
+        readiness_status = (
+            "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_"
+            "EXACT_COMPATIBILITY_BLOCKED"
+        )
+    elif default_ready:
+        readiness_status = (
+            "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED"
+        )
+    else:
+        readiness_status = "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
+
+    if functional_ready and not exact_ready:
+        meaning = (
+            "The public clean-room C/C++ API is ready to use as a functional "
+            "Transvoxel.cpp replacement: default regular cells, default M4 "
+            "transition cells, published behavior proofs, and consumer "
+            "compile/link tests pass. Exact official table layout, class IDs, "
+            "vertex encoding, triangulation identity, and byte identity remain "
+            "separate blocked claims."
+        )
+    elif exact_ready:
+        meaning = "Exact table-compatible replacement is marked ready."
+    elif default_ready:
+        if reference_proven and topology_proven and not regular_proven:
+            meaning = (
+                "M4 now passes the default-transition-backend production, "
+                "published reference-convention, and published transition-"
+                "topology behavior gates, but a functional full Transvoxel.cpp "
+                "replacement remains blocked on regular-cell equivalence and "
+                "consumer compatibility."
+            )
+        elif reference_proven and topology_proven and regular_proven:
+            meaning = (
+                "M4 and the clean-room regular core now pass all functional "
+                "geometry gates, but a full Transvoxel.cpp replacement remains "
+                "blocked on the consumer compatibility and default-selection "
+                "contract."
+            )
+        else:
+            meaning = (
+                "M4 now passes the explicit default-transition-backend runtime "
+                "and production gates, but a functional full Transvoxel.cpp "
+                "replacement remains blocked on published behavior, regular-"
+                "cell equivalence, and consumer compatibility."
+            )
+    else:
+        meaning = (
+            "The optional M4 transition backend has strong runtime/integration "
+            "evidence, but it is not ready to replace the default backend and "
+            "is not a proven full Transvoxel.cpp replacement."
+        )
+
+    if functional_ready:
+        claim_allowed = (
+            "Functional clean-room Transvoxel.cpp replacement through the "
+            "public C/C++ API: default regular and transition builders use "
+            "clean-room published behavior; C and C++ consumers can "
+            "compile/link; callback customization is retained."
+        )
+        claim_not_allowed = (
+            "Exact official Transvoxel.cpp table layout, class-ID, vertex "
+            "encoding, triangulation-identity, or byte-identity claim."
+        )
+    elif default_ready:
+        claim_allowed = (
+            "Clean-room M4 transition backend with enough runtime and "
+            "production evidence to replace the independent default transition "
+            "backend."
+        )
+        claim_not_allowed = "Exact official topology/table/byte equivalence claim."
+    else:
+        claim_allowed = (
+            "Optional clean-room M4 transition-backend candidate with passing "
+            "runtime/integration milestones."
+        )
+        claim_not_allowed = (
+            "Proven full Transvoxel.cpp replacement, official topology "
+            "equivalence, or default backend replacement."
+        )
+
     report: Dict[str, Any] = {
         "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
-        "status": (
-            (
-                "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED"
-                if default_ready
-                else "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
-            )
-            if analysis_ok
-            else "FAIL_M4_REPLACEMENT_READINESS_ANALYSIS"
-        ),
+        "status": readiness_status,
         "analysis_completed": analysis_ok,
-        "meaning": (
-            (
-                (
-                    "M4 now passes the default-transition-backend production, "
-                    "published reference-convention, and published transition-"
-                    "topology behavior gates, but a functional full "
-                    "Transvoxel.cpp replacement remains blocked on regular-cell "
-                    "equivalence and consumer compatibility."
-                    if reference_proven and topology_proven and not regular_proven
-                    else
-                    "M4 and the clean-room regular core now pass all functional "
-                    "geometry gates, but a full Transvoxel.cpp replacement "
-                    "remains blocked on the consumer compatibility and default-"
-                    "selection contract."
-                    if reference_proven and topology_proven and regular_proven
-                    else
-                    "M4 now passes the explicit default-transition-backend "
-                    "runtime and production gates, but a functional full "
-                    "Transvoxel.cpp replacement remains blocked on published "
-                    "behavior, regular-cell equivalence, and consumer "
-                    "compatibility."
-                )
-                if default_ready
-                else
-                "The optional M4 transition backend has strong runtime/integration "
-                "evidence, but it is not ready to replace the default backend and "
-                "is not a proven full Transvoxel.cpp replacement."
-            )
-        ),
+        "meaning": meaning,
         "decisions": {
             "optional_transition_backend_candidate_ready": runtime_pass,
             "ready_to_replace_default_transition_backend": default_ready,
@@ -706,22 +809,8 @@ def main() -> int:
         "gates": gates,
         "next_milestone": next_milestone,
         "claim_boundary": {
-            "allowed_now": (
-                "Clean-room M4 transition backend with enough runtime and "
-                "production evidence to replace the independent default "
-                "transition backend; the switch has not been made."
-                if default_ready
-                else
-                "Optional clean-room M4 transition-backend candidate with "
-                "passing runtime/integration milestones."
-            ),
-            "not_allowed_now": (
-                "Proven full Transvoxel.cpp replacement or official topology equivalence."
-                if default_ready
-                else
-                "Proven full Transvoxel.cpp replacement, official topology "
-                "equivalence, or default backend replacement."
-            ),
+            "allowed_now": claim_allowed,
+            "not_allowed_now": claim_not_allowed,
             "byte_identity_required_for_functional_replacement": False,
             "byte_identity_required_for_exact_table_identity_claim": True,
         },

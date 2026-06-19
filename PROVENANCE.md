@@ -11,9 +11,10 @@ No values from Eric Lengyel's MIT-licensed `Transvoxel.cpp` lookup tables may be
 copied, translated, reformatted, pasted, or manually transcribed into this
 repository.
 
-## What this generator currently does
+## What the legacy independent transition generator does
 
-The transition generator constructs an independent transition-cell table as follows:
+`tools/generate_transition.py` still constructs a historical independent
+transition-cell table as follows:
 
 1. Use the nine full-resolution face samples numbered 0 through 8.
 2. Derive the four half-resolution face corner signs from the matching
@@ -30,6 +31,30 @@ The transition generator constructs an independent transition-cell table as foll
    sign configurations.
 7. Emit the resulting edge-intersection vertices and triangles as canonical JSON,
    C, and D.
+
+That legacy table remains available for historical comparison and validation,
+but it is no longer the public default transition table.
+
+## What the current default transition export does
+
+M21 selects the clean-room M4 published-topology table as the public default
+transition source:
+
+```text
+generated/official_topology_candidate_tables.json
+```
+
+`tools/export_transvoxel.py` exports that table into:
+
+```text
+generated/transvoxel_tables.json
+generated/transvoxel_tables.h
+generated/transvoxel_tables.d
+```
+
+The public transition ABI keeps 14 samples for compatibility, but the default
+M4 table references samples 0 through 12 only. Sample 13 is ignored by the
+default path.
 
 The regular generator independently derives a 256-case modified-Marching-Cubes
 table:
@@ -54,17 +79,19 @@ case index -> class index -> class data -> vertex refs + triangles
 Current table export policy:
 
 - direct one-class-per-case mapping,
-- no official 73-class compression yet,
+- default transition source is the clean-room M4 published-topology table,
+- no official 73-class packed layout,
 - no copied packed encodings,
 - no manually edited table values,
 - generated output must round-trip back to the canonical JSON.
 
 ## Important limitation
 
-The old independent transition table remains available until M4 becomes the
-default transition path. The default regular table no longer uses marching
-tetrahedra; M20 replaced it with the clean-room preferred-polarity derivation.
-Exact official class numbering, reuse encoding, and table bytes are not claimed.
+The old independent transition table remains available as a historical artifact.
+The default regular table no longer uses marching tetrahedra; M20 replaced it
+with the clean-room preferred-polarity derivation. The default transition table
+is the M21 clean-room M4 export. Exact official class numbering, reuse encoding,
+triangulation identity, and table bytes are not claimed.
 
 ## Acceptance policy before production use
 

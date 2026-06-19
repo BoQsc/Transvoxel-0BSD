@@ -19,8 +19,8 @@ extern "C" {
 
 #define TV_REGULAR_MAX_VERTICES 12
 #define TV_REGULAR_MAX_TRIANGLES 5
-#define TV_TRANSITION_MAX_VERTICES 28
-#define TV_TRANSITION_MAX_TRIANGLES 36
+#define TV_TRANSITION_MAX_VERTICES 12
+#define TV_TRANSITION_MAX_TRIANGLES 12
 
 typedef struct TvVec3 {
     float x;
@@ -70,7 +70,9 @@ int tv_transition_case_index(const float samples[TV_TRANSITION_SAMPLE_COUNT], fl
  * rules: 9<-0, 10<-2, 11<-6, 12<-8, 13<-4. This helper is useful for tests
  * and for engines that want the same conservative transition boundary contract
  * as the included proof suite. Engines with true coarse samples may set all
- * 14 samples themselves instead.
+ * 14 samples themselves instead. The default clean-room M4 transition backend
+ * uses samples 0..12. Sample 13 is retained for public ABI compatibility with
+ * earlier 14-sample callers and is ignored by the default backend.
  */
 void tv_transition_fill_derived_samples(float samples[TV_TRANSITION_SAMPLE_COUNT]);
 
@@ -92,7 +94,8 @@ TvBuildInfo tv_build_regular_cell(
 
 /* Build one transition cell.
  * sample_values: 14 values at the transition sample positions.
- * case index uses samples 0..8. Samples 9..13 are used for interpolation.
+ * case index uses samples 0..8. The default clean-room M4 backend uses
+ * samples 9..12 for interpolation and ignores sample 13.
  */
 TvBuildInfo tv_build_transition_cell(
     const float sample_values[TV_TRANSITION_SAMPLE_COUNT],
@@ -106,10 +109,11 @@ TvBuildInfo tv_build_transition_cell(
 
 /* Optional transition backend hook.
  *
- * By default this is unset and tv_build_transition_cell() uses the original
- * independent backend. Projects that compile an alternate backend may install
- * it here so existing calls to tv_build_transition_cell() route through that
- * backend. Passing NULL resets to the default backend.
+ * By default this is unset and tv_build_transition_cell() uses the clean-room
+ * M4 published-topology transition backend from generated/transvoxel_tables.h.
+ * Projects that compile a custom or legacy backend may install it here so
+ * existing calls to tv_build_transition_cell() route through that backend.
+ * Passing NULL resets to the default clean-room M4 backend.
  */
 int tv_set_transition_backend_callback(TvTransitionBuilderFn builder);
 TvTransitionBuilderFn tv_get_transition_backend_callback(void);

@@ -21,45 +21,47 @@
       "parsed": {
         "case": 341,
         "custom_after": 0,
-        "default_triangles": 24,
-        "default_vertices": 24,
+        "default_triangles": 12,
+        "default_vertices": 12,
         "m4_triangles": 12,
         "m4_vertices": 12,
-        "restored_default": 1
+        "restored_default": 1,
+        "same_as_default": 1
       },
       "returncode": 0,
       "source": "configured-c-compiler",
       "status": "PASS",
       "stderr": "",
-      "stdout": "m4 package backend case=341 default_vertices=24 default_triangles=24 m4_vertices=12 m4_triangles=12 restored_default=1 custom_after=0"
+      "stdout": "m4 package backend case=341 default_vertices=12 default_triangles=12 m4_vertices=12 m4_triangles=12 same_as_default=1 restored_default=1 custom_after=0"
     }
   ],
   "checks": [
-    "compiled default independent backend and optional M4 backend sources together",
-    "public transvoxel.h transition API starts on the default backend",
-    "M4 backend installs through transvoxel_m4_backend.h",
-    "tv_build_transition_cell routes through M4 after explicit install",
-    "M4 candidate builds the max-triangle package smoke case",
-    "M4 backend uninstalls and restores the default backend"
+    "compiled default clean-room M4 backend and explicit M4 adapter sources together",
+    "public transvoxel.h transition API starts on the default clean-room M4 backend",
+    "default backend builds the max-triangle M4 package smoke case",
+    "M4 callback adapter installs through transvoxel_m4_backend.h",
+    "tv_build_transition_cell preserves M4 behavior after explicit adapter install",
+    "M4 callback adapter uninstalls and restores the default clean-room M4 backend"
   ],
   "compiler": "zig cc",
-  "default_core_replaced": false,
-  "meaning": "Compiles and runs the optional M4 backend package example through the normal transvoxel.h API. This is not an official Transvoxel.cpp equivalence proof.",
+  "default_core_replaced": true,
+  "meaning": "Compiles and runs the M4 backend callback adapter package example through the normal transvoxel.h API. Since M21 makes clean-room M4 the default transition path, this proves callback install/uninstall compatibility rather than a distinct optional topology.",
   "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
   "official_triangle_topology_equivalence": "NOT_PROVEN",
   "parsed": {
     "case": 341,
     "custom_after": 0,
-    "default_triangles": 24,
-    "default_vertices": 24,
+    "default_triangles": 12,
+    "default_vertices": 12,
     "m4_triangles": 12,
     "m4_vertices": 12,
-    "restored_default": 1
+    "restored_default": 1,
+    "same_as_default": 1
   },
   "schema": "boqsc.transvoxel.m4_backend_c_report.v1",
   "source": "configured-c-compiler",
   "status": "PASS_M4_BACKEND_PACKAGE_C_EXAMPLE",
-  "stdout": "m4 package backend case=341 default_vertices=24 default_triangles=24 m4_vertices=12 m4_triangles=12 restored_default=1 custom_after=0",
+  "stdout": "m4 package backend case=341 default_vertices=12 default_triangles=12 m4_vertices=12 m4_triangles=12 same_as_default=1 restored_default=1 custom_after=0",
   "validated_files": [
     "include/transvoxel.h",
     "include/transvoxel_m4_candidate.h",

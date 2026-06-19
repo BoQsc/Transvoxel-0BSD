@@ -4,8 +4,9 @@
     "ok": null,
     "reason": "no C compiler found"
   },
+  "default_transition_source": "generated/official_topology_candidate_tables.json",
   "ok": true,
-  "status": "validates Transvoxel table ABI against canonical JSON; not official Transvoxel.cpp byte clone",
+  "status": "validates Transvoxel table ABI against canonical JSON; default transition source is clean-room M4 published-topology behavior; not official Transvoxel.cpp byte clone",
   "tables": [
     {
       "case_count": 256,
@@ -22,14 +23,14 @@
       "case_count": 512,
       "class_count": 512,
       "errors": [],
-      "max_triangle_count": 36,
-      "max_vertex_count": 28,
-      "name": "transition",
+      "max_triangle_count": 12,
+      "max_vertex_count": 12,
+      "name": "transition_m4_default",
       "ok": true,
-      "triangle_count": 12288,
-      "vertex_ref_count": 10496
+      "triangle_count": 2640,
+      "vertex_ref_count": 4096
     }
   ],
   "transvoxel_schema": "boqsc.transvoxel_tables.v1",
-  "transvoxel_sha256": "308f84d257294f03adeb35651d60bc905bf0d8b12c1cdedb9bdf089bcc325b14"
+  "transvoxel_sha256": "2abb673609099eb3c456c6b4e235fda700c67feea9fa59fa6df8b3b5ff51416f"
 }

@@ -33,6 +33,21 @@ def main() -> int:
         if int(data.get("tables", {}).get("transition_cases", 0)) != 512:
             issues.append("runtime_dump transition case count is not 512")
         if (
+            data.get("tables", {}).get("transvoxel_transition_source")
+            != "generated/official_topology_candidate_tables.json"
+        ):
+            issues.append("runtime_dump transvoxel default transition source is not M4")
+        if int(data.get("tables", {}).get("transvoxel_transition_cases", 0)) != 512:
+            issues.append("runtime_dump transvoxel transition case count is not 512")
+        if int(data.get("tables", {}).get("transvoxel_transition_vertex_refs", 0)) != 4096:
+            issues.append("runtime_dump transvoxel transition vertex total is not 4096")
+        if int(data.get("tables", {}).get("transvoxel_transition_triangles", 0)) != 2640:
+            issues.append("runtime_dump transvoxel transition triangle total is not 2640")
+        if int(data.get("tables", {}).get("transvoxel_transition_max_vertices", 0)) != 12:
+            issues.append("runtime_dump transvoxel transition max vertices is not 12")
+        if int(data.get("tables", {}).get("transvoxel_transition_max_triangles", 0)) != 12:
+            issues.append("runtime_dump transvoxel transition max triangles is not 12")
+        if (
             data.get("tables", {}).get("regular_status")
             != "clean_room_modified_marching_cubes_preferred_polarity"
         ):

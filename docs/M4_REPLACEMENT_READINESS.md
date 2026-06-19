@@ -36,8 +36,12 @@ a documented and tested consumer compatibility contract
 ```
 
 The reference-convention item is proven by M18, transition topology behavior is
-proven by M19, and regular-cell equivalence is proven by M20. Consumer
-compatibility/default selection remains the functional blocker.
+proven by M19, regular-cell equivalence is proven by M20, and
+consumer compatibility/default transition selection is proven by M21.
+
+Current status: functional full replacement is ready through the public C/C++
+API. The default transition builder uses the clean-room M4 published-topology
+table, while exact table/encoding/byte compatibility remains separate.
 
 Byte-for-byte identity is not required for functional replacement.
 
@@ -63,9 +67,10 @@ RUN_M17.cmd
 RUN_M18.cmd
 RUN_M19.cmd
 RUN_M20.cmd
+RUN_M21.cmd
 ```
 
 The current expected result is a passing readiness analysis with the
-default-transition-backend decision ready, the functional full replacement
-decision blocked, and M21 consumer compatibility/default selection selected as
-the next milestone.
+functional full replacement decision ready, exact table-compatible replacement
+blocked, and M22 exact compatibility claim-boundary work selected as the next
+milestone.

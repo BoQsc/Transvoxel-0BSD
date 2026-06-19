@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: 0BSD
-"""Validate the optional M4 backend through the terrain OBJ export path."""
+"""Validate default clean-room M4 terrain export and the M4 callback adapter."""
 from __future__ import annotations
 
 import json
@@ -212,7 +212,7 @@ def run_mode(candidate: Dict[str, Any], base_dir: Path, mode: str) -> Dict[str, 
         stderr=subprocess.PIPE,
     )
     parsed = parse_stdout(run_proc.stdout)
-    expected_backend = "m4_candidate" if mode == "m4" else "default_independent"
+    expected_backend = "m4_callback_adapter" if mode == "m4" else "default_clean_room_m4"
     output_errors = verify_outputs(run_dir, expected_backend)
     if parsed.get("backend") != expected_backend:
         output_errors.append(
@@ -241,8 +241,8 @@ def compare_modes(default: Dict[str, Any], m4: Dict[str, Any]) -> Dict[str, Any]
         errors.append("regular high LOD triangle count changed")
     if default_counts.get("low_lod1_triangles") != m4_counts.get("low_lod1_triangles"):
         errors.append("regular low LOD triangle count changed")
-    if default_counts.get("transition_triangles") == m4_counts.get("transition_triangles"):
-        errors.append("transition strip triangle count did not change under M4 backend")
+    if default_counts.get("transition_triangles") != m4_counts.get("transition_triangles"):
+        errors.append("transition strip triangle count changed under M4 callback adapter")
     return {
         "status": "PASS" if not errors else "FAIL",
         "errors": errors,
@@ -310,12 +310,12 @@ def main() -> int:
         "status": "SKIPPED_NO_C_COMPILER",
         "meaning": (
             "Compiles and runs the terrain OBJ export path with the default "
-            "transition backend and with the optional M4 backend installed "
-            "through the normal transvoxel.h API."
+            "clean-room M4 transition backend and with the explicit M4 "
+            "callback adapter installed through the normal transvoxel.h API."
         ),
         "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
         "official_triangle_topology_equivalence": "NOT_PROVEN",
-        "default_core_replaced": False,
+        "default_core_replaced": True,
         "validated_files": [
             "include/transvoxel.h",
             "include/transvoxel_m4_candidate.h",
@@ -345,12 +345,12 @@ def main() -> int:
                 "compiler": result["candidate"],
                 "source": result["source"],
                 "checks": [
-                    "compiled terrain export with the default independent backend",
-                    "compiled terrain export with the optional M4 backend installed",
+                    "compiled terrain export with the default clean-room M4 backend",
+                    "compiled terrain export with the M4 callback adapter installed",
                     "both modes wrote OBJ, MTL, and terrain reports",
                     "regular high-LOD and low-LOD triangle counts stayed unchanged",
-                    "transition-strip triangle count changed only when M4 was installed",
-                    "M4 path uses the normal tv_build_transition_cell terrain call pattern",
+                    "transition-strip triangle count stayed unchanged through the adapter",
+                    "default and adapter paths both use the normal tv_build_transition_cell terrain call pattern",
                 ],
                 "default": comparison["default"],
                 "m4": comparison["m4"],
@@ -359,7 +359,7 @@ def main() -> int:
             write_json(REPORT_PATH, report)
             print("M4 terrain C test:", report["status"])
             print(
-                "default transition triangles={default_t} m4 transition triangles={m4_t}".format(
+                "default transition triangles={default_t} adapter transition triangles={m4_t}".format(
                     default_t=comparison["default"].get("transition_triangles"),
                     m4_t=comparison["m4"].get("transition_triangles"),
                 )

@@ -1,50 +1,35 @@
 Transvoxel 0BSD Core
 ====================
 
-This is the small engine-independent package.
+This is the small engine-independent C package.
 
-Copy these files into your project:
+Use these files:
 
   include/transvoxel.h
   src/transvoxel.c
   generated/transvoxel_tables.h
 
-Compile src/transvoxel.c together with your engine code and add these include paths:
-
-  -Iinclude
-  -Igenerated
-
-There are no Godot dependencies and no third-party dependencies.
-
-Minimal Zig build:
-
-  zig cc -std=c99 -Iinclude -Igenerated src/transvoxel.c examples/c_minimal/main.c -o c_minimal.exe
-
-Minimal cc build:
-
-  cc -std=c99 -Iinclude -Igenerated src/transvoxel.c examples/c_minimal/main.c -o c_minimal
-
 Examples:
 
-  examples/c_minimal/main.c
-    Builds one regular cell and one transition cell.
+  examples/c_minimal/
+  examples/c_terrain_export/
+  examples/c_m4_backend_switch/  M4 callback-adapter smoke
+  examples/c_m21_consumer_contract/
+  examples/cpp_consumer/
 
-  examples/c_terrain_export/main.c
-    Exports a tiny OBJ file from repeated core calls. It is deliberately simple
-    and duplicates vertices so the example stays easy to read.
-
-Docs:
+Read first:
 
   docs/DROP_IN.md
   docs/API.md
   docs/WHAT_THIS_PROVES.md
+  docs/C_COMPILER.md
 
-Honest status:
+License: 0BSD.
 
-  This is an independent 0BSD Transvoxel-style core. It is not Eric Lengyel's
-  MIT Transvoxel.cpp relicensed or copied. Use the full package for generators,
-  provenance notes, and proof tools.
+Important: this is an independent clean-room Transvoxel-style core. It is not a relicensed copy of Eric Lengyel's MIT Transvoxel.cpp and does not claim official 73-class table or byte identity.
 
-External review note:
+The default regular-cell table is a clean-room preferred-polarity modified-Marching-Cubes derivation proven by M20. It uses 256 cases, 18 behavior classes, at most 12 vertices and 5 triangles.
 
-The full package includes `docs/IMPLEMENTATION_SURVEY.md`, `docs/CORRECTNESS_ARGUMENT.md`, and `docs/EXTERNAL_REVIEW.md`. These explain how the 0BSD core is aligned with the public Transvoxel outcome requirements while remaining independent from the MIT-licensed official table file.
+The default transition-cell table is the clean-room M4 published-topology derivation selected and proven for the public API by M21. It uses 512 cases, at most 12 vertices and 12 triangles, and keeps the 14-sample public ABI while ignoring sample 13 in the default M4 path.
+
+The package still includes explicit M4 direct/oriented/mapped APIs and the transvoxel_m4_backend.h callback adapter. Those files are compatibility and advanced-use surfaces, not a different default topology.

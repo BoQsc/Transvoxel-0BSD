@@ -65,6 +65,10 @@ The M20 clean-room regular table has exact maxima of 12 vertices and 5
 triangles. Its topology is derived from the public preferred-polarity face
 rule, not marching tetrahedra.
 
+The M21 clean-room default transition table has exact maxima of 12 vertices
+and 12 triangles. It is exported from the M4 published-topology table, not from
+the older independent tetrahedral transition generator.
+
 ## Utility
 
 ```c
@@ -109,7 +113,10 @@ This fills samples `9..13` from the high-resolution transition face using the sa
 13 <- 4
 ```
 
-Use it when you want the included conservative transition boundary contract. Engines with their own true coarse sample source can provide all 14 samples directly.
+Use it when you want the included conservative transition boundary contract.
+Engines with their own true coarse sample source can provide all 14 samples
+directly. The M21 default M4 transition backend uses samples `0..12`; sample
+`13` is retained for public ABI compatibility and ignored by the default path.
 
 ## Build regular cell
 
@@ -150,13 +157,16 @@ TvBuildInfo tv_build_transition_cell(
     int max_triangles);
 ```
 
-The transition case index uses samples `0..8`. Samples `9..13` are used for interpolation and boundary contract behavior.
+The transition case index uses samples `0..8`. The default clean-room M4
+transition backend uses samples `9..12` for interpolation and ignores sample
+`13`.
 
 ## Optional transition backend hook
 
-The default transition builder is the independent backend compiled into
-`src/transvoxel.c`. Advanced users can install an alternate transition builder
-without changing call sites:
+The default transition builder is the clean-room M4 published-topology backend
+compiled into `src/transvoxel.c` through `generated/transvoxel_tables.h`.
+Advanced users can install an alternate transition builder without changing
+call sites:
 
 ```c
 typedef TvBuildInfo (*TvTransitionBuilderFn)(
@@ -178,17 +188,19 @@ int tv_transition_backend_is_custom(void);
 Passing `NULL` or calling `tv_reset_transition_backend_callback()` restores the
 default backend.
 
-The official-topology research track provides an opt-in M4 candidate adapter:
+The package also provides an explicit M4 callback adapter:
 
 ```c
 #include "transvoxel_m4_backend.h"
 
 tv_install_m4_transition_backend_candidate();
-/* Existing tv_build_transition_cell() calls now use the M4 candidate backend. */
+/* Existing tv_build_transition_cell() calls now route through the M4 adapter. */
 tv_uninstall_m4_transition_backend_candidate();
 ```
 
-To use that adapter, compile these additional files:
+Since the default backend already uses the same clean-room M4 topology source,
+this adapter is mainly a callback/customization compatibility shim and package
+smoke test. To use it, compile these additional files:
 
 ```text
 src/transvoxel_m4_candidate.c
@@ -216,7 +228,7 @@ local_case =
 M18 proves both conversions are bijective across all 512 cases. `TvBuildInfo`
 continues to report the stable local runtime-table index.
 
-The direct candidate API also exposes explicit right-handed face frames:
+The direct M4 API also exposes explicit right-handed face frames:
 
 ```c
 #include "transvoxel_m4_candidate.h"
@@ -264,9 +276,10 @@ The mapped builder derives handedness from sample positions and corrects
 winding. M16 validates three perpendicular mapped transition cells across all
 eight signed corner octants.
 
-The M4 backend is still a candidate path. Its published reference convention is
-proven, but official transition topology and complete `Transvoxel.cpp`
-replacement equivalence remain unproven.
+M21 proves the functional public C/C++ consumer contract for the clean-room
+default regular and transition builders. Exact official table layout, 73-class
+IDs, vertex/reuse encoding, triangulation identity, and byte identity remain
+separate unproven compatibility claims.
 
 ## Ownership
 

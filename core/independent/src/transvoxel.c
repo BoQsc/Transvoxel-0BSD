@@ -18,6 +18,8 @@ static const TvVec3 tv_transition_positions[TV_TRANSITION_SAMPLE_COUNT] = {
     {1.0f, 1.0f, 0.5f}
 };
 
+static TvTransitionBuilderFn tv_transition_backend_callback = 0;
+
 TvVec3 tv_vec3(float x, float y, float z) {
     TvVec3 v;
     v.x = x;
@@ -131,6 +133,23 @@ static TvBuildInfo tv_make_info(int result, int case_index, int vertex_count, in
     return info;
 }
 
+int tv_set_transition_backend_callback(TvTransitionBuilderFn builder) {
+    tv_transition_backend_callback = builder;
+    return TV_OK;
+}
+
+TvTransitionBuilderFn tv_get_transition_backend_callback(void) {
+    return tv_transition_backend_callback;
+}
+
+void tv_reset_transition_backend_callback(void) {
+    tv_transition_backend_callback = 0;
+}
+
+int tv_transition_backend_is_custom(void) {
+    return tv_transition_backend_callback != 0;
+}
+
 TvBuildInfo tv_build_regular_cell(
     const float sample_values[TV_REGULAR_SAMPLE_COUNT],
     float iso_level,
@@ -197,6 +216,18 @@ TvBuildInfo tv_build_transition_cell(
     uint16_t class_index;
     TVCClassData class_data;
     int i;
+
+    if (tv_transition_backend_callback) {
+        return tv_transition_backend_callback(
+            sample_values,
+            iso_level,
+            origin,
+            scale,
+            out_vertices,
+            max_vertices,
+            out_triangles,
+            max_triangles);
+    }
 
     if (!sample_values || !out_vertices || !out_triangles) {
         return tv_make_info(TV_ERROR_NULL, 0, 0, 0);

@@ -1,0 +1,674 @@
+{
+  "consumer_report": {
+    "attempts": [
+      {
+        "c_contract": {
+          "command": [
+            "zig",
+            "cc",
+            "-std=c99",
+            "-Wall",
+            "-Wextra",
+            "-pedantic",
+            "-Iinclude",
+            "-Igenerated",
+            "src/transvoxel.c",
+            "src/transvoxel_m4_candidate.c",
+            "examples/c_m21_consumer_contract/main.c",
+            "-o",
+            "<temp>\\m21_consumer_contract.exe"
+          ],
+          "compile_returncode": 0,
+          "compile_stderr": "",
+          "compile_stdout": "",
+          "parsed": {
+            "callback_checks": 3,
+            "cases": 512,
+            "default_triangles": 2640,
+            "default_vertices": 4096,
+            "failures": 0,
+            "m4_matches": 512,
+            "max_triangles": 12,
+            "max_vertices": 12,
+            "sample13_ignored": 512
+          },
+          "run_returncode": 0,
+          "status": "PASS",
+          "stderr": "",
+          "stdout": "m21 consumer contract cases=512 default_vertices=4096 default_triangles=2640 max_vertices=12 max_triangles=12 m4_matches=512 sample13_ignored=512 callback_checks=3 failures=0\n"
+        },
+        "candidate": "zig cc",
+        "cpp_smoke": {
+          "compile_c_command": [
+            "zig",
+            "cc",
+            "-std=c99",
+            "-Wall",
+            "-Wextra",
+            "-pedantic",
+            "-Iinclude",
+            "-Igenerated",
+            "-c",
+            "src/transvoxel.c",
+            "-o",
+            "<temp>\\transvoxel.o"
+          ],
+          "compile_c_returncode": 0,
+          "compile_c_stderr": "",
+          "compile_c_stdout": "",
+          "compile_cpp_command": [
+            "zig",
+            "c++",
+            "-std=c++17",
+            "-Wall",
+            "-Wextra",
+            "-pedantic",
+            "-Iinclude",
+            "-Igenerated",
+            "examples/cpp_consumer/main.cpp",
+            "<temp>\\transvoxel.o",
+            "-o",
+            "<temp>\\cpp_consumer.exe"
+          ],
+          "compile_cpp_returncode": 0,
+          "compile_cpp_stderr": "",
+          "compile_cpp_stdout": "",
+          "parsed": {
+            "case": 341,
+            "triangles": 12,
+            "vertices": 12
+          },
+          "run_returncode": 0,
+          "status": "PASS",
+          "stderr": "",
+          "stdout": "cpp consumer transition case=341 vertices=12 triangles=12\n"
+        },
+        "source": "configured-c-compiler",
+        "status": "PASS"
+      }
+    ],
+    "c_stdout": "m21 consumer contract cases=512 default_vertices=4096 default_triangles=2640 max_vertices=12 max_triangles=12 m4_matches=512 sample13_ignored=512 callback_checks=3 failures=0\n",
+    "checks": [
+      "compiled and ran exhaustive C consumer contract over all 512 transition cases",
+      "default tv_build_transition_cell output matched direct M4 output for every case",
+      "public transition max constants are 12 vertices and 12 triangles",
+      "public 14-sample ABI retained and sample 13 ignored by default M4 backend",
+      "small-buffer errors are still reported through the public API",
+      "transition callback customization still routes and reset restores default M4",
+      "C++ consumer included transvoxel.h and linked against a C object"
+    ],
+    "compiler": "zig cc",
+    "contract": {
+      "behavioral_replacement_not_byte_identity": true,
+      "callback_customization": true,
+      "cpp_include_link_smoke": true,
+      "default_m4_equivalence_all_512": true,
+      "exact_table_layout_compatibility": false,
+      "public_c_api": true,
+      "sample13_abi_retained_ignored": true
+    },
+    "cpp_stdout": "cpp consumer transition case=341 vertices=12 triangles=12\n",
+    "default_transition_backend": "clean_room_m4_published_topology",
+    "default_transition_source": "generated/official_topology_candidate_tables.json via generated/transvoxel_tables.h",
+    "exact_table_layout_compatibility": false,
+    "functional_transvoxel_cpp_consumer_compatibility": "PROVEN",
+    "meaning": "Tests the functional public-consumer contract for the clean-room Transvoxel.cpp replacement claim. This is not an exact official table-layout or byte-identity claim.",
+    "metrics": {
+      "callback_checks": 3,
+      "cases": 512,
+      "default_triangles": 2640,
+      "default_vertices": 4096,
+      "failures": 0,
+      "m4_matches": 512,
+      "max_triangles": 12,
+      "max_vertices": 12,
+      "sample13_ignored": 512
+    },
+    "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+    "schema": "boqsc.transvoxel.m21.consumer_compatibility.v1",
+    "source": "configured-c-compiler",
+    "status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+    "validated_files": [
+      "include/transvoxel.h",
+      "include/transvoxel_m4_candidate.h",
+      "src/transvoxel.c",
+      "src/transvoxel_m4_candidate.c",
+      "generated/transvoxel_tables.h",
+      "generated/official_topology_candidate_tables.h",
+      "examples/c_m21_consumer_contract/main.c",
+      "examples/cpp_consumer/main.cpp"
+    ]
+  },
+  "core_c_status": "PASS",
+  "default_transition_source": "generated/official_topology_candidate_tables.json",
+  "exact_table_compatible_replacement": "NOT_PROVEN",
+  "functional_transvoxel_cpp_replacement": "PROVEN",
+  "godot_runtime_executed": true,
+  "godot_stage": {
+    "executed": true,
+    "returncode": 0,
+    "status": "PASS",
+    "tables": {
+      "regular_cases": 256,
+      "regular_max_triangles": 5,
+      "regular_max_vertices": 12,
+      "regular_schema": "boqsc.regular_tables.v1",
+      "regular_status": "clean_room_modified_marching_cubes_preferred_polarity",
+      "regular_total_triangles": 820,
+      "regular_total_vertices": 1536,
+      "transition_cases": 512,
+      "transition_schema": "boqsc.transition_tables.v1",
+      "transvoxel_schema": "boqsc.transvoxel_tables.v1",
+      "transvoxel_status": "transvoxel-table-export; default transition uses clean-room M4 published-topology behavior; not official Transvoxel.cpp byte/table clone",
+      "transvoxel_transition_cases": 512,
+      "transvoxel_transition_classes": 512,
+      "transvoxel_transition_max_triangles": 12,
+      "transvoxel_transition_max_vertices": 12,
+      "transvoxel_transition_source": "generated/official_topology_candidate_tables.json",
+      "transvoxel_transition_triangles": 2640,
+      "transvoxel_transition_vertex_refs": 4096
+    }
+  },
+  "m4_backend_status": "PASS_M4_BACKEND_PACKAGE_C_EXAMPLE",
+  "m4_terrain_status": "PASS_M4_TERRAIN_NORMAL_API_EXPORT",
+  "meaning": "M21 selects the clean-room M4 transition source as the default public transition table and proves the functional C/C++ consumer compatibility contract. Exact official table-layout and byte identity remain unclaimed.",
+  "readiness_report": {
+    "analysis_completed": true,
+    "blocking_gate_ids": [
+      "official_class_id_mapping",
+      "official_vertex_encoding_equivalence",
+      "official_triangle_triangulation_identity",
+      "official_regular_table_identity",
+      "official_transvoxel_cpp_byte_identity"
+    ],
+    "claim_boundary": {
+      "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.",
+      "byte_identity_required_for_exact_table_identity_claim": true,
+      "byte_identity_required_for_functional_replacement": false,
+      "not_allowed_now": "Exact official Transvoxel.cpp table layout, class-ID, vertex encoding, triangulation-identity, or byte-identity claim."
+    },
+    "decisions": {
+      "exact_table_compatible_replacement_ready": false,
+      "functional_full_replacement_ready": true,
+      "optional_transition_backend_candidate_ready": true,
+      "ready_to_replace_default_transition_backend": true
+    },
+    "failed_gate_ids": [],
+    "gates": [
+      {
+        "actual": "PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m4/m4_report.json"
+        ],
+        "expected": "PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m4_runtime_tables",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m4 runtime tables"
+      },
+      {
+        "actual": "PASS_M5_OPT_IN_C_RUNTIME_CANDIDATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m5/m5_report.json"
+        ],
+        "expected": "PASS_M5_OPT_IN_C_RUNTIME_CANDIDATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m5_c_runtime",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m5 c runtime"
+      },
+      {
+        "actual": "PASS_M6_M4_C_SEAM_VALIDATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m6/m6_report.json"
+        ],
+        "expected": "PASS_M6_M4_C_SEAM_VALIDATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m6_c_seams",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m6 c seams"
+      },
+      {
+        "actual": "PASS_M7_NORMAL_API_M4_BACKEND_SWITCH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m7/m7_report.json"
+        ],
+        "expected": "PASS_M7_NORMAL_API_M4_BACKEND_SWITCH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m7_normal_api",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m7 normal api"
+      },
+      {
+        "actual": "PASS_M8_M4_BACKEND_PACKAGE_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m8/m8_report.json"
+        ],
+        "expected": "PASS_M8_M4_BACKEND_PACKAGE_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m8_package",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m8 package"
+      },
+      {
+        "actual": "PASS_M9_M4_TERRAIN_EXPORT_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m9/m9_report.json"
+        ],
+        "expected": "PASS_M9_M4_TERRAIN_EXPORT_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m9_terrain_export",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m9 terrain export"
+      },
+      {
+        "actual": "PASS_M10_M4_GODOT_DATA_PATH_METRICS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m10/m10_report.json"
+        ],
+        "expected": "PASS_M10_M4_GODOT_DATA_PATH_METRICS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m10_godot_metrics",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m10 godot metrics"
+      },
+      {
+        "actual": "PASS_M11_M4_GODOT_VIEWER_EXPORT_PATH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m11/m11_report.json"
+        ],
+        "expected": "PASS_M11_M4_GODOT_VIEWER_EXPORT_PATH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m11_godot_viewer",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m11 godot viewer"
+      },
+      {
+        "actual": "PASS_M12_M4_GODOT_BACKEND_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m12/m12_report.json"
+        ],
+        "expected": "PASS_M12_M4_GODOT_BACKEND_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m12_backend_compare",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m12 backend compare"
+      },
+      {
+        "actual": "PASS_M13_M4_GODOT_SCRIPTED_EDIT_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "candidate_runtime",
+        "evidence": [
+          "research/official_topology/m13/m13_report.json"
+        ],
+        "expected": "PASS_M13_M4_GODOT_SCRIPTED_EDIT_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m13_scripted_edits",
+        "required_for": [
+          "optional_transition_backend",
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "m13 scripted edits"
+      },
+      {
+        "actual": "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "default_replacement",
+        "evidence": [
+          "research/official_topology/m15/m15_report.json",
+          "validation/m4_six_face_orientation_report.json"
+        ],
+        "expected": "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m4_all_six_face_orientation_runtime_validation",
+        "required_for": [
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "M4 runtime proof across all +/-X, +/-Y, +/-Z transition-face orientations"
+      },
+      {
+        "actual": "PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "default_replacement",
+        "evidence": [
+          "research/official_topology/m16/m16_report.json",
+          "validation/m4_corner_junction_report.json"
+        ],
+        "expected": "PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m4_multi_face_corner_junction_validation",
+        "required_for": [
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "M4-selected corner and multi-neighbor LOD junction proof"
+      },
+      {
+        "actual": "PASS_M17_M4_SELECTED_PRODUCTION_GATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "category": "default_replacement",
+        "evidence": [
+          "research/official_topology/m17/m17_report.json",
+          "proof/m4_production_gate.json"
+        ],
+        "expected": "PASS_M17_M4_SELECTED_PRODUCTION_GATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m4_selected_full_production_gate",
+        "required_for": [
+          "default_transition_backend",
+          "functional_full_replacement"
+        ],
+        "status": "PASS",
+        "title": "Full production gate with M4 installed through the normal backend API"
+      },
+      {
+        "actual": "PROVEN",
+        "category": "official_equivalence",
+        "evidence": [
+          "validation/reference_convention_matrix.json",
+          "validation/reference_convention_report.json",
+          "research/official_topology/m18/m18_report.json"
+        ],
+        "expected": "PROVEN",
+        "id": "official_reference_convention_equivalence",
+        "note": "This gate covers the published algorithmic convention through an explicit case-index bijection. Exact table encoding remains tracked separately.",
+        "required_for": [
+          "functional_full_replacement",
+          "exact_table_compatible_replacement"
+        ],
+        "status": "PASS",
+        "title": "Published sign, sample-order, face-frame, winding, and orientation convention equivalence"
+      },
+      {
+        "actual": "PROVEN",
+        "category": "official_equivalence",
+        "evidence": [
+          "validation/published_transition_topology_report.json",
+          "research/official_topology/m3/candidate_triangulations.json",
+          "research/official_topology/m19/m19_report.json"
+        ],
+        "expected": "PROVEN",
+        "id": "official_transition_topology_equivalence",
+        "note": "Functional behavior does not require identical official interior diagonals; exact triangulation identity is tracked separately.",
+        "required_for": [
+          "functional_full_replacement",
+          "exact_table_compatible_replacement"
+        ],
+        "status": "PASS",
+        "title": "Published transition topology behavior for all 512 cases"
+      },
+      {
+        "actual": "NOT_PROVEN",
+        "category": "table_compatibility",
+        "evidence": [
+          "research/official_topology/m3/class_partition.json"
+        ],
+        "expected": "PROVEN",
+        "id": "official_class_id_mapping",
+        "next_action": "Derive official-compatible class numbering from a no-copy canonical representative ordering.",
+        "required_for": [
+          "exact_table_compatible_replacement"
+        ],
+        "status": "BLOCKED",
+        "title": "Official 73 transition-class mapping"
+      },
+      {
+        "actual": "NOT_PROVEN",
+        "category": "table_compatibility",
+        "evidence": [
+          "research/official_topology/m3/candidate_triangulations.json"
+        ],
+        "expected": "PROVEN",
+        "id": "official_vertex_encoding_equivalence",
+        "next_action": "Define and prove an independently derived vertex-code/cache-reuse encoding contract.",
+        "required_for": [
+          "exact_table_compatible_replacement"
+        ],
+        "status": "BLOCKED",
+        "title": "Official transition vertex encoding and reuse metadata equivalence"
+      },
+      {
+        "actual": "NOT_PROVEN",
+        "category": "table_compatibility",
+        "evidence": [
+          "research/official_topology/m3/candidate_triangulations.json"
+        ],
+        "expected": "PROVEN",
+        "id": "official_triangle_triangulation_identity",
+        "next_action": "Do not use official arrays as an oracle. This is not required for a functional behavioral replacement.",
+        "note": "Exact official interior diagonal identity is separate from the published topology behavior proven by M19.",
+        "required_for": [
+          "exact_table_compatible_replacement"
+        ],
+        "status": "BLOCKED",
+        "title": "Exact official transition interior triangulation identity"
+      },
+      {
+        "actual": "PROVEN",
+        "category": "full_replacement",
+        "evidence": [
+          "validation/regular_cell_equivalence_report.json",
+          "research/official_topology/m20/m20_report.json",
+          "generated/regular_tables.json"
+        ],
+        "expected": "PROVEN",
+        "id": "official_regular_cell_equivalence",
+        "note": "Functional behavior is separate from exact official regular class numbers, reuse codes, and table bytes.",
+        "required_for": [
+          "functional_full_replacement",
+          "exact_table_compatible_replacement"
+        ],
+        "status": "PASS",
+        "title": "Clean-room modified-Marching-Cubes regular-cell behavior"
+      },
+      {
+        "actual": "NOT_PROVEN",
+        "category": "table_compatibility",
+        "evidence": [
+          "validation/regular_cell_equivalence_report.json"
+        ],
+        "expected": "PROVEN",
+        "id": "official_regular_table_identity",
+        "next_action": "Do not use official arrays as an oracle. Exact regular table identity is not required for functional replacement.",
+        "required_for": [
+          "exact_table_compatible_replacement"
+        ],
+        "status": "BLOCKED",
+        "title": "Exact official regular-cell class/encoding/table identity"
+      },
+      {
+        "actual": "PROVEN",
+        "category": "full_replacement",
+        "evidence": [
+          "validation/consumer_compatibility_report.json",
+          "examples/c_m21_consumer_contract/main.c",
+          "examples/cpp_consumer/main.cpp"
+        ],
+        "expected": "PROVEN",
+        "id": "transvoxel_cpp_consumer_compatibility_contract",
+        "note": "This gate proves the behavioral public API replacement contract. It does not claim field-for-field or byte-for-byte Transvoxel.cpp table compatibility.",
+        "required_for": [
+          "functional_full_replacement",
+          "exact_table_compatible_replacement"
+        ],
+        "status": "PASS",
+        "title": "Documented and tested compatibility contract for Transvoxel.cpp consumers"
+      },
+      {
+        "actual": "NOT_PROVEN",
+        "category": "informational",
+        "evidence": [
+          "research/official_topology/m13/m13_report.json"
+        ],
+        "expected": "PROVEN only if exact table-file compatibility is claimed",
+        "id": "official_transvoxel_cpp_byte_identity",
+        "next_action": "Do not use official arrays as an oracle. This is not required for a functional clean-room replacement.",
+        "note": "Not a blocker for functional replacement; it blocks only an exact table-file identity claim.",
+        "required_for": [
+          "exact_table_compatible_replacement"
+        ],
+        "status": "BLOCKED",
+        "title": "Byte-for-byte identity with the MIT Transvoxel.cpp table file"
+      }
+    ],
+    "load_errors": [],
+    "meaning": "The public clean-room C/C++ API is ready to use as a functional Transvoxel.cpp replacement: default regular cells, default M4 transition cells, published behavior proofs, and consumer compile/link tests pass. Exact official table layout, class IDs, vertex encoding, triangulation identity, and byte identity remain separate blocked claims.",
+    "next_milestone": {
+      "id": "M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
+      "objective": "Keep functional replacement evidence green while deciding whether exact table-layout/class-ID/encoding compatibility is a required product goal.",
+      "why_first": "M21 makes the public C/C++ functional replacement ready. The remaining blockers are exact official compatibility claims, not functional behavior blockers."
+    },
+    "passing_gate_ids": [
+      "m4_runtime_tables",
+      "m5_c_runtime",
+      "m6_c_seams",
+      "m7_normal_api",
+      "m8_package",
+      "m9_terrain_export",
+      "m10_godot_metrics",
+      "m11_godot_viewer",
+      "m12_backend_compare",
+      "m13_scripted_edits",
+      "m4_all_six_face_orientation_runtime_validation",
+      "m4_multi_face_corner_junction_validation",
+      "m4_selected_full_production_gate",
+      "official_reference_convention_equivalence",
+      "official_transition_topology_equivalence",
+      "official_regular_cell_equivalence",
+      "transvoxel_cpp_consumer_compatibility_contract"
+    ],
+    "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
+    "status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED"
+  },
+  "schema": "boqsc.transvoxel.official_topology.m21.report.v1",
+  "status": "PASS_M21_DEFAULT_M4_FUNCTIONAL_CONSUMER_COMPATIBILITY",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "tools/export_transvoxel.py"
+      ],
+      "output": "wrote <repo>\\generated\\transvoxel_tables.json\nsha256 2abb673609099eb3c456c6b4e235fda700c67feea9fa59fa6df8b3b5ff51416f\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/sync_godot_tables.py"
+      ],
+      "output": "synced godot\\generated\\regular_tables.json\nsynced godot\\generated\\transition_tables.json\nsynced godot\\generated\\transvoxel_tables.json\nsynced godot\\generated\\official_topology_candidate_tables.json\ngodot table sync: PASS\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_transvoxel.py"
+      ],
+      "output": "PASS\n<repo>\\validation\\transvoxel_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_core_c.py"
+      ],
+      "output": "trying C compiler: C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe cc\nregular case=23 vertices=6 triangles=4\nregular first_vertex=(1.000, 0.250, 0.000)\ntransition case=11 vertices=6 triangles=4\ntransition first_vertex=(0.250, 1.000, 0.000)\nwrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_clean_room_m4\nhigh_lod0 triangles=45 transition triangles=6 low_lod1 triangles=9\ncore C test: PASS\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_m4_backend_c.py"
+      ],
+      "output": "M4 backend package C test: PASS_M4_BACKEND_PACKAGE_C_EXAMPLE\nm4 package backend case=341 default_vertices=12 default_triangles=12 m4_vertices=12 m4_triangles=12 same_as_default=1 restored_default=1 custom_after=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_m4_terrain_c.py"
+      ],
+      "output": "M4 terrain C test: PASS_M4_TERRAIN_NORMAL_API_EXPORT\ndefault transition triangles=6 adapter transition triangles=6\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_consumer_compatibility.py"
+      ],
+      "output": "consumer compatibility test: PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY\nm21 consumer contract cases=512 default_vertices=4096 default_triangles=2640 max_vertices=12 max_triangles=12 m4_matches=512 sample13_ignored=512 callback_checks=3 failures=0\n\ncpp consumer transition case=341 vertices=12 triangles=12\n\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_godot_project.py"
+      ],
+      "output": "godot preflight: PASS\n<repo>\\validation\\godot_project_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "godot",
+        "--script",
+        "res://stages/01_runtime/DumpRuntimeData.gd"
+      ],
+      "output": "Godot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nruntime_dump=PASS\n<repo>/godot/validation/01_runtime/runtime_dump.json\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nblocking gates: 5\nnext milestone: M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY\n",
+      "returncode": 0
+    }
+  ],
+  "transvoxel_ok": true
+}

@@ -1,0 +1,140 @@
+{
+  "attempts": [
+    {
+      "c_contract": {
+        "command": [
+          "zig",
+          "cc",
+          "-std=c99",
+          "-Wall",
+          "-Wextra",
+          "-pedantic",
+          "-Iinclude",
+          "-Igenerated",
+          "src/transvoxel.c",
+          "src/transvoxel_m4_candidate.c",
+          "examples/c_m21_consumer_contract/main.c",
+          "-o",
+          "<temp>\\m21_consumer_contract.exe"
+        ],
+        "compile_returncode": 0,
+        "compile_stderr": "",
+        "compile_stdout": "",
+        "parsed": {
+          "callback_checks": 3,
+          "cases": 512,
+          "default_triangles": 2640,
+          "default_vertices": 4096,
+          "failures": 0,
+          "m4_matches": 512,
+          "max_triangles": 12,
+          "max_vertices": 12,
+          "sample13_ignored": 512
+        },
+        "run_returncode": 0,
+        "status": "PASS",
+        "stderr": "",
+        "stdout": "m21 consumer contract cases=512 default_vertices=4096 default_triangles=2640 max_vertices=12 max_triangles=12 m4_matches=512 sample13_ignored=512 callback_checks=3 failures=0\n"
+      },
+      "candidate": "zig cc",
+      "cpp_smoke": {
+        "compile_c_command": [
+          "zig",
+          "cc",
+          "-std=c99",
+          "-Wall",
+          "-Wextra",
+          "-pedantic",
+          "-Iinclude",
+          "-Igenerated",
+          "-c",
+          "src/transvoxel.c",
+          "-o",
+          "<temp>\\transvoxel.o"
+        ],
+        "compile_c_returncode": 0,
+        "compile_c_stderr": "",
+        "compile_c_stdout": "",
+        "compile_cpp_command": [
+          "zig",
+          "c++",
+          "-std=c++17",
+          "-Wall",
+          "-Wextra",
+          "-pedantic",
+          "-Iinclude",
+          "-Igenerated",
+          "examples/cpp_consumer/main.cpp",
+          "<temp>\\transvoxel.o",
+          "-o",
+          "<temp>\\cpp_consumer.exe"
+        ],
+        "compile_cpp_returncode": 0,
+        "compile_cpp_stderr": "",
+        "compile_cpp_stdout": "",
+        "parsed": {
+          "case": 341,
+          "triangles": 12,
+          "vertices": 12
+        },
+        "run_returncode": 0,
+        "status": "PASS",
+        "stderr": "",
+        "stdout": "cpp consumer transition case=341 vertices=12 triangles=12\n"
+      },
+      "source": "configured-c-compiler",
+      "status": "PASS"
+    }
+  ],
+  "c_stdout": "m21 consumer contract cases=512 default_vertices=4096 default_triangles=2640 max_vertices=12 max_triangles=12 m4_matches=512 sample13_ignored=512 callback_checks=3 failures=0\n",
+  "checks": [
+    "compiled and ran exhaustive C consumer contract over all 512 transition cases",
+    "default tv_build_transition_cell output matched direct M4 output for every case",
+    "public transition max constants are 12 vertices and 12 triangles",
+    "public 14-sample ABI retained and sample 13 ignored by default M4 backend",
+    "small-buffer errors are still reported through the public API",
+    "transition callback customization still routes and reset restores default M4",
+    "C++ consumer included transvoxel.h and linked against a C object"
+  ],
+  "compiler": "zig cc",
+  "contract": {
+    "behavioral_replacement_not_byte_identity": true,
+    "callback_customization": true,
+    "cpp_include_link_smoke": true,
+    "default_m4_equivalence_all_512": true,
+    "exact_table_layout_compatibility": false,
+    "public_c_api": true,
+    "sample13_abi_retained_ignored": true
+  },
+  "cpp_stdout": "cpp consumer transition case=341 vertices=12 triangles=12\n",
+  "default_transition_backend": "clean_room_m4_published_topology",
+  "default_transition_source": "generated/official_topology_candidate_tables.json via generated/transvoxel_tables.h",
+  "exact_table_layout_compatibility": false,
+  "functional_transvoxel_cpp_consumer_compatibility": "PROVEN",
+  "meaning": "Tests the functional public-consumer contract for the clean-room Transvoxel.cpp replacement claim. This is not an exact official table-layout or byte-identity claim.",
+  "metrics": {
+    "callback_checks": 3,
+    "cases": 512,
+    "default_triangles": 2640,
+    "default_vertices": 4096,
+    "failures": 0,
+    "m4_matches": 512,
+    "max_triangles": 12,
+    "max_vertices": 12,
+    "sample13_ignored": 512
+  },
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "schema": "boqsc.transvoxel.m21.consumer_compatibility.v1",
+  "source": "configured-c-compiler",
+  "status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+  "validated_files": [
+    "include/transvoxel.h",
+    "include/transvoxel_m4_candidate.h",
+    "src/transvoxel.c",
+    "src/transvoxel_m4_candidate.c",
+    "generated/transvoxel_tables.h",
+    "generated/official_topology_candidate_tables.h",
+    "examples/c_m21_consumer_contract/main.c",
+    "examples/cpp_consumer/main.cpp"
+  ]
+}
