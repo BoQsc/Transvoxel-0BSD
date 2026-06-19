@@ -1,0 +1,180 @@
+{
+  "default_core_replaced": false,
+  "godot_project_status": "PASS",
+  "godot_runtime_executed": true,
+  "godot_stage": {
+    "executed": true,
+    "output": {
+      "default_core_replaced": false,
+      "meaning": "Godot-headless non-visual M4 candidate metrics. This validates the synced M4 candidate table in the Godot data path and does not claim official Transvoxel.cpp equivalence.",
+      "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+      "official_triangle_topology_equivalence": "NOT_PROVEN",
+      "schema": "boqsc.transvoxel.godot_m4_candidate_metrics.v1",
+      "status": "PASS",
+      "validation": {
+        "case_count": 512,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "issues": [],
+        "sample_count": 13,
+        "seam_open_edges": 0,
+        "statistics": {
+          "case_count": 512.0,
+          "max_triangles_per_case": 12.0,
+          "max_vertices_per_case": 12.0,
+          "non_empty_case_count": 510.0,
+          "research_class_count": 73.0,
+          "total_triangles": 2640.0,
+          "total_vertex_pairs": 4096.0
+        },
+        "status": "PASS",
+        "strips": {
+          "builds": 5376,
+          "failure_examples": [],
+          "failures": 0,
+          "field_names": [
+            "plane_x",
+            "plane_y",
+            "diagonal",
+            "circle",
+            "saddle",
+            "hash_noise",
+            "wavy"
+          ],
+          "fields": 7,
+          "grid": 8,
+          "seeds": 12,
+          "shared_faces": 9408,
+          "status": "PASS",
+          "total_triangles": 9503,
+          "total_vertices": 14909
+        },
+        "triangles": {
+          "degenerate_triangles": 0,
+          "invalid_triangles": 0,
+          "status": "PASS",
+          "total_triangles": 2640
+        }
+      }
+    },
+    "output_path": "godot\\validation\\05_m4_candidate_metrics\\m4_candidate_metrics.json",
+    "returncode": 0,
+    "status": "PASS"
+  },
+  "m4_godot_candidate_validation": {
+    "canonical_table": "generated/official_topology_candidate_tables.json",
+    "default_core_replaced": false,
+    "godot_runtime_executed": false,
+    "godot_table": "godot/generated/official_topology_candidate_tables.json",
+    "m4_table_synced_to_godot": true,
+    "meaning": "Validates the M4 candidate table in the Godot generated-data path using the same non-visual metrics shape expected from the M10 Godot stage. This does not execute Godot.",
+    "metrics_output_equivalent": "godot/validation/05_m4_candidate_metrics/m4_candidate_metrics.json",
+    "missing": [],
+    "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+    "official_triangle_topology_equivalence": "NOT_PROVEN",
+    "schema": "boqsc.transvoxel.m4_godot_candidate_report.v1",
+    "status": "PASS_M4_GODOT_STYLE_CANDIDATE_METRICS",
+    "validation": {
+      "case_count": 512,
+      "degenerate_triangles": 0,
+      "invalid_triangles": 0,
+      "issues": [],
+      "sample_count": 13,
+      "seam_open_edges": 0,
+      "statistics": {
+        "case_count": 512,
+        "max_triangles_per_case": 12,
+        "max_vertices_per_case": 12,
+        "non_empty_case_count": 510,
+        "research_class_count": 73,
+        "total_triangles": 2640,
+        "total_vertex_pairs": 4096
+      },
+      "status": "PASS",
+      "strips": {
+        "builds": 5376,
+        "failure_examples": [],
+        "failures": 0,
+        "field_names": [
+          "plane_x",
+          "plane_y",
+          "diagonal",
+          "circle",
+          "saddle",
+          "hash_noise",
+          "wavy"
+        ],
+        "fields": 7,
+        "grid": 8,
+        "seeds": 12,
+        "shared_faces": 9408,
+        "status": "PASS",
+        "total_triangles": 9503,
+        "total_vertices": 14909
+      },
+      "triangles": {
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "total_triangles": 2640
+      }
+    }
+  },
+  "m9_status": "PASS_M9_M4_TERRAIN_EXPORT_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "official_class_id_mapping": "NOT_PROVEN",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "outputs": {
+    "godot_project_preflight": "validation\\godot_project_report.json",
+    "m4_godot_candidate_validation": "validation\\m4_godot_candidate_report.json",
+    "results": "research\\official_topology\\m10\\results.md"
+  },
+  "schema": "boqsc.transvoxel.official_topology.m10.report.v1",
+  "status": "PASS_M10_M4_GODOT_DATA_PATH_METRICS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "research/official_topology/m9/run_m9.py"
+      ],
+      "output": "M4 runtime candidate table: <repo>\\generated\\official_topology_candidate_tables.json\nM4 C header: <repo>\\generated\\official_topology_candidate_tables.h\nstatus: candidate_runtime_tables_official_equivalence_not_proven\nsha256: 0ae3d220b7a3c6519c7504aba7731164c0b9d0c3587152adc78117717875674d\nM4 runtime table validation: <repo>\\research\\official_topology\\m4\\runtime_table_validation.json\nstatus: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\ntotal triangles: 2640\ntotal vertex pairs: 4096\nM4 Zig header smoke: PASS_ZIG_HEADER_SMOKE\n\nM4: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m4\\results.md\nM5 C validation: PASS_M5_ZIG_CANDIDATE_BUILDER\nm4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12\n\nM5: PASS_M5_OPT_IN_C_RUNTIME_CANDIDATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m5\\results.md\nM6 C seam validation: PASS_M6_ZIG_M4_SEAM_VALIDATION\nm6 m4 seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\nm6 default comparison cases=512 default_failures=0 m4_failures=0 count_differences=510 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 structurally_distinct=1\n\nM6: PASS_M6_M4_C_SEAM_VALIDATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m6\\results.md\nM7 C backend-switch validation: PASS_M7_ZIG_NORMAL_API_BACKEND_SWITCH\nm7 backend switch cases=512 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 count_differences=510 restored_default=1\nm7 normal_api_m4_seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\n\nM7: PASS_M7_NORMAL_API_M4_BACKEND_SWITCH_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m7\\results.md\nM4 backend package C test: PASS_M4_BACKEND_PACKAGE_C_EXAMPLE\nm4 package backend case=341 default_vertices=24 default_triangles=24 m4_vertices=12 m4_triangles=12 restored_default=1 custom_after=0\n\nM8: PASS_M8_M4_BACKEND_PACKAGE_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m8\\results.md\nM4 terrain C test: PASS_M4_TERRAIN_NORMAL_API_EXPORT\ndefault transition triangles=36 m4 transition triangles=6\n\nM9: PASS_M9_M4_TERRAIN_EXPORT_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m9\\results.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/sync_godot_tables.py"
+      ],
+      "output": "synced godot\\generated\\regular_tables.json\nsynced godot\\generated\\transition_tables.json\nsynced godot\\generated\\transvoxel_tables.json\nsynced godot\\generated\\official_topology_candidate_tables.json\ngodot table sync: PASS\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_godot_project.py"
+      ],
+      "output": "godot preflight: PASS\n<repo>\\validation\\godot_project_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_m4_godot_candidate.py"
+      ],
+      "output": "M4 Godot candidate: PASS_M4_GODOT_STYLE_CANDIDATE_METRICS\nm4 godot-style builds=5376 shared_faces=9408 seam_open_edges=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "godot",
+        "--script",
+        "res://stages/05_m4_candidate_metrics/DumpM4CandidateMetrics.gd"
+      ],
+      "output": "Godot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_candidate_metrics=PASS\n<repo>/godot/validation/05_m4_candidate_metrics/m4_candidate_metrics.json\n",
+      "returncode": 0
+    }
+  ]
+}

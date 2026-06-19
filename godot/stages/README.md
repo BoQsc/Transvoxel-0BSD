@@ -6,6 +6,8 @@ Each validation step has its own folder. New work should add a new numbered stag
 - `02_mesh_api/` records Godot ArrayMesh/MeshDataTool behavior.
 - `03_seam_metrics/` records non-visual seam metrics used by the production gate.
 - `04_viewer/` is only for human visual inspection after metrics pass.
+- `05_m4_candidate_metrics/` records non-visual metrics for the optional M4
+  official-topology candidate data path.
 
 Rule: proof comes from JSON metrics first; screenshots are secondary.
 

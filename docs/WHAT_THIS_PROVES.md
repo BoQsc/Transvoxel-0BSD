@@ -16,6 +16,7 @@ scripted auto-interaction edits keep the seam checks green
 C core compiles and runs when a C compiler is available
 optional M4 candidate backend package example compiles and runs when a C compiler is available
 optional M4 candidate backend terrain export compiles and runs when a C compiler is available
+optional M4 candidate table is synced into the Godot data path and passes Godot-style metrics without executing Godot
 small dist/transvoxel_0bsd_core.zip can be built
 ```
 
@@ -47,6 +48,11 @@ That candidate path is still separate from the default backend.
 The C terrain export proof also checks the same terrain/LOD OBJ export path with
 M4 installed. It confirms regular-cell output is unchanged while the transition
 strip uses the installed M4 backend.
+
+The M4 Godot data-path proof checks that Godot can receive the M4 candidate
+table as staged generated data and that the table satisfies the same non-visual
+metrics shape used by the new M4 Godot stage. `RUN_M10.cmd` executes that stage
+too when a Godot executable is available.
 
 ## Godot's role
 

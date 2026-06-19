@@ -195,6 +195,28 @@ Godot runtime M4 validation: NOT_PROVEN
 official Transvoxel.cpp equivalence: NOT_PROVEN
 ```
 
+## M10
+
+`m10/` validates the M4 candidate table in the Godot generated-data path. It
+adds a headless Godot stage, runs the equivalent Python metrics validator, and
+executes the Godot stage when Godot is available.
+
+Run:
+
+```text
+RUN_M10.cmd
+```
+
+Current M10 result:
+
+```text
+M4 table synced into godot/generated: PASS
+Godot project preflight includes M4 stage/table: PASS
+M4 Godot-style seam failures: 0
+actual Godot M4 stage execution: PASS when Godot is available
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
 Allowed:
 
 ```text

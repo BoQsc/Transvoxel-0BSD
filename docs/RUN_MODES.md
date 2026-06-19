@@ -24,6 +24,10 @@ example, and the optional M4 terrain export example when a compiler is available
 
 Runs the staged Godot validators and checks the production gate using the latest generated data.
 
+The optional M4 candidate Godot data-path metrics are checked by the Python
+proof suite and `RUN_M10.cmd`. Actual Godot execution of the M4 stage is still a
+separate local runtime action.
+
 ## Full release proof
 
 `RUN_FULL.cmd` or `RUN.cmd`
@@ -39,3 +43,11 @@ proof/SEND_TO_CHATGPT.zip
 ## RUN_AUTO.cmd
 
 Runs the deterministic Godot headless auto-interaction proof. It is for checking scripted dig/add edits without relying on screenshots or human visual judgement.
+
+## Official-topology M4 milestones
+
+```text
+RUN_M8.cmd   optional M4 backend package proof
+RUN_M9.cmd   optional M4 terrain export proof
+RUN_M10.cmd  optional M4 Godot data-path metrics proof
+```

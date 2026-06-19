@@ -23,12 +23,15 @@ REQUIRED = [
     GODOT / "generated" / "regular_tables.json",
     GODOT / "generated" / "transition_tables.json",
     GODOT / "generated" / "transvoxel_tables.json",
+    GODOT / "generated" / "official_topology_candidate_tables.json",
+    STAGES / "05_m4_candidate_metrics" / "DumpM4CandidateMetrics.gd",
 ]
 
 EXPECTED_SCHEMAS = {
     "regular_tables.json": "boqsc.regular_tables.v1",
     "transition_tables.json": "boqsc.transition_tables.v1",
     "transvoxel_tables.json": "boqsc.transvoxel_tables.v1",
+    "official_topology_candidate_tables.json": "boqsc.transvoxel.official_topology.m4.runtime_candidate.v1",
 }
 
 
@@ -94,6 +97,14 @@ def main() -> int:
         if token not in auto_script:
             print("godot preflight: FAIL")
             print("auto interaction script missing token", token)
+            return 1
+
+    m4_script = (STAGES / "05_m4_candidate_metrics" / "DumpM4CandidateMetrics.gd").read_text(encoding="utf-8")
+    m4_tokens = ["M4_PATH", "OUT_PATH", "_validate_m4_candidate", "_validate_strips", "_validate_triangles"]
+    for token in m4_tokens:
+        if token not in m4_script:
+            print("godot preflight: FAIL")
+            print("M4 candidate script missing token", token)
             return 1
 
     for gd_path in sorted(STAGES.rglob("*.gd")):

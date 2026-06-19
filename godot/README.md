@@ -9,6 +9,8 @@ godot/stages/01_runtime/       runtime/table-load dump
 godot/stages/02_mesh_api/      ArrayMesh/MeshDataTool dump
 godot/stages/03_seam_metrics/  non-visual seam metrics for the production gate
 godot/stages/04_viewer/        optional visual viewer scene
+godot/stages/05_m4_candidate_metrics/
+                                optional M4 candidate data-path metrics
 ```
 
 The main scene is:
@@ -29,6 +31,7 @@ Stage output paths:
 godot/validation/01_runtime/runtime_dump.json
 godot/validation/02_mesh_api/mesh_api_dump.json
 godot/validation/03_seam_metrics/seam_metrics.json
+godot/validation/05_m4_candidate_metrics/m4_candidate_metrics.json
 ```
 
 Visual controls for the viewer stage:

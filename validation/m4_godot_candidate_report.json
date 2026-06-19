@@ -1,0 +1,59 @@
+{
+  "canonical_table": "generated/official_topology_candidate_tables.json",
+  "default_core_replaced": false,
+  "godot_runtime_executed": false,
+  "godot_table": "godot/generated/official_topology_candidate_tables.json",
+  "m4_table_synced_to_godot": true,
+  "meaning": "Validates the M4 candidate table in the Godot generated-data path using the same non-visual metrics shape expected from the M10 Godot stage. This does not execute Godot.",
+  "metrics_output_equivalent": "godot/validation/05_m4_candidate_metrics/m4_candidate_metrics.json",
+  "missing": [],
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "schema": "boqsc.transvoxel.m4_godot_candidate_report.v1",
+  "status": "PASS_M4_GODOT_STYLE_CANDIDATE_METRICS",
+  "validation": {
+    "case_count": 512,
+    "degenerate_triangles": 0,
+    "invalid_triangles": 0,
+    "issues": [],
+    "sample_count": 13,
+    "seam_open_edges": 0,
+    "statistics": {
+      "case_count": 512,
+      "max_triangles_per_case": 12,
+      "max_vertices_per_case": 12,
+      "non_empty_case_count": 510,
+      "research_class_count": 73,
+      "total_triangles": 2640,
+      "total_vertex_pairs": 4096
+    },
+    "status": "PASS",
+    "strips": {
+      "builds": 5376,
+      "failure_examples": [],
+      "failures": 0,
+      "field_names": [
+        "plane_x",
+        "plane_y",
+        "diagonal",
+        "circle",
+        "saddle",
+        "hash_noise",
+        "wavy"
+      ],
+      "fields": 7,
+      "grid": 8,
+      "seeds": 12,
+      "shared_faces": 9408,
+      "status": "PASS",
+      "total_triangles": 9503,
+      "total_vertices": 14909
+    },
+    "triangles": {
+      "degenerate_triangles": 0,
+      "invalid_triangles": 0,
+      "status": "PASS",
+      "total_triangles": 2640
+    }
+  }
+}

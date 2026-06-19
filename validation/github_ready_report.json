@@ -1,11 +1,17 @@
 {
   "forbidden_tracked": [],
-  "git_warning": "fatal: not a git repository (or any of the parent directories): .git",
-  "local_forbidden_present_ignored": [],
+  "git_warning": null,
+  "local_forbidden_present_ignored": [
+    "proof/SEND_TO_CHATGPT.zip",
+    "proof/c_compiler_cache.json",
+    "proof/one_click_log.txt",
+    "proof/one_click_report.json",
+    "proof/ONE_CLICK_RESULT.txt"
+  ],
   "missing": [],
   "notes": [
     "This checks repository publishing files only.",
-    "git ls-files was unavailable, so forbidden tracked-file detection was skipped.",
+    "Forbidden proof/cache files are checked against git-tracked files, not local generated files.",
     "Local generated proof files may exist after a run; they are ignored by .gitignore and should not be committed.",
     "Official Transvoxel.cpp / 73-class equivalence remains NOT_PROVEN unless separately proven by the research track."
   ],

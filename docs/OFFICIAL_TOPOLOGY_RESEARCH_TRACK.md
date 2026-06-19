@@ -278,3 +278,41 @@ Run:
 ```text
 RUN_M9.cmd
 ```
+
+## M10 result
+
+M10 adds the M4 candidate table to the Godot generated-data path and adds a
+headless Godot stage:
+
+```text
+godot/stages/05_m4_candidate_metrics/DumpM4CandidateMetrics.gd
+godot/generated/official_topology_candidate_tables.json
+```
+
+The local M10 proof runs the Python-equivalent validator for that stage and
+executes the stage when a Godot executable is available:
+
+```text
+tools/validate_m4_godot_candidate.py
+```
+
+Current M10 result:
+
+```text
+M4 table synced into godot/generated: PASS
+Godot project preflight includes M4 stage/table: PASS
+M4 Godot-style strip builds: 5376
+M4 Godot-style shared faces checked: 9408
+M4 Godot-style seam failures: 0
+M4 invalid triangles: 0
+M4 degenerate triangles: 0
+actual Godot M4 stage execution: PASS when Godot is available
+official Transvoxel.cpp equivalence: NOT_PROVEN
+default core replaced by default: false
+```
+
+Run:
+
+```text
+RUN_M10.cmd
+```

@@ -8,7 +8,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "generated"
 DST = ROOT / "godot" / "generated"
-NAMES = ["regular_tables.json", "transition_tables.json", "transvoxel_tables.json"]
+NAMES = [
+    "regular_tables.json",
+    "transition_tables.json",
+    "transvoxel_tables.json",
+    "official_topology_candidate_tables.json",
+]
 
 
 def main() -> int:
