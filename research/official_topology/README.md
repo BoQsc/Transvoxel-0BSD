@@ -151,6 +151,27 @@ default core replaced by default: false
 official Transvoxel.cpp equivalence: NOT_PROVEN
 ```
 
+## M8
+
+`m8/` validates the selectable M4 candidate backend as an optional package
+source path. It does not rebuild the release zip.
+
+Run:
+
+```text
+RUN_M8.cmd
+```
+
+Current M8 result:
+
+```text
+M7 backend switch proof: PASS
+optional M4 backend package example: PASS
+package manifest includes optional M4 files: PASS
+default core replaced by default: false
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
 Allowed:
 
 ```text

@@ -34,10 +34,16 @@ REQUIRED_FILES = [
     "docs/CORE_PACKAGE_CONTENTS.md",
     "docs/PROJECT_TRACKS.md",
     "include/transvoxel.h",
+    "include/transvoxel_m4_candidate.h",
+    "include/transvoxel_m4_backend.h",
     "src/transvoxel.c",
+    "src/transvoxel_m4_candidate.c",
+    "src/transvoxel_m4_backend.c",
     "generated/transvoxel_tables.h",
+    "generated/official_topology_candidate_tables.h",
     "examples/c_minimal/main.c",
     "examples/c_terrain_export/main.c",
+    "examples/c_m4_backend_switch/main.c",
     "dist/transvoxel_0bsd_core.zip",
 ]
 

@@ -47,6 +47,41 @@ It writes:
 terrain_export.obj
 ```
 
+## Optional M4 candidate backend
+
+The package also includes an opt-in M4 official-topology candidate backend. It
+is useful for testing the current 73-class clean-room research path through the
+normal public API.
+
+Add these files only if you want that candidate backend:
+
+```text
+include/transvoxel_m4_candidate.h
+include/transvoxel_m4_backend.h
+src/transvoxel_m4_candidate.c
+src/transvoxel_m4_backend.c
+generated/official_topology_candidate_tables.h
+```
+
+Compile:
+
+```sh
+zig cc -std=c99 -Iinclude -Igenerated src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_m4_backend_switch/main.c -o c_m4_backend_switch
+```
+
+Install it explicitly before building transition cells:
+
+```c
+#include "transvoxel_m4_backend.h"
+
+tv_install_m4_transition_backend_candidate();
+/* Existing tv_build_transition_cell() calls now use the M4 candidate backend. */
+tv_uninstall_m4_transition_backend_candidate();
+```
+
+This path remains a candidate. Official `Transvoxel.cpp` byte/table identity and
+triangle-topology equivalence are still `NOT_PROVEN`.
+
 ## Mental model
 
 The core is deliberately small:

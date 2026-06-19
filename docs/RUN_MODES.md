@@ -14,7 +14,9 @@ Result status is `FAST_PASS`, not a release proof.
 
 `RUN_CORE.cmd`
 
-Compiles and runs the minimal C example when a compiler is available, then rebuilds `dist/transvoxel_0bsd_core.zip`.
+Compiles and runs the default C examples and the optional M4 backend package
+example when a compiler is available, then rebuilds
+`dist/transvoxel_0bsd_core.zip`.
 
 ## Godot validator check
 

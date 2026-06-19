@@ -184,7 +184,10 @@ To use that adapter, compile these additional files:
 ```text
 src/transvoxel_m4_candidate.c
 src/transvoxel_m4_backend.c
+generated/official_topology_candidate_tables.h
 ```
+
+See `examples/c_m4_backend_switch/` for a package-level smoke example.
 
 The M4 backend is still a candidate path. Official `Transvoxel.cpp` equivalence
 remains unproven.

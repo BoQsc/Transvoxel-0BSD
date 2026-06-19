@@ -26,8 +26,13 @@ CORE_FILES = [
     "docs/KNOWN_LIMITS.md",
     "docs/TESTING_BY_USERS.md",
     "include/transvoxel.h",
+    "include/transvoxel_m4_candidate.h",
+    "include/transvoxel_m4_backend.h",
     "src/transvoxel.c",
+    "src/transvoxel_m4_candidate.c",
+    "src/transvoxel_m4_backend.c",
     "generated/transvoxel_tables.h",
+    "generated/official_topology_candidate_tables.h",
     "examples/c_minimal/main.c",
     "examples/c_minimal/BUILD_WITH_ZIG.cmd",
     "examples/c_minimal/BUILD_WITH_CC.sh",
@@ -35,6 +40,9 @@ CORE_FILES = [
     "examples/c_terrain_export/README.md",
     "examples/c_terrain_export/BUILD_WITH_ZIG.cmd",
     "examples/c_terrain_export/BUILD_WITH_CC.sh",
+    "examples/c_m4_backend_switch/main.c",
+    "examples/c_m4_backend_switch/BUILD_WITH_ZIG.cmd",
+    "examples/c_m4_backend_switch/BUILD_WITH_CC.sh",
 ]
 
 
@@ -66,12 +74,12 @@ def main() -> int:
                 zf.write(path, str(path.relative_to(DIST)))
 
     report = {
-        "schema": "boqsc.transvoxel.dist_report.v5",
+        "schema": "boqsc.transvoxel.dist_report.v6",
         "status": "PASS" if not missing else "FAIL",
         "core_zip": str(CORE_ZIP),
         "copied": copied,
         "missing": missing,
-        "note": "Minimal core zip intentionally excludes generated JSON proof data. Use the full repository package for generator/proof data.",
+        "note": "Core zip includes the default independent backend and the opt-in M4 candidate backend source path. It intentionally excludes generated JSON proof data. Use the full repository package for generator/proof data.",
     }
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")

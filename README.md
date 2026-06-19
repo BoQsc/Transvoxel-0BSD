@@ -20,11 +20,14 @@ https://github.com/BoQsc/Transvoxel-0BSD/releases
 
 The small core package contains the public C API, generated tables, examples, docs, license, provenance notes, and sources list. Godot is **not** required by the core. Godot exists in this repository only as one validation and sandbox environment.
 
+The package also carries an optional M4 candidate backend for the official-topology research track. It must be compiled and installed explicitly; the default backend is unchanged.
+
 ## Current status
 
 ```text
 Independent 0BSD core: release-candidate track
 Functional Transvoxel-style proof: PASS when the full proof gate passes
+Optional M4 official-topology candidate backend: package-validated candidate
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -57,14 +60,27 @@ regular case=23 vertices=13 triangles=12
 transition case=11 vertices=16 triangles=18
 ```
 
+Optional M4 backend package smoke:
+
+```sh
+zig cc -std=c99 -Iinclude -Igenerated src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_m4_backend_switch/main.c -o c_m4_backend_switch
+./c_m4_backend_switch
+```
+
 ## Small drop-in package contents
 
 ```text
 include/transvoxel.h
 src/transvoxel.c
 generated/transvoxel_tables.h
+include/transvoxel_m4_candidate.h
+include/transvoxel_m4_backend.h
+src/transvoxel_m4_candidate.c
+src/transvoxel_m4_backend.c
+generated/official_topology_candidate_tables.h
 examples/c_minimal/
 examples/c_terrain_export/
+examples/c_m4_backend_switch/
 docs/API.md
 docs/DROP_IN.md
 docs/WHAT_THIS_PROVES.md
@@ -91,6 +107,7 @@ RUN_AUTO.cmd        headless scripted auto-interaction
 RUN_FULL.cmd        full release proof
 RUN.cmd             same as RUN_FULL.cmd
 RUN_INTERACTIVE.cmd human sandbox evaluation
+RUN_M8.cmd          optional M4 backend package proof
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:
@@ -99,7 +116,7 @@ After a local run, this file can be uploaded for debugging or confirmation:
 proof/SEND_TO_CHATGPT.zip
 ```
 
-GitHub Actions run the generator/proof suite, C smoke test, dist build, release-candidate report, and GitHub-ready report. Godot runtime validation still needs a local machine with Godot installed.
+GitHub Actions run the generator/proof suite, default C smoke test, optional M4 backend package smoke test, dist build, release-candidate report, and GitHub-ready report. Godot runtime validation still needs a local machine with Godot installed.
 
 ## Project tracks
 

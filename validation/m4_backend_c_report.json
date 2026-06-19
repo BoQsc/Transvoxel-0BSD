@@ -1,0 +1,73 @@
+{
+  "attempts": [
+    {
+      "candidate": "zig cc",
+      "command": [
+        "zig",
+        "cc",
+        "-std=c99",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-Iinclude",
+        "-Igenerated",
+        "src/transvoxel.c",
+        "src/transvoxel_m4_candidate.c",
+        "src/transvoxel_m4_backend.c",
+        "examples/c_m4_backend_switch/main.c",
+        "-o",
+        "<temp>/c_m4_backend_switch.exe"
+      ],
+      "parsed": {
+        "case": 341,
+        "custom_after": 0,
+        "default_triangles": 24,
+        "default_vertices": 24,
+        "m4_triangles": 12,
+        "m4_vertices": 12,
+        "restored_default": 1
+      },
+      "returncode": 0,
+      "source": "configured-c-compiler",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "m4 package backend case=341 default_vertices=24 default_triangles=24 m4_vertices=12 m4_triangles=12 restored_default=1 custom_after=0"
+    }
+  ],
+  "checks": [
+    "compiled default independent backend and optional M4 backend sources together",
+    "public transvoxel.h transition API starts on the default backend",
+    "M4 backend installs through transvoxel_m4_backend.h",
+    "tv_build_transition_cell routes through M4 after explicit install",
+    "M4 candidate builds the max-triangle package smoke case",
+    "M4 backend uninstalls and restores the default backend"
+  ],
+  "compiler": "zig cc",
+  "default_core_replaced": false,
+  "meaning": "Compiles and runs the optional M4 backend package example through the normal transvoxel.h API. This is not an official Transvoxel.cpp equivalence proof.",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "parsed": {
+    "case": 341,
+    "custom_after": 0,
+    "default_triangles": 24,
+    "default_vertices": 24,
+    "m4_triangles": 12,
+    "m4_vertices": 12,
+    "restored_default": 1
+  },
+  "schema": "boqsc.transvoxel.m4_backend_c_report.v1",
+  "source": "configured-c-compiler",
+  "status": "PASS_M4_BACKEND_PACKAGE_C_EXAMPLE",
+  "stdout": "m4 package backend case=341 default_vertices=24 default_triangles=24 m4_vertices=12 m4_triangles=12 restored_default=1 custom_after=0",
+  "validated_files": [
+    "include/transvoxel.h",
+    "include/transvoxel_m4_candidate.h",
+    "include/transvoxel_m4_backend.h",
+    "src/transvoxel.c",
+    "src/transvoxel_m4_candidate.c",
+    "src/transvoxel_m4_backend.c",
+    "generated/official_topology_candidate_tables.h",
+    "examples/c_m4_backend_switch/main.c"
+  ]
+}

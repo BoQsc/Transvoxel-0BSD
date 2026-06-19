@@ -22,6 +22,9 @@ jobs:
       - name: Compile C core smoke test
         run: python tools/test_core_c.py
 
+      - name: Compile optional M4 backend package smoke test
+        run: python tools/test_m4_backend_c.py
+
       - name: Build public core package
         run: python tools/build_dist.py
 

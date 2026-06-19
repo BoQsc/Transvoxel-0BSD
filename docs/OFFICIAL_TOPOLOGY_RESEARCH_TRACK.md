@@ -208,3 +208,40 @@ Run:
 ```text
 RUN_M7.cmd
 ```
+
+## M8 result
+
+M8 makes the selectable M4 candidate backend a package-validated optional source
+path. It adds a public package smoke example:
+
+```text
+examples/c_m4_backend_switch/
+```
+
+and validates that the core package manifest includes:
+
+```text
+include/transvoxel_m4_candidate.h
+include/transvoxel_m4_backend.h
+src/transvoxel_m4_candidate.c
+src/transvoxel_m4_backend.c
+generated/official_topology_candidate_tables.h
+```
+
+Current M8 result:
+
+```text
+optional M4 backend package compile/run: PASS
+M4 install through normal API: PASS
+M4 uninstall restores default backend: PASS
+package manifest includes optional M4 path: PASS
+release zip rebuilt by M8: false
+official Transvoxel.cpp equivalence: NOT_PROVEN
+default core replaced by default: false
+```
+
+Run:
+
+```text
+RUN_M8.cmd
+```
