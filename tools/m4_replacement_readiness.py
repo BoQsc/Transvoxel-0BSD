@@ -8,6 +8,7 @@ This report separates:
 2. readiness to make M4 the default transition backend;
 3. readiness to claim a functional clean-room Transvoxel.cpp replacement;
 4. readiness to claim exact table/encoding/byte compatibility.
+5. readiness to ship an exact semantic drop-in replacement under 0BSD.
 
 A blocked replacement decision is an expected successful analysis result. The
 tool returns nonzero only when required evidence files are missing/malformed or
@@ -49,6 +50,27 @@ M25_CONSUMER_REPORT = (
     / "official_topology"
     / "m25"
     / "m25_consumer_validation.json"
+)
+M26_INTEGRATION_REPORT = (
+    ROOT
+    / "research"
+    / "official_topology"
+    / "m26"
+    / "m26_godot_voxel_integration.json"
+)
+M26_PROVENANCE_REPORT = (
+    ROOT
+    / "research"
+    / "official_topology"
+    / "m26"
+    / "m26_provenance_audit.json"
+)
+M26_FULL_BUILD_REPORT = (
+    ROOT
+    / "research"
+    / "official_topology"
+    / "m26"
+    / "m26_full_godot_voxel_build.json"
 )
 M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
@@ -155,6 +177,8 @@ def write_markdown(report: Dict[str, Any]) -> None:
         f"- Optional M4 transition backend candidate ready: `{report['decisions']['optional_transition_backend_candidate_ready']}`",
         f"- Ready to replace the default transition backend: `{report['decisions']['ready_to_replace_default_transition_backend']}`",
         f"- Ready to claim a functional full Transvoxel.cpp replacement: `{report['decisions']['functional_full_replacement_ready']}`",
+        f"- Exact semantic drop-in integration ready: `{report['decisions']['exact_drop_in_integration_ready']}`",
+        f"- Exact semantic drop-in 0BSD release ready: `{report['decisions']['exact_drop_in_0bsd_replacement_ready']}`",
         f"- Ready to claim exact table/encoding compatibility: `{report['decisions']['exact_table_compatible_replacement_ready']}`",
         "",
         "## Passing evidence",
@@ -257,6 +281,21 @@ def main() -> int:
     m25_consumer = (
         read_json(M25_CONSUMER_REPORT)
         if M25_CONSUMER_REPORT.exists()
+        else {}
+    )
+    m26_integration = (
+        read_json(M26_INTEGRATION_REPORT)
+        if M26_INTEGRATION_REPORT.exists()
+        else {}
+    )
+    m26_provenance = (
+        read_json(M26_PROVENANCE_REPORT)
+        if M26_PROVENANCE_REPORT.exists()
+        else {}
+    )
+    m26_full_build = (
+        read_json(M26_FULL_BUILD_REPORT)
+        if M26_FULL_BUILD_REPORT.exists()
         else {}
     )
     if M15_REPORT.exists():
@@ -692,22 +731,122 @@ def main() -> int:
             ),
         ),
         gate(
+            "godot_voxel_table_integration",
+            "Pinned Godot Voxel table-source replacement integration",
+            "drop_in_compatibility",
+            ["exact_drop_in_replacement"],
+            (
+                "PASS"
+                if m26_integration.get("status")
+                == "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION"
+                and m26_integration.get("comparison", {}).get(
+                    "mismatch_count"
+                )
+                == 0
+                else "BLOCKED"
+            ),
+            [
+                (
+                    rel(M26_INTEGRATION_REPORT)
+                    if M26_INTEGRATION_REPORT.exists()
+                    else (
+                        "research/official_topology/m26/"
+                        "m26_godot_voxel_integration.json"
+                    )
+                ),
+                (
+                    "research/official_topology/m26/"
+                    "godot_style_table_consumer.cpp"
+                ),
+            ],
+            m26_integration.get("status", "MISSING"),
+            "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION",
+            (
+                "Compile the actual Godot Voxel table API against the original "
+                "and M26 replacement and compare all 781 output records."
+                if m26_integration.get("status")
+                != "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION"
+                else None
+            ),
+            (
+                "This pinned downstream source-contract comparison is "
+                "complemented by the separate full GDExtension build gate."
+            ),
+        ),
+        gate(
+            "godot_voxel_full_gdextension_build",
+            "Full pinned Godot Voxel GDExtension build with replacement table",
+            "drop_in_compatibility",
+            ["exact_drop_in_replacement"],
+            (
+                "PASS"
+                if m26_full_build.get("status")
+                == "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD"
+                else "BLOCKED"
+            ),
+            [
+                (
+                    rel(M26_FULL_BUILD_REPORT)
+                    if M26_FULL_BUILD_REPORT.exists()
+                    else (
+                        "research/official_topology/m26/"
+                        "m26_full_godot_voxel_build.json"
+                    )
+                ),
+                (
+                    "research/official_topology/m26/"
+                    "test_full_godot_voxel_build.py"
+                ),
+            ],
+            m26_full_build.get("status", "MISSING"),
+            "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD",
+            (
+                "Build a temporary pinned Godot Voxel clone with the M26 "
+                "replacement using Zig and a compatible godot-cpp dependency."
+                if m26_full_build.get("status")
+                != "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD"
+                else None
+            ),
+            (
+                "The build uses temporary clones only and records artifact "
+                "hashes without packaging the DLL."
+            ),
+        ),
+        gate(
             "exact_0bsd_provenance_clearance",
             "0BSD provenance clearance for oracle-calibrated exact data",
             "provenance",
             ["exact_table_compatible_replacement"],
-            "BLOCKED",
+            (
+                "PASS"
+                if m26_provenance.get("decision", {}).get(
+                    "exact_candidate_0bsd_provenance_cleared"
+                )
+                is True
+                else "BLOCKED"
+            ),
             [
                 (
                     rel(M24_EXACT_TOPOLOGY_REPORT)
                     if M24_EXACT_TOPOLOGY_REPORT.exists()
                     else "validation/m24_exact_topology_report.json"
                 ),
+                (
+                    rel(M26_PROVENANCE_REPORT)
+                    if M26_PROVENANCE_REPORT.exists()
+                    else (
+                        "research/official_topology/m26/"
+                        "m26_provenance_audit.json"
+                    )
+                ),
                 "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md",
             ],
-            m24_exact_topology.get("decisions", {}).get(
-                "exact_0bsd_provenance_cleared",
-                False,
+            m26_provenance.get("decision", {}).get(
+                "exact_candidate_0bsd_provenance_cleared",
+                m24_exact_topology.get("decisions", {}).get(
+                    "exact_0bsd_provenance_cleared",
+                    False,
+                ),
             ),
             True,
             (
@@ -763,11 +902,47 @@ def main() -> int:
         "exact_0bsd_provenance_clearance",
         "official_transvoxel_cpp_byte_identity",
     }
+    drop_in_integration_required = {
+        *functional_required,
+        "official_vertex_encoding_equivalence",
+        "official_triangle_triangulation_identity",
+        "compatible_transvoxel_cpp_data_layout",
+        "unchanged_style_cpp_consumer",
+        "godot_voxel_table_integration",
+        "godot_voxel_full_gdextension_build",
+    }
+    drop_in_release_required = {
+        *drop_in_integration_required,
+        "exact_0bsd_provenance_clearance",
+    }
+    identity_only_gate_ids = {
+        "official_class_id_mapping",
+        "official_regular_table_identity",
+        "official_transvoxel_cpp_byte_identity",
+    }
 
     status_by_id = {item["id"]: item["status"] for item in gates}
     default_ready = runtime_pass and all(status_by_id.get(gate_id) == "PASS" for gate_id in default_required)
     functional_ready = all(status_by_id.get(gate_id) == "PASS" for gate_id in functional_required)
     exact_ready = all(status_by_id.get(gate_id) == "PASS" for gate_id in exact_required)
+    drop_in_integration_ready = all(
+        status_by_id.get(gate_id) == "PASS"
+        for gate_id in drop_in_integration_required
+    )
+    drop_in_release_ready = all(
+        status_by_id.get(gate_id) == "PASS"
+        for gate_id in drop_in_release_required
+    )
+    drop_in_blocking_ids = sorted(
+        gate_id
+        for gate_id in drop_in_release_required
+        if status_by_id.get(gate_id) != "PASS"
+    )
+    identity_only_blocking_ids = sorted(
+        gate_id
+        for gate_id in identity_only_gate_ids
+        if status_by_id.get(gate_id) != "PASS"
+    )
     passing_ids = [item["id"] for item in gates if item["status"] == "PASS"]
     blocking_ids = [item["id"] for item in gates if item["status"] == "BLOCKED"]
     failed_ids = [item["id"] for item in gates if item["status"] == "FAIL"]
@@ -795,6 +970,27 @@ def main() -> int:
     if functional_ready:
         if claim_boundary_documented:
             if (
+                m26_integration.get("status")
+                == "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION"
+                and m26_full_build.get("status")
+                == "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD"
+            ):
+                next_milestone = {
+                    "id": "M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE",
+                    "objective": (
+                        "Replace the M24 oracle-calibrated triangulation "
+                        "selection indexes with an independently justified "
+                        "deterministic rule, then re-run all exact and "
+                        "downstream integration proofs."
+                    ),
+                    "why_first": (
+                        "M26 proves exact semantic table replacement through "
+                        "the pinned Godot Voxel consumer API. The only blocker "
+                        "to shipping that exact candidate as 0BSD is provenance; "
+                        "numeric class IDs and byte identity are identity-only."
+                    ),
+                }
+            elif (
                 m25_compatible_layout.get("status")
                 == "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT"
                 and m25_consumer.get("status")
@@ -1008,6 +1204,13 @@ def main() -> int:
 
     if not analysis_ok:
         readiness_status = "FAIL_M4_REPLACEMENT_READINESS_ANALYSIS"
+    elif drop_in_release_ready:
+        readiness_status = "READY_EXACT_DROP_IN_0BSD_TRANSVOXEL_CPP_REPLACEMENT"
+    elif drop_in_integration_ready:
+        readiness_status = (
+            "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_"
+            "0BSD_PROVENANCE_BLOCKED"
+        )
     elif exact_ready:
         readiness_status = "READY_EXACT_TABLE_COMPATIBLE_TRANSVOXEL_CPP_REPLACEMENT"
     elif functional_ready:
@@ -1022,7 +1225,23 @@ def main() -> int:
     else:
         readiness_status = "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
 
-    if functional_ready and not exact_ready:
+    if drop_in_release_ready:
+        meaning = (
+            "The exact semantic Transvoxel.cpp replacement passes the "
+            "downstream source-contract integration and its generated data is "
+            "cleared for 0BSD release. Numeric class IDs and source bytes remain "
+            "separate identity-only claims."
+        )
+    elif drop_in_integration_ready:
+        meaning = (
+            "The research candidate is an exact semantic drop-in replacement "
+            "through the pinned Godot Voxel table API: all 256 regular cases, "
+            "512 transition cases, packed reuse records, winding, and corner "
+            "reuse records match, and the full Windows GDExtension compiles "
+            "and links with Zig. It cannot yet ship as 0BSD because M24 "
+            "triangulation selections are oracle-calibrated."
+        )
+    elif functional_ready and not exact_ready:
         meaning = (
             "The public clean-room C/C++ API is ready to use as a functional "
             "Transvoxel.cpp replacement: default regular cells, default M4 "
@@ -1064,16 +1283,29 @@ def main() -> int:
         )
 
     if functional_ready:
-        claim_allowed = (
-            "Functional clean-room Transvoxel.cpp replacement through the "
-            "public C/C++ API: default regular and transition builders use "
-            "clean-room published behavior; C and C++ consumers can "
-            "compile/link; callback customization is retained."
-        )
-        claim_not_allowed = (
-            "Exact official Transvoxel.cpp table layout, class-ID, vertex "
-            "encoding, triangulation-identity, or byte-identity claim."
-        )
+        if drop_in_integration_ready:
+            claim_allowed = (
+                "Functional clean-room Transvoxel.cpp replacement through the "
+                "public C/C++ API, plus a research-only exact semantic "
+                "drop-in candidate proven through the pinned Godot Voxel "
+                "table API."
+            )
+            claim_not_allowed = (
+                "0BSD release claim for the M24-M26 exact candidate before "
+                "provenance clearance; Exact official Transvoxel.cpp numeric "
+                "class-ID, table-byte, or source-byte identity claim."
+            )
+        else:
+            claim_allowed = (
+                "Functional clean-room Transvoxel.cpp replacement through the "
+                "public C/C++ API: default regular and transition builders use "
+                "clean-room published behavior; C and C++ consumers can "
+                "compile/link; callback customization is retained."
+            )
+            claim_not_allowed = (
+                "Exact official Transvoxel.cpp table layout, class-ID, vertex "
+                "encoding, triangulation-identity, or byte-identity claim."
+            )
     elif default_ready:
         claim_allowed = (
             "Clean-room M4 transition backend with enough runtime and "
@@ -1100,12 +1332,16 @@ def main() -> int:
             "optional_transition_backend_candidate_ready": runtime_pass,
             "ready_to_replace_default_transition_backend": default_ready,
             "functional_full_replacement_ready": functional_ready,
+            "exact_drop_in_integration_ready": drop_in_integration_ready,
+            "exact_drop_in_0bsd_replacement_ready": drop_in_release_ready,
             "exact_table_compatible_replacement_ready": exact_ready,
             "exact_compatibility_claim_boundary_documented": claim_boundary_documented,
         },
         "load_errors": load_errors,
         "passing_gate_ids": passing_ids,
         "blocking_gate_ids": blocking_ids,
+        "drop_in_blocking_gate_ids": drop_in_blocking_ids,
+        "identity_only_blocking_gate_ids": identity_only_blocking_ids,
         "failed_gate_ids": failed_ids,
         "gates": gates,
         "next_milestone": next_milestone,
@@ -1142,6 +1378,30 @@ def main() -> int:
                     "m25_consumer_validation.json"
                 )
             ),
+            "m26_integration_report": (
+                rel(M26_INTEGRATION_REPORT)
+                if M26_INTEGRATION_REPORT.exists()
+                else (
+                    "research/official_topology/m26/"
+                    "m26_godot_voxel_integration.json"
+                )
+            ),
+            "m26_provenance_report": (
+                rel(M26_PROVENANCE_REPORT)
+                if M26_PROVENANCE_REPORT.exists()
+                else (
+                    "research/official_topology/m26/"
+                    "m26_provenance_audit.json"
+                )
+            ),
+            "m26_full_build_report": (
+                rel(M26_FULL_BUILD_REPORT)
+                if M26_FULL_BUILD_REPORT.exists()
+                else (
+                    "research/official_topology/m26/"
+                    "m26_full_godot_voxel_build.json"
+                )
+            ),
             "exact_replacement_finish_line": (
                 "Field/output/symbol compatibility sufficient for unchanged "
                 "consumer integration. Byte-identical source text is not "
@@ -1156,6 +1416,8 @@ def main() -> int:
     print("optional backend candidate ready:", runtime_pass)
     print("default replacement ready:", default_ready)
     print("functional full replacement ready:", functional_ready)
+    print("exact drop-in integration ready:", drop_in_integration_ready)
+    print("exact drop-in 0BSD ready:", drop_in_release_ready)
     print("exact claim boundary documented:", claim_boundary_documented)
     print("blocking gates:", len(blocking_ids))
     print("next milestone:", report["next_milestone"]["id"])

@@ -18,24 +18,26 @@ C++ consumers can include transvoxel.h and link against a C object
 callback customization is retained
 ```
 
-Not allowed without future exact evidence:
+Not allowed as an 0BSD release or identity claim:
 
 ```text
 Exact official Transvoxel.cpp table layout claim.
 Official 73-class ID compatibility claim.
-Official vertex/reuse encoding compatibility claim.
-Exact official transition triangulation identity claim.
-Exact official regular table identity claim.
 Byte-for-byte Transvoxel.cpp table/file identity claim.
+0BSD release claim for the M24-M26 exact candidate before provenance clears.
 ```
 
 The M24 exact-topology result is allowed as a research claim, not as a released
 0BSD product claim. M25 likewise allows a research claim of compatible original
 data symbols, capacities, and reuse semantics. Release wording remains limited
-until real integration and provenance gates pass.
+until the exact-candidate provenance gate passes.
 
 Byte identity is not required for functional replacement. Byte identity is
 required before claiming exact official table-file compatibility.
+
+Research-only exact topology, packed reuse semantics, and downstream
+integration claims are permitted by M24-M26. They do not authorize an 0BSD
+release of the generated exact candidate.
 
 The boundary is machine-checked by:
 
@@ -100,3 +102,27 @@ M25 proves compatible symbol/layout/reuse semantics and unchanged-style C++
 consumption. It does not claim Eric Lengyel's internal numeric class IDs or
 table bytes. The generated data remains research-only under the unresolved
 0BSD provenance gate.
+
+## M26 downstream integration boundary
+
+M26 generates a replacement for the table translation unit used by the pinned
+Godot Voxel checkout. The same Zig-compiled Godot-style consumer is built
+against the unmodified downstream table file and the M26 replacement.
+
+M26 proves:
+
+```text
+256/256 regular output records match
+512/512 transition output records match
+13/13 transition corner reuse records match
+packed reuse fields and oriented triangle output match
+actual Godot Voxel table namespace/accessor contract compiles
+full pinned Godot Voxel Windows GDExtension compiles and links with Zig
+```
+
+This establishes exact semantic drop-in integration. It is not a byte-identity
+claim and does not require official numeric class IDs. Runtime editor loading
+and visual terrain comparison remain separate from this compile/link proof.
+
+The exact candidate remains research-only because M24's option indexes were
+oracle-calibrated. The only semantic drop-in 0BSD release blocker is provenance.

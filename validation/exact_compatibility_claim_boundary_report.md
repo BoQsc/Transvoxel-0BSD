@@ -4,20 +4,18 @@ Status: `PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY`
 
 ## Allowed public claim
 
-Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.
+Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained. Research-only exact semantic drop-in integration is proven by M24-M26.
 
 ## Not allowed without future exact evidence
 
-- Exact official Transvoxel.cpp table layout claim.
+- 0BSD release claim for the M24-M26 exact candidate before provenance clearance.
 - Official 73-class ID compatibility claim.
-- Official vertex/reuse encoding compatibility claim.
-- Exact official transition triangulation identity claim.
-- Exact official regular table identity claim.
+- Exact official Transvoxel.cpp numeric class/table identity claim.
 - Byte-for-byte Transvoxel.cpp table/file identity claim.
 
 ## Evidence
 
-- Readiness: `READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED`
+- Readiness: `READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED`
 - M21: `PASS_M21_DEFAULT_M4_FUNCTIONAL_CONSUMER_COMPATIBILITY`
 - Consumer contract: `PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY`
 - Default transition source: `generated/official_topology_candidate_tables.json`

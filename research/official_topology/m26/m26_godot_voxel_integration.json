@@ -1,0 +1,62 @@
+{
+  "attempts": [
+    {
+      "candidate": {
+        "compile_returncode": 0,
+        "compile_stderr": "",
+        "compile_stdout": "",
+        "run_returncode": 0,
+        "stderr": ""
+      },
+      "comparison": {
+        "candidate_record_count": 781,
+        "expected_record_count": 781,
+        "mismatch_count": 0,
+        "mismatches": [],
+        "original_record_count": 781,
+        "regular_case_matches": 256,
+        "transition_case_matches": 512,
+        "transition_corner_matches": 13
+      },
+      "compiler": "zig c++",
+      "original": {
+        "compile_returncode": 0,
+        "compile_stderr": "",
+        "compile_stdout": "",
+        "run_returncode": 0,
+        "stderr": ""
+      },
+      "status": "PASS"
+    }
+  ],
+  "candidate": {
+    "license_status": "RESEARCH_ONLY_NOT_CLEARED_FOR_0BSD_RELEASE",
+    "source_file": "research/official_topology/m26/generated/transvoxel_tables.cpp",
+    "table_sha256": "7bda2f7a19661e57d912bc62bef98931a3e62ef19154bd33d3ca6b7db2a8da14"
+  },
+  "comparison": {
+    "candidate_record_count": 781,
+    "expected_record_count": 781,
+    "mismatch_count": 0,
+    "mismatches": [],
+    "original_record_count": 781,
+    "regular_case_matches": 256,
+    "transition_case_matches": 512,
+    "transition_corner_matches": 13
+  },
+  "compiler": "zig c++",
+  "full_godot_module_build": {
+    "performed_in_this_step": false,
+    "reason": "The full temporary GDExtension build is performed by test_full_godot_voxel_build.py and recorded in m26_full_godot_voxel_build.json."
+  },
+  "godot_voxel": {
+    "commit": "d46c11c045493da31e2410f4a0eff429f9ff8f89",
+    "origin": "https://github.com/Zylann/godot_voxel.git",
+    "source_file": "meshers/transvoxel/transvoxel_tables.cpp",
+    "table_sha256": "836cde5412740d9acb39dcc409c696fa1dd61ffd4a23cafcacd091fb26e93fe2",
+    "worktree_clean": true
+  },
+  "meaning": "The M26 replacement compiles against the actual Godot Voxel table API and matches every exhaustive Godot-style regular/transition output record.",
+  "schema": "boqsc.transvoxel.m26.godot_voxel_integration.v1",
+  "status": "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION"
+}

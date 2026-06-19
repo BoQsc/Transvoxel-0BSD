@@ -25,8 +25,8 @@ CONSUMER_REPORT = ROOT / "validation" / "consumer_compatibility_report.json"
 TRANSVOXEL_TABLES = ROOT / "generated" / "transvoxel_tables.json"
 
 EXPECTED_READINESS_STATUS = (
-    "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_"
-    "EXACT_COMPATIBILITY_BLOCKED"
+    "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_"
+    "0BSD_PROVENANCE_BLOCKED"
 )
 EXPECTED_EXACT_BLOCKERS = {
     "official_class_id_mapping",
@@ -146,6 +146,20 @@ def validate_reports() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         )
     if decisions.get("functional_full_replacement_ready") is not True:
         add_error(errors, "functional_ready", "functional replacement is not ready", rel(READINESS))
+    if decisions.get("exact_drop_in_integration_ready") is not True:
+        add_error(
+            errors,
+            "drop_in_integration",
+            "M26 exact drop-in integration is not ready",
+            rel(READINESS),
+        )
+    if decisions.get("exact_drop_in_0bsd_replacement_ready") is not False:
+        add_error(
+            errors,
+            "drop_in_release",
+            "exact drop-in 0BSD release must remain blocked on provenance",
+            rel(READINESS),
+        )
     if decisions.get("exact_table_compatible_replacement_ready") is not False:
         add_error(errors, "exact_not_ready", "exact compatibility must remain false", rel(READINESS))
     expected_blockers = set(EXPECTED_EXACT_BLOCKERS)
@@ -177,6 +191,26 @@ def validate_reports() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             errors,
             "exact_blockers",
             f"expected {sorted(expected_blockers)}, got {sorted(blockers)}",
+            rel(READINESS),
+        )
+    if set(readiness.get("drop_in_blocking_gate_ids", [])) != {
+        "exact_0bsd_provenance_clearance"
+    }:
+        add_error(
+            errors,
+            "drop_in_blockers",
+            "the only semantic drop-in release blocker must be provenance",
+            rel(READINESS),
+        )
+    if set(readiness.get("identity_only_blocking_gate_ids", [])) != {
+        "official_class_id_mapping",
+        "official_regular_table_identity",
+        "official_transvoxel_cpp_byte_identity",
+    }:
+        add_error(
+            errors,
+            "identity_only_blockers",
+            "identity-only blockers are not classified correctly",
             rel(READINESS),
         )
     if claim_boundary.get("byte_identity_required_for_functional_replacement") is not False:
@@ -217,6 +251,12 @@ def validate_reports() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         "readiness_status": readiness.get("status"),
         "decisions": decisions,
         "blocking_gate_ids": sorted(blockers),
+        "drop_in_blocking_gate_ids": readiness.get(
+            "drop_in_blocking_gate_ids", []
+        ),
+        "identity_only_blocking_gate_ids": readiness.get(
+            "identity_only_blocking_gate_ids", []
+        ),
         "claim_boundary": claim_boundary,
         "m21_status": m21.get("status"),
         "consumer_status": consumer.get("status"),
@@ -312,23 +352,24 @@ def main() -> int:
         "status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY" if not errors else "FAIL_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
         "meaning": (
             "Functional clean-room replacement is allowed through the public "
-            "C/C++ API. Exact official Transvoxel.cpp table layout, 73-class "
-            "IDs, vertex/reuse encoding, triangulation identity, and byte "
-            "identity remain explicitly unclaimed until their gates pass."
+            "C/C++ API. M24-M26 exact semantic results may be reported as "
+            "research, but the generated exact candidate cannot be released "
+            "as 0BSD until provenance clears. Numeric class-ID and byte "
+            "identity remain separate unclaimed identity properties."
         ),
         "claim_contract": {
             "allowed_now": (
                 "Functional clean-room Transvoxel.cpp replacement through the "
                 "public C/C++ API: default regular and transition builders use "
                 "clean-room published behavior; C and C++ consumers can "
-                "compile/link; callback customization is retained."
+                "compile/link; callback customization is retained. "
+                "Research-only exact semantic drop-in integration is proven "
+                "by M24-M26."
             ),
             "not_allowed_now": [
-                "Exact official Transvoxel.cpp table layout claim.",
+                "0BSD release claim for the M24-M26 exact candidate before provenance clearance.",
                 "Official 73-class ID compatibility claim.",
-                "Official vertex/reuse encoding compatibility claim.",
-                "Exact official transition triangulation identity claim.",
-                "Exact official regular table identity claim.",
+                "Exact official Transvoxel.cpp numeric class/table identity claim.",
                 "Byte-for-byte Transvoxel.cpp table/file identity claim.",
             ],
             "byte_identity_required_for_functional_replacement": False,

@@ -69,6 +69,15 @@ def main() -> int:
     m25_consumer = read_json(
         "research/official_topology/m25/m25_consumer_validation.json"
     )
+    m26_integration = read_json(
+        "research/official_topology/m26/m26_godot_voxel_integration.json"
+    )
+    m26_provenance = read_json(
+        "research/official_topology/m26/m26_provenance_audit.json"
+    )
+    m26_full_build = read_json(
+        "research/official_topology/m26/m26_full_godot_voxel_build.json"
+    )
 
     independent_ok = not missing_independent
     official_track_ok = not missing_official
@@ -153,6 +162,26 @@ def main() -> int:
                     "status",
                     "NOT_RUN",
                 ),
+                "godot_voxel_table_integration": m26_integration.get(
+                    "status",
+                    "NOT_RUN",
+                ),
+                "godot_voxel_full_gdextension_build": m26_full_build.get(
+                    "status",
+                    "NOT_RUN",
+                ),
+                "exact_drop_in_integration_ready": readiness.get(
+                    "decisions",
+                    {},
+                ).get("exact_drop_in_integration_ready", False),
+                "exact_drop_in_0bsd_replacement_ready": readiness.get(
+                    "decisions",
+                    {},
+                ).get("exact_drop_in_0bsd_replacement_ready", False),
+                "exact_candidate_provenance_audit": m26_provenance.get(
+                    "status",
+                    "NOT_RUN",
+                ),
             },
         },
         "supporting_reports": {
@@ -187,6 +216,13 @@ def main() -> int:
                 "status"
             ),
             "m25_consumer_status": m25_consumer.get("status"),
+            "m26_godot_voxel_integration_status": m26_integration.get(
+                "status"
+            ),
+            "m26_provenance_audit_status": m26_provenance.get("status"),
+            "m26_full_godot_voxel_build_status": m26_full_build.get(
+                "status"
+            ),
         },
         "meaning": (
             "The independent core can be released/evaluated independently. "
@@ -198,8 +234,11 @@ def main() -> int:
             "regular and transition case against the verified external "
             "official oracle. M24 proves exact edge-labeled oriented topology; "
             "M25 adds compatible packed reuse semantics, original data symbols "
-            "and array capacities, and an unchanged-style C++ consumer. Real "
-            "engine integration and 0BSD provenance remain active work."
+            "and array capacities, and an unchanged-style C++ consumer. M26 "
+            "proves the pinned Godot Voxel table integration with zero "
+            "mismatches and a complete Zig-built Windows GDExtension DLL; "
+            "only provenance blocks the exact semantic candidate from an "
+            "0BSD release."
         ),
     }
     VALIDATION.mkdir(exist_ok=True)

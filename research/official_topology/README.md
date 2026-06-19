@@ -473,6 +473,64 @@ functional regular-cell equivalence: PROVEN
 next milestone: M21 consumer compatibility/default selection
 ```
 
+## M21-M23
+
+M21 selects the clean-room M4 transition table by default and proves the public
+C/C++ functional consumer contract. M22 locks the distinction between
+functional replacement and exact identity claims. M23 establishes the pinned
+external-oracle baseline for all 768 cases.
+
+Run:
+
+```text
+RUN_M21.cmd
+RUN_M22.cmd
+RUN_M23.cmd
+```
+
+## M24-M25
+
+M24 selects exact oriented topology from independently enumerated boundary-loop
+fillings and matches all 256 regular plus 512 transition cases. M25 compresses
+that topology into compatible 16/56 class capacities, derives packed reuse
+fields, emits the original data symbols, and passes an unchanged-style C++
+consumer.
+
+The M24-M25 exact data remains research-only because the exact filling
+selection indexes were calibrated by the MIT oracle.
+
+Run:
+
+```text
+RUN_M24.cmd
+RUN_M25.cmd
+```
+
+## M26
+
+M26 generates the table translation unit expected by the pinned Godot Voxel
+consumer and builds the same Godot-style source against both table
+implementations with Zig C++.
+
+Current M26 result:
+
+```text
+regular records: 256/256
+transition records: 512/512
+transition corner records: 13/13
+mismatches: 0
+full Windows GDExtension build with Zig: PASS
+exact semantic drop-in integration: READY
+exact semantic drop-in 0BSD release: BLOCKED on provenance
+next milestone: M27 independent exact-topology provenance
+```
+
+Run:
+
+```text
+RUN_M26.cmd
+```
+
 Allowed:
 
 ```text

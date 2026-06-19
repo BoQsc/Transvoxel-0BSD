@@ -54,6 +54,10 @@ exact_regular_transition_topology: PROVEN_M24
 exact_candidate_0bsd_provenance: NOT_CLEARED
 compatible_transvoxel_cpp_data_abi: PROVEN_M25
 unchanged_style_cpp_consumer: PROVEN_M25
+godot_voxel_table_integration: PROVEN_M26
+godot_voxel_full_gdextension_build: PASS_M26_ZIG
+exact_semantic_drop_in_integration: READY_M26
+exact_semantic_drop_in_0bsd_release: BLOCKED_PROVENANCE
 exact_replacement_finish_line: ACTIVE
 ```
 
@@ -71,7 +75,13 @@ compatibility.
 
 M25 now proves compatible original data symbols and capacities, packed reuse
 semantics, and unchanged-style C++ consumption. It uses independent internal
-class IDs. M26 owns real engine replacement testing and provenance resolution.
+class IDs.
+
+M26 now proves the pinned Godot Voxel table-source replacement contract across
+all 781 records and compiles/links the full Windows GDExtension with Zig. M27
+owns the remaining release blocker: replacing the oracle-calibrated topology
+selections with an independent deterministic rule. Official numeric class IDs
+and byte identity are separate identity-only claims.
 
 ## Why this split exists
 

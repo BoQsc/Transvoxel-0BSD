@@ -1,14 +1,12 @@
 {
   "claim_contract": {
-    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.",
+    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained. Research-only exact semantic drop-in integration is proven by M24-M26.",
     "byte_identity_required_for_exact_table_identity_claim": true,
     "byte_identity_required_for_functional_replacement": false,
     "not_allowed_now": [
-      "Exact official Transvoxel.cpp table layout claim.",
+      "0BSD release claim for the M24-M26 exact candidate before provenance clearance.",
       "Official 73-class ID compatibility claim.",
-      "Official vertex/reuse encoding compatibility claim.",
-      "Exact official transition triangulation identity claim.",
-      "Exact official regular table identity claim.",
+      "Exact official Transvoxel.cpp numeric class/table identity claim.",
       "Byte-for-byte Transvoxel.cpp table/file identity claim."
     ],
     "official_arrays_allowed_as_generator_inputs": false
@@ -22,7 +20,7 @@
       "official_transvoxel_cpp_byte_identity"
     ],
     "claim_boundary": {
-      "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.",
+      "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API, plus a research-only exact semantic drop-in candidate proven through the pinned Godot Voxel table API.",
       "byte_identity_required_for_exact_table_identity_claim": true,
       "byte_identity_required_for_functional_replacement": false,
       "exact_replacement_finish_line": "Field/output/symbol compatibility sufficient for unchanged consumer integration. Byte-identical source text is not required.",
@@ -31,18 +29,31 @@
       "m24_exact_topology_report": "validation/m24_exact_topology_report.json",
       "m25_compatible_layout_report": "validation/m25_compatible_layout_report.json",
       "m25_consumer_report": "research/official_topology/m25/m25_consumer_validation.json",
-      "not_allowed_now": "Exact official Transvoxel.cpp table layout, class-ID, vertex encoding, triangulation-identity, or byte-identity claim."
+      "m26_full_build_report": "research/official_topology/m26/m26_full_godot_voxel_build.json",
+      "m26_integration_report": "research/official_topology/m26/m26_godot_voxel_integration.json",
+      "m26_provenance_report": "research/official_topology/m26/m26_provenance_audit.json",
+      "not_allowed_now": "0BSD release claim for the M24-M26 exact candidate before provenance clearance; Exact official Transvoxel.cpp numeric class-ID, table-byte, or source-byte identity claim."
     },
     "consumer_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
     "decisions": {
       "exact_compatibility_claim_boundary_documented": true,
+      "exact_drop_in_0bsd_replacement_ready": false,
+      "exact_drop_in_integration_ready": true,
       "exact_table_compatible_replacement_ready": false,
       "functional_full_replacement_ready": true,
       "optional_transition_backend_candidate_ready": true,
       "ready_to_replace_default_transition_backend": true
     },
+    "drop_in_blocking_gate_ids": [
+      "exact_0bsd_provenance_clearance"
+    ],
+    "identity_only_blocking_gate_ids": [
+      "official_class_id_mapping",
+      "official_regular_table_identity",
+      "official_transvoxel_cpp_byte_identity"
+    ],
     "m21_status": "PASS_M21_DEFAULT_M4_FUNCTIONAL_CONSUMER_COMPATIBILITY",
-    "readiness_status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED",
+    "readiness_status": "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED",
     "transition_case_count": 512,
     "transition_class_count": 512,
     "transition_max_triangles": 12,
@@ -51,19 +62,19 @@
     "transition_triangles": 2640,
     "transition_vertex_refs": 4096
   },
-  "meaning": "Functional clean-room replacement is allowed through the public C/C++ API. Exact official Transvoxel.cpp table layout, 73-class IDs, vertex/reuse encoding, triangulation identity, and byte identity remain explicitly unclaimed until their gates pass.",
+  "meaning": "Functional clean-room replacement is allowed through the public C/C++ API. M24-M26 exact semantic results may be reported as research, but the generated exact candidate cannot be released as 0BSD until provenance clears. Numeric class-ID and byte identity remain separate unclaimed identity properties.",
   "scanned_claim_files": {
     "PROVENANCE.md": {
-      "bytes": 4340
+      "bytes": 5144
     },
     "README.md": {
-      "bytes": 8898
+      "bytes": 9907
     },
     "README_CORE.txt": {
       "bytes": 1658
     },
     "SOURCES.md": {
-      "bytes": 3168
+      "bytes": 4092
     },
     "docs/API.md": {
       "bytes": 8314
@@ -75,16 +86,16 @@
       "bytes": 5502
     },
     "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md": {
-      "bytes": 3589
+      "bytes": 4698
     },
     "docs/KNOWN_LIMITS.md": {
-      "bytes": 3206
+      "bytes": 3771
     },
     "docs/M4_REPLACEMENT_READINESS.md": {
-      "bytes": 3548
+      "bytes": 3983
     },
     "docs/WHAT_THIS_PROVES.md": {
-      "bytes": 10888
+      "bytes": 11387
     }
   },
   "schema": "boqsc.transvoxel.m22.exact_compatibility_claim_boundary.v1",

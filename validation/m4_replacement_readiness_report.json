@@ -7,7 +7,7 @@
     "official_transvoxel_cpp_byte_identity"
   ],
   "claim_boundary": {
-    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.",
+    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API, plus a research-only exact semantic drop-in candidate proven through the pinned Godot Voxel table API.",
     "byte_identity_required_for_exact_table_identity_claim": true,
     "byte_identity_required_for_functional_replacement": false,
     "exact_replacement_finish_line": "Field/output/symbol compatibility sufficient for unchanged consumer integration. Byte-identical source text is not required.",
@@ -16,15 +16,23 @@
     "m24_exact_topology_report": "validation/m24_exact_topology_report.json",
     "m25_compatible_layout_report": "validation/m25_compatible_layout_report.json",
     "m25_consumer_report": "research/official_topology/m25/m25_consumer_validation.json",
-    "not_allowed_now": "Exact official Transvoxel.cpp table layout, class-ID, vertex encoding, triangulation-identity, or byte-identity claim."
+    "m26_full_build_report": "research/official_topology/m26/m26_full_godot_voxel_build.json",
+    "m26_integration_report": "research/official_topology/m26/m26_godot_voxel_integration.json",
+    "m26_provenance_report": "research/official_topology/m26/m26_provenance_audit.json",
+    "not_allowed_now": "0BSD release claim for the M24-M26 exact candidate before provenance clearance; Exact official Transvoxel.cpp numeric class-ID, table-byte, or source-byte identity claim."
   },
   "decisions": {
     "exact_compatibility_claim_boundary_documented": true,
+    "exact_drop_in_0bsd_replacement_ready": false,
+    "exact_drop_in_integration_ready": true,
     "exact_table_compatible_replacement_ready": false,
     "functional_full_replacement_ready": true,
     "optional_transition_backend_candidate_ready": true,
     "ready_to_replace_default_transition_backend": true
   },
+  "drop_in_blocking_gate_ids": [
+    "exact_0bsd_provenance_clearance"
+  ],
   "failed_gate_ids": [],
   "gates": [
     {
@@ -401,10 +409,43 @@
       "title": "C++ consumer using original Transvoxel.cpp data contract unchanged"
     },
     {
+      "actual": "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION",
+      "category": "drop_in_compatibility",
+      "evidence": [
+        "research/official_topology/m26/m26_godot_voxel_integration.json",
+        "research/official_topology/m26/godot_style_table_consumer.cpp"
+      ],
+      "expected": "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION",
+      "id": "godot_voxel_table_integration",
+      "note": "This pinned downstream source-contract comparison is complemented by the separate full GDExtension build gate.",
+      "required_for": [
+        "exact_drop_in_replacement"
+      ],
+      "status": "PASS",
+      "title": "Pinned Godot Voxel table-source replacement integration"
+    },
+    {
+      "actual": "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD",
+      "category": "drop_in_compatibility",
+      "evidence": [
+        "research/official_topology/m26/m26_full_godot_voxel_build.json",
+        "research/official_topology/m26/test_full_godot_voxel_build.py"
+      ],
+      "expected": "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD",
+      "id": "godot_voxel_full_gdextension_build",
+      "note": "The build uses temporary clones only and records artifact hashes without packaging the DLL.",
+      "required_for": [
+        "exact_drop_in_replacement"
+      ],
+      "status": "PASS",
+      "title": "Full pinned Godot Voxel GDExtension build with replacement table"
+    },
+    {
       "actual": false,
       "category": "provenance",
       "evidence": [
         "validation/m24_exact_topology_report.json",
+        "research/official_topology/m26/m26_provenance_audit.json",
         "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md"
       ],
       "expected": true,
@@ -434,12 +475,17 @@
       "title": "Byte-for-byte identity with the MIT Transvoxel.cpp table file"
     }
   ],
+  "identity_only_blocking_gate_ids": [
+    "official_class_id_mapping",
+    "official_regular_table_identity",
+    "official_transvoxel_cpp_byte_identity"
+  ],
   "load_errors": [],
-  "meaning": "The public clean-room C/C++ API is ready to use as a functional Transvoxel.cpp replacement: default regular cells, default M4 transition cells, published behavior proofs, and consumer compile/link tests pass. Exact official table layout, class IDs, vertex encoding, triangulation identity, and byte identity remain separate blocked claims.",
+  "meaning": "The research candidate is an exact semantic drop-in replacement through the pinned Godot Voxel table API: all 256 regular cases, 512 transition cases, packed reuse records, winding, and corner reuse records match, and the full Windows GDExtension compiles and links with Zig. It cannot yet ship as 0BSD because M24 triangulation selections are oracle-calibrated.",
   "next_milestone": {
-    "id": "M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE",
-    "objective": "Replace the MIT table file in a real Transvoxel consumer integration, compare runtime output, and resolve the exact-candidate 0BSD provenance gate.",
-    "why_first": "M25 proves compatible original data symbols, array capacities, packed reuse semantics, and unchanged-style C++ consumption. The remaining practical proof is a real engine integration; release remains blocked on provenance and identity-only claims."
+    "id": "M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE",
+    "objective": "Replace the M24 oracle-calibrated triangulation selection indexes with an independently justified deterministic rule, then re-run all exact and downstream integration proofs.",
+    "why_first": "M26 proves exact semantic table replacement through the pinned Godot Voxel consumer API. The only blocker to shipping that exact candidate as 0BSD is provenance; numeric class IDs and byte identity are identity-only."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -462,8 +508,10 @@
     "official_regular_cell_equivalence",
     "transvoxel_cpp_consumer_compatibility_contract",
     "compatible_transvoxel_cpp_data_layout",
-    "unchanged_style_cpp_consumer"
+    "unchanged_style_cpp_consumer",
+    "godot_voxel_table_integration",
+    "godot_voxel_full_gdextension_build"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
-  "status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED"
+  "status": "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED"
 }

@@ -1,0 +1,10 @@
+{
+  "license_status": "RESEARCH_ONLY_NOT_CLEARED_FOR_0BSD_RELEASE",
+  "missing_contract_tokens": [],
+  "output": "research/official_topology/m26/generated/transvoxel_tables.cpp",
+  "output_sha256": "7bda2f7a19661e57d912bc62bef98931a3e62ef19154bd33d3ca6b7db2a8da14",
+  "schema": "boqsc.transvoxel.m26.godot_voxel_layout.v1",
+  "source": "research/official_topology/m25/generated/Transvoxel.cpp",
+  "source_sha256": "c8d585884761f753ed609f4f389015b37569ff44d66336eb82987704cfc8898a",
+  "status": "PASS_M26_GODOT_VOXEL_REPLACEMENT_LAYOUT"
+}

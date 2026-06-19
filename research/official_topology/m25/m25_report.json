@@ -21,11 +21,11 @@
       "official_transvoxel_cpp_byte_identity"
     ],
     "next_milestone": {
-      "id": "M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE",
-      "objective": "Replace the MIT table file in a real Transvoxel consumer integration, compare runtime output, and resolve the exact-candidate 0BSD provenance gate.",
-      "why_first": "M25 proves compatible original data symbols, array capacities, packed reuse semantics, and unchanged-style C++ consumption. The remaining practical proof is a real engine integration; release remains blocked on provenance and identity-only claims."
+      "id": "M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE",
+      "objective": "Replace the M24 oracle-calibrated triangulation selection indexes with an independently justified deterministic rule, then re-run all exact and downstream integration proofs.",
+      "why_first": "M26 proves exact semantic table replacement through the pinned Godot Voxel consumer API. The only blocker to shipping that exact candidate as 0BSD is provenance; numeric class IDs and byte identity are identity-only."
     },
-    "status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED"
+    "status": "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED"
   },
   "schema": "boqsc.transvoxel.official_topology.m25.report.v1",
   "status": "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT",
@@ -67,7 +67,7 @@
         "python",
         "tools/m4_replacement_readiness.py"
       ],
-      "output": "M4 replacement readiness: READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE\n",
+      "output": "M4 replacement readiness: READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact drop-in integration ready: True\nexact drop-in 0BSD ready: False\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE\n",
       "returncode": 0
     },
     {
@@ -83,7 +83,7 @@
         "python",
         "tools/m4_replacement_readiness.py"
       ],
-      "output": "M4 replacement readiness: READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE\n",
+      "output": "M4 replacement readiness: READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact drop-in integration ready: True\nexact drop-in 0BSD ready: False\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE\n",
       "returncode": 0
     },
     {

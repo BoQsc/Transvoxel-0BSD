@@ -1,12 +1,14 @@
 # M4 Replacement Readiness
 
-Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED**
+Status: **READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED**
 
 ## Decisions
 
 - Optional M4 transition backend candidate ready: `True`
 - Ready to replace the default transition backend: `True`
 - Ready to claim a functional full Transvoxel.cpp replacement: `True`
+- Exact semantic drop-in integration ready: `True`
+- Exact semantic drop-in 0BSD release ready: `False`
 - Ready to claim exact table/encoding compatibility: `False`
 
 ## Passing evidence
@@ -32,6 +34,8 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
 - `transvoxel_cpp_consumer_compatibility_contract`
 - `compatible_transvoxel_cpp_data_layout`
 - `unchanged_style_cpp_consumer`
+- `godot_voxel_table_integration`
+- `godot_voxel_full_gdextension_build`
 
 ## Blocking evidence
 
@@ -54,6 +58,6 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
 
 ## Next milestone
 
-`M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE` — Replace the MIT table file in a real Transvoxel consumer integration, compare runtime output, and resolve the exact-candidate 0BSD provenance gate.
+`M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE` — Replace the M24 oracle-calibrated triangulation selection indexes with an independently justified deterministic rule, then re-run all exact and downstream integration proofs.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

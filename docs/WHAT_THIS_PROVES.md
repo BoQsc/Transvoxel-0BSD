@@ -133,8 +133,8 @@ loading of the default transvoxel export.
 
 The M22 exact-compatibility claim-boundary proof validates that product docs and
 machine-readable reports allow the functional public C/C++ replacement claim
-while keeping exact official table layout, 73-class IDs, vertex/reuse encoding,
-triangulation identity, and byte identity unclaimed.
+while separating research-only exact semantic evidence from 0BSD release and
+identity claims.
 
 The M23 official-oracle baseline reads a verified external checkout of Eric
 Lengyel's MIT `Transvoxel.cpp`, compares all 256 regular and 512 transition
@@ -157,7 +157,16 @@ original 16/56 class-array capacities, derives packed regular/transition reuse
 codes from geometry, emits the original struct and symbol names, and compiles
 an unchanged-style C++ consumer across every case. It proves a compatible data
 ABI, not numeric class-ID or byte identity. The generated file remains
-research-only pending real engine integration and provenance clearance.
+research-only pending provenance clearance.
+
+The M26 integration proof compiles the actual pinned Godot Voxel table API
+against both its original table translation unit and the M25-backed replacement
+with Zig C++. All 256 regular records, 512 transition records, and 13
+transition-corner records match. This proves the exact semantic drop-in
+integration boundary. M26 additionally compiles and links the complete pinned
+Godot Voxel Windows GDExtension with Zig. Runtime editor loading is separate,
+and the generated candidate remains research-only because M24's exact filling
+selections were oracle-calibrated.
 
 ## Godot's role
 
@@ -169,9 +178,9 @@ This project does not claim:
 
 ```text
 byte-for-byte identity with Eric Lengyel's MIT Transvoxel.cpp
-field-for-field drop-in compatibility with every existing Transvoxel.cpp consumer
+field-for-field compatibility with every possible Transvoxel.cpp fork
 official numeric 73-class IDs
-exact official interior triangulation identity
+0BSD provenance clearance for the M24-M26 exact candidate
 finished Godot gameplay terrain/GDExtension integration
 a complete game terrain engine
 chunk streaming

@@ -40,7 +40,11 @@ Official oracle baseline: M23 compares all 256 regular and 512 transition cases
 Exact oriented topology identity: PROVEN by M24 for all 256 + 512 cases
 M24 exact candidate release provenance: RESEARCH_ONLY / NOT_CLEARED_FOR_0BSD
 Compatible original Transvoxel.cpp data ABI: PROVEN by M25
-Exact replacement finish line: ACTIVE; next milestone is real engine integration/provenance
+Pinned Godot Voxel table-source integration: PROVEN by M26 with 781/781 records
+Full Godot Voxel Windows GDExtension build with Zig: PASS by M26
+Exact semantic drop-in integration: READY
+Exact semantic drop-in 0BSD release: BLOCKED only by exact-candidate provenance
+Next milestone: M27 independent exact-topology provenance
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -188,7 +192,17 @@ M25 adds a research-only `Transvoxel.cpp` data surface with the original
 struct/symbol names and 16/56 class-array capacities. Its independent internal
 class IDs, exact M24 topology, and formula-derived packed reuse codes pass an
 unchanged-style C++ consumer. The public 0BSD default remains unchanged while
-real engine integration and provenance are unresolved.
+M25 itself does not resolve downstream integration or provenance.
+
+M26 replaces the table translation unit behind the actual pinned Godot Voxel
+table API in a temporary build tree and compiles the same Godot-style consumer
+against both implementations with Zig C++. All 256 regular cases, 512
+transition cases, and 13 transition-corner records match. This proves the
+exact semantic drop-in integration boundary. M26 also compiles and links the
+complete pinned Godot Voxel Windows GDExtension with Zig, producing an
+8,256,512-byte DLL in a temporary build. The generated exact candidate is still
+research-only because M24's triangulation selection indexes were calibrated by
+the MIT oracle.
 
 ## What this proves
 
@@ -199,6 +213,8 @@ The proof does **not** claim:
 ```text
 byte/table identity with Eric Lengyel's MIT Transvoxel.cpp
 official 73-equivalence-class mapping
+0BSD provenance clearance for the M24-M26 exact candidate
+runtime Godot editor loading and visual terrain comparison for the exact candidate
 finished game terrain visual quality
 collision, streaming, materials, gameplay, or performance certification
 ```

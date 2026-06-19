@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Added M26 pinned Godot Voxel table-source integration using Zig C++.
+- Matched all 256 regular cases, 512 transition cases, and 13 transition-corner
+  records between the downstream table file and the exact candidate.
+- Compiled and linked the complete pinned Godot Voxel Windows GDExtension with
+  the replacement table using Zig.
+- Split exact semantic drop-in readiness from numeric class-ID and byte
+  identity claims; provenance is now the only exact-candidate 0BSD release
+  blocker.
 - Added M18 exhaustive published transition reference-convention proof.
 - Added C helpers converting between the stable M4 row-major case index and
   the dissertation Figure 4.17 case index.

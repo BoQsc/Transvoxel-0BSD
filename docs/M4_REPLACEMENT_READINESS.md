@@ -77,14 +77,15 @@ RUN_M22.cmd
 RUN_M23.cmd
 RUN_M24.cmd
 RUN_M25.cmd
+RUN_M26.cmd
 ```
 
 The current expected result is a passing readiness analysis with the
-functional full replacement decision ready, exact table-compatible replacement
+functional full replacement decision ready, exact table-compatible identity
 blocked, the M22 claim boundary documented, the M23 exhaustive oracle baseline
-complete, M24 exact topology convergence proven, and M25 exact vertex
-encoding/table layout proven. M26 real engine integration and provenance is
-selected as the next milestone.
+complete, M24 exact topology convergence proven, M25 compatible vertex
+encoding/table layout proven, and M26 exact downstream source-contract
+integration proven. M27 independent exact-topology provenance is selected next.
 
 The exact-replacement finish line requires field/output/symbol compatibility
 and unchanged-consumer integration. It does not require byte-identical source
@@ -99,3 +100,13 @@ After M25 passes, compatible original data symbols, array capacities, packed
 reuse semantics, and an unchanged-style C++ consumer are proven. Readiness
 then selects M26 real engine integration and provenance. Numeric class-ID and
 byte identity remain separate identity-only claims.
+
+After M26 passes, the exact candidate matches all 781 records through the
+pinned Godot Voxel table API and the complete Windows GDExtension compiles and
+links with Zig. Readiness separates:
+
+```text
+exact semantic drop-in integration: READY
+exact semantic drop-in 0BSD release: BLOCKED on provenance
+numeric class IDs and byte identity: identity-only, not finish-line blockers
+```

@@ -21,17 +21,23 @@ is 0BSD, but the oracle-calibrated generated data is not yet cleared for an
 0BSD release.
 
 M25's generated `Transvoxel.cpp` preserves the original data contract but uses
-independent internal class IDs. It has not yet replaced the table file inside a
-real engine build, and its generated-data provenance is still research-only.
+independent internal class IDs.
+
+M26 compiles the actual pinned Godot Voxel table-source API against the M25
+candidate and matches all 781 exhaustive output records. It also compiles and
+links the complete pinned Windows GDExtension with Zig against a local Godot
+4.5 `godot-cpp` dependency. Runtime editor loading and visual terrain
+comparison for this exact candidate are not yet performed. Generated-data
+provenance is still research-only.
 
 Still not claimed:
 
 ```text
 Official 73-equivalence-class ID mapping is not proven.
-Official vertex/reuse encoding equivalence is not proven.
-Exact official transition triangulation identity is not proven.
-Exact official regular table identity is not proven.
+Official numeric 73-class ID identity is not proven.
+Exact official regular table byte/class identity is not proven.
 Byte-for-byte identity with Eric Lengyel's MIT Transvoxel.cpp table file is not proven.
+0BSD provenance clearance for the M24-M26 exact candidate is not proven.
 Full Godot gameplay/GDExtension terrain integration is not proven.
 Game-ready art/texture/lighting quality is not certified.
 Gameplay performance in a complete streaming world is not certified.
@@ -47,6 +53,10 @@ M20 default clean-room regular-cell table replacement.
 M21 default clean-room M4 transition table replacement.
 M21 C/C++ consumer compatibility through the public API.
 M22 exact compatibility claim-boundary validation.
+M24 exact oriented topology for all 768 cases in the research candidate.
+M25 compatible packed reuse semantics and original data ABI.
+M26 pinned Godot Voxel table-source integration: 781/781 records match.
+M26 full Windows GDExtension compile/link with Zig: PASS.
 Public transition ABI keeps 14 samples; sample 13 is ignored by the default M4 path.
 Default transition table totals: 512 cases, 4096 vertex refs, 2640 triangles, max 12 vertices and 12 triangles.
 Default regular table totals: 256 cases, 1536 vertex refs, 820 triangles, max 12 vertices and 5 triangles.

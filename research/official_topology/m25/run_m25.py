@@ -146,7 +146,10 @@ def main() -> int:
         and m24.get("status")
         == "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY"
         and readiness.get("next_milestone", {}).get("id")
-        == "M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE"
+        in {
+            "M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE",
+            "M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE",
+        }
         and blockers
         == {
             "official_class_id_mapping",

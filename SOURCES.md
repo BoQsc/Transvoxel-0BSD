@@ -43,6 +43,29 @@ M22 uses the M21 evidence only to lock the public claim boundary. It does not
 use official lookup-table arrays and does not create any new exact official
 compatibility claim.
 
+M23 uses a pinned external MIT checkout only as an isolated comparison oracle:
+
+- origin: `https://github.com/EricLengyel/Transvoxel.git`
+- commit: `51a494f03c5b024cd153b596bcc7152eb3cc93a6`
+- `Transvoxel.cpp` SHA-256:
+  `83a5511346b54c42e4e66dec916d3971c92f4fbda1c7878cbad5901a820dcab4`
+
+M26 uses a pinned local Godot Voxel checkout as a downstream integration
+consumer:
+
+- origin: `https://github.com/Zylann/godot_voxel.git`
+- commit: `d46c11c045493da31e2410f4a0eff429f9ff8f89`
+- `meshers/transvoxel/transvoxel_tables.cpp` SHA-256:
+  `836cde5412740d9acb39dcc409c696fa1dd61ffd4a23cafcacd091fb26e93fe2`
+
+The downstream source is copied only into temporary test trees. It is not
+packaged as 0BSD.
+
+The M26 full build uses the local Godot 4.5 `godot-cpp` API/header package and
+prebuilt Zig-compatible debug library. The recorded static-library SHA-256 is:
+
+`1f892f805b88f855ad8e14f0e2be655af08ac7ae3cbf837a6ba0d846648ac9fb`
+
 ## License references
 
 - SPDX 0BSD page.

@@ -97,6 +97,22 @@ The default transition table is the M21 clean-room M4 export.
 
 Exact official class numbering, reuse encoding, triangulation identity, and table bytes are not claimed.
 
+M24-M26 exact-candidate boundary:
+
+- M24 independently derives boundary loops and enumerates valid fillings, but
+  the committed exact filling selections were calibrated against the external
+  MIT oracle.
+- M25 derives compatible struct/symbol capacities and packed reuse fields.
+- M26 proves that candidate through the pinned Godot Voxel table API with zero
+  mismatches across all 781 records and compiles/links the full Windows
+  GDExtension with Zig in temporary clones.
+- The exact generated candidate remains research-only and must not be labeled
+  or distributed as 0BSD until the calibrated filling selections are replaced
+  by an independently justified rule or explicit clearance is obtained.
+
+Numeric class-ID identity and byte identity are not required for the semantic
+drop-in finish line.
+
 M22 machine-checks this exact compatibility claim boundary in
 `validation/exact_compatibility_claim_boundary_report.json`.
 
