@@ -4,7 +4,7 @@ Status: `PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY`
 
 ## Allowed public claim
 
-Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained. Research-only exact semantic drop-in integration is proven by M24-M26; M27 records that the exact 0BSD goal was not achieved.
+Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained. MIT-licensed exact semantic drop-in integration is proven by M24-M26; M27 records that the exact 0BSD goal was not achieved.
 
 ## Not allowed without future exact evidence
 

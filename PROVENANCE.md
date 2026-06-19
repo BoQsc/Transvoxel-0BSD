@@ -4,12 +4,17 @@ SPDX-License-Identifier: 0BSD
 
 ## Clean-room rule
 
-The files in `generated/` must be created by scripts in `tools/` from this
-repository's canonical table generation process.
+The public files in `generated/` must be created by scripts in `tools/` from
+this repository's canonical independent table generation process.
 
 No values from Eric Lengyel's MIT-licensed `Transvoxel.cpp` lookup tables may be
-copied, translated, reformatted, pasted, or manually transcribed into this
-repository.
+copied, translated, reformatted, pasted, or manually transcribed into the
+public 0BSD paths.
+
+The isolated exact-compatibility artifacts listed in
+`research/official_topology/MIT_ARTIFACTS.json` are the explicit exception:
+they are MIT, not 0BSD. Aggregate M23-M27 reports remain 0BSD and contain no
+exact arrays or oracle-selected indexes. See `LICENSE_SCOPE.md`.
 
 ## What the legacy independent transition generator does
 
@@ -110,10 +115,10 @@ M24-M26 exact-candidate boundary:
   published derivation. It records that the publication permits multiple legal
   interiors and that the exact authored choices are not uniquely selected by a
   public deterministic rule.
-- The exact generated candidate remains research-only and must not be labeled
-  or distributed as 0BSD. Under the current project policy, this is a terminal
-  decision. A new review requires explicit permission/relicensing or a changed
-  project requirement.
+- The exact generated candidate is explicitly MIT and must not be labeled or
+  distributed as 0BSD. The MIT copyright and permission notice must accompany
+  copies or substantial portions. An exact 0BSD version would require explicit
+  permission/relicensing or a new independent derivation.
 
 Numeric class-ID identity and byte identity are not required for the semantic
 drop-in finish line.

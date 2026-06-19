@@ -21,6 +21,7 @@ CLAIM_BOUNDARY = (
     ROOT / "validation" / "exact_compatibility_claim_boundary_report.json"
 )
 PROJECT_TRACKS = ROOT / "validation" / "project_tracks_report.json"
+LICENSE_BOUNDARY = ROOT / "validation" / "license_boundary_report.json"
 TERMINAL_STATUS = "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED"
 
 
@@ -93,7 +94,7 @@ def write_markdown(report: Dict[str, Any], path: Path) -> None:
         "0BSD rule therefore does not reproduce every authored official "
         "interior. The exact M24-M26 candidate is technically proven, but it "
         "depends on selections calibrated against the MIT implementation and "
-        "is not cleared for an 0BSD release.",
+        "is explicitly MIT rather than 0BSD.",
         "",
         "Terminal choices are: retain MIT for exact compatibility, use the "
         "functional non-exact 0BSD core, or obtain explicit permission. There "
@@ -147,6 +148,7 @@ def main() -> int:
             sys.executable,
             "research/official_topology/m27/terminal_audit.py",
         ]),
+        run_step([sys.executable, "tools/validate_license_boundary.py"]),
         run_step([sys.executable, "tools/test_core_c.py"]),
         run_step([sys.executable, "tools/test_consumer_compatibility.py"]),
         run_step([sys.executable, "tools/m4_replacement_readiness.py"]),
@@ -161,6 +163,7 @@ def main() -> int:
     readiness = read_json(READINESS)
     claim_boundary = read_json(CLAIM_BOUNDARY)
     project_tracks = read_json(PROJECT_TRACKS)
+    license_boundary = read_json(LICENSE_BOUNDARY)
     final_ok = (
         all(step["returncode"] == 0 for step in steps)
         and audit.get("status") == TERMINAL_STATUS
@@ -179,6 +182,7 @@ def main() -> int:
         and claim_boundary.get("status")
         == "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY"
         and project_tracks.get("status") == "PASS"
+        and license_boundary.get("status") == "PASS_LICENSE_BOUNDARY"
         and project_tracks.get("tracks", {})
         .get("official_topology_research", {})
         .get("status")
@@ -186,6 +190,9 @@ def main() -> int:
     )
     report = {
         "schema": "boqsc.transvoxel.official_topology.m27.report.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
         "status": TERMINAL_STATUS if final_ok else "FAIL_M27_TERMINAL_MILESTONE",
         "terminal": final_ok,
         "exact_0bsd_goal_achieved": False,
@@ -197,6 +204,7 @@ def main() -> int:
         "readiness_status": readiness.get("status"),
         "claim_boundary_status": claim_boundary.get("status"),
         "project_tracks_status": project_tracks.get("status"),
+        "license_boundary_status": license_boundary.get("status"),
         "next_milestone": readiness.get("next_milestone", {}),
         "steps": steps,
     }

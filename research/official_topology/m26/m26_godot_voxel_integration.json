@@ -1,4 +1,5 @@
 {
+  "aggregate_only": true,
   "attempts": [
     {
       "candidate": {
@@ -30,9 +31,10 @@
     }
   ],
   "candidate": {
-    "license_status": "RESEARCH_ONLY_NOT_CLEARED_FOR_0BSD_RELEASE",
+    "data_license": "MIT",
+    "license_file": "LICENSES/MIT.txt",
     "source_file": "research/official_topology/m26/generated/transvoxel_tables.cpp",
-    "table_sha256": "7bda2f7a19661e57d912bc62bef98931a3e62ef19154bd33d3ca6b7db2a8da14"
+    "table_sha256": "43e99fec028642b5f20c5853348918e3428404ca8bdbd3971bd4e0a54a957603"
   },
   "comparison": {
     "candidate_record_count": 781,
@@ -45,6 +47,7 @@
     "transition_corner_matches": 13
   },
   "compiler": "zig c++",
+  "contains_exact_arrays": false,
   "full_godot_module_build": {
     "performed_in_this_step": false,
     "reason": "The full temporary GDExtension build is performed by test_full_godot_voxel_build.py and recorded in m26_full_godot_voxel_build.json."
@@ -57,6 +60,7 @@
     "worktree_clean": true
   },
   "meaning": "The M26 replacement compiles against the actual Godot Voxel table API and matches every exhaustive Godot-style regular/transition output record.",
+  "report_license": "0BSD",
   "schema": "boqsc.transvoxel.m26.godot_voxel_integration.v1",
   "status": "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION"
 }

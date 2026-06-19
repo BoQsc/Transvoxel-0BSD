@@ -27,6 +27,9 @@ Read first:
 
 License: 0BSD.
 
+This package contains no MIT exact-compatibility artifacts. See
+LICENSE_SCOPE.md for the enforced boundary used by the full repository.
+
 Important: this is an independent clean-room Transvoxel-style core. It is not a relicensed copy of Eric Lengyel's MIT Transvoxel.cpp and does not claim official 73-class table or byte identity.
 
 Current public claim: functional Transvoxel.cpp replacement through public C/C++ API.

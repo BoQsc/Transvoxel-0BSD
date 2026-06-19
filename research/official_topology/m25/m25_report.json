@@ -1,6 +1,8 @@
 {
+  "aggregate_only": true,
   "claim_boundary_status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
   "consumer_status": "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER",
+  "contains_exact_arrays": false,
   "layout_metrics": {
     "all_class_indexes_within_original_capacities": true,
     "packed_vertex_code_multiset_matches": 768,
@@ -11,7 +13,7 @@
     "transition_used_classes": 40
   },
   "m24_status": "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY",
-  "meaning": "M25 generates and validates a research-only original Transvoxel.cpp data ABI surface with independent class IDs, exact topology, and formula-derived reuse codes.",
+  "meaning": "M25 generates and validates an MIT-licensed exact original Transvoxel.cpp data ABI surface with independent class IDs, exact topology, and formula-derived reuse codes. Generator code and this aggregate report remain 0BSD.",
   "project_tracks_status": "PASS",
   "readiness": {
     "blocking_gate_ids": [
@@ -27,6 +29,7 @@
     },
     "status": "TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED"
   },
+  "report_license": "0BSD",
   "schema": "boqsc.transvoxel.official_topology.m25.report.v1",
   "status": "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT",
   "steps": [

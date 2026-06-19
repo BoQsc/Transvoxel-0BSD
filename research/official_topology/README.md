@@ -1,6 +1,9 @@
 # Official Topology Research Track
 
-This track exists to study whether a clean-room 0BSD implementation can derive the official Transvoxel-style 73-class transition topology **without copying MIT-licensed table data**.
+This track first studied whether a clean-room 0BSD implementation could derive
+the official topology without MIT data. M23-M27 then isolated a separate exact
+compatibility path. Its selection-bearing artifacts are explicitly MIT; only
+generator code and aggregate reports remain 0BSD.
 
 This is separate from `core/independent/` so the working 0BSD core does not get destabilized while research continues.
 
@@ -12,7 +15,8 @@ official class ID mapping: NOT_PROVEN
 published_reference_sign_orientation_equivalence: PROVEN_M18
 published_transition_topology_behavior: PROVEN_M19
 clean_room_regular_cell_equivalence: PROVEN_M20
-exact_official_triangulation_identity: NOT_PROVEN
+exact_official_triangulation_identity: PROVEN_M24_MIT_DATA
+license_boundary: 0BSD_CORE_AND_REPORTS / MIT_EXACT_ARTIFACTS
 ```
 
 ## M3
@@ -496,8 +500,9 @@ that topology into compatible 16/56 class capacities, derives packed reuse
 fields, emits the original data symbols, and passes an unchanged-style C++
 consumer.
 
-The M24-M25 exact data remains research-only because the exact filling
-selection indexes were calibrated by the MIT oracle.
+The M24-M26 exact selection-bearing data is explicitly MIT because the exact
+filling indexes were calibrated by the MIT oracle. Generator code and
+aggregate reports remain 0BSD.
 
 Run:
 
@@ -550,7 +555,7 @@ next milestone: NONE_TERMINAL
 
 The published rules fix robust boundary connectivity but permit multiple legal
 interiors. The exact candidate therefore depends on MIT-oracle-calibrated
-selections and remains research-only under the current provenance policy.
+selections and is explicitly MIT under the current provenance policy.
 Future review requires explicit permission/relicensing or a changed project
 requirement. There is no automatic M28.
 

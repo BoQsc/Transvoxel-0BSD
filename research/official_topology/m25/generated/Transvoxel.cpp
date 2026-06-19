@@ -1,6 +1,7 @@
 // =============================================================
-// Research-only Transvoxel.cpp-compatible data surface.
-// Generated code/data is not yet cleared for an 0BSD release.
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2009 Eric Lengyel
+// Exact Transvoxel.cpp-compatible data; see LICENSES/MIT.txt.
 // Internal class IDs are independent and may differ.
 // =============================================================
 

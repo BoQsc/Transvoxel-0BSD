@@ -1,18 +1,23 @@
 {
-  "blocking_reason": "M24 stores oracle-calibrated triangulation option indexes. Although boundary loops and candidate enumeration are independent, the exact choice among valid fillings is not yet derived from an independent published rule.",
+  "aggregate_only": true,
+  "blocking_reason": "M24 stores oracle-calibrated triangulation option indexes. The exact selection-bearing artifacts are explicitly MIT licensed and are not part of the 0BSD public core.",
+  "contains_exact_arrays": false,
   "decision": {
     "exact_candidate_0bsd_provenance_cleared": false,
-    "generated_exact_data_is_research_only": true,
+    "exact_candidate_mit_license_explicit": true,
+    "generated_exact_data_license": "MIT",
     "generator_code_is_0bsd": true,
     "release_exact_candidate_as_0bsd": false
   },
   "inputs": {
-    "m24_generated_rule_license_status": "RESEARCH_ONLY_NOT_YET_CLEARED_FOR_0BSD_RELEASE",
-    "m24_rules_sha256": "c37c8f964fa5deea2538080c758d65f00335391b4d22cee64ef6f2a800dfdb32",
-    "m25_generated_data_license_status": "RESEARCH_ONLY_NOT_YET_CLEARED_FOR_0BSD_RELEASE",
-    "m25_layout_sha256": "ef8f40c0a6164a27e916469d9b7cd08874ec53679be2073c925b92dd96e49be5"
+    "m24_generated_rule_license_status": "MIT_EXACT_COMPATIBILITY_DATA",
+    "m24_rules_sha256": "c1e36e387a4cd5fb9af43f4d3796c63e460e043f8a968c65a27f14f64e33168a",
+    "m25_generated_data_license_status": "MIT_EXACT_COMPATIBILITY_DATA",
+    "m25_layout_sha256": "eca5b5d042ce29bcc1706c1673b81b27c574c8c631919d787b597a062af40d09",
+    "mit_license_explicit": true
   },
-  "required_resolution": "Replace every oracle-calibrated option index with a deterministic independent selection rule and revalidate all 768 cases, or obtain explicit legal/provenance clearance.",
+  "report_license": "0BSD",
+  "required_resolution": "For exact compatibility, distribute the MIT artifacts with the MIT notice. An exact 0BSD release would require separate permission/relicensing or a new independent derivation.",
   "schema": "boqsc.transvoxel.m26.provenance_audit.v1",
   "status": "PASS_M26_PROVENANCE_AUDIT_BLOCKED"
 }

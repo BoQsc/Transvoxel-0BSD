@@ -320,9 +320,10 @@ def derive_rules(
         "schema": "boqsc.transvoxel.m24.topology_rules.v1",
         "status": "ORACLE_CALIBRATED_CLEAN_ROOM_TRIANGULATION_SELECTIONS",
         "generator_code_license": "0BSD",
-        "generated_rule_license_status": (
-            "RESEARCH_ONLY_NOT_YET_CLEARED_FOR_0BSD_RELEASE"
-        ),
+        "license": "MIT",
+        "license_file": "LICENSES/MIT.txt",
+        "copyright": "Copyright (c) 2009 Eric Lengyel",
+        "generated_rule_license_status": "MIT_EXACT_COMPATIBILITY_DATA",
         "meaning": (
             "Clean-room boundary loops are triangulated by indexes into a "
             "deterministic independent enumeration. The external oracle is "
@@ -556,7 +557,6 @@ def compare_section(
             inverted,
         ))
     summary = oracle_compare.summarize(results)
-    summary["cases"] = results
     return summary
 
 
@@ -581,9 +581,8 @@ def write_markdown(report: Dict[str, object]) -> None:
         f"- Exact replacement ready: "
         f"`{report['decisions']['exact_replacement_ready']}`",  # type: ignore[index]
         "",
-        "Remaining work is official vertex ordering/reuse encoding, class/table "
-        "layout compatibility, unchanged-consumer integration, and 0BSD "
-        "provenance clearance for the oracle-calibrated data.",
+        "The exact selection-bearing rules and tables are MIT. Generator code "
+        "and this aggregate report remain 0BSD.",
         "",
     ]
     REPORT_MD_PATH.write_text("\n".join(lines), encoding="utf-8")
@@ -616,10 +615,11 @@ def main() -> int:
     tables: Dict[str, object] = {
         "schema": "boqsc.transvoxel.m24.exact_topology_tables.v1",
         "generator_code_license": "0BSD",
-        "generated_candidate_license_status": (
-            "RESEARCH_ONLY_NOT_YET_CLEARED_FOR_0BSD_RELEASE"
-        ),
-        "status": "M24_EXACT_TOPOLOGY_RESEARCH_CANDIDATE",
+        "license": "MIT",
+        "license_file": "LICENSES/MIT.txt",
+        "copyright": "Copyright (c) 2009 Eric Lengyel",
+        "generated_candidate_license_status": "MIT_EXACT_COMPATIBILITY_DATA",
+        "status": "M24_MIT_EXACT_TOPOLOGY_CANDIDATE",
         "meaning": (
             "Direct per-case runtime tables generated from clean-room boundary "
             "loops and compact oracle-calibrated triangulation selections."
@@ -652,6 +652,10 @@ def main() -> int:
     )
     report: Dict[str, object] = {
         "schema": "boqsc.transvoxel.m24.exact_topology_report.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
+        "exact_candidate_data_license": "MIT",
         "status": (
             "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY"
             if exact_topology
@@ -706,8 +710,9 @@ def main() -> int:
     header = header.replace(
         "/* SPDX-License-Identifier: 0BSD\n",
         (
-            "/* Research-only generated compatibility data.\n"
-            " * 0BSD release provenance is not yet cleared.\n"
+            "/* SPDX-License-Identifier: MIT\n"
+            " * Copyright (c) 2009 Eric Lengyel\n"
+            " * Exact compatibility data. See LICENSES/MIT.txt.\n"
         ),
     ).replace(
         "BOQSC_TRANSVOXEL_TABLES_H",
@@ -726,7 +731,7 @@ def main() -> int:
             "Not copied from, and not byte-compatible with, Eric Lengyel's "
             "MIT Transvoxel.cpp."
         ),
-        "Research-only; exact 0BSD release provenance is not yet cleared.",
+        "Exact compatibility data licensed MIT; see LICENSES/MIT.txt.",
     )
     HEADER_PATH.write_text(header, encoding="utf-8")
     REPORT_PATH.write_text(

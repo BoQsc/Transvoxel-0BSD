@@ -58,6 +58,8 @@ godot_voxel_table_integration: PROVEN_M26
 godot_voxel_full_gdextension_build: PASS_M26_ZIG
 exact_semantic_drop_in_integration: READY_M26
 exact_semantic_drop_in_0bsd_release: TERMINAL_NOT_ACHIEVED_M27
+exact_candidate_data_license: MIT
+aggregate_comparison_reports_license: 0BSD
 exact_replacement_finish_line: CLOSED_NOT_ACHIEVED
 next_milestone: NONE_TERMINAL
 ```
@@ -84,7 +86,8 @@ terminal: the independent deterministic rule matches exact oriented topology
 in only 86/256 regular and 139/512 transition cases, while the publication
 permits multiple legal interiors. The exact candidate reaches 256/256 and
 512/512 by using MIT-oracle-calibrated selections, so the exact 0BSD goal is not
-achieved under the current provenance policy. There is no automatic M28.
+achieved under the current provenance policy. Those exact artifacts are
+explicitly MIT and isolated from the 0BSD core. There is no automatic M28.
 
 ## Why this split exists
 

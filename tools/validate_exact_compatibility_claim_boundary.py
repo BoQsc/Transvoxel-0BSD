@@ -398,9 +398,9 @@ def main() -> int:
         "status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY" if not errors else "FAIL_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
         "meaning": (
             "Functional clean-room replacement is allowed through the public "
-            "C/C++ API. M24-M26 exact semantic results may be reported as "
-            "research, but the generated exact candidate cannot be released "
-            "as 0BSD. M27 terminally records that the published rules do not "
+            "C/C++ API. M24-M26 exact semantic data is explicitly MIT and "
+            "cannot be released as 0BSD. M27 terminally records that the "
+            "published rules do not "
             "uniquely derive every authored official interior and that the "
             "exact candidate uses MIT-oracle-calibrated selections. Numeric "
             "class-ID and byte identity remain separate unclaimed properties."
@@ -411,9 +411,8 @@ def main() -> int:
                 "public C/C++ API: default regular and transition builders use "
                 "clean-room published behavior; C and C++ consumers can "
                 "compile/link; callback customization is retained. "
-                "Research-only exact semantic drop-in integration is proven "
-                "by M24-M26; M27 records that the exact 0BSD goal was not "
-                "achieved."
+                "MIT-licensed exact semantic drop-in integration is proven by "
+                "M24-M26; M27 records that the exact 0BSD goal was not achieved."
             ),
             "not_allowed_now": [
                 "0BSD release claim for the M24-M26 exact candidate.",
@@ -423,7 +422,9 @@ def main() -> int:
             ],
             "byte_identity_required_for_functional_replacement": False,
             "byte_identity_required_for_exact_table_identity_claim": True,
-            "official_arrays_allowed_as_generator_inputs": False,
+            "official_arrays_allowed_as_0bsd_generator_inputs": False,
+            "mit_exact_artifacts_allowed": True,
+            "exact_candidate_data_license": "MIT",
         },
         "evidence": evidence,
         "scanned_claim_files": scanned,

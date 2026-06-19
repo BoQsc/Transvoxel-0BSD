@@ -20,6 +20,7 @@ STEPS: list[list[str]] = [
     ["tools/export_transvoxel.py"],
     ["tools/sync_godot_tables.py"],
     ["tools/verify_generated_tables.py"],
+    ["tools/validate_license_boundary.py"],
     ["tools/validate_tables.py"],
     ["tools/validate_regular_cell_equivalence.py"],
     ["tools/validate_transition.py"],

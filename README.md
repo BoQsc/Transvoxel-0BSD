@@ -4,6 +4,11 @@
 
 Engine-independent, dependency-free C core for an independently generated **Transvoxel-style voxel LOD transition system** under 0BSD.
 
+License boundary: the public core, generator/validation code, and aggregate
+reports are 0BSD. The isolated exact oracle-calibrated artifacts in M24-M26
+are explicitly MIT under [`LICENSES/MIT.txt`](LICENSES/MIT.txt) and are never
+included in the 0BSD core package. See [`LICENSE_SCOPE.md`](LICENSE_SCOPE.md).
+
 ## Use this first
 
 Most users should start with the small release asset, not the full proof repository:
@@ -38,7 +43,7 @@ Functional full replacement readiness: READY by M21 through public C/C++ API
 Exact compatibility claim boundary: LOCKED by M22; exact official compatibility remains NOT_PROVEN
 Official oracle baseline: M23 compares all 256 regular and 512 transition cases
 Exact oriented topology identity: PROVEN by M24 for all 256 + 512 cases
-M24 exact candidate release provenance: RESEARCH_ONLY / NOT_CLEARED_FOR_0BSD
+M24-M26 exact candidate data license: MIT / ISOLATED_FROM_0BSD_CORE
 Compatible original Transvoxel.cpp data ABI: PROVEN by M25
 Pinned Godot Voxel table-source integration: PROVEN by M26 with 781/781 records
 Full Godot Voxel Windows GDExtension build with Zig: PASS by M26
@@ -48,7 +53,10 @@ Roadmap: TERMINAL at M27; no automatic M28
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
-This project is **not** Eric Lengyel's MIT `Transvoxel.cpp` relicensed. It is an independent 0BSD implementation path with generated tables, a plain C API, proof tools, Godot validation, scripted auto-interaction tests, and a separate official-topology research track.
+The public core is **not** Eric Lengyel's MIT `Transvoxel.cpp` relicensed. It
+is an independent 0BSD implementation. The full proof repository also contains
+a clearly enumerated MIT exact-compatibility research track; those files are
+not 0BSD and are not part of the public core.
 
 ## Quick compile
 
@@ -115,6 +123,7 @@ docs/CORE_PACKAGE_CONTENTS.md
 docs/KNOWN_LIMITS.md
 docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md
 LICENSE
+LICENSE_SCOPE.md
 PROVENANCE.md
 SOURCES.md
 README_CORE.txt
@@ -183,17 +192,14 @@ table behavior and consumer surface without depending on the MIT data. M27 now
 closes that goal as not achieved under this repository's clean-room provenance
 standard. This is a terminal result, not an unbounded next milestone.
 
-M24 now proves exact edge-labeled oriented topology for every regular and
-transition case in an isolated research candidate. The public default remains
-the M21 functional table until official-compatible vertex ordering/reuse
-encoding, class/table layout, provenance, and unchanged-consumer integration
-also pass.
+M24 proves exact edge-labeled oriented topology for every regular and
+transition case in an isolated MIT candidate. The public default remains the
+independently derived M21 0BSD functional table.
 
-M25 adds a research-only `Transvoxel.cpp` data surface with the original
+M25 adds an MIT-licensed exact `Transvoxel.cpp` data surface with the original
 struct/symbol names and 16/56 class-array capacities. Its independent internal
 class IDs, exact M24 topology, and formula-derived packed reuse codes pass an
-unchanged-style C++ consumer. The public 0BSD default remains unchanged while
-M25 itself does not resolve downstream integration or provenance.
+unchanged-style C++ consumer. The public 0BSD default remains unchanged.
 
 M26 replaces the table translation unit behind the actual pinned Godot Voxel
 table API in a temporary build tree and compiles the same Godot-style consumer
@@ -201,19 +207,18 @@ against both implementations with Zig C++. All 256 regular cases, 512
 transition cases, and 13 transition-corner records match. This proves the
 exact semantic drop-in integration boundary. M26 also compiles and links the
 complete pinned Godot Voxel Windows GDExtension with Zig, producing an
-8,256,512-byte DLL in a temporary build. The generated exact candidate is still
-research-only because M24's triangulation selection indexes were calibrated by
-the MIT oracle.
+8,256,512-byte DLL in a temporary build. The generated exact candidate is MIT
+because M24's triangulation selection indexes were calibrated by the MIT
+oracle.
 
 M27 reruns the independent 768-case comparison and audits the dissertation's
 published rules. The deterministic independent topology matches exact oriented
 topology in 86/256 regular and 139/512 transition cases. The publication fixes
 robust boundary connectivity but permits multiple legal interior
 triangulations; the exact M24-M26 candidate closes the remaining gaps with
-MIT-oracle-calibrated choices. The technically exact candidate therefore
-cannot be released as 0BSD under the current provenance policy. The finite
-choices are to retain MIT for exact compatibility, use the functional non-exact
-0BSD core, or obtain explicit permission/relicensing. There is no M28.
+MIT-oracle-calibrated choices. Those exact files are now explicitly MIT and
+can be used under that license, but cannot be released as 0BSD. The functional
+non-exact core remains exclusively 0BSD. There is no M28.
 
 ## What this proves
 

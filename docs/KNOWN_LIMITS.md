@@ -15,9 +15,8 @@ reuse/cache metadata, class/table layout, or the unchanged `Transvoxel.cpp`
 consumer surface. The public default therefore remains the functional M21
 table.
 
-The M24 generated rule/table artifacts are research-only. Their generator code
-is 0BSD, but the oracle-calibrated generated data is not yet cleared for an
-0BSD release.
+The M24-M26 exact selection-bearing artifacts are MIT. Their generator code and
+aggregate reports are 0BSD, and the public 0BSD core excludes the MIT files.
 
 M25's generated `Transvoxel.cpp` preserves the original data contract but uses
 independent internal class IDs.
@@ -26,15 +25,15 @@ M26 compiles the actual pinned Godot Voxel table-source API against the M25
 candidate and matches all 781 exhaustive output records. It also compiles and
 links the complete pinned Windows GDExtension with Zig against a local Godot
 4.5 `godot-cpp` dependency. Runtime editor loading and visual terrain
-comparison for this exact candidate are not yet performed. Generated-data
-provenance is still research-only.
+comparison for this exact candidate are not yet performed. The exact generated
+data is explicitly MIT.
 
 M27 is the terminal exact-0BSD decision. The independent deterministic rule
 matches exact oriented topology in 86/256 regular and 139/512 transition cases.
 Published rules constrain robust boundaries but permit multiple legal
 interiors. The exact M24-M26 candidate closes those gaps with
-MIT-oracle-calibrated selections, so it is not cleared for an 0BSD release
-under the current project provenance standard. There is no automatic M28.
+MIT-oracle-calibrated selections, so those files are MIT rather than 0BSD.
+There is no automatic M28.
 
 Still not claimed:
 

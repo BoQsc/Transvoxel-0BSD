@@ -40,27 +40,36 @@ def main() -> int:
         and "calibrate" in str(rules.get("meaning", "")).lower()
     )
     cleared = not oracle_calibrated
+    mit_license_explicit = (
+        rules.get("license") == "MIT"
+        and layout.get("license") == "MIT"
+        and rules.get("license_file") == "LICENSES/MIT.txt"
+        and layout.get("license_file") == "LICENSES/MIT.txt"
+    )
     report = {
         "schema": "boqsc.transvoxel.m26.provenance_audit.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
         "status": "PASS_M26_PROVENANCE_AUDIT_BLOCKED",
         "decision": {
             "exact_candidate_0bsd_provenance_cleared": cleared,
             "release_exact_candidate_as_0bsd": cleared,
             "generator_code_is_0bsd": True,
-            "generated_exact_data_is_research_only": not cleared,
+            "generated_exact_data_license": "MIT",
+            "exact_candidate_mit_license_explicit": mit_license_explicit,
         },
         "blocking_reason": (
-            "M24 stores oracle-calibrated triangulation option indexes. "
-            "Although boundary loops and candidate enumeration are "
-            "independent, the exact choice among valid fillings is not yet "
-            "derived from an independent published rule."
+            "M24 stores oracle-calibrated triangulation option indexes. The "
+            "exact selection-bearing artifacts are explicitly MIT licensed "
+            "and are not part of the 0BSD public core."
             if oracle_calibrated
             else None
         ),
         "required_resolution": (
-            "Replace every oracle-calibrated option index with a deterministic "
-            "independent selection rule and revalidate all 768 cases, or "
-            "obtain explicit legal/provenance clearance."
+            "For exact compatibility, distribute the MIT artifacts with the "
+            "MIT notice. An exact 0BSD release would require separate "
+            "permission/relicensing or a new independent derivation."
             if oracle_calibrated
             else None
         ),
@@ -73,6 +82,7 @@ def main() -> int:
             "m25_generated_data_license_status": layout.get(
                 "generated_data_license_status"
             ),
+            "mit_license_explicit": mit_license_explicit,
         },
     }
     REPORT.write_text(

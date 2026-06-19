@@ -1,11 +1,14 @@
 {
-  "generated_rule_license_status": "RESEARCH_ONLY_NOT_YET_CLEARED_FOR_0BSD_RELEASE",
+  "copyright": "Copyright (c) 2009 Eric Lengyel",
+  "generated_rule_license_status": "MIT_EXACT_COMPATIBILITY_DATA",
   "generator_code_license": "0BSD",
   "inputs": {
     "class_partition_sha256": "35bd4ade5f4b49a3f21cec3b111bf47d404fa2d7eb7a1e07bbf3d0b95d5bf595",
     "m3_core_sha256": "d96e69b874a67c1e75e51ec0c085d12c48a584a239ac4817cb806345e9738246",
     "regular_generator_sha256": "84df10f4c519b0756f1b453a0e8bda4b7bf169005cab37c2f3623ce34fda5986"
   },
+  "license": "MIT",
+  "license_file": "LICENSES/MIT.txt",
   "meaning": "Clean-room boundary loops are triangulated by indexes into a deterministic independent enumeration. The external oracle is used only to calibrate those indexes.",
   "oracle": {
     "arrays_copied": false,
@@ -2524,7 +2527,7 @@
     ]
   },
   "schema": "boqsc.transvoxel.m24.topology_rules.v1",
-  "sha256_without_this_field": "5af08a397e584c6e62d730b041be52612f5c9120298cde2754a383396c17503a",
+  "sha256_without_this_field": "c8b8a9cb25946ce7cd50e4966e93d65f56897c569037447f873abe88f15b6f83",
   "status": "ORACLE_CALIBRATED_CLEAN_ROOM_TRIANGULATION_SELECTIONS",
   "transition": {
     "case_count": 512,

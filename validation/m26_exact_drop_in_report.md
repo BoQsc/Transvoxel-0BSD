@@ -15,6 +15,6 @@ Status: `PASS_M26_EXACT_DROP_IN_INTEGRATION_PROVEN_PROVENANCE_BLOCKED`
 - Identity-only blockers: `official_class_id_mapping, official_regular_table_identity, official_transvoxel_cpp_byte_identity`
 - Roadmap state: `NONE_TERMINAL`
 
-M26 proves exact semantic replacement through the pinned Godot Voxel table-source API and a full Zig GDExtension compile/link. The candidate remains research-only because M24 triangulation option indexes were calibrated by the MIT oracle.
+M26 proves exact semantic replacement through the pinned Godot Voxel table-source API and a full Zig GDExtension compile/link. The exact candidate is MIT because M24 triangulation option indexes were calibrated by the MIT oracle.
 
 No zip artifact is built.

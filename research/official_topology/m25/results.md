@@ -8,6 +8,6 @@
 - Remaining exact blockers: `4`
 - Roadmap state: `NONE_TERMINAL`
 
-M25 proves compatible original data symbols, array capacities, exact topology, and packed reuse semantics with independent internal class IDs. It does not prove byte identity or release provenance.
+M25 proves compatible original data symbols, array capacities, exact topology, and packed reuse semantics with independent internal class IDs. Exact generated data is MIT; this aggregate report is 0BSD.
 
 No zip artifact is built.

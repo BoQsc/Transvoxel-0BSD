@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: 0BSD
-"""Build a research-only Transvoxel.cpp-compatible data surface.
+"""Build an MIT-licensed exact Transvoxel.cpp-compatible data surface.
 
 The generated file preserves the original public data shapes and symbol names,
 but assigns its own internal class IDs. Packed reuse codes are generated from
-cell geometry formulas. Topology comes from the research-only M24 candidate.
+cell geometry formulas. Topology comes from the MIT-licensed M24 candidate.
 """
 from __future__ import annotations
 
@@ -55,6 +55,17 @@ TRANSITION_POSITIONS = {
     11: (0, 2, 1),
     12: (2, 2, 1),
 }
+
+
+def atomic_write_text(path: Path, text: str) -> None:
+    """Replace generated text without truncating a watched Windows source."""
+    temporary = path.with_name(path.name + ".tmp")
+    try:
+        temporary.write_text(text, encoding="utf-8")
+        temporary.replace(path)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
 
 
 def canonical_triangle(triangle: Triangle) -> Triangle:
@@ -437,11 +448,12 @@ def build_layout() -> Dict[str, object]:
 
     layout: Dict[str, object] = {
         "schema": "boqsc.transvoxel.m25.compatible_layout.v1",
-        "status": "M25_RESEARCH_ONLY_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT",
+        "status": "M25_MIT_EXACT_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT",
         "generator_code_license": "0BSD",
-        "generated_data_license_status": (
-            "RESEARCH_ONLY_NOT_YET_CLEARED_FOR_0BSD_RELEASE"
-        ),
+        "license": "MIT",
+        "license_file": "LICENSES/MIT.txt",
+        "copyright": "Copyright (c) 2009 Eric Lengyel",
+        "generated_data_license_status": "MIT_EXACT_COMPATIBILITY_DATA",
         "meaning": (
             "Original data ABI shapes and symbol semantics with independent "
             "internal class numbering, formula-derived reuse codes, and M24 "
@@ -520,8 +532,9 @@ def emit_cpp(layout: Dict[str, object]) -> str:
     transition_layout = layout["transition"]  # type: ignore[index]
     lines = [
         "// =============================================================",
-        "// Research-only Transvoxel.cpp-compatible data surface.",
-        "// Generated code/data is not yet cleared for an 0BSD release.",
+        "// SPDX-License-Identifier: MIT",
+        "// Copyright (c) 2009 Eric Lengyel",
+        "// Exact Transvoxel.cpp-compatible data; see LICENSES/MIT.txt.",
         "// Internal class IDs are independent and may differ.",
         "// =============================================================",
         "",
@@ -740,8 +753,8 @@ def write_markdown(report: Dict[str, object]) -> None:
         "names, and array capacities. Internal numeric class IDs and table "
         "bytes intentionally differ.",
         "",
-        "The generated data remains research-only because M24 topology "
-        "selection provenance is not yet cleared for an 0BSD release.",
+        "The exact generated data is explicitly MIT licensed. Generator and "
+        "validation code remain 0BSD; see LICENSE_SCOPE.md.",
         "",
     ]
     REPORT_MD_PATH.write_text("\n".join(lines), encoding="utf-8")
@@ -768,6 +781,10 @@ def main() -> int:
     )
     report: Dict[str, object] = {
         "schema": "boqsc.transvoxel.m25.compatible_layout_report.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
+        "exact_candidate_data_license": "MIT",
         "status": (
             "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT"
             if passed else "FAIL_M25_COMPATIBLE_LAYOUT"
@@ -784,6 +801,7 @@ def main() -> int:
             "compatible_class_capacity_layout": passed,
             "official_numeric_class_ids_identical": False,
             "byte_identity": False,
+            "generated_data_license": "MIT",
             "generated_data_0bsd_provenance_cleared": False,
             "ready_for_unchanged_consumer_compile_test": passed,
             "exact_drop_in_replacement_ready": False,
@@ -800,7 +818,7 @@ def main() -> int:
         json.dumps(layout, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
-    CPP_PATH.write_text(emit_cpp(layout), encoding="utf-8")
+    atomic_write_text(CPP_PATH, emit_cpp(layout))
     REPORT_PATH.write_text(
         json.dumps(report, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",

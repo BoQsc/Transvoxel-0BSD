@@ -1,15 +1,17 @@
 {
   "claim_contract": {
-    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained. Research-only exact semantic drop-in integration is proven by M24-M26; M27 records that the exact 0BSD goal was not achieved.",
+    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained. MIT-licensed exact semantic drop-in integration is proven by M24-M26; M27 records that the exact 0BSD goal was not achieved.",
     "byte_identity_required_for_exact_table_identity_claim": true,
     "byte_identity_required_for_functional_replacement": false,
+    "exact_candidate_data_license": "MIT",
+    "mit_exact_artifacts_allowed": true,
     "not_allowed_now": [
       "0BSD release claim for the M24-M26 exact candidate.",
       "Official 73-class ID compatibility claim.",
       "Exact official Transvoxel.cpp numeric class/table identity claim.",
       "Byte-for-byte Transvoxel.cpp table/file identity claim."
     ],
-    "official_arrays_allowed_as_generator_inputs": false
+    "official_arrays_allowed_as_0bsd_generator_inputs": false
   },
   "errors": [],
   "evidence": {
@@ -20,7 +22,7 @@
       "official_transvoxel_cpp_byte_identity"
     ],
     "claim_boundary": {
-      "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API, plus a research-only exact semantic drop-in candidate proven through the pinned Godot Voxel table API.",
+      "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API, plus an MIT-licensed exact semantic drop-in candidate proven through the pinned Godot Voxel table API.",
       "byte_identity_required_for_exact_table_identity_claim": true,
       "byte_identity_required_for_functional_replacement": false,
       "exact_replacement_finish_line": "Field/output/symbol compatibility sufficient for unchanged consumer integration. Byte-identical source text is not required.",
@@ -71,40 +73,40 @@
     "transition_triangles": 2640,
     "transition_vertex_refs": 4096
   },
-  "meaning": "Functional clean-room replacement is allowed through the public C/C++ API. M24-M26 exact semantic results may be reported as research, but the generated exact candidate cannot be released as 0BSD. M27 terminally records that the published rules do not uniquely derive every authored official interior and that the exact candidate uses MIT-oracle-calibrated selections. Numeric class-ID and byte identity remain separate unclaimed properties.",
+  "meaning": "Functional clean-room replacement is allowed through the public C/C++ API. M24-M26 exact semantic data is explicitly MIT and cannot be released as 0BSD. M27 terminally records that the published rules do not uniquely derive every authored official interior and that the exact candidate uses MIT-oracle-calibrated selections. Numeric class-ID and byte identity remain separate unclaimed properties.",
   "scanned_claim_files": {
     "PROVENANCE.md": {
-      "bytes": 5622
+      "bytes": 5952
     },
     "README.md": {
-      "bytes": 10729
+      "bytes": 10774
     },
     "README_CORE.txt": {
-      "bytes": 1658
+      "bytes": 1795
     },
     "SOURCES.md": {
-      "bytes": 4898
+      "bytes": 4985
     },
     "docs/API.md": {
       "bytes": 8314
     },
     "docs/CORE_PACKAGE_CONTENTS.md": {
-      "bytes": 2156
+      "bytes": 2236
     },
     "docs/DROP_IN.md": {
       "bytes": 5502
     },
     "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md": {
-      "bytes": 5379
+      "bytes": 5300
     },
     "docs/KNOWN_LIMITS.md": {
-      "bytes": 4238
+      "bytes": 4173
     },
     "docs/M4_REPLACEMENT_READINESS.md": {
       "bytes": 4585
     },
     "docs/WHAT_THIS_PROVES.md": {
-      "bytes": 12110
+      "bytes": 12018
     }
   },
   "schema": "boqsc.transvoxel.m22.exact_compatibility_claim_boundary.v1",

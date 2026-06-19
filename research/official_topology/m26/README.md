@@ -1,6 +1,6 @@
 # M26 - Godot Voxel Table Integration
 
-M26 tests the research-only M25 data through the table API used by the pinned
+M26 tests the MIT-licensed M25 exact data through the table API used by the pinned
 local Godot Voxel Transvoxel mesher.
 
 The test does not modify the Godot Voxel checkout. It:
@@ -14,9 +14,9 @@ The test does not modify the Godot Voxel checkout. It:
 5. builds the complete pinned Godot Voxel Windows GDExtension with Zig in
    temporary clones and records the DLL hash.
 
-The generated replacement remains research-only. M24 topology-selection rules
-were calibrated against the external MIT oracle, so they are not cleared for
-an 0BSD release.
+The generated exact replacement is MIT because M24 topology-selection rules
+were calibrated against the external MIT oracle. M26 test code and aggregate
+reports remain 0BSD.
 
 The full compile/link proof does not yet include loading the resulting DLL in a
 Godot editor and performing a visual terrain comparison.

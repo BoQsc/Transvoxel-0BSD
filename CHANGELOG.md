@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Added an enforced file-level license boundary: the independent public core,
+  generator/validation code, and aggregate reports remain 0BSD; six exact
+  selection-bearing M24-M26 artifacts are explicitly MIT.
+- Removed per-case triangulation details from committed M23/M24 comparison
+  reports and retained aggregate counts, hashes, categories, and decisions.
+- Added `tools/validate_license_boundary.py` to prevent MIT exact artifacts
+  from entering public 0BSD trees or the distribution file list.
 - Added M27 as the terminal exact-0BSD roadmap decision; no M28 is selected.
 - Re-ran the independent 768-case oracle comparison: exact oriented topology
   matches 86/256 regular and 139/512 transition cases.

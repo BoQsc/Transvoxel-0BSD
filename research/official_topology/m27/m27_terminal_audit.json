@@ -1,5 +1,7 @@
 {
+  "aggregate_only": true,
   "audit_completed": true,
+  "contains_exact_arrays": false,
   "decision": {
     "exact_0bsd_goal_achieved": false,
     "exact_candidate_0bsd_provenance_cleared": false,
@@ -51,9 +53,11 @@
   },
   "oracle_calibrated_exact_candidate": {
     "0bsd_release_cleared": false,
+    "data_license": "MIT",
     "full_gdextension_build": "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD",
     "godot_voxel_mismatches": 0,
     "godot_voxel_records_matched": 781,
+    "license_file": "LICENSES/MIT.txt",
     "regular_nonzero_option_indexes": 170,
     "regular_oriented_topology_matches": 256,
     "regular_rule_count": 256,
@@ -132,6 +136,7 @@
     "sha256": "c1c86dc1c441fa86dbe6b4b38a521ffb26a5eec3c4eede0f5782508a6ad41160",
     "title": "Voxel-Based Terrain for Real-Time Virtual Simulations"
   },
+  "report_license": "0BSD",
   "schema": "boqsc.transvoxel.official_topology.m27.terminal_audit.v1",
   "status": "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED",
   "terminal": true,

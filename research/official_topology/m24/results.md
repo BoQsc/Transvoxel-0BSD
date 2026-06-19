@@ -5,9 +5,9 @@
 - Transition oriented topology: `512/512`
 - Zig C candidate: `PASS_M24_ZIG_EXACT_TOPOLOGY_CANDIDATE`
 - Existing C/C++ consumer contract: `PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY`
-- Remaining exact blockers: `5`
-- Next milestone: `M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT`
+- Remaining exact blockers: `4`
+- Roadmap state: `NONE_TERMINAL`
 
-M24 proves exact edge-labeled oriented topology. It does not yet prove official vertex ordering/reuse encoding, packed class/table layout, unchanged-consumer integration, or 0BSD provenance clearance for the oracle-calibrated data.
+M24 proves exact edge-labeled oriented topology. The exact selection data is MIT; generator code and this aggregate report are 0BSD.
 
 No zip artifact is built.

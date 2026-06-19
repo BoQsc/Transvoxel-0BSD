@@ -1,0 +1,15 @@
+{
+  "artifacts": [
+    "research/official_topology/m24/topology_rules.json",
+    "research/official_topology/m24/generated/m24_exact_topology_tables.json",
+    "research/official_topology/m24/generated/m24_exact_topology_tables.h",
+    "research/official_topology/m25/generated/m25_compatible_layout.json",
+    "research/official_topology/m25/generated/Transvoxel.cpp",
+    "research/official_topology/m26/generated/transvoxel_tables.cpp"
+  ],
+  "artifacts_license": "MIT",
+  "copyright": "Copyright (c) 2009 Eric Lengyel",
+  "license_file": "LICENSES/MIT.txt",
+  "manifest_license": "0BSD",
+  "schema": "boqsc.transvoxel.mit_artifacts.v1"
+}

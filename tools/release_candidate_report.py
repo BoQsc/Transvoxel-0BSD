@@ -12,6 +12,7 @@ CORE_ZIP = ROOT / "dist" / "transvoxel_0bsd_core.zip"
 
 REQUIRED = {
     "transvoxel_0bsd_core/LICENSE",
+    "transvoxel_0bsd_core/LICENSE_SCOPE.md",
     "transvoxel_0bsd_core/README_CORE.txt",
     "transvoxel_0bsd_core/PROVENANCE.md",
     "transvoxel_0bsd_core/SOURCES.md",

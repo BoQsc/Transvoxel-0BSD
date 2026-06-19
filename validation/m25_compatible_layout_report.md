@@ -11,4 +11,4 @@ Status: `PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT`
 
 The generated research file preserves original struct names, symbol names, and array capacities. Internal numeric class IDs and table bytes intentionally differ.
 
-The generated data remains research-only because M24 topology selection provenance is not yet cleared for an 0BSD release.
+The exact generated data is explicitly MIT licensed. Generator and validation code remain 0BSD; see LICENSE_SCOPE.md.

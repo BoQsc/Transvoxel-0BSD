@@ -33,6 +33,9 @@ def main() -> int:
         "research/official_topology/derive_transition_classes.py",
         "research/official_topology/derive_reference_convention.py",
         "research/official_topology/topology_notes.md",
+        "research/official_topology/MIT_ARTIFACTS.json",
+        "LICENSE_SCOPE.md",
+        "LICENSES/MIT.txt",
     ]
     missing_official = [rel for rel in official_required if not (ROOT / rel).exists()]
 
@@ -81,6 +84,7 @@ def main() -> int:
     m27_terminal = read_json(
         "research/official_topology/m27/m27_terminal_audit.json"
     )
+    license_boundary = read_json("validation/license_boundary_report.json")
     terminal_m27 = (
         m27_terminal.get("status")
         == "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED"
@@ -205,6 +209,10 @@ def main() -> int:
                     "status",
                     "NOT_RUN",
                 ),
+                "exact_candidate_data_license": "MIT",
+                "license_boundary": license_boundary.get(
+                    "status", "NOT_RUN"
+                ),
             },
         },
         "supporting_reports": {
@@ -247,6 +255,7 @@ def main() -> int:
                 "status"
             ),
             "m27_terminal_audit_status": m27_terminal.get("status"),
+            "license_boundary_status": license_boundary.get("status"),
         },
         "meaning": (
             "The independent core can be released/evaluated independently. "
@@ -264,7 +273,9 @@ def main() -> int:
             "M27 is terminal: published rules allow multiple legal interiors, "
             "the independent deterministic topology is not exact, and the "
             "exact candidate depends on MIT-oracle-calibrated selections. The "
-            "exact 0BSD goal is not achieved; there is no automatic M28."
+            "exact artifacts are explicitly MIT and isolated from the public "
+            "0BSD core. The exact 0BSD goal is not achieved; there is no "
+            "automatic M28."
         ),
     }
     VALIDATION.mkdir(exist_ok=True)

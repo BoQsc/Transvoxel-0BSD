@@ -82,13 +82,11 @@ def write_results(report: Dict[str, Any]) -> None:
         f"- Existing C/C++ consumer contract: `{report['consumer_status']}`",
         f"- Remaining exact blockers: "
         f"`{len(report['readiness']['blocking_gate_ids'])}`",
-        f"- Next milestone: "
+        f"- Roadmap state: "
         f"`{report['readiness']['next_milestone']['id']}`",
         "",
-        "M24 proves exact edge-labeled oriented topology. It does not yet prove "
-        "official vertex ordering/reuse encoding, packed class/table layout, "
-        "unchanged-consumer integration, or 0BSD provenance clearance for the "
-        "oracle-calibrated data.",
+        "M24 proves exact edge-labeled oriented topology. The exact selection "
+        "data is MIT; generator code and this aggregate report are 0BSD.",
         "",
         "No zip artifact is built.",
         "",
@@ -147,19 +145,30 @@ def main() -> int:
         and claim_boundary.get("status")
         == "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY"
         and readiness.get("next_milestone", {}).get("id")
-        == "M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT"
-        and set(readiness.get("blocking_gate_ids", []))
-        == {
-            "official_class_id_mapping",
-            "official_vertex_encoding_equivalence",
-            "official_regular_table_identity",
-            "exact_0bsd_provenance_clearance",
-            "official_transvoxel_cpp_byte_identity",
+        in {"M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT", "NONE_TERMINAL"}
+        and frozenset(readiness.get("blocking_gate_ids", []))
+        in {
+            frozenset({
+                "official_class_id_mapping",
+                "official_vertex_encoding_equivalence",
+                "official_regular_table_identity",
+                "exact_0bsd_provenance_clearance",
+                "official_transvoxel_cpp_byte_identity",
+            }),
+            frozenset({
+                "official_class_id_mapping",
+                "official_regular_table_identity",
+                "exact_0bsd_provenance_clearance",
+                "official_transvoxel_cpp_byte_identity",
+            }),
         }
         and project_tracks.get("status") == "PASS"
     )
     report = {
         "schema": "boqsc.transvoxel.official_topology.m24.report.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
         "status": PASS_STATUS if final_ok else "FAIL_M24_EXACT_TOPOLOGY",
         "meaning": (
             "M24 proves exact regular and transition edge-labeled oriented "

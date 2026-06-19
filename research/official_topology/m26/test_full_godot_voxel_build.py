@@ -335,6 +335,9 @@ def main() -> int:
         passed = not timed_out and proc.returncode == 0 and bool(dlls)
         report = {
             "schema": "boqsc.transvoxel.m26.full_godot_voxel_build.v1",
+            "report_license": "0BSD",
+            "aggregate_only": True,
+            "contains_exact_arrays": False,
             "status": (
                 "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD"
                 if passed

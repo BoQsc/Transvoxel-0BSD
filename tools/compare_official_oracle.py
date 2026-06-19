@@ -4,8 +4,8 @@
 
 The oracle file is never copied into this repository. This tool reads an
 explicitly supplied Eric Lengyel Transvoxel.cpp, compares all regular and
-transition cases, and writes only aggregate results plus per-case mismatch
-categories. It does not emit oracle table values.
+transition cases, and writes only aggregate counts, hashes, and mismatch
+categories. It does not emit oracle table values or per-case triangulations.
 """
 from __future__ import annotations
 
@@ -592,6 +592,10 @@ def main() -> int:
 
     report: Dict[str, object] = {
         "schema": "boqsc.transvoxel.m23.official_oracle_comparison.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_oracle_arrays": False,
+        "contains_exact_selection_indexes": False,
         "status": status,
         "meaning": (
             "All 256 regular and 512 transition cases were compared with the "
@@ -615,12 +619,14 @@ def main() -> int:
         "comparison_contract": {
             "regular_case_count": 256,
             "transition_case_count": 512,
-            "transition_case_mapping_local_to_official_bits": list(
-                LOCAL_TO_OFFICIAL_CASE_BIT
-            ),
-            "transition_endpoint_mapping_official_to_local": list(
-                OFFICIAL_TO_LOCAL_TRANSITION_SAMPLE
-            ),
+            "transition_case_mapping_sha256": hashlib.sha256(
+                json.dumps(list(LOCAL_TO_OFFICIAL_CASE_BIT)).encode("utf-8")
+            ).hexdigest(),
+            "transition_endpoint_mapping_sha256": hashlib.sha256(
+                json.dumps(
+                    list(OFFICIAL_TO_LOCAL_TRANSITION_SAMPLE)
+                ).encode("utf-8")
+            ).hexdigest(),
             "unoriented_topology": (
                 "triangle order and winding ignored; sample-edge identity kept"
             ),
@@ -631,14 +637,8 @@ def main() -> int:
                 "ordered vertex edges and runtime triangle index order"
             ),
         },
-        "regular": {
-            **regular_summary,
-            "cases": regular_cases,
-        },
-        "transition": {
-            **transition_summary,
-            "cases": transition_cases,
-        },
+        "regular": regular_summary,
+        "transition": transition_summary,
         "decisions": {
             "oracle_baseline_complete": comparison_complete,
             "exact_topology_ready": exact_topology_ready,

@@ -3,7 +3,8 @@
 SPDX-License-Identifier: 0BSD
 
 These are sources for the algorithmic idea and licensing/provenance decisions.
-They are not copied lookup-table data.
+The public 0BSD core contains no copied lookup-table data. Exact
+oracle-calibrated artifacts are separately enumerated and MIT licensed.
 
 ## Transvoxel / transition-cell references
 
@@ -94,9 +95,8 @@ comparison; it does not copy dissertation figures or official lookup arrays.
 
 ## Local policy
 
-This repository uses 0BSD for software. CC0 may still be fine for assets or for
-projects that explicitly want CC0, but 0BSD is the cleaner software license for
-this generated code/table package.
+The independent public core, generators, and aggregate reports use 0BSD. Exact
+selection-bearing M24-M26 artifacts use MIT; see `LICENSE_SCOPE.md`.
 
 ## External review sources added in v24
 
@@ -107,4 +107,6 @@ this generated code/table package.
 - Rust transvoxel crate docs: https://docs.rs/transvoxel
 - Godot Voxel Tools smooth terrain docs: https://voxel-tools.readthedocs.io/en/latest/smooth_terrain/
 
-These sources are used for behavioral requirements and terminology only. This repository still does not copy or transform the MIT-licensed official table data.
+These sources are used for behavioral requirements and terminology in the
+0BSD core. The separately listed exact-compatibility artifacts are explicitly
+MIT and are excluded from the 0BSD package.

@@ -27,23 +27,23 @@ Byte-for-byte Transvoxel.cpp table/file identity claim.
 0BSD release claim for the M24-M26 exact candidate.
 ```
 
-The M24 exact-topology result is allowed as a research claim, not as a released
-0BSD product claim. M25 likewise allows a research claim of compatible original
-data symbols, capacities, and reuse semantics. Release wording remains limited
-because M27 terminally records that the exact-candidate provenance gate does
-not pass under the current clean-room policy.
+The M24-M26 exact result is an MIT-licensed compatibility path, not an 0BSD
+product claim. Its generated selection-bearing files are listed in
+`research/official_topology/MIT_ARTIFACTS.json`. The independent functional
+core remains 0BSD.
 
 Byte identity is not required for functional replacement. Byte identity is
 required before claiming exact official table-file compatibility.
 
-Research-only exact topology, packed reuse semantics, and downstream
-integration claims are permitted by M24-M26. They do not authorize an 0BSD
-release of the generated exact candidate.
+Exact topology, packed reuse semantics, and downstream integration claims are
+permitted by M24-M26. The exact artifacts may be distributed under MIT with
+its notice; they do not authorize an 0BSD release of that data.
 
 The boundary is machine-checked by:
 
 ```text
 python tools/validate_exact_compatibility_claim_boundary.py
+python tools/validate_license_boundary.py
 ```
 
 The expected report status is:
@@ -66,7 +66,7 @@ comparison process:
 read a verified external MIT Transvoxel.cpp checkout
 compare all 256 regular and 512 transition cases
 emit hashes, counts, and mismatch categories only
-never copy or package oracle arrays in the 0BSD repository
+never copy or package oracle arrays in the public 0BSD paths
 ```
 
 Exact replacement means compatible topology, table fields/encodings, exported
@@ -97,8 +97,8 @@ M24 proves:
 It does not yet authorize an exact replacement claim. The option-index
 provenance must remain explicit, and official vertex ordering/reuse encoding,
 class/table layout, and unchanged-consumer integration remain blocked.
-The M24-generated rules and candidate tables are research-only and are not
-marked as cleared 0BSD release data.
+The M24-generated rules and candidate tables are explicitly MIT and are not
+0BSD release data.
 
 ## M25 compatible data ABI boundary
 
@@ -109,8 +109,8 @@ codes from cell geometry.
 
 M25 proves compatible symbol/layout/reuse semantics and unchanged-style C++
 consumption. It does not claim Eric Lengyel's internal numeric class IDs or
-table bytes. The generated data remains research-only under the unresolved
-0BSD provenance gate.
+table bytes. The generated exact data is MIT; generator and aggregate report
+code remains 0BSD.
 
 ## M26 downstream integration boundary
 
@@ -133,7 +133,7 @@ This establishes exact semantic drop-in integration. It is not a byte-identity
 claim and does not require official numeric class IDs. Runtime editor loading
 and visual terrain comparison remain separate from this compile/link proof.
 
-The exact candidate remains research-only because M24's option indexes were
-oracle-calibrated. M27 confirms that provenance is terminally uncleared under
-the current policy. The functional clean-room Transvoxel.cpp replacement
-through the public C/C++ API remains available under 0BSD.
+The exact candidate is MIT because M24's option indexes were oracle-calibrated.
+M27 confirms it cannot be represented as entirely 0BSD under the current
+policy. The functional clean-room Transvoxel.cpp replacement through the
+public C/C++ API remains available under 0BSD.

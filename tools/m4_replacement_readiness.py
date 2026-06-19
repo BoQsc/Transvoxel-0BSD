@@ -892,7 +892,7 @@ def main() -> int:
             ),
             (
                 "M27 records this as the terminal project outcome. M24-M26 "
-                "remain research-only; the independent functional core "
+                "exact artifacts are MIT; the independent functional core "
                 "remains 0BSD."
             ),
         ),
@@ -1288,8 +1288,9 @@ def main() -> int:
             "the independent deterministic 0BSD topology matches only "
             "86/256 regular and 139/512 transition cases. Published rules "
             "permit multiple legal interiors, and the exact candidate closes "
-            "the gaps with MIT-oracle-calibrated selections. The exact 0BSD "
-            "replacement goal is therefore not achieved."
+            "the gaps with MIT-oracle-calibrated selections. Those exact "
+            "artifacts are MIT; the exact 0BSD replacement goal is therefore "
+            "not achieved."
         )
     elif drop_in_release_ready:
         meaning = (
@@ -1352,7 +1353,7 @@ def main() -> int:
         if drop_in_integration_ready:
             claim_allowed = (
                 "Functional clean-room Transvoxel.cpp replacement through the "
-                "public C/C++ API, plus a research-only exact semantic "
+                "public C/C++ API, plus an MIT-licensed exact semantic "
                 "drop-in candidate proven through the pinned Godot Voxel "
                 "table API."
             )

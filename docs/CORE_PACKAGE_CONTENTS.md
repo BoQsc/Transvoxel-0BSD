@@ -32,6 +32,7 @@ docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md
 docs/KNOWN_LIMITS.md              known limits and non-claims
 docs/TESTING_BY_USERS.md          third-party testing and report guide
 LICENSE                           0BSD license
+LICENSE_SCOPE.md                  confirms this package excludes MIT exact data
 PROVENANCE.md                     clean-room provenance
 SOURCES.md                        public sources used
 README_CORE.txt                   short entry point

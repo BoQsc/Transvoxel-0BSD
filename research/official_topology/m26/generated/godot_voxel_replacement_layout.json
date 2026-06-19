@@ -1,10 +1,13 @@
 {
-  "license_status": "RESEARCH_ONLY_NOT_CLEARED_FOR_0BSD_RELEASE",
+  "aggregate_only": true,
   "missing_contract_tokens": [],
   "output": "research/official_topology/m26/generated/transvoxel_tables.cpp",
-  "output_sha256": "7bda2f7a19661e57d912bc62bef98931a3e62ef19154bd33d3ca6b7db2a8da14",
+  "output_data_license": "MIT",
+  "output_license_file": "LICENSES/MIT.txt",
+  "output_sha256": "43e99fec028642b5f20c5853348918e3428404ca8bdbd3971bd4e0a54a957603",
+  "report_license": "0BSD",
   "schema": "boqsc.transvoxel.m26.godot_voxel_layout.v1",
   "source": "research/official_topology/m25/generated/Transvoxel.cpp",
-  "source_sha256": "c8d585884761f753ed609f4f389015b37569ff44d66336eb82987704cfc8898a",
+  "source_sha256": "62e03857bd0ab6704d72a528f5e2e73f09c3eea0a2906d4247b5bc782f5d8621",
   "status": "PASS_M26_GODOT_VOXEL_REPLACEMENT_LAYOUT"
 }

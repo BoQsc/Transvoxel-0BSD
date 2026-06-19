@@ -151,11 +151,17 @@ def compare_records(
     mismatches = []
     for key in sorted(expected_keys):
         if original.get(key) != candidate.get(key):
+            original_record = original.get(key)
+            candidate_record = candidate.get(key)
             mismatches.append({
                 "kind": key[0],
                 "case": key[1],
-                "original": original.get(key),
-                "candidate": candidate.get(key),
+                "original_sha256": hashlib.sha256(
+                    str(original_record).encode("utf-8")
+                ).hexdigest(),
+                "candidate_sha256": hashlib.sha256(
+                    str(candidate_record).encode("utf-8")
+                ).hexdigest(),
             })
     return {
         "expected_record_count": len(expected_keys),
@@ -247,6 +253,9 @@ def main() -> int:
                         "boqsc.transvoxel.m26."
                         "godot_voxel_integration.v1"
                     ),
+                    "report_license": "0BSD",
+                    "aggregate_only": True,
+                    "contains_exact_arrays": False,
                     "status": (
                         "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION"
                     ),
@@ -275,9 +284,8 @@ def main() -> int:
                         "source_file": str(
                             CANDIDATE.relative_to(ROOT)
                         ).replace("\\", "/"),
-                        "license_status": (
-                            "RESEARCH_ONLY_NOT_CLEARED_FOR_0BSD_RELEASE"
-                        ),
+                        "data_license": "MIT",
+                        "license_file": "LICENSES/MIT.txt",
                     },
                     "full_godot_module_build": {
                         "performed_in_this_step": False,
@@ -303,6 +311,9 @@ def main() -> int:
                 return 0
     report = {
         "schema": "boqsc.transvoxel.m26.godot_voxel_integration.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
         "status": "FAIL_M26_GODOT_VOXEL_TABLE_INTEGRATION",
         "attempts": attempts,
     }

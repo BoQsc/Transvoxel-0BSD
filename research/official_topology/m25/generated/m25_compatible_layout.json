@@ -8,8 +8,11 @@
     "same_symbol_names": true,
     "unchanged_consumer_source_compatible": true
   },
-  "generated_data_license_status": "RESEARCH_ONLY_NOT_YET_CLEARED_FOR_0BSD_RELEASE",
+  "copyright": "Copyright (c) 2009 Eric Lengyel",
+  "generated_data_license_status": "MIT_EXACT_COMPATIBILITY_DATA",
   "generator_code_license": "0BSD",
+  "license": "MIT",
+  "license_file": "LICENSES/MIT.txt",
   "meaning": "Original data ABI shapes and symbol semantics with independent internal class numbering, formula-derived reuse codes, and M24 exact topology.",
   "regular": {
     "case_class": [
@@ -2563,12 +2566,12 @@
     ]
   },
   "schema": "boqsc.transvoxel.m25.compatible_layout.v1",
-  "sha256_without_this_field": "8dea588da70237c9f029ba634e1168681e3a1ed40228425c7a38029dcee49089",
+  "sha256_without_this_field": "8bebb8fd801619dccbf8727bd13ea505bd79dda0ec0fcbb4662346d8247410d5",
   "source": {
-    "m24_sha256": "e2c6699bf2c81858d650eb542ba4da1c6d948046bd6c0cf3da0a40f2d96a07d3",
+    "m24_sha256": "5766b70b276040a0365357693c49cb2964141629b3fc5e6d2ae02d9aeb2b4fc7",
     "m24_tables": "research/official_topology/m24/generated/m24_exact_topology_tables.json"
   },
-  "status": "M25_RESEARCH_ONLY_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT",
+  "status": "M25_MIT_EXACT_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT",
   "transition": {
     "case_class": [
       0,

@@ -7,7 +7,7 @@
     "official_transvoxel_cpp_byte_identity"
   ],
   "claim_boundary": {
-    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API, plus a research-only exact semantic drop-in candidate proven through the pinned Godot Voxel table API.",
+    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API, plus an MIT-licensed exact semantic drop-in candidate proven through the pinned Godot Voxel table API.",
     "byte_identity_required_for_exact_table_identity_claim": true,
     "byte_identity_required_for_functional_replacement": false,
     "exact_replacement_finish_line": "Field/output/symbol compatibility sufficient for unchanged consumer integration. Byte-identical source text is not required.",
@@ -455,7 +455,7 @@
       "expected": true,
       "id": "exact_0bsd_provenance_clearance",
       "next_action": "M27 exhausted the published deterministic derivation path. Use the MIT exact data, use the functional non-exact 0BSD core, or obtain explicit permission/relicensing.",
-      "note": "M27 records this as the terminal project outcome. M24-M26 remain research-only; the independent functional core remains 0BSD.",
+      "note": "M27 records this as the terminal project outcome. M24-M26 exact artifacts are MIT; the independent functional core remains 0BSD.",
       "required_for": [
         "exact_table_compatible_replacement"
       ],
@@ -485,7 +485,7 @@
     "official_transvoxel_cpp_byte_identity"
   ],
   "load_errors": [],
-  "meaning": "M27 is terminal: the exact semantic M24-M26 candidate passes the pinned Godot Voxel API and full Zig GDExtension build, but the independent deterministic 0BSD topology matches only 86/256 regular and 139/512 transition cases. Published rules permit multiple legal interiors, and the exact candidate closes the gaps with MIT-oracle-calibrated selections. The exact 0BSD replacement goal is therefore not achieved.",
+  "meaning": "M27 is terminal: the exact semantic M24-M26 candidate passes the pinned Godot Voxel API and full Zig GDExtension build, but the independent deterministic 0BSD topology matches only 86/256 regular and 139/512 transition cases. Published rules permit multiple legal interiors, and the exact candidate closes the gaps with MIT-oracle-calibrated selections. Those exact artifacts are MIT; the exact 0BSD replacement goal is therefore not achieved.",
   "next_milestone": {
     "id": "NONE_TERMINAL",
     "objective": "No further automatic milestone. The exact 0BSD replacement goal is closed as not achieved under the current clean-room provenance constraints.",

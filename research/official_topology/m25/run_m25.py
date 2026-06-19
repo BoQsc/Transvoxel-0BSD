@@ -89,7 +89,7 @@ def write_results(report: Dict[str, Any]) -> None:
         "",
         "M25 proves compatible original data symbols, array capacities, exact "
         "topology, and packed reuse semantics with independent internal class "
-        "IDs. It does not prove byte identity or release provenance.",
+        "IDs. Exact generated data is MIT; this aggregate report is 0BSD.",
         "",
         "No zip artifact is built.",
         "",
@@ -164,11 +164,15 @@ def main() -> int:
     )
     report = {
         "schema": "boqsc.transvoxel.official_topology.m25.report.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
         "status": PASS_STATUS if final_ok else "FAIL_M25_COMPATIBLE_LAYOUT",
         "meaning": (
-            "M25 generates and validates a research-only original "
+            "M25 generates and validates an MIT-licensed exact original "
             "Transvoxel.cpp data ABI surface with independent class IDs, "
-            "exact topology, and formula-derived reuse codes."
+            "exact topology, and formula-derived reuse codes. Generator code "
+            "and this aggregate report remain 0BSD."
         ),
         "layout_metrics": layout.get("metrics", {}),
         "consumer_status": consumer.get("status"),

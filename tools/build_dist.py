@@ -15,6 +15,7 @@ REPORT = ROOT / "validation" / "dist_report.json"
 
 CORE_FILES = [
     "LICENSE",
+    "LICENSE_SCOPE.md",
     "README_CORE.txt",
     "PROVENANCE.md",
     "SOURCES.md",

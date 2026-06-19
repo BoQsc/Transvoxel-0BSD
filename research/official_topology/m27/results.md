@@ -13,7 +13,7 @@ Status: `TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED`
 - Roadmap terminal: `True`
 - Next milestone: `NONE_TERMINAL`
 
-The published rules constrain robust boundary connectivity but permit multiple legal interior triangulations. The independent deterministic 0BSD rule therefore does not reproduce every authored official interior. The exact M24-M26 candidate is technically proven, but it depends on selections calibrated against the MIT implementation and is not cleared for an 0BSD release.
+The published rules constrain robust boundary connectivity but permit multiple legal interior triangulations. The independent deterministic 0BSD rule therefore does not reproduce every authored official interior. The exact M24-M26 candidate is technically proven, but it depends on selections calibrated against the MIT implementation and is explicitly MIT rather than 0BSD.
 
 Terminal choices are: retain MIT for exact compatibility, use the functional non-exact 0BSD core, or obtain explicit permission. There is no automatic M28.
 

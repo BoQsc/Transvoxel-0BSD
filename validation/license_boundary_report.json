@@ -1,0 +1,39 @@
+{
+  "aggregate_reports": [
+    "research/official_topology/m23/m23_report.json",
+    "research/official_topology/m24/m24_report.json",
+    "research/official_topology/m25/m25_report.json",
+    "research/official_topology/m26/generated/godot_voxel_replacement_layout.json",
+    "research/official_topology/m26/m26_full_godot_voxel_build.json",
+    "research/official_topology/m26/m26_godot_voxel_integration.json",
+    "research/official_topology/m26/m26_provenance_audit.json",
+    "research/official_topology/m26/m26_report.json",
+    "research/official_topology/m27/m27_report.json",
+    "research/official_topology/m27/m27_terminal_audit.json",
+    "validation/m24_exact_topology_report.json",
+    "validation/m25_compatible_layout_report.json",
+    "validation/m26_exact_drop_in_report.json",
+    "validation/m27_terminal_roadmap_report.json",
+    "validation/official_oracle_comparison_report.json"
+  ],
+  "errors": [],
+  "meaning": "Exact oracle-calibrated data is explicitly MIT; generator code, aggregate-only reports, and the independently derived public core remain 0BSD.",
+  "metrics": {
+    "aggregate_report_count": 15,
+    "mit_artifact_count": 6,
+    "mit_artifacts_in_dist": 0,
+    "public_0bsd_files_scanned": 57,
+    "research_files_in_dist": 0
+  },
+  "mit_artifacts": [
+    "research/official_topology/m24/generated/m24_exact_topology_tables.h",
+    "research/official_topology/m24/generated/m24_exact_topology_tables.json",
+    "research/official_topology/m24/topology_rules.json",
+    "research/official_topology/m25/generated/Transvoxel.cpp",
+    "research/official_topology/m25/generated/m25_compatible_layout.json",
+    "research/official_topology/m26/generated/transvoxel_tables.cpp"
+  ],
+  "report_license": "0BSD",
+  "schema": "boqsc.transvoxel.license_boundary.v1",
+  "status": "PASS_LICENSE_BOUNDARY"
+}

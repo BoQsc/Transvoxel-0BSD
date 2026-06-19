@@ -1,6 +1,6 @@
 # M25 - Compatible Vertex Encoding and Table Layout
 
-M25 generates a research-only `Transvoxel.cpp` data surface with:
+M25 generates an MIT-licensed exact `Transvoxel.cpp` data surface with:
 
 ```text
 RegularCellData
@@ -17,5 +17,5 @@ transitionVertexData[512][12]
 It uses independent internal class IDs, exact M24 topology, and geometric
 formulas for packed reuse codes.
 
-The generated data remains research-only and is not yet cleared for an 0BSD
-release.
+The generated exact data is MIT under `LICENSES/MIT.txt`. The generator and
+aggregate validation report are 0BSD.

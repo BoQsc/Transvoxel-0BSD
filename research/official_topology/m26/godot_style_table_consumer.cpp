@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: 0BSD
 #include <algorithm>
 #include <cstdint>
 #include <cstdio>

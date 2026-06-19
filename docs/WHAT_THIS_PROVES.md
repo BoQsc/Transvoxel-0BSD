@@ -133,8 +133,8 @@ loading of the default transvoxel export.
 
 The M22 exact-compatibility claim-boundary proof validates that product docs and
 machine-readable reports allow the functional public C/C++ replacement claim
-while separating research-only exact semantic evidence from 0BSD release and
-identity claims.
+while separating MIT exact semantic data from the 0BSD core and identity
+claims.
 
 The M23 official-oracle baseline reads a verified external checkout of Eric
 Lengyel's MIT `Transvoxel.cpp`, compares all 256 regular and 512 transition
@@ -149,15 +149,14 @@ through the public C builder. It does not yet prove packed vertex/reuse
 encoding, official class/table layout, provenance for a final public default,
 or unchanged-consumer integration.
 
-M24's generator code is 0BSD. Its oracle-calibrated generated rule/table data
-is explicitly research-only and is not cleared for an 0BSD release.
+M24's generator code and aggregate reports are 0BSD. Its oracle-calibrated
+generated rule/table data is explicitly MIT.
 
 The M25 compatibility proof independently compresses the M24 topology into the
 original 16/56 class-array capacities, derives packed regular/transition reuse
 codes from geometry, emits the original struct and symbol names, and compiles
 an unchanged-style C++ consumer across every case. It proves a compatible data
-ABI, not numeric class-ID or byte identity. The generated file remains
-research-only pending provenance clearance.
+ABI, not numeric class-ID or byte identity. The generated exact file is MIT.
 
 The M26 integration proof compiles the actual pinned Godot Voxel table API
 against both its original table translation unit and the M25-backed replacement
@@ -165,8 +164,8 @@ with Zig C++. All 256 regular records, 512 transition records, and 13
 transition-corner records match. This proves the exact semantic drop-in
 integration boundary. M26 additionally compiles and links the complete pinned
 Godot Voxel Windows GDExtension with Zig. Runtime editor loading is separate,
-and the generated candidate remains research-only because M24's exact filling
-selections were oracle-calibrated.
+and the generated candidate is MIT because M24's exact filling selections were
+oracle-calibrated.
 
 The M27 terminal audit reruns the independent regular/transition generation,
 the exhaustive 768-case official-oracle comparison, the exact M24-M26

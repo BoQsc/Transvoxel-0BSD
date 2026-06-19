@@ -209,6 +209,9 @@ def count_nonzero_rules(rules: list[Dict[str, Any]]) -> tuple[int, int]:
 def write_failure(errors: list[str]) -> int:
     report = {
         "schema": "boqsc.transvoxel.official_topology.m27.terminal_audit.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
         "status": "FAIL_M27_TERMINAL_AUDIT",
         "terminal": False,
         "errors": errors,
@@ -347,8 +350,12 @@ def main() -> int:
         and regular_nonzero_rules == 170
         and transition_nonzero_rules == 50
         and annulus_rules == 1
+        and rules.get("license") == "MIT"
+        and rules.get("license_file") == "LICENSES/MIT.txt"
+        and m24.get("exact_candidate_data_license") == "MIT"
         and integration.get("status")
         == "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION"
+        and integration.get("candidate", {}).get("data_license") == "MIT"
         and integration_comparison.get("mismatch_count") == 0
         and full_build.get("status")
         == "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD"
@@ -360,6 +367,9 @@ def main() -> int:
 
     report: Dict[str, Any] = {
         "schema": "boqsc.transvoxel.official_topology.m27.terminal_audit.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
         "status": TERMINAL_STATUS,
         "terminal": True,
         "audit_completed": True,
@@ -432,6 +442,8 @@ def main() -> int:
             ),
             "full_gdextension_build": full_build.get("status"),
             "technical_semantic_replacement_proven": True,
+            "data_license": "MIT",
+            "license_file": "LICENSES/MIT.txt",
             "0bsd_release_cleared": False,
         },
         "official_implementation_license": {

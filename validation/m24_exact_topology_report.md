@@ -9,4 +9,4 @@ The candidate keeps the clean-room boundary derivation and selects from independ
 - Exact topology identity: `True`
 - Exact replacement ready: `False`
 
-Remaining work is official vertex ordering/reuse encoding, class/table layout compatibility, unchanged-consumer integration, and 0BSD provenance clearance for the oracle-calibrated data.
+The exact selection-bearing rules and tables are MIT. Generator code and this aggregate report remain 0BSD.

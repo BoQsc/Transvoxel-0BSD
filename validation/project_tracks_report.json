@@ -1,10 +1,11 @@
 {
-  "meaning": "The independent core can be released/evaluated independently. The published transition reference convention, transition topology behavior, and clean-room regular-cell behavior are proven by M18-M20. M21 proves the default clean-room M4 transition export and public C/C++ consumer contract. M22 locks the exact compatibility claim boundary. M23 measures every regular and transition case against the verified external official oracle. M24 proves exact edge-labeled oriented topology; M25 adds compatible packed reuse semantics, original data symbols and array capacities, and an unchanged-style C++ consumer. M26 proves the pinned Godot Voxel table integration with zero mismatches and a complete Zig-built Windows GDExtension DLL. M27 is terminal: published rules allow multiple legal interiors, the independent deterministic topology is not exact, and the exact candidate depends on MIT-oracle-calibrated selections. The exact 0BSD goal is not achieved; there is no automatic M28.",
+  "meaning": "The independent core can be released/evaluated independently. The published transition reference convention, transition topology behavior, and clean-room regular-cell behavior are proven by M18-M20. M21 proves the default clean-room M4 transition export and public C/C++ consumer contract. M22 locks the exact compatibility claim boundary. M23 measures every regular and transition case against the verified external official oracle. M24 proves exact edge-labeled oriented topology; M25 adds compatible packed reuse semantics, original data symbols and array capacities, and an unchanged-style C++ consumer. M26 proves the pinned Godot Voxel table integration with zero mismatches and a complete Zig-built Windows GDExtension DLL. M27 is terminal: published rules allow multiple legal interiors, the independent deterministic topology is not exact, and the exact candidate depends on MIT-oracle-calibrated selections. The exact artifacts are explicitly MIT and isolated from the public 0BSD core. The exact 0BSD goal is not achieved; there is no automatic M28.",
   "schema": "boqsc.transvoxel.project_tracks_report.v1",
   "status": "PASS",
   "supporting_reports": {
     "consumer_compatibility_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
     "exact_compatibility_claim_boundary_status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
+    "license_boundary_status": "PASS_LICENSE_BOUNDARY",
     "m24_exact_topology_status": "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY",
     "m25_compatible_layout_status": "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT",
     "m25_consumer_status": "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER",
@@ -42,6 +43,7 @@
       "compatible_transvoxel_cpp_data_layout": true,
       "exact_0bsd_goal_achieved": false,
       "exact_0bsd_provenance_cleared": false,
+      "exact_candidate_data_license": "MIT",
       "exact_candidate_provenance_audit": "PASS_M26_PROVENANCE_AUDIT_BLOCKED",
       "exact_drop_in_0bsd_replacement_ready": false,
       "exact_drop_in_integration_ready": true,
@@ -49,6 +51,7 @@
       "exact_replacement_ready": false,
       "godot_voxel_full_gdextension_build": "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD",
       "godot_voxel_table_integration": "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION",
+      "license_boundary": "PASS_LICENSE_BOUNDARY",
       "missing": [],
       "official_73_class_mapping": "NOT_PROVEN",
       "official_oracle_baseline": "PASS_M23_OFFICIAL_ORACLE_BASELINE_EXACT_REPLACEMENT_NOT_READY",

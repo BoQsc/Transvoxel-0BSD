@@ -8,8 +8,9 @@ The candidate remains isolated under the research track. It does not replace
 the public default until vertex ordering, reuse encoding, class/table layout,
 and unchanged-consumer integration also pass.
 
-The generator code is 0BSD. The oracle-calibrated generated rules/tables are
-research-only and are not yet cleared for an 0BSD release.
+The generator and aggregate reports are 0BSD. The oracle-calibrated generated
+rules/tables are explicitly MIT under `LICENSES/MIT.txt` and are excluded from
+the public 0BSD core.
 
 Run:
 

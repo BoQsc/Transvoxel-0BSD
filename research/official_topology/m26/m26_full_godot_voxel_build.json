@@ -1,4 +1,5 @@
 {
+  "aggregate_only": true,
   "artifacts": [
     {
       "bytes": 1766,
@@ -8,10 +9,10 @@
     {
       "bytes": 8256512,
       "name": "libvoxel.windows.template_debug.x86_64.dll",
-      "sha256": "fcdbf39538ce8ebaf1aab8ca8142ab705230bb803c2fdae5c3e34680df2667f2"
+      "sha256": "aa2c4b09fd9f4726bd1619c1fe2930bdabc4f3f8d93b029feaa16cc3395b3194"
     }
   ],
-  "candidate_sha256": "7bda2f7a19661e57d912bc62bef98931a3e62ef19154bd33d3ca6b7db2a8da14",
+  "candidate_sha256": "43e99fec028642b5f20c5853348918e3428404ca8bdbd3971bd4e0a54a957603",
   "command": [
     "scons",
     "-C",
@@ -28,6 +29,7 @@
     "-j4"
   ],
   "compiler": "zig c++ via godot-cpp use_zig SCons integration",
+  "contains_exact_arrays": false,
   "godot_cpp": {
     "branch": "4.5",
     "commit": "60b5a4196de8442b43b32ba68ebe1e79cfcb762f",
@@ -55,6 +57,7 @@
     "Built-in type config: float_64",
     "scons: done building targets."
   ],
+  "report_license": "0BSD",
   "returncode": 0,
   "schema": "boqsc.transvoxel.m26.full_godot_voxel_build.v1",
   "status": "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD",

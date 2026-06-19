@@ -1,24 +1,26 @@
 {
+  "aggregate_only": true,
   "c_status": "PASS_M24_ZIG_EXACT_TOPOLOGY_CANDIDATE",
   "claim_boundary_status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
   "consumer_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+  "contains_exact_arrays": false,
   "meaning": "M24 proves exact regular and transition edge-labeled oriented topology using clean-room boundary derivation and compact oracle-calibrated triangulation-selection rules.",
   "project_tracks_status": "PASS",
   "readiness": {
     "blocking_gate_ids": [
       "official_class_id_mapping",
-      "official_vertex_encoding_equivalence",
       "official_regular_table_identity",
       "exact_0bsd_provenance_clearance",
       "official_transvoxel_cpp_byte_identity"
     ],
     "next_milestone": {
-      "id": "M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT",
-      "objective": "Derive official-compatible vertex order/reuse encodings and class/table layout, then expose an unchanged-consumer compatibility surface.",
-      "why_first": "M24 reaches exact oriented topology for every regular and transition case. The remaining exact blockers are class IDs, packed vertex/reuse encoding, regular table layout, and unchanged-consumer/file compatibility."
+      "id": "NONE_TERMINAL",
+      "objective": "No further automatic milestone. The exact 0BSD replacement goal is closed as not achieved under the current clean-room provenance constraints.",
+      "why_first": "M27 found no published deterministic rule that uniquely selects all authored official interiors. Further work requires a changed requirement or external permission, not another internal milestone."
     },
-    "status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED"
+    "status": "TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED"
   },
+  "report_license": "0BSD",
   "schema": "boqsc.transvoxel.official_topology.m24.report.v1",
   "status": "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY",
   "steps": [
@@ -75,7 +77,7 @@
         "python",
         "tools/m4_replacement_readiness.py"
       ],
-      "output": "M4 replacement readiness: READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact claim boundary documented: True\nblocking gates: 5\nnext milestone: M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT\n",
+      "output": "M4 replacement readiness: TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact drop-in integration ready: True\nexact drop-in 0BSD ready: False\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: NONE_TERMINAL\n",
       "returncode": 0
     },
     {
@@ -91,7 +93,7 @@
         "python",
         "tools/m4_replacement_readiness.py"
       ],
-      "output": "M4 replacement readiness: READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact claim boundary documented: True\nblocking gates: 5\nnext milestone: M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT\n",
+      "output": "M4 replacement readiness: TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact drop-in integration ready: True\nexact drop-in 0BSD ready: False\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: NONE_TERMINAL\n",
       "returncode": 0
     },
     {
@@ -99,7 +101,7 @@
         "python",
         "tools/project_tracks_report.py"
       ],
-      "output": "project tracks: PASS\nindependent_core: PASS\nofficial_topology_research: IN_PROGRESS\n",
+      "output": "project tracks: PASS\nindependent_core: PASS\nofficial_topology_research: TERMINAL_NOT_ACHIEVED\n",
       "returncode": 0
     }
   ],
@@ -108,7 +110,7 @@
     "rules": {
       "path": "research/official_topology/m24/topology_rules.json",
       "regular_rule_count": 256,
-      "sha256": "5027f2affe97ebf234a6f68ac0da537ee3098ea8fe5ba1703464a5e4ed26cc73",
+      "sha256": "10f23b3134f96b51b9f489febbae68b2508c3f4b46d707e9d5746251b6efb7ff",
       "transition_class_rule_count": 73
     },
     "status": "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY",

@@ -109,8 +109,8 @@ def write_markdown(report: Dict[str, Any], path: Path) -> None:
         "",
         "M26 proves exact semantic replacement through the pinned Godot Voxel "
         "table-source API and a full Zig GDExtension compile/link. The "
-        "candidate remains research-only because M24 triangulation option "
-        "indexes were calibrated by the MIT oracle.",
+        "exact candidate is MIT because M24 triangulation option indexes were "
+        "calibrated by the MIT oracle.",
         "",
         "No zip artifact is built.",
         "",
@@ -243,6 +243,9 @@ def main() -> int:
     )
     report = {
         "schema": "boqsc.transvoxel.official_topology.m26.report.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
         "status": PASS_STATUS if final_ok else "FAIL_M26_EXACT_DROP_IN",
         "meaning": (
             "M26 proves exact semantic replacement through the pinned Godot "

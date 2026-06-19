@@ -1,6 +1,9 @@
 {
-  "generated_candidate_license_status": "RESEARCH_ONLY_NOT_YET_CLEARED_FOR_0BSD_RELEASE",
+  "copyright": "Copyright (c) 2009 Eric Lengyel",
+  "generated_candidate_license_status": "MIT_EXACT_COMPATIBILITY_DATA",
   "generator_code_license": "0BSD",
+  "license": "MIT",
+  "license_file": "LICENSES/MIT.txt",
   "meaning": "Direct per-case runtime tables generated from clean-room boundary loops and compact oracle-calibrated triangulation selections.",
   "regular": {
     "case_class": [
@@ -12052,10 +12055,10 @@
       ]
     ]
   },
-  "rules_sha256": "5027f2affe97ebf234a6f68ac0da537ee3098ea8fe5ba1703464a5e4ed26cc73",
+  "rules_sha256": "10f23b3134f96b51b9f489febbae68b2508c3f4b46d707e9d5746251b6efb7ff",
   "schema": "boqsc.transvoxel.m24.exact_topology_tables.v1",
-  "sha256_without_this_field": "6e2447945a26858758deb3d9c319e1b16ba67617692e33e4c7d041fafbf44423",
-  "status": "M24_EXACT_TOPOLOGY_RESEARCH_CANDIDATE",
+  "sha256_without_this_field": "aa96b9cf8d4d92b5dac03bbf77d6f45c6861384d47b2e31161ac970171c25369",
+  "status": "M24_MIT_EXACT_TOPOLOGY_CANDIDATE",
   "transition": {
     "case_class": [
       0,

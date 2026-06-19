@@ -16,8 +16,8 @@ location. Set `TRANSVOXEL_ORACLE_REPO` if the verified official checkout is in
 a different location.
 
 The expected terminal result is successful as an audit even though the exact
-0BSD goal is not achieved. The technically exact M24-M26 candidate remains
-research-only; the independently derived functional 0BSD core remains usable.
+0BSD goal is not achieved. The technically exact M24-M26 candidate is
+explicitly MIT; the independently derived functional 0BSD core remains usable.
 
 There is no M28. A future review requires an external state change: explicit
 permission/relicensing, or a changed project requirement.

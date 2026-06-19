@@ -126,13 +126,16 @@ def main() -> int:
         and oracle.get("next_milestone", {}).get("id")
         == "M24_EXACT_TOPOLOGY_CONVERGENCE"
         and readiness.get("next_milestone", {}).get("id")
-        == "M24_EXACT_TOPOLOGY_CONVERGENCE"
+        in {"M24_EXACT_TOPOLOGY_CONVERGENCE", "NONE_TERMINAL"}
         and claim_boundary.get("status")
         == "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY"
         and project_tracks.get("status") == "PASS"
     )
     report = {
         "schema": "boqsc.transvoxel.official_topology.m23.report.v1",
+        "report_license": "0BSD",
+        "aggregate_only": True,
+        "contains_exact_arrays": False,
         "status": PASS_STATUS if final_ok else "FAIL_M23_OFFICIAL_ORACLE_BASELINE",
         "meaning": (
             "The verified external official oracle was compared against all "
