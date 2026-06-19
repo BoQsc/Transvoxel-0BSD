@@ -152,6 +152,13 @@ or unchanged-consumer integration.
 M24's generator code is 0BSD. Its oracle-calibrated generated rule/table data
 is explicitly research-only until the exact 0BSD provenance gate is cleared.
 
+The M25 compatibility proof independently compresses the M24 topology into the
+original 16/56 class-array capacities, derives packed regular/transition reuse
+codes from geometry, emits the original struct and symbol names, and compiles
+an unchanged-style C++ consumer across every case. It proves a compatible data
+ABI, not numeric class-ID or byte identity. The generated file remains
+research-only pending real engine integration and provenance clearance.
+
 ## Godot's role
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.

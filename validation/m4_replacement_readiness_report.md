@@ -26,9 +26,12 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
 - `m4_selected_full_production_gate`
 - `official_reference_convention_equivalence`
 - `official_transition_topology_equivalence`
+- `official_vertex_encoding_equivalence`
 - `official_triangle_triangulation_identity`
 - `official_regular_cell_equivalence`
 - `transvoxel_cpp_consumer_compatibility_contract`
+- `compatible_transvoxel_cpp_data_layout`
+- `unchanged_style_cpp_consumer`
 
 ## Blocking evidence
 
@@ -36,10 +39,6 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN`
   - Next: Derive official-compatible class numbering from a no-copy canonical representative ordering.
-- `official_vertex_encoding_equivalence`: Official transition vertex encoding and reuse metadata equivalence
-  - Actual: `NOT_PROVEN`
-  - Required: `PROVEN`
-  - Next: Define and prove an independently derived vertex-code/cache-reuse encoding contract.
 - `official_regular_table_identity`: Exact official regular-cell class/encoding/table identity
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN`
@@ -55,6 +54,6 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
 
 ## Next milestone
 
-`M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT` — Derive official-compatible vertex order/reuse encodings and class/table layout, then expose an unchanged-consumer compatibility surface.
+`M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE` — Replace the MIT table file in a real Transvoxel consumer integration, compare runtime output, and resolve the exact-candidate 0BSD provenance gate.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

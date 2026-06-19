@@ -37,6 +37,7 @@ EXPECTED_EXACT_BLOCKERS = {
     "official_transvoxel_cpp_byte_identity",
 }
 M24_REPORT = ROOT / "validation" / "m24_exact_topology_report.json"
+M25_REPORT = ROOT / "validation" / "m25_compatible_layout_report.json"
 
 CLAIM_FILES = [
     "README.md",
@@ -157,6 +158,19 @@ def validate_reports() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         ):
             expected_blockers.discard(
                 "official_triangle_triangulation_identity"
+            )
+    if M25_REPORT.exists():
+        m25 = read_json(M25_REPORT)
+        if (
+            m25.get("status")
+            == "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT"
+            and m25.get("decisions", {}).get(
+                "packed_vertex_reuse_semantics"
+            )
+            is True
+        ):
+            expected_blockers.discard(
+                "official_vertex_encoding_equivalence"
             )
     if blockers != expected_blockers:
         add_error(

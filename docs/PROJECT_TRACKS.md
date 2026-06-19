@@ -52,6 +52,8 @@ exact_official_triangulation_identity: PROVEN_M24
 official_oracle_baseline: COMPLETE_M23
 exact_regular_transition_topology: PROVEN_M24
 exact_candidate_0bsd_provenance: NOT_CLEARED
+compatible_transvoxel_cpp_data_abi: PROVEN_M25
+unchanged_style_cpp_consumer: PROVEN_M25
 exact_replacement_finish_line: ACTIVE
 ```
 
@@ -66,6 +68,10 @@ M24 now resolves those topology mismatches in the isolated research candidate:
 256/256 regular and 512/512 transition oriented topologies match. M25 owns
 vertex ordering/reuse encoding, class/table layout, and unchanged-consumer
 compatibility.
+
+M25 now proves compatible original data symbols and capacities, packed reuse
+semantics, and unchanged-style C++ consumption. It uses independent internal
+class IDs. M26 owns real engine replacement testing and provenance resolution.
 
 ## Why this split exists
 

@@ -1,0 +1,98 @@
+{
+  "claim_boundary_status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
+  "consumer_status": "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER",
+  "layout_metrics": {
+    "all_class_indexes_within_original_capacities": true,
+    "packed_vertex_code_multiset_matches": 768,
+    "regular_oriented_topology_matches": 256,
+    "regular_used_classes": 15,
+    "transition_corner_data_matches": true,
+    "transition_oriented_topology_matches": 512,
+    "transition_used_classes": 40
+  },
+  "m24_status": "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY",
+  "meaning": "M25 generates and validates a research-only original Transvoxel.cpp data ABI surface with independent class IDs, exact topology, and formula-derived reuse codes.",
+  "project_tracks_status": "PASS",
+  "readiness": {
+    "blocking_gate_ids": [
+      "official_class_id_mapping",
+      "official_regular_table_identity",
+      "exact_0bsd_provenance_clearance",
+      "official_transvoxel_cpp_byte_identity"
+    ],
+    "next_milestone": {
+      "id": "M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE",
+      "objective": "Replace the MIT table file in a real Transvoxel consumer integration, compare runtime output, and resolve the exact-candidate 0BSD provenance gate.",
+      "why_first": "M25 proves compatible original data symbols, array capacities, packed reuse semantics, and unchanged-style C++ consumption. The remaining practical proof is a real engine integration; release remains blocked on provenance and identity-only claims."
+    },
+    "status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED"
+  },
+  "schema": "boqsc.transvoxel.official_topology.m25.report.v1",
+  "status": "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "research/official_topology/m25/build_compatible_transvoxel_cpp.py"
+      ],
+      "output": "M25 compatible layout: PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT\nclasses: 15 / 16 regular, 40 / 56 transition\ntopology: 256 / 256 regular, 512 / 512 transition\n<repo>\\research\\official_topology\\m25\\generated\\Transvoxel.cpp\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m25/test_original_contract_consumer.py"
+      ],
+      "output": "M25 original-contract consumer: PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER\nm25 original contract regular_vertices=1536 regular_triangles=820 transition_vertices=4096 transition_triangles=2640 failures=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_core_c.py"
+      ],
+      "output": "trying C compiler: <home>\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe cc\nregular case=23 vertices=6 triangles=4\nregular first_vertex=(1.000, 0.250, 0.000)\ntransition case=11 vertices=6 triangles=4\ntransition first_vertex=(0.250, 1.000, 0.000)\nwrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_clean_room_m4\nhigh_lod0 triangles=45 transition triangles=6 low_lod1 triangles=9\ncore C test: PASS\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_consumer_compatibility.py"
+      ],
+      "output": "consumer compatibility test: PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY\nm21 consumer contract cases=512 default_vertices=4096 default_triangles=2640 max_vertices=12 max_triangles=12 m4_matches=512 sample13_ignored=512 callback_checks=3 failures=0\n\ncpp consumer transition case=341 vertices=12 triangles=12\n\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_exact_compatibility_claim_boundary.py"
+      ],
+      "output": "exact compatibility claim boundary: PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/project_tracks_report.py"
+      ],
+      "output": "project tracks: PASS\nindependent_core: PASS\nofficial_topology_research: IN_PROGRESS\n",
+      "returncode": 0
+    }
+  ]
+}

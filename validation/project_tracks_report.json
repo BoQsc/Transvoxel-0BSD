@@ -1,11 +1,13 @@
 {
-  "meaning": "The independent core can be released/evaluated independently. The published transition reference convention, transition topology behavior, and clean-room regular-cell behavior are proven by M18-M20. M21 proves the default clean-room M4 transition export and public C/C++ consumer contract. M22 locks the exact compatibility claim boundary. M23 measures every regular and transition case against the verified external official oracle. M24 proves exact edge-labeled oriented topology; encoding/layout and unchanged-consumer compatibility remain active work.",
+  "meaning": "The independent core can be released/evaluated independently. The published transition reference convention, transition topology behavior, and clean-room regular-cell behavior are proven by M18-M20. M21 proves the default clean-room M4 transition export and public C/C++ consumer contract. M22 locks the exact compatibility claim boundary. M23 measures every regular and transition case against the verified external official oracle. M24 proves exact edge-labeled oriented topology; M25 adds compatible packed reuse semantics, original data symbols and array capacities, and an unchanged-style C++ consumer. Real engine integration and 0BSD provenance remain active work.",
   "schema": "boqsc.transvoxel.project_tracks_report.v1",
   "status": "PASS",
   "supporting_reports": {
     "consumer_compatibility_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
     "exact_compatibility_claim_boundary_status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
     "m24_exact_topology_status": "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY",
+    "m25_compatible_layout_status": "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT",
+    "m25_consumer_status": "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER",
     "official_73_candidate_derivation_status": "RESEARCH_PASS_OFFICIAL_73_NOT_DERIVED",
     "official_equivalence_research_status": "RESEARCH_PASS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
     "official_oracle_comparison_status": "PASS_M23_OFFICIAL_ORACLE_BASELINE_EXACT_REPLACEMENT_NOT_READY",
@@ -33,6 +35,7 @@
     },
     "official_topology_research": {
       "clean_room_regular_cell_equivalence": "PROVEN",
+      "compatible_transvoxel_cpp_data_layout": true,
       "exact_0bsd_provenance_cleared": false,
       "exact_oriented_topology_identity": "PROVEN",
       "exact_replacement_ready": false,
@@ -43,7 +46,8 @@
       "published_transition_topology_behavior": "PROVEN",
       "purpose": "Research official 73-class/topology/reference-convention equivalence without copying MIT table values.",
       "reference_convention_equivalence": "PROVEN",
-      "status": "IN_PROGRESS"
+      "status": "IN_PROGRESS",
+      "unchanged_style_cpp_consumer": "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER"
     }
   },
   "version": "v34"

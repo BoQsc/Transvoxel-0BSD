@@ -40,6 +40,16 @@ OFFICIAL_ORACLE_REPORT = (
 M24_EXACT_TOPOLOGY_REPORT = (
     ROOT / "validation" / "m24_exact_topology_report.json"
 )
+M25_COMPATIBLE_LAYOUT_REPORT = (
+    ROOT / "validation" / "m25_compatible_layout_report.json"
+)
+M25_CONSUMER_REPORT = (
+    ROOT
+    / "research"
+    / "official_topology"
+    / "m25"
+    / "m25_consumer_validation.json"
+)
 M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
     "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
@@ -239,6 +249,16 @@ def main() -> int:
         if M24_EXACT_TOPOLOGY_REPORT.exists()
         else {}
     )
+    m25_compatible_layout = (
+        read_json(M25_COMPATIBLE_LAYOUT_REPORT)
+        if M25_COMPATIBLE_LAYOUT_REPORT.exists()
+        else {}
+    )
+    m25_consumer = (
+        read_json(M25_CONSUMER_REPORT)
+        if M25_CONSUMER_REPORT.exists()
+        else {}
+    )
     if M15_REPORT.exists():
         try:
             m15_status = str(
@@ -406,14 +426,52 @@ def main() -> int:
         ),
         gate(
             "official_vertex_encoding_equivalence",
-            "Official transition vertex encoding and reuse metadata equivalence",
+            "Compatible packed vertex encoding and reuse metadata semantics",
             "table_compatibility",
             ["exact_table_compatible_replacement"],
-            "BLOCKED",
-            [rel(m3_triangles_path)],
-            triangles.get("official_vertex_encoding_equivalence", "MISSING"),
+            (
+                "PASS"
+                if m25_compatible_layout.get("status")
+                == "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT"
+                and m25_compatible_layout.get("decisions", {}).get(
+                    "packed_vertex_reuse_semantics"
+                )
+                is True
+                else "BLOCKED"
+            ),
+            [
+                rel(m3_triangles_path),
+                (
+                    rel(M25_COMPATIBLE_LAYOUT_REPORT)
+                    if M25_COMPATIBLE_LAYOUT_REPORT.exists()
+                    else "validation/m25_compatible_layout_report.json"
+                ),
+            ],
+            (
+                "PROVEN"
+                if m25_compatible_layout.get("decisions", {}).get(
+                    "packed_vertex_reuse_semantics"
+                )
+                is True
+                else triangles.get(
+                    "official_vertex_encoding_equivalence",
+                    "MISSING",
+                )
+            ),
             "PROVEN",
-            "Define and prove an independently derived vertex-code/cache-reuse encoding contract.",
+            (
+                "Run M25 to derive packed reuse codes from regular/transition "
+                "cell geometry and validate all case code multisets."
+                if m25_compatible_layout.get("decisions", {}).get(
+                    "packed_vertex_reuse_semantics"
+                )
+                is not True
+                else None
+            ),
+            (
+                "M25 proves compatible packed-code semantics. Per-case vertex "
+                "order and numeric class IDs may differ internally."
+            ),
         ),
         gate(
             "official_triangle_triangulation_identity",
@@ -558,6 +616,82 @@ def main() -> int:
             ),
         ),
         gate(
+            "compatible_transvoxel_cpp_data_layout",
+            "Original Transvoxel.cpp struct/symbol/array-capacity data layout",
+            "drop_in_compatibility",
+            ["exact_table_compatible_replacement"],
+            (
+                "PASS"
+                if m25_compatible_layout.get("status")
+                == "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT"
+                and m25_compatible_layout.get("decisions", {}).get(
+                    "compatible_struct_and_symbol_surface"
+                )
+                is True
+                else "BLOCKED"
+            ),
+            [
+                (
+                    rel(M25_COMPATIBLE_LAYOUT_REPORT)
+                    if M25_COMPATIBLE_LAYOUT_REPORT.exists()
+                    else "validation/m25_compatible_layout_report.json"
+                ),
+                "research/official_topology/m25/generated/Transvoxel.cpp",
+            ],
+            m25_compatible_layout.get("decisions", {}).get(
+                "compatible_struct_and_symbol_surface",
+                False,
+            ),
+            True,
+            (
+                "Generate the original struct names, global symbols, and "
+                "16/56 class-array capacities from M24 topology."
+                if m25_compatible_layout.get("decisions", {}).get(
+                    "compatible_struct_and_symbol_surface"
+                )
+                is not True
+                else None
+            ),
+            (
+                "Compatible layout does not imply numeric class-ID or byte "
+                "identity."
+            ),
+        ),
+        gate(
+            "unchanged_style_cpp_consumer",
+            "C++ consumer using original Transvoxel.cpp data contract unchanged",
+            "drop_in_compatibility",
+            ["exact_table_compatible_replacement"],
+            (
+                "PASS"
+                if m25_consumer.get("status")
+                == "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER"
+                else "BLOCKED"
+            ),
+            [
+                (
+                    rel(M25_CONSUMER_REPORT)
+                    if M25_CONSUMER_REPORT.exists()
+                    else (
+                        "research/official_topology/m25/"
+                        "m25_consumer_validation.json"
+                    )
+                ),
+                (
+                    "research/official_topology/m25/"
+                    "original_contract_consumer.cpp"
+                ),
+            ],
+            m25_consumer.get("status", "MISSING"),
+            "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER",
+            (
+                "Compile and run the M25 original-contract C++ consumer."
+                if m25_consumer.get("status")
+                != "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER"
+                else None
+            ),
+        ),
+        gate(
             "exact_0bsd_provenance_clearance",
             "0BSD provenance clearance for oracle-calibrated exact data",
             "provenance",
@@ -624,6 +758,8 @@ def main() -> int:
         "official_vertex_encoding_equivalence",
         "official_triangle_triangulation_identity",
         "official_regular_table_identity",
+        "compatible_transvoxel_cpp_data_layout",
+        "unchanged_style_cpp_consumer",
         "exact_0bsd_provenance_clearance",
         "official_transvoxel_cpp_byte_identity",
     }
@@ -659,6 +795,27 @@ def main() -> int:
     if functional_ready:
         if claim_boundary_documented:
             if (
+                m25_compatible_layout.get("status")
+                == "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT"
+                and m25_consumer.get("status")
+                == "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER"
+            ):
+                next_milestone = {
+                    "id": "M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE",
+                    "objective": (
+                        "Replace the MIT table file in a real Transvoxel "
+                        "consumer integration, compare runtime output, and "
+                        "resolve the exact-candidate 0BSD provenance gate."
+                    ),
+                    "why_first": (
+                        "M25 proves compatible original data symbols, array "
+                        "capacities, packed reuse semantics, and unchanged-style "
+                        "C++ consumption. The remaining practical proof is a "
+                        "real engine integration; release remains blocked on "
+                        "provenance and identity-only claims."
+                    ),
+                }
+            elif (
                 m24_exact_topology.get("status")
                 == "PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY"
                 and m24_exact_topology.get("decisions", {}).get(
@@ -971,6 +1128,19 @@ def main() -> int:
                 rel(M24_EXACT_TOPOLOGY_REPORT)
                 if M24_EXACT_TOPOLOGY_REPORT.exists()
                 else "validation/m24_exact_topology_report.json"
+            ),
+            "m25_compatible_layout_report": (
+                rel(M25_COMPATIBLE_LAYOUT_REPORT)
+                if M25_COMPATIBLE_LAYOUT_REPORT.exists()
+                else "validation/m25_compatible_layout_report.json"
+            ),
+            "m25_consumer_report": (
+                rel(M25_CONSUMER_REPORT)
+                if M25_CONSUMER_REPORT.exists()
+                else (
+                    "research/official_topology/m25/"
+                    "m25_consumer_validation.json"
+                )
             ),
             "exact_replacement_finish_line": (
                 "Field/output/symbol compatibility sufficient for unchanged "

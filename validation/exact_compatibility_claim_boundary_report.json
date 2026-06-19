@@ -19,8 +19,7 @@
       "exact_0bsd_provenance_clearance",
       "official_class_id_mapping",
       "official_regular_table_identity",
-      "official_transvoxel_cpp_byte_identity",
-      "official_vertex_encoding_equivalence"
+      "official_transvoxel_cpp_byte_identity"
     ],
     "claim_boundary": {
       "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.",
@@ -30,6 +29,8 @@
       "m22_claim_boundary_report": "validation/exact_compatibility_claim_boundary_report.json",
       "m23_official_oracle_report": "validation/official_oracle_comparison_report.json",
       "m24_exact_topology_report": "validation/m24_exact_topology_report.json",
+      "m25_compatible_layout_report": "validation/m25_compatible_layout_report.json",
+      "m25_consumer_report": "research/official_topology/m25/m25_consumer_validation.json",
       "not_allowed_now": "Exact official Transvoxel.cpp table layout, class-ID, vertex encoding, triangulation-identity, or byte-identity claim."
     },
     "consumer_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
@@ -56,7 +57,7 @@
       "bytes": 4340
     },
     "README.md": {
-      "bytes": 8400
+      "bytes": 8898
     },
     "README_CORE.txt": {
       "bytes": 1658
@@ -74,16 +75,16 @@
       "bytes": 5502
     },
     "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md": {
-      "bytes": 2757
+      "bytes": 3589
     },
     "docs/KNOWN_LIMITS.md": {
-      "bytes": 2969
+      "bytes": 3206
     },
     "docs/M4_REPLACEMENT_READINESS.md": {
-      "bytes": 3175
+      "bytes": 3548
     },
     "docs/WHAT_THIS_PROVES.md": {
-      "bytes": 10429
+      "bytes": 10888
     }
   },
   "schema": "boqsc.transvoxel.m22.exact_compatibility_claim_boundary.v1",

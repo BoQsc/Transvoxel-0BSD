@@ -20,6 +20,10 @@ The M24 generated rule/table artifacts are research-only. Their generator code
 is 0BSD, but the oracle-calibrated generated data is not yet cleared for an
 0BSD release.
 
+M25's generated `Transvoxel.cpp` preserves the original data contract but uses
+independent internal class IDs. It has not yet replaced the table file inside a
+real engine build, and its generated-data provenance is still research-only.
+
 Still not claimed:
 
 ```text

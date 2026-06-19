@@ -1,0 +1,18 @@
+{
+  "attempts": [
+    {
+      "compile_returncode": 0,
+      "compile_stderr": "",
+      "compile_stdout": "",
+      "compiler": "zig c++",
+      "run_returncode": 0,
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "m25 original contract regular_vertices=1536 regular_triangles=820 transition_vertices=4096 transition_triangles=2640 failures=0\n"
+    }
+  ],
+  "compiler": "zig c++",
+  "schema": "boqsc.transvoxel.m25.consumer_validation.v1",
+  "status": "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER",
+  "stdout": "m25 original contract regular_vertices=1536 regular_triangles=820 transition_vertices=4096 transition_triangles=2640 failures=0\n"
+}

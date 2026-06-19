@@ -1,0 +1,30 @@
+{
+  "decisions": {
+    "byte_identity": false,
+    "compatible_class_capacity_layout": true,
+    "compatible_struct_and_symbol_surface": true,
+    "exact_drop_in_replacement_ready": false,
+    "generated_data_0bsd_provenance_cleared": false,
+    "official_numeric_class_ids_identical": false,
+    "packed_vertex_reuse_semantics": true,
+    "ready_for_unchanged_consumer_compile_test": true
+  },
+  "meaning": "Original Transvoxel.cpp data ABI shapes with exact topology and formula-derived reuse semantics. Numeric class IDs and bytes are not claimed identical.",
+  "metrics": {
+    "all_class_indexes_within_original_capacities": true,
+    "packed_vertex_code_multiset_matches": 768,
+    "regular_oriented_topology_matches": 256,
+    "regular_used_classes": 15,
+    "transition_corner_data_matches": true,
+    "transition_oriented_topology_matches": 512,
+    "transition_used_classes": 40
+  },
+  "oracle": {
+    "commit": "51a494f03c5b024cd153b596bcc7152eb3cc93a6",
+    "origin": "https://github.com/EricLengyel/Transvoxel.git",
+    "sha256": "83a5511346b54c42e4e66dec916d3971c92f4fbda1c7878cbad5901a820dcab4",
+    "used_for_validation_only": true
+  },
+  "schema": "boqsc.transvoxel.m25.compatible_layout_report.v1",
+  "status": "PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT"
+}

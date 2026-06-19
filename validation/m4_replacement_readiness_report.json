@@ -2,7 +2,6 @@
   "analysis_completed": true,
   "blocking_gate_ids": [
     "official_class_id_mapping",
-    "official_vertex_encoding_equivalence",
     "official_regular_table_identity",
     "exact_0bsd_provenance_clearance",
     "official_transvoxel_cpp_byte_identity"
@@ -15,6 +14,8 @@
     "m22_claim_boundary_report": "validation/exact_compatibility_claim_boundary_report.json",
     "m23_official_oracle_report": "validation/official_oracle_comparison_report.json",
     "m24_exact_topology_report": "validation/m24_exact_topology_report.json",
+    "m25_compatible_layout_report": "validation/m25_compatible_layout_report.json",
+    "m25_consumer_report": "research/official_topology/m25/m25_consumer_validation.json",
     "not_allowed_now": "Exact official Transvoxel.cpp table layout, class-ID, vertex encoding, triangulation-identity, or byte-identity claim."
   },
   "decisions": {
@@ -286,19 +287,20 @@
       "title": "Official 73 transition-class mapping"
     },
     {
-      "actual": "NOT_PROVEN",
+      "actual": "PROVEN",
       "category": "table_compatibility",
       "evidence": [
-        "research/official_topology/m3/candidate_triangulations.json"
+        "research/official_topology/m3/candidate_triangulations.json",
+        "validation/m25_compatible_layout_report.json"
       ],
       "expected": "PROVEN",
       "id": "official_vertex_encoding_equivalence",
-      "next_action": "Define and prove an independently derived vertex-code/cache-reuse encoding contract.",
+      "note": "M25 proves compatible packed-code semantics. Per-case vertex order and numeric class IDs may differ internally.",
       "required_for": [
         "exact_table_compatible_replacement"
       ],
-      "status": "BLOCKED",
-      "title": "Official transition vertex encoding and reuse metadata equivalence"
+      "status": "PASS",
+      "title": "Compatible packed vertex encoding and reuse metadata semantics"
     },
     {
       "actual": "PROVEN",
@@ -368,6 +370,37 @@
       "title": "Documented and tested compatibility contract for Transvoxel.cpp consumers"
     },
     {
+      "actual": true,
+      "category": "drop_in_compatibility",
+      "evidence": [
+        "validation/m25_compatible_layout_report.json",
+        "research/official_topology/m25/generated/Transvoxel.cpp"
+      ],
+      "expected": true,
+      "id": "compatible_transvoxel_cpp_data_layout",
+      "note": "Compatible layout does not imply numeric class-ID or byte identity.",
+      "required_for": [
+        "exact_table_compatible_replacement"
+      ],
+      "status": "PASS",
+      "title": "Original Transvoxel.cpp struct/symbol/array-capacity data layout"
+    },
+    {
+      "actual": "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER",
+      "category": "drop_in_compatibility",
+      "evidence": [
+        "research/official_topology/m25/m25_consumer_validation.json",
+        "research/official_topology/m25/original_contract_consumer.cpp"
+      ],
+      "expected": "PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER",
+      "id": "unchanged_style_cpp_consumer",
+      "required_for": [
+        "exact_table_compatible_replacement"
+      ],
+      "status": "PASS",
+      "title": "C++ consumer using original Transvoxel.cpp data contract unchanged"
+    },
+    {
       "actual": false,
       "category": "provenance",
       "evidence": [
@@ -404,9 +437,9 @@
   "load_errors": [],
   "meaning": "The public clean-room C/C++ API is ready to use as a functional Transvoxel.cpp replacement: default regular cells, default M4 transition cells, published behavior proofs, and consumer compile/link tests pass. Exact official table layout, class IDs, vertex encoding, triangulation identity, and byte identity remain separate blocked claims.",
   "next_milestone": {
-    "id": "M25_EXACT_VERTEX_ENCODING_AND_TABLE_LAYOUT",
-    "objective": "Derive official-compatible vertex order/reuse encodings and class/table layout, then expose an unchanged-consumer compatibility surface.",
-    "why_first": "M24 reaches exact oriented topology for every regular and transition case. The remaining exact blockers are class IDs, packed vertex/reuse encoding, regular table layout, and unchanged-consumer/file compatibility."
+    "id": "M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE",
+    "objective": "Replace the MIT table file in a real Transvoxel consumer integration, compare runtime output, and resolve the exact-candidate 0BSD provenance gate.",
+    "why_first": "M25 proves compatible original data symbols, array capacities, packed reuse semantics, and unchanged-style C++ consumption. The remaining practical proof is a real engine integration; release remains blocked on provenance and identity-only claims."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -424,9 +457,12 @@
     "m4_selected_full_production_gate",
     "official_reference_convention_equivalence",
     "official_transition_topology_equivalence",
+    "official_vertex_encoding_equivalence",
     "official_triangle_triangulation_identity",
     "official_regular_cell_equivalence",
-    "transvoxel_cpp_consumer_compatibility_contract"
+    "transvoxel_cpp_consumer_compatibility_contract",
+    "compatible_transvoxel_cpp_data_layout",
+    "unchanged_style_cpp_consumer"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
   "status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED"

@@ -39,7 +39,8 @@ Exact compatibility claim boundary: LOCKED by M22; exact official compatibility 
 Official oracle baseline: M23 compares all 256 regular and 512 transition cases
 Exact oriented topology identity: PROVEN by M24 for all 256 + 512 cases
 M24 exact candidate release provenance: RESEARCH_ONLY / NOT_CLEARED_FOR_0BSD
-Exact replacement finish line: ACTIVE; next milestone is vertex encoding/table layout
+Compatible original Transvoxel.cpp data ABI: PROVEN by M25
+Exact replacement finish line: ACTIVE; next milestone is real engine integration/provenance
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -146,6 +147,7 @@ RUN_M21.cmd         default M4 transition + C/C++ consumer compatibility proof
 RUN_M22.cmd         exact compatibility claim-boundary proof
 RUN_M23.cmd         exhaustive external official-oracle comparison
 RUN_M24.cmd         exact regular/transition topology convergence
+RUN_M25.cmd         compatible original data symbols/encoding/layout
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:
@@ -181,6 +183,12 @@ transition case in an isolated research candidate. The public default remains
 the M21 functional table until official-compatible vertex ordering/reuse
 encoding, class/table layout, provenance, and unchanged-consumer integration
 also pass.
+
+M25 adds a research-only `Transvoxel.cpp` data surface with the original
+struct/symbol names and 16/56 class-array capacities. Its independent internal
+class IDs, exact M24 topology, and formula-derived packed reuse codes pass an
+unchanged-style C++ consumer. The public 0BSD default remains unchanged while
+real engine integration and provenance are unresolved.
 
 ## What this proves
 

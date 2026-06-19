@@ -29,6 +29,11 @@ Exact official regular table identity claim.
 Byte-for-byte Transvoxel.cpp table/file identity claim.
 ```
 
+The M24 exact-topology result is allowed as a research claim, not as a released
+0BSD product claim. M25 likewise allows a research claim of compatible original
+data symbols, capacities, and reuse semantics. Release wording remains limited
+until real integration and provenance gates pass.
+
 Byte identity is not required for functional replacement. Byte identity is
 required before claiming exact official table-file compatibility.
 
@@ -83,3 +88,15 @@ provenance must remain explicit, and official vertex ordering/reuse encoding,
 class/table layout, and unchanged-consumer integration remain blocked.
 The M24-generated rules and candidate tables are research-only and are not
 marked as cleared 0BSD release data.
+
+## M25 compatible data ABI boundary
+
+M25 generates the original `Transvoxel.cpp` data structures, global symbol
+names, and array capacities. It independently compresses M24 topology into 15
+of 16 regular slots and 40 of 56 transition slots and derives packed reuse
+codes from cell geometry.
+
+M25 proves compatible symbol/layout/reuse semantics and unchanged-style C++
+consumption. It does not claim Eric Lengyel's internal numeric class IDs or
+table bytes. The generated data remains research-only under the unresolved
+0BSD provenance gate.

@@ -63,6 +63,12 @@ def main() -> int:
     m24_exact_topology = read_json(
         "validation/m24_exact_topology_report.json"
     )
+    m25_compatible_layout = read_json(
+        "validation/m25_compatible_layout_report.json"
+    )
+    m25_consumer = read_json(
+        "research/official_topology/m25/m25_consumer_validation.json"
+    )
 
     independent_ok = not missing_independent
     official_track_ok = not missing_official
@@ -137,6 +143,16 @@ def main() -> int:
                         False,
                     )
                 ),
+                "compatible_transvoxel_cpp_data_layout": (
+                    m25_compatible_layout.get("decisions", {}).get(
+                        "compatible_struct_and_symbol_surface",
+                        False,
+                    )
+                ),
+                "unchanged_style_cpp_consumer": m25_consumer.get(
+                    "status",
+                    "NOT_RUN",
+                ),
             },
         },
         "supporting_reports": {
@@ -167,6 +183,10 @@ def main() -> int:
                 "status"
             ),
             "m24_exact_topology_status": m24_exact_topology.get("status"),
+            "m25_compatible_layout_status": m25_compatible_layout.get(
+                "status"
+            ),
+            "m25_consumer_status": m25_consumer.get("status"),
         },
         "meaning": (
             "The independent core can be released/evaluated independently. "
@@ -177,8 +197,9 @@ def main() -> int:
             "the exact compatibility claim boundary. M23 measures every "
             "regular and transition case against the verified external "
             "official oracle. M24 proves exact edge-labeled oriented topology; "
-            "encoding/layout and unchanged-consumer compatibility remain "
-            "active work."
+            "M25 adds compatible packed reuse semantics, original data symbols "
+            "and array capacities, and an unchanged-style C++ consumer. Real "
+            "engine integration and 0BSD provenance remain active work."
         ),
     }
     VALIDATION.mkdir(exist_ok=True)
