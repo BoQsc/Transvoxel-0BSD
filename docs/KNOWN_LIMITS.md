@@ -5,10 +5,9 @@ M21 makes the public C/C++ API ready as a functional clean-room Transvoxel.cpp r
 M22 locks the exact-compatibility claim boundary. The functional replacement
 claim is allowed; exact official compatibility claims remain blocked.
 
-M23 confirms those exact gaps by comparing all cases with a verified external
-oracle. The current implementation is not yet an exact drop-in replacement.
-Exact replacement is the active finish line, and M24 targets topology
-convergence before field/symbol compatibility and unchanged-consumer tests.
+M23 confirms the exact gaps by comparing all cases with a verified external
+oracle. M24-M26 then prove a technically exact research candidate, including
+field/symbol compatibility and downstream integration.
 
 M24 reaches exact edge-labeled oriented topology for all 768 cases in an
 isolated research candidate. It does not yet reproduce official vertex order,
@@ -30,6 +29,13 @@ links the complete pinned Windows GDExtension with Zig against a local Godot
 comparison for this exact candidate are not yet performed. Generated-data
 provenance is still research-only.
 
+M27 is the terminal exact-0BSD decision. The independent deterministic rule
+matches exact oriented topology in 86/256 regular and 139/512 transition cases.
+Published rules constrain robust boundaries but permit multiple legal
+interiors. The exact M24-M26 candidate closes those gaps with
+MIT-oracle-calibrated selections, so it is not cleared for an 0BSD release
+under the current project provenance standard. There is no automatic M28.
+
 Still not claimed:
 
 ```text
@@ -37,7 +43,7 @@ Official 73-equivalence-class ID mapping is not proven.
 Official numeric 73-class ID identity is not proven.
 Exact official regular table byte/class identity is not proven.
 Byte-for-byte identity with Eric Lengyel's MIT Transvoxel.cpp table file is not proven.
-0BSD provenance clearance for the M24-M26 exact candidate is not proven.
+0BSD provenance clearance for the M24-M26 exact candidate is not proven; M27 records the exact 0BSD goal as terminally not achieved.
 Full Godot gameplay/GDExtension terrain integration is not proven.
 Game-ready art/texture/lighting quality is not certified.
 Gameplay performance in a complete streaming world is not certified.
@@ -57,6 +63,7 @@ M24 exact oriented topology for all 768 cases in the research candidate.
 M25 compatible packed reuse semantics and original data ABI.
 M26 pinned Godot Voxel table-source integration: 781/781 records match.
 M26 full Windows GDExtension compile/link with Zig: PASS.
+M27 terminal provenance audit: exact 0BSD goal NOT_ACHIEVED.
 Public transition ABI keeps 14 samples; sample 13 is ignored by the default M4 path.
 Default transition table totals: 512 cases, 4096 vertex refs, 2640 triangles, max 12 vertices and 12 triangles.
 Default regular table totals: 256 cases, 1536 vertex refs, 820 triangles, max 12 vertices and 5 triangles.

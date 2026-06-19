@@ -1,10 +1,10 @@
 {
   "claim_contract": {
-    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained. Research-only exact semantic drop-in integration is proven by M24-M26.",
+    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained. Research-only exact semantic drop-in integration is proven by M24-M26; M27 records that the exact 0BSD goal was not achieved.",
     "byte_identity_required_for_exact_table_identity_claim": true,
     "byte_identity_required_for_functional_replacement": false,
     "not_allowed_now": [
-      "0BSD release claim for the M24-M26 exact candidate before provenance clearance.",
+      "0BSD release claim for the M24-M26 exact candidate.",
       "Official 73-class ID compatibility claim.",
       "Exact official Transvoxel.cpp numeric class/table identity claim.",
       "Byte-for-byte Transvoxel.cpp table/file identity claim."
@@ -32,17 +32,20 @@
       "m26_full_build_report": "research/official_topology/m26/m26_full_godot_voxel_build.json",
       "m26_integration_report": "research/official_topology/m26/m26_godot_voxel_integration.json",
       "m26_provenance_report": "research/official_topology/m26/m26_provenance_audit.json",
-      "not_allowed_now": "0BSD release claim for the M24-M26 exact candidate before provenance clearance; Exact official Transvoxel.cpp numeric class-ID, table-byte, or source-byte identity claim."
+      "m27_terminal_report": "research/official_topology/m27/m27_terminal_audit.json",
+      "not_allowed_now": "0BSD release claim for the M24-M26 exact candidate. M27 terminally denied provenance clearance under the current clean-room standard; Exact official Transvoxel.cpp numeric class-ID, table-byte, and source-byte identity claims also remain unproved."
     },
     "consumer_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
     "decisions": {
+      "exact_0bsd_goal_achieved": false,
       "exact_compatibility_claim_boundary_documented": true,
       "exact_drop_in_0bsd_replacement_ready": false,
       "exact_drop_in_integration_ready": true,
       "exact_table_compatible_replacement_ready": false,
       "functional_full_replacement_ready": true,
       "optional_transition_backend_candidate_ready": true,
-      "ready_to_replace_default_transition_backend": true
+      "ready_to_replace_default_transition_backend": true,
+      "terminal_exact_0bsd_outcome": true
     },
     "drop_in_blocking_gate_ids": [
       "exact_0bsd_provenance_clearance"
@@ -53,7 +56,13 @@
       "official_transvoxel_cpp_byte_identity"
     ],
     "m21_status": "PASS_M21_DEFAULT_M4_FUNCTIONAL_CONSUMER_COMPATIBILITY",
-    "readiness_status": "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED",
+    "m27_status": "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED",
+    "next_milestone": {
+      "id": "NONE_TERMINAL",
+      "objective": "No further automatic milestone. The exact 0BSD replacement goal is closed as not achieved under the current clean-room provenance constraints.",
+      "why_first": "M27 found no published deterministic rule that uniquely selects all authored official interiors. Further work requires a changed requirement or external permission, not another internal milestone."
+    },
+    "readiness_status": "TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED",
     "transition_case_count": 512,
     "transition_class_count": 512,
     "transition_max_triangles": 12,
@@ -62,19 +71,19 @@
     "transition_triangles": 2640,
     "transition_vertex_refs": 4096
   },
-  "meaning": "Functional clean-room replacement is allowed through the public C/C++ API. M24-M26 exact semantic results may be reported as research, but the generated exact candidate cannot be released as 0BSD until provenance clears. Numeric class-ID and byte identity remain separate unclaimed identity properties.",
+  "meaning": "Functional clean-room replacement is allowed through the public C/C++ API. M24-M26 exact semantic results may be reported as research, but the generated exact candidate cannot be released as 0BSD. M27 terminally records that the published rules do not uniquely derive every authored official interior and that the exact candidate uses MIT-oracle-calibrated selections. Numeric class-ID and byte identity remain separate unclaimed properties.",
   "scanned_claim_files": {
     "PROVENANCE.md": {
-      "bytes": 5144
+      "bytes": 5622
     },
     "README.md": {
-      "bytes": 9907
+      "bytes": 10729
     },
     "README_CORE.txt": {
       "bytes": 1658
     },
     "SOURCES.md": {
-      "bytes": 4092
+      "bytes": 4898
     },
     "docs/API.md": {
       "bytes": 8314
@@ -86,16 +95,16 @@
       "bytes": 5502
     },
     "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md": {
-      "bytes": 4698
+      "bytes": 5379
     },
     "docs/KNOWN_LIMITS.md": {
-      "bytes": 3771
+      "bytes": 4238
     },
     "docs/M4_REPLACEMENT_READINESS.md": {
-      "bytes": 3983
+      "bytes": 4585
     },
     "docs/WHAT_THIS_PROVES.md": {
-      "bytes": 11387
+      "bytes": 12110
     }
   },
   "schema": "boqsc.transvoxel.m22.exact_compatibility_claim_boundary.v1",

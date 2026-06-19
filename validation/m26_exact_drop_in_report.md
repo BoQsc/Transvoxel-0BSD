@@ -13,7 +13,7 @@ Status: `PASS_M26_EXACT_DROP_IN_INTEGRATION_PROVEN_PROVENANCE_BLOCKED`
 - Exact semantic drop-in 0BSD release ready: `False`
 - Drop-in release blockers: `exact_0bsd_provenance_clearance`
 - Identity-only blockers: `official_class_id_mapping, official_regular_table_identity, official_transvoxel_cpp_byte_identity`
-- Next milestone: `M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE`
+- Roadmap state: `NONE_TERMINAL`
 
 M26 proves exact semantic replacement through the pinned Godot Voxel table-source API and a full Zig GDExtension compile/link. The candidate remains research-only because M24 triangulation option indexes were calibrated by the MIT oracle.
 

@@ -43,8 +43,8 @@ Compatible original Transvoxel.cpp data ABI: PROVEN by M25
 Pinned Godot Voxel table-source integration: PROVEN by M26 with 781/781 records
 Full Godot Voxel Windows GDExtension build with Zig: PASS by M26
 Exact semantic drop-in integration: READY
-Exact semantic drop-in 0BSD release: BLOCKED only by exact-candidate provenance
-Next milestone: M27 independent exact-topology provenance
+Exact semantic drop-in 0BSD release: NOT_ACHIEVED by terminal M27 provenance decision
+Roadmap: TERMINAL at M27; no automatic M28
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -152,6 +152,8 @@ RUN_M22.cmd         exact compatibility claim-boundary proof
 RUN_M23.cmd         exhaustive external official-oracle comparison
 RUN_M24.cmd         exact regular/transition topology convergence
 RUN_M25.cmd         compatible original data symbols/encoding/layout
+RUN_M26.cmd         pinned Godot Voxel exact integration and full Zig build
+RUN_M27.cmd         terminal exact-0BSD topology/provenance decision
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:
@@ -176,11 +178,10 @@ clean-room M4 transition table and proves public C/C++ functional consumer
 compatibility. Exact table compatibility remains separate and currently
 `NOT_PROVEN`.
 
-The intended project finish line is now explicit: an exact drop-in replacement
-for the official table behavior and consumer surface, without depending on the
-MIT file at runtime. M23 establishes the isolated external-oracle baseline.
-This does not mean copying or packaging the MIT arrays, and it does not require
-byte-identical source text.
+The intended finish line was an exact 0BSD drop-in replacement for the official
+table behavior and consumer surface without depending on the MIT data. M27 now
+closes that goal as not achieved under this repository's clean-room provenance
+standard. This is a terminal result, not an unbounded next milestone.
 
 M24 now proves exact edge-labeled oriented topology for every regular and
 transition case in an isolated research candidate. The public default remains
@@ -204,6 +205,16 @@ complete pinned Godot Voxel Windows GDExtension with Zig, producing an
 research-only because M24's triangulation selection indexes were calibrated by
 the MIT oracle.
 
+M27 reruns the independent 768-case comparison and audits the dissertation's
+published rules. The deterministic independent topology matches exact oriented
+topology in 86/256 regular and 139/512 transition cases. The publication fixes
+robust boundary connectivity but permits multiple legal interior
+triangulations; the exact M24-M26 candidate closes the remaining gaps with
+MIT-oracle-calibrated choices. The technically exact candidate therefore
+cannot be released as 0BSD under the current provenance policy. The finite
+choices are to retain MIT for exact compatibility, use the functional non-exact
+0BSD core, or obtain explicit permission/relicensing. There is no M28.
+
 ## What this proves
 
 The current proof stack checks generator determinism, table validity, C compilation, release package contents, Godot seam metrics, and scripted automated terrain edits when run locally with Godot.
@@ -213,7 +224,7 @@ The proof does **not** claim:
 ```text
 byte/table identity with Eric Lengyel's MIT Transvoxel.cpp
 official 73-equivalence-class mapping
-0BSD provenance clearance for the M24-M26 exact candidate
+0BSD provenance clearance for the M24-M26 exact candidate; M27 records this as terminally not achieved
 runtime Godot editor loading and visual terrain comparison for the exact candidate
 finished game terrain visual quality
 collision, streaming, materials, gameplay, or performance certification

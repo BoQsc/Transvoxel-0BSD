@@ -105,7 +105,7 @@ def write_markdown(report: Dict[str, Any], path: Path) -> None:
         f"`{', '.join(report['readiness']['drop_in_blocking_gate_ids'])}`",
         f"- Identity-only blockers: "
         f"`{', '.join(report['readiness']['identity_only_blocking_gate_ids'])}`",
-        f"- Next milestone: `{report['readiness']['next_milestone']['id']}`",
+        f"- Roadmap state: `{report['readiness']['next_milestone']['id']}`",
         "",
         "M26 proves exact semantic replacement through the pinned Godot Voxel "
         "table-source API and a full Zig GDExtension compile/link. The "
@@ -202,10 +202,16 @@ def main() -> int:
         )
         is False
         and readiness.get("status")
-        == (
-            "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_"
-            "0BSD_PROVENANCE_BLOCKED"
-        )
+        in {
+            (
+                "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_"
+                "0BSD_PROVENANCE_BLOCKED"
+            ),
+            (
+                "TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_"
+                "REPLACEMENT_NOT_ACHIEVED"
+            ),
+        }
         and readiness.get("decisions", {}).get(
             "exact_drop_in_integration_ready"
         )
@@ -223,7 +229,10 @@ def main() -> int:
             "official_transvoxel_cpp_byte_identity",
         }
         and readiness.get("next_milestone", {}).get("id")
-        == "M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE"
+        in {
+            "M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE",
+            "NONE_TERMINAL",
+        }
         and claim_boundary.get("status")
         == "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY"
         and project_tracks.get("status") == "PASS"

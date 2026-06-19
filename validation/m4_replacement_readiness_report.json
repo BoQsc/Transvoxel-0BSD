@@ -19,16 +19,19 @@
     "m26_full_build_report": "research/official_topology/m26/m26_full_godot_voxel_build.json",
     "m26_integration_report": "research/official_topology/m26/m26_godot_voxel_integration.json",
     "m26_provenance_report": "research/official_topology/m26/m26_provenance_audit.json",
-    "not_allowed_now": "0BSD release claim for the M24-M26 exact candidate before provenance clearance; Exact official Transvoxel.cpp numeric class-ID, table-byte, or source-byte identity claim."
+    "m27_terminal_report": "research/official_topology/m27/m27_terminal_audit.json",
+    "not_allowed_now": "0BSD release claim for the M24-M26 exact candidate. M27 terminally denied provenance clearance under the current clean-room standard; Exact official Transvoxel.cpp numeric class-ID, table-byte, and source-byte identity claims also remain unproved."
   },
   "decisions": {
+    "exact_0bsd_goal_achieved": false,
     "exact_compatibility_claim_boundary_documented": true,
     "exact_drop_in_0bsd_replacement_ready": false,
     "exact_drop_in_integration_ready": true,
     "exact_table_compatible_replacement_ready": false,
     "functional_full_replacement_ready": true,
     "optional_transition_backend_candidate_ready": true,
-    "ready_to_replace_default_transition_backend": true
+    "ready_to_replace_default_transition_backend": true,
+    "terminal_exact_0bsd_outcome": true
   },
   "drop_in_blocking_gate_ids": [
     "exact_0bsd_provenance_clearance"
@@ -446,12 +449,13 @@
       "evidence": [
         "validation/m24_exact_topology_report.json",
         "research/official_topology/m26/m26_provenance_audit.json",
+        "research/official_topology/m27/m27_terminal_audit.json",
         "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md"
       ],
       "expected": true,
       "id": "exact_0bsd_provenance_clearance",
-      "next_action": "Replace oracle-calibrated selections with a defensible independent derivation or obtain explicit provenance/legal clearance before shipping them as 0BSD.",
-      "note": "M24 is research-only until this gate passes. The existing independent functional core remains 0BSD.",
+      "next_action": "M27 exhausted the published deterministic derivation path. Use the MIT exact data, use the functional non-exact 0BSD core, or obtain explicit permission/relicensing.",
+      "note": "M27 records this as the terminal project outcome. M24-M26 remain research-only; the independent functional core remains 0BSD.",
       "required_for": [
         "exact_table_compatible_replacement"
       ],
@@ -481,11 +485,11 @@
     "official_transvoxel_cpp_byte_identity"
   ],
   "load_errors": [],
-  "meaning": "The research candidate is an exact semantic drop-in replacement through the pinned Godot Voxel table API: all 256 regular cases, 512 transition cases, packed reuse records, winding, and corner reuse records match, and the full Windows GDExtension compiles and links with Zig. It cannot yet ship as 0BSD because M24 triangulation selections are oracle-calibrated.",
+  "meaning": "M27 is terminal: the exact semantic M24-M26 candidate passes the pinned Godot Voxel API and full Zig GDExtension build, but the independent deterministic 0BSD topology matches only 86/256 regular and 139/512 transition cases. Published rules permit multiple legal interiors, and the exact candidate closes the gaps with MIT-oracle-calibrated selections. The exact 0BSD replacement goal is therefore not achieved.",
   "next_milestone": {
-    "id": "M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE",
-    "objective": "Replace the M24 oracle-calibrated triangulation selection indexes with an independently justified deterministic rule, then re-run all exact and downstream integration proofs.",
-    "why_first": "M26 proves exact semantic table replacement through the pinned Godot Voxel consumer API. The only blocker to shipping that exact candidate as 0BSD is provenance; numeric class IDs and byte identity are identity-only."
+    "id": "NONE_TERMINAL",
+    "objective": "No further automatic milestone. The exact 0BSD replacement goal is closed as not achieved under the current clean-room provenance constraints.",
+    "why_first": "M27 found no published deterministic rule that uniquely selects all authored official interiors. Further work requires a changed requirement or external permission, not another internal milestone."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -513,5 +517,25 @@
     "godot_voxel_full_gdextension_build"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
-  "status": "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED"
+  "status": "TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED",
+  "terminal_outcome": {
+    "exact_0bsd_goal_achieved": false,
+    "recorded": true,
+    "status": "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED",
+    "technical_semantic_integration_proven": true,
+    "terminal_paths": [
+      {
+        "id": "MIT_EXACT",
+        "result": "Use the official exact implementation/data while retaining the MIT copyright and permission notice."
+      },
+      {
+        "id": "0BSD_FUNCTIONAL_NONEXACT",
+        "result": "Use the existing independently derived functional 0BSD replacement, without claiming exact official interiors."
+      },
+      {
+        "id": "EXPLICIT_PERMISSION",
+        "result": "Obtain explicit permission or relicensing for the exact authored choices, then perform a new provenance review."
+      }
+    ]
+  }
 }

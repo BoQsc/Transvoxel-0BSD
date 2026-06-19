@@ -1,0 +1,318 @@
+{
+  "claim_boundary_status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
+  "exact_0bsd_goal_achieved": false,
+  "meaning": "The exact semantic candidate is technically proven, but the published normative rules do not uniquely determine the official interior triangulations. The independent deterministic 0BSD rule does not reproduce every official case, while the exact M24 candidate closes those gaps with MIT-oracle-calibrated choices. Under this project's clean-room provenance standard, the exact candidate cannot be released as 0BSD.",
+  "next_milestone": {
+    "id": "NONE_TERMINAL",
+    "objective": "No further automatic milestone. The exact 0BSD replacement goal is closed as not achieved under the current clean-room provenance constraints.",
+    "why_first": "M27 found no published deterministic rule that uniquely selects all authored official interiors. Further work requires a changed requirement or external permission, not another internal milestone."
+  },
+  "project_tracks_status": "PASS",
+  "readiness_status": "TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED",
+  "schema": "boqsc.transvoxel.official_topology.m27.report.v1",
+  "status": "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "tools/generate_regular.py",
+        "--out",
+        "generated"
+      ],
+      "output": "generated: generated\nschema: boqsc.regular_tables.v1\nstatus: clean_room_modified_marching_cubes_preferred_polarity\nsha256: fb749cd25ee3ee77be38f1b6d12e0a26e2f5817c8ee246d1b30e5b9cc73f2a15\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m4/generate_runtime_tables.py",
+        "--out",
+        "generated"
+      ],
+      "output": "M4 runtime candidate table: generated\\official_topology_candidate_tables.json\nM4 C header: generated\\official_topology_candidate_tables.h\nstatus: candidate_runtime_tables_official_equivalence_not_proven\nsha256: e1b833af6dbcfb0644fa9913a7104b9e64912807ef5a905cd6e9b96b0b6492b6\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/export_transvoxel.py"
+      ],
+      "output": "wrote <repo>\\generated\\transvoxel_tables.json\nsha256 2abb673609099eb3c456c6b4e235fda700c67feea9fa59fa6df8b3b5ff51416f\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_transvoxel.py"
+      ],
+      "output": "PASS\n<repo>\\validation\\transvoxel_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/compare_official_oracle.py"
+      ],
+      "output": "M23 official oracle comparison: PASS_M23_OFFICIAL_ORACLE_BASELINE_EXACT_REPLACEMENT_NOT_READY\nregular oriented topology: 86 / 256\ntransition oriented topology: 139 / 512\nexact replacement ready: False\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m24/build_exact_topology_candidate.py"
+      ],
+      "output": "M24 topology candidate: PASS_M24_EXACT_REGULAR_TRANSITION_TOPOLOGY\nregular oriented topology: 256 / 256\ntransition oriented topology: 512 / 512\n<repo>\\research\\official_topology\\m24\\generated\\m24_exact_topology_tables.json\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m25/build_compatible_transvoxel_cpp.py"
+      ],
+      "output": "M25 compatible layout: PASS_M25_COMPATIBLE_TRANSVOXEL_CPP_LAYOUT\nclasses: 15 / 16 regular, 40 / 56 transition\ntopology: 256 / 256 regular, 512 / 512 transition\n<repo>\\research\\official_topology\\m25\\generated\\Transvoxel.cpp\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m25/test_original_contract_consumer.py"
+      ],
+      "output": "M25 original-contract consumer: PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER\nm25 original contract regular_vertices=1536 regular_triangles=820 transition_vertices=4096 transition_triangles=2640 failures=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m26/build_godot_voxel_replacement.py"
+      ],
+      "output": "M26 Godot Voxel layout: PASS_M26_GODOT_VOXEL_REPLACEMENT_LAYOUT\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m26/test_godot_voxel_integration.py"
+      ],
+      "output": "M26 Godot Voxel integration: PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION\nregular=256/256 transition=512/512 corners=13/13 mismatches=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m26/test_full_godot_voxel_build.py"
+      ],
+      "output": "M26 full Godot Voxel build: PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD\nartifacts: 2\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m27/terminal_audit.py"
+      ],
+      "output": "M27 terminal audit: TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED\nexact 0BSD goal achieved: False\nno further automatic milestones: True\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_core_c.py"
+      ],
+      "output": "trying C compiler: <home>\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe cc\nregular case=23 vertices=6 triangles=4\nregular first_vertex=(1.000, 0.250, 0.000)\ntransition case=11 vertices=6 triangles=4\ntransition first_vertex=(0.250, 1.000, 0.000)\nwrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_clean_room_m4\nhigh_lod0 triangles=45 transition triangles=6 low_lod1 triangles=9\ncore C test: PASS\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_consumer_compatibility.py"
+      ],
+      "output": "consumer compatibility test: PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY\nm21 consumer contract cases=512 default_vertices=4096 default_triangles=2640 max_vertices=12 max_triangles=12 m4_matches=512 sample13_ignored=512 callback_checks=3 failures=0\n\ncpp consumer transition case=341 vertices=12 triangles=12\n\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact drop-in integration ready: True\nexact drop-in 0BSD ready: False\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: NONE_TERMINAL\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_exact_compatibility_claim_boundary.py"
+      ],
+      "output": "exact compatibility claim boundary: PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: True\nexact drop-in integration ready: True\nexact drop-in 0BSD ready: False\nexact claim boundary documented: True\nblocking gates: 4\nnext milestone: NONE_TERMINAL\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/project_tracks_report.py"
+      ],
+      "output": "project tracks: PASS\nindependent_core: PASS\nofficial_topology_research: TERMINAL_NOT_ACHIEVED\n",
+      "returncode": 0
+    }
+  ],
+  "technical_semantic_integration_proven": true,
+  "terminal": true,
+  "terminal_audit": {
+    "audit_completed": true,
+    "decision": {
+      "exact_0bsd_goal_achieved": false,
+      "exact_candidate_0bsd_provenance_cleared": false,
+      "functional_0bsd_replacement_remains_available": true,
+      "no_further_automatic_milestones": true,
+      "technical_semantic_integration_proven": true,
+      "terminal": true
+    },
+    "errors": [],
+    "evidence": {
+      "m23": "validation/official_oracle_comparison_report.json",
+      "m24": "validation/m24_exact_topology_report.json",
+      "m24_rules": "research/official_topology/m24/topology_rules.json",
+      "m26_full_build": "research/official_topology/m26/m26_full_godot_voxel_build.json",
+      "m26_integration": "research/official_topology/m26/m26_godot_voxel_integration.json"
+    },
+    "independent_0bsd_rule": {
+      "all_counts_and_crossing_edge_sets_match": true,
+      "checks": {
+        "nonintersecting_loop_enumeration": true,
+        "planar_annulus_zipper": true,
+        "shortest_diagonal_dynamic_programming": true
+      },
+      "exact_official_topology_reproduced": false,
+      "implementation": "research/official_topology/m3/m3_core.py",
+      "regular_case_count": 256,
+      "regular_exact_gap": 170,
+      "regular_oriented_topology_matches": 86,
+      "sha256": "d96e69b874a67c1e75e51ec0c085d12c48a584a239ac4817cb806345e9738246",
+      "transition_case_count": 512,
+      "transition_exact_gap": 373,
+      "transition_oriented_topology_matches": 139
+    },
+    "legal_note": "This is an engineering provenance decision for this repository, not legal advice.",
+    "meaning": "The exact semantic candidate is technically proven, but the published normative rules do not uniquely determine the official interior triangulations. The independent deterministic 0BSD rule does not reproduce every official case, while the exact M24 candidate closes those gaps with MIT-oracle-calibrated choices. Under this project's clean-room provenance standard, the exact candidate cannot be released as 0BSD.",
+    "official_implementation_license": {
+      "checks": {
+        "copyright_2009_eric_lengyel": true,
+        "mit_license_heading": true,
+        "notice_must_be_included": true
+      },
+      "copyright": "Copyright (c) 2009 Eric Lengyel",
+      "license": "MIT",
+      "license_file": "<external-source>/LICENSE",
+      "license_sha256": "83e1991655f02148e22ef93de107f45fac4ffea573ce59df154a1546333fab39",
+      "project_provenance_conclusion": "Oracle-calibrated authored selections remain inside the MIT provenance boundary unless separate permission is obtained.",
+      "source_file": "<external-source>/Transvoxel.cpp",
+      "source_sha256": "83a5511346b54c42e4e66dec916d3971c92f4fbda1c7878cbad5901a820dcab4"
+    },
+    "oracle_calibrated_exact_candidate": {
+      "0bsd_release_cleared": false,
+      "full_gdextension_build": "PASS_M26_FULL_GODOT_VOXEL_GDEXTENSION_BUILD",
+      "godot_voxel_mismatches": 0,
+      "godot_voxel_records_matched": 781,
+      "regular_nonzero_option_indexes": 170,
+      "regular_oriented_topology_matches": 256,
+      "regular_rule_count": 256,
+      "regular_rules_with_nonzero_oracle_option": 170,
+      "technical_semantic_replacement_proven": true,
+      "transition_annulus_signature_rules": 1,
+      "transition_nonzero_option_indexes": 54,
+      "transition_oriented_topology_matches": 512,
+      "transition_representative_rule_count": 73,
+      "transition_rules_with_nonzero_oracle_option": 50
+    },
+    "publication": {
+      "bytes": 59370083,
+      "checks": [
+        {
+          "found": true,
+          "id": "minimal_triangulation_freedom",
+          "meaning": "The normative goal permits multiple robust minimal interiors.",
+          "pdf_page": 24,
+          "printed_page": 16,
+          "short_phrase_checked": "any minimal cell triangulation is acceptable"
+        },
+        {
+          "found": true,
+          "id": "preferred_polarity_boundary_rule",
+          "meaning": "The publication fixes ambiguous boundary connectivity.",
+          "pdf_page": 25,
+          "printed_page": 17,
+          "short_phrase_checked": "always connect vertices on adjacent edges sharing an inside corner"
+        },
+        {
+          "found": true,
+          "id": "regular_alternatives_legal",
+          "meaning": "Most regular classes admit more than one legal interior.",
+          "pdf_page": 39,
+          "printed_page": 31,
+          "short_phrase_checked": "not the only legal triangulation"
+        },
+        {
+          "found": true,
+          "id": "regular_alternatives_authored_choice",
+          "meaning": "The two illustrated alternatives are an authored curvature choice.",
+          "pdf_page": 40,
+          "printed_page": 32,
+          "short_phrase_checked": "chosen to be as dissimilar as possible"
+        },
+        {
+          "found": true,
+          "id": "transition_class_ids_arbitrary",
+          "meaning": "The 73 numeric class IDs are not a geometric invariant.",
+          "pdf_page": 46,
+          "printed_page": 38,
+          "short_phrase_checked": "assigned somewhat arbitrarily"
+        },
+        {
+          "found": true,
+          "id": "transition_boundary_constraints",
+          "meaning": "Transition full, half, and lateral boundaries are constrained.",
+          "pdf_page": 51,
+          "printed_page": 43,
+          "short_phrase_checked": "consistent set of rules"
+        },
+        {
+          "found": true,
+          "id": "transition_internal_edges_described",
+          "meaning": "Exact transition interiors are described and illustrated, not uniquely derived by an algorithm.",
+          "pdf_page": 52,
+          "printed_page": 44,
+          "short_phrase_checked": "internal edges"
+        }
+      ],
+      "conclusion": "The prose fixes robust boundary connectivity and permits multiple legal interiors; the authored exact interiors are presented in figures and tables rather than uniquely selected by a published deterministic rule.",
+      "local_source": "<external-source>/Lengyel-VoxelTerrain.pdf",
+      "official_url": "https://transvoxel.org/Lengyel-VoxelTerrain.pdf",
+      "page_count": 109,
+      "sha256": "c1c86dc1c441fa86dbe6b4b38a521ffb26a5eec3c4eede0f5782508a6ad41160",
+      "title": "Voxel-Based Terrain for Real-Time Virtual Simulations"
+    },
+    "schema": "boqsc.transvoxel.official_topology.m27.terminal_audit.v1",
+    "status": "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED",
+    "terminal": true,
+    "terminal_paths": [
+      {
+        "id": "MIT_EXACT",
+        "result": "Use the official exact implementation/data while retaining the MIT copyright and permission notice."
+      },
+      {
+        "id": "0BSD_FUNCTIONAL_NONEXACT",
+        "result": "Use the existing independently derived functional 0BSD replacement, without claiming exact official interiors."
+      },
+      {
+        "id": "EXPLICIT_PERMISSION",
+        "result": "Obtain explicit permission or relicensing for the exact authored choices, then perform a new provenance review."
+      }
+    ]
+  }
+}

@@ -210,7 +210,17 @@ def stable_tail(output: str, sandbox: Path) -> List[str]:
         .replace(str(ROOT), "<repo>")
         .replace(str(Path.home()), "<home>")
     )
-    lines = sanitized.splitlines()[-160:]
+    # Parallel SCons cache retrieval messages are nondeterministically ordered
+    # and carry no pass/fail information. Excluding them keeps the committed
+    # build evidence stable while retaining diagnostics and final status lines.
+    lines = [
+        line
+        for line in sanitized.splitlines()
+        if not (
+            line.startswith("Retrieved `")
+            and line.endswith("' from cache")
+        )
+    ][-160:]
     return [
         line if len(line) <= 800 else line[:800] + "...<truncated>"
         for line in lines

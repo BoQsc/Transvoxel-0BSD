@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- Added M27 as the terminal exact-0BSD roadmap decision; no M28 is selected.
+- Re-ran the independent 768-case oracle comparison: exact oriented topology
+  matches 86/256 regular and 139/512 transition cases.
+- Audited the official dissertation and recorded that published boundary rules
+  permit multiple legal interior triangulations rather than uniquely deriving
+  every authored official choice.
+- Recorded the final split: functional non-exact 0BSD replacement is ready,
+  exact semantic integration is technically proven, and the exact 0BSD
+  replacement goal is not achieved under the current provenance policy.
 - Added M26 pinned Godot Voxel table-source integration using Zig C++.
 - Matched all 256 regular cases, 512 transition cases, and 13 transition-corner
   records between the downstream table file and the exact candidate.

@@ -66,6 +66,21 @@ prebuilt Zig-compatible debug library. The recorded static-library SHA-256 is:
 
 `1f892f805b88f855ad8e14f0e2be655af08ac7ae3cbf837a6ba0d846648ac9fb`
 
+M27 audits the official dissertation downloaded from the URL above:
+
+- file SHA-256:
+  `c1c86dc1c441fa86dbe6b4b38a521ffb26a5eec3c4eede0f5782508a6ad41160`
+- PDF pages 24-25: modified Marching Cubes allows any robust minimal cell
+  triangulation and fixes preferred-polarity boundary connectivity;
+- PDF pages 39-40: regular classes can have multiple legal interiors and the
+  illustrated alternatives are chosen for curvature contrast;
+- PDF pages 46 and 51-52: transition class IDs are somewhat arbitrary and
+  boundary rules constrain the cell while exact interiors are illustrated.
+
+These primary-source constraints do not uniquely select every official
+interior diagonal. M27 combines that finding with the exhaustive oracle
+comparison; it does not copy dissertation figures or official lookup arrays.
+
 ## License references
 
 - SPDX 0BSD page.

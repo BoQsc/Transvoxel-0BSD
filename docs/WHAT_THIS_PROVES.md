@@ -150,7 +150,7 @@ encoding, official class/table layout, provenance for a final public default,
 or unchanged-consumer integration.
 
 M24's generator code is 0BSD. Its oracle-calibrated generated rule/table data
-is explicitly research-only until the exact 0BSD provenance gate is cleared.
+is explicitly research-only and is not cleared for an 0BSD release.
 
 The M25 compatibility proof independently compresses the M24 topology into the
 original 16/56 class-array capacities, derives packed regular/transition reuse
@@ -168,6 +168,16 @@ Godot Voxel Windows GDExtension with Zig. Runtime editor loading is separate,
 and the generated candidate remains research-only because M24's exact filling
 selections were oracle-calibrated.
 
+The M27 terminal audit reruns the independent regular/transition generation,
+the exhaustive 768-case official-oracle comparison, the exact M24-M26
+candidate, the pinned Godot Voxel API comparison, and the full Zig GDExtension
+build. It audits the official dissertation's published rules and the official
+implementation's MIT license. The independent deterministic rule matches exact
+oriented topology in 86/256 regular and 139/512 transition cases. Because the
+publication permits multiple legal interiors and the exact candidate closes
+the gaps with MIT-oracle-calibrated choices, M27 records that the exact 0BSD
+replacement goal is not achieved. This is terminal; no M28 is selected.
+
 ## Godot's role
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.
@@ -180,7 +190,7 @@ This project does not claim:
 byte-for-byte identity with Eric Lengyel's MIT Transvoxel.cpp
 field-for-field compatibility with every possible Transvoxel.cpp fork
 official numeric 73-class IDs
-0BSD provenance clearance for the M24-M26 exact candidate
+0BSD provenance clearance for the M24-M26 exact candidate; M27 terminally records this as not achieved
 finished Godot gameplay terrain/GDExtension integration
 a complete game terrain engine
 chunk streaming

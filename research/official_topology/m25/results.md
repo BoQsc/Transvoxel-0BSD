@@ -6,7 +6,7 @@
 - Packed vertex-code case matches: `768/768`
 - Original-contract C++ consumer: `PASS_M25_UNCHANGED_STYLE_CPP_CONSUMER`
 - Remaining exact blockers: `4`
-- Next milestone: `M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE`
+- Roadmap state: `NONE_TERMINAL`
 
 M25 proves compatible original data symbols, array capacities, exact topology, and packed reuse semantics with independent internal class IDs. It does not prove byte identity or release provenance.
 

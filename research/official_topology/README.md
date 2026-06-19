@@ -522,13 +522,42 @@ mismatches: 0
 full Windows GDExtension build with Zig: PASS
 exact semantic drop-in integration: READY
 exact semantic drop-in 0BSD release: BLOCKED on provenance
-next milestone: M27 independent exact-topology provenance
+next milestone: M27 terminal independent exact-topology provenance audit
 ```
 
 Run:
 
 ```text
 RUN_M26.cmd
+```
+
+## M27
+
+M27 is the terminal roadmap milestone. It reruns the independent 768-case
+oracle comparison, revalidates the technically exact M24-M26 integration, and
+audits the official dissertation and MIT provenance boundary.
+
+Terminal result:
+
+```text
+independent regular exact topology: 86/256
+independent transition exact topology: 139/512
+oracle-calibrated exact candidate: 256/256 + 512/512
+technical exact integration: PROVEN
+exact 0BSD replacement goal: NOT_ACHIEVED
+next milestone: NONE_TERMINAL
+```
+
+The published rules fix robust boundary connectivity but permit multiple legal
+interiors. The exact candidate therefore depends on MIT-oracle-calibrated
+selections and remains research-only under the current provenance policy.
+Future review requires explicit permission/relicensing or a changed project
+requirement. There is no automatic M28.
+
+Run:
+
+```text
+RUN_M27.cmd
 ```
 
 Allowed:

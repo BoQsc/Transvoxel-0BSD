@@ -72,6 +72,13 @@ M26_FULL_BUILD_REPORT = (
     / "m26"
     / "m26_full_godot_voxel_build.json"
 )
+M27_TERMINAL_REPORT = (
+    ROOT
+    / "research"
+    / "official_topology"
+    / "m27"
+    / "m27_terminal_audit.json"
+)
 M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
     "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
@@ -179,6 +186,8 @@ def write_markdown(report: Dict[str, Any]) -> None:
         f"- Ready to claim a functional full Transvoxel.cpp replacement: `{report['decisions']['functional_full_replacement_ready']}`",
         f"- Exact semantic drop-in integration ready: `{report['decisions']['exact_drop_in_integration_ready']}`",
         f"- Exact semantic drop-in 0BSD release ready: `{report['decisions']['exact_drop_in_0bsd_replacement_ready']}`",
+        f"- Terminal exact-0BSD outcome recorded: `{report['decisions']['terminal_exact_0bsd_outcome']}`",
+        f"- Exact 0BSD goal achieved: `{report['decisions']['exact_0bsd_goal_achieved']}`",
         f"- Ready to claim exact table/encoding compatibility: `{report['decisions']['exact_table_compatible_replacement_ready']}`",
         "",
         "## Passing evidence",
@@ -196,9 +205,9 @@ def write_markdown(report: Dict[str, Any]) -> None:
                 lines.append(f"  - Next: {gate_data['next_action']}")
     lines.extend([
         "",
-        "## Next milestone",
+        "## Roadmap state",
         "",
-        f"`{report['next_milestone']['id']}` — {report['next_milestone']['objective']}",
+        f"`{report['next_milestone']['id']}` - {report['next_milestone']['objective']}",
         "",
         "Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.",
         "",
@@ -297,6 +306,34 @@ def main() -> int:
         read_json(M26_FULL_BUILD_REPORT)
         if M26_FULL_BUILD_REPORT.exists()
         else {}
+    )
+    m27_terminal = (
+        read_json(M27_TERMINAL_REPORT)
+        if M27_TERMINAL_REPORT.exists()
+        else {}
+    )
+    terminal_exact_0bsd_outcome = (
+        m27_terminal.get("status")
+        == "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED"
+        and m27_terminal.get("decision", {}).get("terminal") is True
+        and m27_terminal.get("decision", {}).get(
+            "no_further_automatic_milestones"
+        )
+        is True
+    )
+    provenance_cleared = (
+        m27_terminal.get("decision", {}).get(
+            "exact_candidate_0bsd_provenance_cleared",
+            False,
+        )
+        if terminal_exact_0bsd_outcome
+        else m26_provenance.get("decision", {}).get(
+            "exact_candidate_0bsd_provenance_cleared",
+            m24_exact_topology.get("decisions", {}).get(
+                "exact_0bsd_provenance_cleared",
+                False,
+            ),
+        )
     )
     if M15_REPORT.exists():
         try:
@@ -819,10 +856,7 @@ def main() -> int:
             ["exact_table_compatible_replacement"],
             (
                 "PASS"
-                if m26_provenance.get("decision", {}).get(
-                    "exact_candidate_0bsd_provenance_cleared"
-                )
-                is True
+                if provenance_cleared is True
                 else "BLOCKED"
             ),
             [
@@ -839,24 +873,27 @@ def main() -> int:
                         "m26_provenance_audit.json"
                     )
                 ),
+                (
+                    rel(M27_TERMINAL_REPORT)
+                    if M27_TERMINAL_REPORT.exists()
+                    else (
+                        "research/official_topology/m27/"
+                        "m27_terminal_audit.json"
+                    )
+                ),
                 "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md",
             ],
-            m26_provenance.get("decision", {}).get(
-                "exact_candidate_0bsd_provenance_cleared",
-                m24_exact_topology.get("decisions", {}).get(
-                    "exact_0bsd_provenance_cleared",
-                    False,
-                ),
-            ),
+            provenance_cleared,
             True,
             (
-                "Replace oracle-calibrated selections with a defensible "
-                "independent derivation or obtain explicit provenance/legal "
-                "clearance before shipping them as 0BSD."
+                "M27 exhausted the published deterministic derivation path. "
+                "Use the MIT exact data, use the functional non-exact 0BSD "
+                "core, or obtain explicit permission/relicensing."
             ),
             (
-                "M24 is research-only until this gate passes. The existing "
-                "independent functional core remains 0BSD."
+                "M27 records this as the terminal project outcome. M24-M26 "
+                "remain research-only; the independent functional core "
+                "remains 0BSD."
             ),
         ),
         gate(
@@ -968,8 +1005,23 @@ def main() -> int:
         == "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY"
     )
     if functional_ready:
-        if claim_boundary_documented:
-            if (
+        if claim_boundary_documented or terminal_exact_0bsd_outcome:
+            if terminal_exact_0bsd_outcome:
+                next_milestone = {
+                    "id": "NONE_TERMINAL",
+                    "objective": (
+                        "No further automatic milestone. The exact 0BSD "
+                        "replacement goal is closed as not achieved under the "
+                        "current clean-room provenance constraints."
+                    ),
+                    "why_first": (
+                        "M27 found no published deterministic rule that "
+                        "uniquely selects all authored official interiors. "
+                        "Further work requires a changed requirement or "
+                        "external permission, not another internal milestone."
+                    ),
+                }
+            elif (
                 m26_integration.get("status")
                 == "PASS_M26_GODOT_VOXEL_TABLE_INTEGRATION"
                 and m26_full_build.get("status")
@@ -1204,6 +1256,10 @@ def main() -> int:
 
     if not analysis_ok:
         readiness_status = "FAIL_M4_REPLACEMENT_READINESS_ANALYSIS"
+    elif terminal_exact_0bsd_outcome:
+        readiness_status = (
+            "TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED"
+        )
     elif drop_in_release_ready:
         readiness_status = "READY_EXACT_DROP_IN_0BSD_TRANSVOXEL_CPP_REPLACEMENT"
     elif drop_in_integration_ready:
@@ -1225,7 +1281,17 @@ def main() -> int:
     else:
         readiness_status = "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
 
-    if drop_in_release_ready:
+    if terminal_exact_0bsd_outcome:
+        meaning = (
+            "M27 is terminal: the exact semantic M24-M26 candidate passes "
+            "the pinned Godot Voxel API and full Zig GDExtension build, but "
+            "the independent deterministic 0BSD topology matches only "
+            "86/256 regular and 139/512 transition cases. Published rules "
+            "permit multiple legal interiors, and the exact candidate closes "
+            "the gaps with MIT-oracle-calibrated selections. The exact 0BSD "
+            "replacement goal is therefore not achieved."
+        )
+    elif drop_in_release_ready:
         meaning = (
             "The exact semantic Transvoxel.cpp replacement passes the "
             "downstream source-contract integration and its generated data is "
@@ -1291,9 +1357,11 @@ def main() -> int:
                 "table API."
             )
             claim_not_allowed = (
-                "0BSD release claim for the M24-M26 exact candidate before "
-                "provenance clearance; Exact official Transvoxel.cpp numeric "
-                "class-ID, table-byte, or source-byte identity claim."
+                "0BSD release claim for the M24-M26 exact candidate. M27 "
+                "terminally denied provenance clearance under the current "
+                "clean-room standard; Exact official Transvoxel.cpp numeric "
+                "class-ID, table-byte, and source-byte identity claims also "
+                "remain unproved."
             )
         else:
             claim_allowed = (
@@ -1336,6 +1404,8 @@ def main() -> int:
             "exact_drop_in_0bsd_replacement_ready": drop_in_release_ready,
             "exact_table_compatible_replacement_ready": exact_ready,
             "exact_compatibility_claim_boundary_documented": claim_boundary_documented,
+            "terminal_exact_0bsd_outcome": terminal_exact_0bsd_outcome,
+            "exact_0bsd_goal_achieved": drop_in_release_ready,
         },
         "load_errors": load_errors,
         "passing_gate_ids": passing_ids,
@@ -1345,6 +1415,23 @@ def main() -> int:
         "failed_gate_ids": failed_ids,
         "gates": gates,
         "next_milestone": next_milestone,
+        "terminal_outcome": {
+            "recorded": terminal_exact_0bsd_outcome,
+            "status": m27_terminal.get("status", "NOT_RECORDED"),
+            "exact_0bsd_goal_achieved": (
+                m27_terminal.get("decision", {}).get(
+                    "exact_0bsd_goal_achieved",
+                    False,
+                )
+            ),
+            "technical_semantic_integration_proven": (
+                m27_terminal.get("decision", {}).get(
+                    "technical_semantic_integration_proven",
+                    drop_in_integration_ready,
+                )
+            ),
+            "terminal_paths": m27_terminal.get("terminal_paths", []),
+        },
         "claim_boundary": {
             "allowed_now": claim_allowed,
             "not_allowed_now": claim_not_allowed,
@@ -1400,6 +1487,14 @@ def main() -> int:
                 else (
                     "research/official_topology/m26/"
                     "m26_full_godot_voxel_build.json"
+                )
+            ),
+            "m27_terminal_report": (
+                rel(M27_TERMINAL_REPORT)
+                if M27_TERMINAL_REPORT.exists()
+                else (
+                    "research/official_topology/m27/"
+                    "m27_terminal_audit.json"
                 )
             ),
             "exact_replacement_finish_line": (

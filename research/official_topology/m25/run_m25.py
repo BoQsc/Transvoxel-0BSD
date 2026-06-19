@@ -84,7 +84,7 @@ def write_results(report: Dict[str, Any]) -> None:
         f"- Original-contract C++ consumer: `{report['consumer_status']}`",
         f"- Remaining exact blockers: "
         f"`{len(report['readiness']['blocking_gate_ids'])}`",
-        f"- Next milestone: "
+        f"- Roadmap state: "
         f"`{report['readiness']['next_milestone']['id']}`",
         "",
         "M25 proves compatible original data symbols, array capacities, exact "
@@ -149,6 +149,7 @@ def main() -> int:
         in {
             "M26_REAL_ENGINE_INTEGRATION_AND_PROVENANCE",
             "M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE",
+            "NONE_TERMINAL",
         }
         and blockers
         == {

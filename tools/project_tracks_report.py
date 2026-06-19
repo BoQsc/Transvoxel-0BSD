@@ -78,6 +78,14 @@ def main() -> int:
     m26_full_build = read_json(
         "research/official_topology/m26/m26_full_godot_voxel_build.json"
     )
+    m27_terminal = read_json(
+        "research/official_topology/m27/m27_terminal_audit.json"
+    )
+    terminal_m27 = (
+        m27_terminal.get("status")
+        == "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED"
+        and m27_terminal.get("decision", {}).get("terminal") is True
+    )
 
     independent_ok = not missing_independent
     official_track_ok = not missing_official
@@ -109,7 +117,13 @@ def main() -> int:
                 ),
             },
             "official_topology_research": {
-                "status": "IN_PROGRESS" if official_track_ok else "MISSING_FILES",
+                "status": (
+                    "TERMINAL_NOT_ACHIEVED"
+                    if official_track_ok and terminal_m27
+                    else "IN_PROGRESS"
+                    if official_track_ok
+                    else "MISSING_FILES"
+                ),
                 "purpose": "Research official 73-class/topology/reference-convention equivalence without copying MIT table values.",
                 "missing": missing_official,
                 "official_73_class_mapping": "NOT_PROVEN",
@@ -147,10 +161,19 @@ def main() -> int:
                     else "NOT_PROVEN"
                 ),
                 "exact_0bsd_provenance_cleared": (
-                    m24_exact_topology.get("decisions", {}).get(
-                        "exact_0bsd_provenance_cleared",
-                        False,
+                    m27_terminal.get("decision", {}).get(
+                        "exact_candidate_0bsd_provenance_cleared",
+                        m24_exact_topology.get("decisions", {}).get(
+                            "exact_0bsd_provenance_cleared",
+                            False,
+                        ),
                     )
+                ),
+                "exact_0bsd_goal_achieved": m27_terminal.get(
+                    "decision", {}
+                ).get("exact_0bsd_goal_achieved", False),
+                "terminal_roadmap_decision": m27_terminal.get(
+                    "status", "NOT_RUN"
                 ),
                 "compatible_transvoxel_cpp_data_layout": (
                     m25_compatible_layout.get("decisions", {}).get(
@@ -223,6 +246,7 @@ def main() -> int:
             "m26_full_godot_voxel_build_status": m26_full_build.get(
                 "status"
             ),
+            "m27_terminal_audit_status": m27_terminal.get("status"),
         },
         "meaning": (
             "The independent core can be released/evaluated independently. "
@@ -236,9 +260,11 @@ def main() -> int:
             "M25 adds compatible packed reuse semantics, original data symbols "
             "and array capacities, and an unchanged-style C++ consumer. M26 "
             "proves the pinned Godot Voxel table integration with zero "
-            "mismatches and a complete Zig-built Windows GDExtension DLL; "
-            "only provenance blocks the exact semantic candidate from an "
-            "0BSD release."
+            "mismatches and a complete Zig-built Windows GDExtension DLL. "
+            "M27 is terminal: published rules allow multiple legal interiors, "
+            "the independent deterministic topology is not exact, and the "
+            "exact candidate depends on MIT-oracle-calibrated selections. The "
+            "exact 0BSD goal is not achieved; there is no automatic M28."
         ),
     }
     VALIDATION.mkdir(exist_ok=True)

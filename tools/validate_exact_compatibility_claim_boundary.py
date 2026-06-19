@@ -25,8 +25,7 @@ CONSUMER_REPORT = ROOT / "validation" / "consumer_compatibility_report.json"
 TRANSVOXEL_TABLES = ROOT / "generated" / "transvoxel_tables.json"
 
 EXPECTED_READINESS_STATUS = (
-    "READY_EXACT_DROP_IN_INTEGRATION_PROVEN_"
-    "0BSD_PROVENANCE_BLOCKED"
+    "TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED"
 )
 EXPECTED_EXACT_BLOCKERS = {
     "official_class_id_mapping",
@@ -38,6 +37,13 @@ EXPECTED_EXACT_BLOCKERS = {
 }
 M24_REPORT = ROOT / "validation" / "m24_exact_topology_report.json"
 M25_REPORT = ROOT / "validation" / "m25_compatible_layout_report.json"
+M27_REPORT = (
+    ROOT
+    / "research"
+    / "official_topology"
+    / "m27"
+    / "m27_terminal_audit.json"
+)
 
 CLAIM_FILES = [
     "README.md",
@@ -162,6 +168,44 @@ def validate_reports() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         )
     if decisions.get("exact_table_compatible_replacement_ready") is not False:
         add_error(errors, "exact_not_ready", "exact compatibility must remain false", rel(READINESS))
+    if decisions.get("terminal_exact_0bsd_outcome") is not True:
+        add_error(
+            errors,
+            "terminal_outcome",
+            "M27 terminal exact-0BSD outcome is not recorded",
+            rel(READINESS),
+        )
+    if decisions.get("exact_0bsd_goal_achieved") is not False:
+        add_error(
+            errors,
+            "terminal_goal",
+            "the exact 0BSD goal must be recorded as not achieved",
+            rel(READINESS),
+        )
+    if readiness.get("next_milestone", {}).get("id") != "NONE_TERMINAL":
+        add_error(
+            errors,
+            "terminal_roadmap",
+            "the terminal roadmap must not select another milestone",
+            rel(READINESS),
+        )
+    m27 = read_json(M27_REPORT)
+    if m27.get("status") != (
+        "TERMINAL_M27_EXACT_0BSD_REPLACEMENT_NOT_ACHIEVED"
+    ):
+        add_error(
+            errors,
+            "m27_status",
+            f"unexpected M27 status: {m27.get('status')}",
+            rel(M27_REPORT),
+        )
+    if m27.get("decision", {}).get("exact_0bsd_goal_achieved") is not False:
+        add_error(
+            errors,
+            "m27_goal",
+            "M27 exact 0BSD terminal decision is missing",
+            rel(M27_REPORT),
+        )
     expected_blockers = set(EXPECTED_EXACT_BLOCKERS)
     if M24_REPORT.exists():
         m24 = read_json(M24_REPORT)
@@ -258,6 +302,8 @@ def validate_reports() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             "identity_only_blocking_gate_ids", []
         ),
         "claim_boundary": claim_boundary,
+        "m27_status": m27.get("status"),
+        "next_milestone": readiness.get("next_milestone", {}),
         "m21_status": m21.get("status"),
         "consumer_status": consumer.get("status"),
         "transition_source": source_tables.get("transition_source"),
@@ -354,8 +400,10 @@ def main() -> int:
             "Functional clean-room replacement is allowed through the public "
             "C/C++ API. M24-M26 exact semantic results may be reported as "
             "research, but the generated exact candidate cannot be released "
-            "as 0BSD until provenance clears. Numeric class-ID and byte "
-            "identity remain separate unclaimed identity properties."
+            "as 0BSD. M27 terminally records that the published rules do not "
+            "uniquely derive every authored official interior and that the "
+            "exact candidate uses MIT-oracle-calibrated selections. Numeric "
+            "class-ID and byte identity remain separate unclaimed properties."
         ),
         "claim_contract": {
             "allowed_now": (
@@ -364,10 +412,11 @@ def main() -> int:
                 "clean-room published behavior; C and C++ consumers can "
                 "compile/link; callback customization is retained. "
                 "Research-only exact semantic drop-in integration is proven "
-                "by M24-M26."
+                "by M24-M26; M27 records that the exact 0BSD goal was not "
+                "achieved."
             ),
             "not_allowed_now": [
-                "0BSD release claim for the M24-M26 exact candidate before provenance clearance.",
+                "0BSD release claim for the M24-M26 exact candidate.",
                 "Official 73-class ID compatibility claim.",
                 "Exact official Transvoxel.cpp numeric class/table identity claim.",
                 "Byte-for-byte Transvoxel.cpp table/file identity claim.",

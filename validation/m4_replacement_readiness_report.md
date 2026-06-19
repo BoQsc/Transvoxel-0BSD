@@ -1,6 +1,6 @@
 # M4 Replacement Readiness
 
-Status: **READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED**
+Status: **TERMINAL_EXACT_0BSD_TRANSVOXEL_CPP_REPLACEMENT_NOT_ACHIEVED**
 
 ## Decisions
 
@@ -9,6 +9,8 @@ Status: **READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED**
 - Ready to claim a functional full Transvoxel.cpp replacement: `True`
 - Exact semantic drop-in integration ready: `True`
 - Exact semantic drop-in 0BSD release ready: `False`
+- Terminal exact-0BSD outcome recorded: `True`
+- Exact 0BSD goal achieved: `False`
 - Ready to claim exact table/encoding compatibility: `False`
 
 ## Passing evidence
@@ -50,14 +52,14 @@ Status: **READY_EXACT_DROP_IN_INTEGRATION_PROVEN_0BSD_PROVENANCE_BLOCKED**
 - `exact_0bsd_provenance_clearance`: 0BSD provenance clearance for oracle-calibrated exact data
   - Actual: `False`
   - Required: `True`
-  - Next: Replace oracle-calibrated selections with a defensible independent derivation or obtain explicit provenance/legal clearance before shipping them as 0BSD.
+  - Next: M27 exhausted the published deterministic derivation path. Use the MIT exact data, use the functional non-exact 0BSD core, or obtain explicit permission/relicensing.
 - `official_transvoxel_cpp_byte_identity`: Byte-for-byte identity with the MIT Transvoxel.cpp table file
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN only if exact table-file compatibility is claimed`
   - Next: Do not use official arrays as an oracle. This is not required for a functional clean-room replacement.
 
-## Next milestone
+## Roadmap state
 
-`M27_INDEPENDENT_EXACT_TOPOLOGY_PROVENANCE` — Replace the M24 oracle-calibrated triangulation selection indexes with an independently justified deterministic rule, then re-run all exact and downstream integration proofs.
+`NONE_TERMINAL` - No further automatic milestone. The exact 0BSD replacement goal is closed as not achieved under the current clean-room provenance constraints.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

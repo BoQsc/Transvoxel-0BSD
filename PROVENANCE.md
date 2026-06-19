@@ -106,15 +106,24 @@ M24-M26 exact-candidate boundary:
 - M26 proves that candidate through the pinned Godot Voxel table API with zero
   mismatches across all 781 records and compiles/links the full Windows
   GDExtension with Zig in temporary clones.
+- M27 exhaustively tests the independent deterministic rule and audits the
+  published derivation. It records that the publication permits multiple legal
+  interiors and that the exact authored choices are not uniquely selected by a
+  public deterministic rule.
 - The exact generated candidate remains research-only and must not be labeled
-  or distributed as 0BSD until the calibrated filling selections are replaced
-  by an independently justified rule or explicit clearance is obtained.
+  or distributed as 0BSD. Under the current project policy, this is a terminal
+  decision. A new review requires explicit permission/relicensing or a changed
+  project requirement.
 
 Numeric class-ID identity and byte identity are not required for the semantic
 drop-in finish line.
 
 M22 machine-checks this exact compatibility claim boundary in
 `validation/exact_compatibility_claim_boundary_report.json`.
+
+M27 machine-checks the terminal provenance decision in
+`validation/m27_terminal_roadmap_report.json`. This is an engineering
+provenance decision for this repository, not legal advice.
 
 ## Acceptance policy before production use
 

@@ -78,6 +78,7 @@ RUN_M23.cmd
 RUN_M24.cmd
 RUN_M25.cmd
 RUN_M26.cmd
+RUN_M27.cmd
 ```
 
 The current expected result is a passing readiness analysis with the
@@ -85,7 +86,7 @@ functional full replacement decision ready, exact table-compatible identity
 blocked, the M22 claim boundary documented, the M23 exhaustive oracle baseline
 complete, M24 exact topology convergence proven, M25 compatible vertex
 encoding/table layout proven, and M26 exact downstream source-contract
-integration proven. M27 independent exact-topology provenance is selected next.
+integration proven. M27 records the terminal exact-0BSD provenance decision.
 
 The exact-replacement finish line requires field/output/symbol compatibility
 and unchanged-consumer integration. It does not require byte-identical source
@@ -110,3 +111,18 @@ exact semantic drop-in integration: READY
 exact semantic drop-in 0BSD release: BLOCKED on provenance
 numeric class IDs and byte identity: identity-only, not finish-line blockers
 ```
+
+After M27, readiness is terminal:
+
+```text
+technical exact semantic integration: PROVEN
+exact 0BSD replacement goal: NOT_ACHIEVED
+functional non-exact 0BSD replacement: READY
+next milestone: NONE_TERMINAL
+```
+
+The publication constrains robust boundaries but permits multiple legal
+interiors. The independent deterministic rule does not match every authored
+official interior, and the exact candidate uses MIT-oracle-calibrated choices.
+Further review requires explicit permission/relicensing or a changed project
+requirement; another automatic milestone cannot resolve this provenance fact.

@@ -57,8 +57,9 @@ unchanged_style_cpp_consumer: PROVEN_M25
 godot_voxel_table_integration: PROVEN_M26
 godot_voxel_full_gdextension_build: PASS_M26_ZIG
 exact_semantic_drop_in_integration: READY_M26
-exact_semantic_drop_in_0bsd_release: BLOCKED_PROVENANCE
-exact_replacement_finish_line: ACTIVE
+exact_semantic_drop_in_0bsd_release: TERMINAL_NOT_ACHIEVED_M27
+exact_replacement_finish_line: CLOSED_NOT_ACHIEVED
+next_milestone: NONE_TERMINAL
 ```
 
 This track may fail, change direction, or produce new candidate generators. It should not break the independent core.
@@ -77,11 +78,13 @@ M25 now proves compatible original data symbols and capacities, packed reuse
 semantics, and unchanged-style C++ consumption. It uses independent internal
 class IDs.
 
-M26 now proves the pinned Godot Voxel table-source replacement contract across
-all 781 records and compiles/links the full Windows GDExtension with Zig. M27
-owns the remaining release blocker: replacing the oracle-calibrated topology
-selections with an independent deterministic rule. Official numeric class IDs
-and byte identity are separate identity-only claims.
+M26 proves the pinned Godot Voxel table-source replacement contract across all
+781 records and compiles/links the full Windows GDExtension with Zig. M27 is
+terminal: the independent deterministic rule matches exact oriented topology
+in only 86/256 regular and 139/512 transition cases, while the publication
+permits multiple legal interiors. The exact candidate reaches 256/256 and
+512/512 by using MIT-oracle-calibrated selections, so the exact 0BSD goal is not
+achieved under the current provenance policy. There is no automatic M28.
 
 ## Why this split exists
 
