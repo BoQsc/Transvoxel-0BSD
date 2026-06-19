@@ -18,6 +18,7 @@ optional M4 candidate backend package example compiles and runs when a C compile
 optional M4 candidate backend terrain export compiles and runs when a C compiler is available
 optional M4 candidate table is synced into the Godot data path and passes Godot-style metrics without executing Godot
 optional M4 candidate table can feed a real Godot ArrayMesh/MeshDataTool viewer/export path when RUN_M11 is executed with Godot
+default and optional M4 Godot transition-strip mesh paths can be compared side by side when RUN_M12 is executed with Godot
 small dist/transvoxel_0bsd_core.zip can be built
 ```
 
@@ -59,6 +60,12 @@ The M4 Godot viewer/export proof checks that the synced M4 candidate table can
 build real Godot `ArrayMesh` objects for a case gallery and deterministic
 terrain-strip-style mesh, and that `MeshDataTool` can read them back. This is
 `RUN_M11.cmd`; it still keeps M4 optional.
+
+The M4 Godot backend comparison proof checks that the default independent
+transition table and the optional M4 candidate table can be selected explicitly
+inside Godot, built through the same deterministic mesh path, and compared in a
+report. This is `RUN_M12.cmd`; it still keeps the default backend as the
+default.
 
 ## Godot's role
 

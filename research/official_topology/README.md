@@ -240,6 +240,30 @@ default core replaced: false
 official Transvoxel.cpp equivalence: NOT_PROVEN
 ```
 
+## M12
+
+`m12/` validates an explicit default-vs-M4 Godot backend comparison path. It
+builds the same deterministic transition-strip-style mesh with the default
+independent transition table and the optional M4 candidate table.
+
+Run:
+
+```text
+RUN_M12.cmd
+```
+
+Current M12 result:
+
+```text
+default Godot transition mesh path: PASS
+M4 Godot transition mesh path: PASS
+same deterministic case sequence: PASS
+M4 output structurally distinct from default: PASS
+default backend by default: true
+M4 requires explicit selection: true
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
 Allowed:
 
 ```text

@@ -155,6 +155,7 @@ def create_upload_bundle(run_id: str, archive_dir: Optional[Path]) -> Optional[P
                 "validation/godot_project_report.json",
                 "validation/m4_godot_candidate_report.json",
                 "validation/m4_godot_viewer_report.json",
+                "validation/m4_godot_backend_compare_report.json",
                 "validation/core_c_report.json",
                 "validation/m4_backend_c_report.json",
                 "validation/m4_terrain_c_report.json",
@@ -166,6 +167,7 @@ def create_upload_bundle(run_id: str, archive_dir: Optional[Path]) -> Optional[P
                 "godot/validation/06_interactive_sandbox/session.json",
                 "godot/validation/07_auto_interaction/auto_interaction.json",
                 "godot/validation/08_m4_candidate_viewer/m4_candidate_viewer.json",
+                "godot/validation/09_m4_backend_compare/m4_backend_compare.json",
                 "validation/auto_interaction_report.json",
                 "validation/external_alignment_report.json",
                 "validation/topology_signature_report.json",
@@ -351,6 +353,7 @@ def make_summary(report: Dict[str, Any]) -> str:
         "validation/m4_terrain_c_report.json",
         "validation/m4_godot_candidate_report.json",
         "validation/m4_godot_viewer_report.json",
+        "validation/m4_godot_backend_compare_report.json",
         "validation/dist_report.json",
         "dist/transvoxel_0bsd_core.zip",
         "godot/validation/01_runtime/runtime_dump.json",
@@ -360,6 +363,7 @@ def make_summary(report: Dict[str, Any]) -> str:
         "godot/validation/06_interactive_sandbox/session.json",
         "godot/validation/07_auto_interaction/auto_interaction.json",
         "godot/validation/08_m4_candidate_viewer/m4_candidate_viewer.json",
+        "godot/validation/09_m4_backend_compare/m4_backend_compare.json",
         "validation/auto_interaction_report.json",
         "validation/external_alignment_report.json",
         "validation/official_equivalence_research_report.json",
@@ -411,6 +415,7 @@ def run_godot_steps(steps: List[Dict[str, Any]], py: str, godot_exe: Path, inclu
         ("godot seam metrics", "res://stages/03_seam_metrics/DumpSeamMetrics.gd"),
         ("godot M4 candidate metrics", "res://stages/05_m4_candidate_metrics/DumpM4CandidateMetrics.gd"),
         ("godot M4 candidate viewer", "res://stages/08_m4_candidate_viewer/DumpM4CandidateViewer.gd"),
+        ("godot M4 backend compare", "res://stages/09_m4_backend_compare/DumpM4BackendCompare.gd"),
     ]:
         steps.append(run_cmd(name, [str(godot_exe), "--headless", "--path", str(godot_dir), "--script", script], ROOT))
         hard_ok = hard_ok and bool(steps[-1]["ok"])
@@ -422,6 +427,9 @@ def run_godot_steps(steps: List[Dict[str, Any]], py: str, godot_exe: Path, inclu
         hard_ok = hard_ok and bool(steps[-1]["ok"])
     if hard_ok:
         steps.append(run_cmd("validate M4 Godot viewer", [py, "tools/validate_m4_godot_viewer.py", "--require-output"], ROOT))
+        hard_ok = hard_ok and bool(steps[-1]["ok"])
+    if hard_ok:
+        steps.append(run_cmd("validate M4 Godot backend compare", [py, "tools/validate_m4_godot_backend_compare.py", "--require-output"], ROOT))
         hard_ok = hard_ok and bool(steps[-1]["ok"])
     if hard_ok and include_auto:
         steps.append(run_cmd("validate auto interaction", [py, "tools/validate_auto_interaction.py"], ROOT))

@@ -12,6 +12,7 @@ The optional M4 candidate backend is package-tested, but official equivalence is
 The optional M4 terrain export path is C-tested, but full Godot gameplay/GDExtension terrain integration through M4 is still not proven.
 The optional M4 Godot data path is staged and Python-metrics validated; `RUN_M10.cmd` executes the M4 Godot stage only when Godot is available locally.
 The optional M4 Godot viewer/export mesh path is validated by `RUN_M11.cmd` only when Godot is available locally.
+The optional default-vs-M4 Godot comparison path is validated by `RUN_M12.cmd` only when Godot is available locally.
 Game-ready art/texture/lighting quality is not certified.
 Gameplay performance in a complete streaming world is not certified.
 ```
@@ -27,5 +28,6 @@ Optional M4 candidate backend builds and runs through the normal C API when a co
 Optional M4 candidate backend builds the C terrain export path when a compiler is available.
 Optional M4 candidate table is synced into `godot/generated/` and passes Godot-style table metrics.
 Optional M4 candidate table can build real Godot ArrayMesh data and pass MeshDataTool readback when RUN_M11 runs with Godot.
+Default and M4 Godot transition-strip mesh outputs can be compared side by side when RUN_M12 runs with Godot.
 Small public dist package is generated and checked.
 ```

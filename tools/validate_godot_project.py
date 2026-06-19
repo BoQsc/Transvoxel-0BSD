@@ -26,6 +26,7 @@ REQUIRED = [
     GODOT / "generated" / "official_topology_candidate_tables.json",
     STAGES / "05_m4_candidate_metrics" / "DumpM4CandidateMetrics.gd",
     STAGES / "08_m4_candidate_viewer" / "DumpM4CandidateViewer.gd",
+    STAGES / "09_m4_backend_compare" / "DumpM4BackendCompare.gd",
 ]
 
 EXPECTED_SCHEMAS = {
@@ -114,6 +115,14 @@ def main() -> int:
         if token not in m4_viewer_script:
             print("godot preflight: FAIL")
             print("M4 viewer script missing token", token)
+            return 1
+
+    m4_compare_script = (STAGES / "09_m4_backend_compare" / "DumpM4BackendCompare.gd").read_text(encoding="utf-8")
+    m4_compare_tokens = ["DEFAULT_PATH", "M4_PATH", "OUT_PATH", "_build_backend", "_compare_backends", "_make_array_mesh", "MeshDataTool"]
+    for token in m4_compare_tokens:
+        if token not in m4_compare_script:
+            print("godot preflight: FAIL")
+            print("M4 backend compare script missing token", token)
             return 1
 
     for gd_path in sorted(STAGES.rglob("*.gd")):

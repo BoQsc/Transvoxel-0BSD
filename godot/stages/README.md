@@ -10,6 +10,8 @@ Each validation step has its own folder. New work should add a new numbered stag
   official-topology candidate data path.
 - `08_m4_candidate_viewer/` records a real Godot ArrayMesh/MeshDataTool
   viewer/export path for the optional M4 candidate.
+- `09_m4_backend_compare/` records a default-vs-M4 Godot backend comparison
+  through the same transition-strip mesh path.
 
 Rule: proof comes from JSON metrics first; screenshots are secondary.
 

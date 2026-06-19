@@ -346,3 +346,35 @@ Run:
 ```text
 RUN_M11.cmd
 ```
+
+## M12 result
+
+M12 validates a Godot default-vs-M4 backend comparison path:
+
+```text
+godot/stages/09_m4_backend_compare/DumpM4BackendCompare.gd
+tools/validate_m4_godot_backend_compare.py
+```
+
+The stage loads both the default independent transition table and the optional
+M4 candidate table, builds the same deterministic transition-strip-style mesh
+through both paths, and records a side-by-side comparison.
+
+Current M12 result:
+
+```text
+actual Godot default-vs-M4 comparison execution: PASS when Godot is available
+same case sequence: PASS
+default mesh ArrayMesh/MeshDataTool: PASS
+M4 mesh ArrayMesh/MeshDataTool: PASS
+M4 structurally distinct from default: PASS
+default backend by default: true
+M4 requires explicit selection: true
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
+Run:
+
+```text
+RUN_M12.cmd
+```

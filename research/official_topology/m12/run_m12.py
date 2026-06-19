@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: 0BSD
-"""Run M11: M4 candidate through a real Godot viewer/export mesh path."""
+"""Run M12: compare default and M4 Godot transition-strip mesh paths."""
 from __future__ import annotations
 
 import json
@@ -12,13 +12,13 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 ROOT = Path(__file__).resolve().parents[3]
-M11_DIR = ROOT / "research" / "official_topology" / "m11"
-M10_REPORT = ROOT / "research" / "official_topology" / "m10" / "m10_report.json"
+M12_DIR = ROOT / "research" / "official_topology" / "m12"
+M11_REPORT = ROOT / "research" / "official_topology" / "m11" / "m11_report.json"
 GODOT_PROJECT_REPORT = ROOT / "validation" / "godot_project_report.json"
-M4_VIEWER_REPORT = ROOT / "validation" / "m4_godot_viewer_report.json"
-GODOT_VIEWER_OUTPUT = ROOT / "godot" / "validation" / "08_m4_candidate_viewer" / "m4_candidate_viewer.json"
-M11_REPORT = M11_DIR / "m11_report.json"
-RESULTS = M11_DIR / "results.md"
+BACKEND_COMPARE_REPORT = ROOT / "validation" / "m4_godot_backend_compare_report.json"
+GODOT_COMPARE_OUTPUT = ROOT / "godot" / "validation" / "09_m4_backend_compare" / "m4_backend_compare.json"
+M12_REPORT = M12_DIR / "m12_report.json"
+RESULTS = M12_DIR / "results.md"
 
 
 def stable_command(command: List[str]) -> List[str]:
@@ -103,41 +103,42 @@ def find_godot() -> Path | None:
     return None
 
 
-def write_results(report: Dict[str, Any], viewer_report: Dict[str, Any]) -> None:
-    gallery = viewer_report.get("case_gallery", {})
-    gallery_mesh = gallery.get("mesh", {}) if isinstance(gallery, dict) else {}
-    strip = viewer_report.get("terrain_strip", {})
-    strip_mesh = strip.get("mesh", {}) if isinstance(strip, dict) else {}
+def write_results(report: Dict[str, Any], compare_report: Dict[str, Any]) -> None:
+    comparison = compare_report.get("comparison", {})
+    default_backend = compare_report.get("default_backend", {})
+    m4_backend = compare_report.get("m4_backend", {})
+    default_mesh = default_backend.get("mesh", {}) if isinstance(default_backend, dict) else {}
+    m4_mesh = m4_backend.get("mesh", {}) if isinstance(m4_backend, dict) else {}
     lines = [
-        "# M11 M4 Godot Viewer/Export Path",
+        "# M12 M4 Godot Backend Comparison",
         "",
-        "M11 validates that the M4 candidate table can feed real Godot mesh creation and readback.",
+        "M12 compares the default independent transition table and optional M4 candidate table through the same Godot mesh path.",
         "",
         f"- Status: `{report['status']}`",
-        f"- M10 status: `{report.get('m10_status')}`",
+        f"- M11 status: `{report.get('m11_status')}`",
         f"- Godot project preflight: `{report.get('godot_project_status')}`",
         f"- Godot runtime executed: `{report.get('godot_runtime_executed')}`",
-        f"- M4 viewer validation: `{viewer_report.get('status')}`",
+        f"- Backend comparison validation: `{compare_report.get('status')}`",
         "",
-        "## Runtime mesh outputs",
+        "## Comparison",
         "",
-        f"- Case gallery vertices: `{gallery_mesh.get('array_vertex_count')}`",
-        f"- Case gallery triangles: `{gallery_mesh.get('triangle_count')}`",
-        f"- Case gallery MeshDataTool error: `{gallery_mesh.get('mdt_create_error')}`",
-        f"- Terrain strip non-empty cells: `{strip.get('non_empty_cells')}`",
-        f"- Terrain strip vertices: `{strip_mesh.get('array_vertex_count')}`",
-        f"- Terrain strip triangles: `{strip_mesh.get('triangle_count')}`",
-        f"- Terrain strip MeshDataTool error: `{strip_mesh.get('mdt_create_error')}`",
-        f"- Invalid triangles: `{strip_mesh.get('invalid_triangles')}`",
-        f"- Degenerate triangles: `{strip_mesh.get('degenerate_triangles')}`",
+        f"- Same case sequence: `{comparison.get('same_case_sequence')}`",
+        f"- Same non-empty cell count: `{comparison.get('same_non_empty_cell_count')}`",
+        f"- Default vertices/triangles: `{default_mesh.get('array_vertex_count')}` / `{default_mesh.get('triangle_count')}`",
+        f"- M4 vertices/triangles: `{m4_mesh.get('array_vertex_count')}` / `{m4_mesh.get('triangle_count')}`",
+        f"- Vertex delta M4-default: `{comparison.get('vertex_delta_m4_minus_default')}`",
+        f"- Triangle delta M4-default: `{comparison.get('triangle_delta_m4_minus_default')}`",
+        f"- M4 structurally distinct: `{comparison.get('m4_structurally_distinct_from_default')}`",
+        f"- Default backend by default: `{comparison.get('default_backend_by_default')}`",
+        f"- M4 requires explicit selection: `{comparison.get('m4_requires_explicit_selection')}`",
         "",
         "## What passed",
         "",
-        "- the M4 candidate table is available in `godot/generated/`;",
-        "- the stage builds real `ArrayMesh` objects from M4 candidate cases;",
-        "- `MeshDataTool` can read back the generated M4 gallery and strip meshes;",
-        "- the deterministic M4 terrain-strip-style mesh has nonzero cells, vertices, and triangles;",
-        "- M4 remains optional and the default backend remains unchanged;",
+        "- both table paths build valid Godot `ArrayMesh` outputs;",
+        "- `MeshDataTool` reads both outputs successfully;",
+        "- both paths use the same deterministic case sequence;",
+        "- M4 output is structurally distinct from the default output;",
+        "- M4 remains opt-in and the default backend remains unchanged;",
         "",
         "## What remains unproven",
         "",
@@ -152,11 +153,11 @@ def write_results(report: Dict[str, Any], viewer_report: Dict[str, Any]) -> None
 
 
 def main() -> int:
-    remove_stale_runtime_output(GODOT_VIEWER_OUTPUT)
+    remove_stale_runtime_output(GODOT_COMPARE_OUTPUT)
     steps = [
-        run_step([sys.executable, "research/official_topology/m10/run_m10.py"]),
+        run_step([sys.executable, "research/official_topology/m11/run_m11.py"]),
         run_step([sys.executable, "tools/validate_godot_project.py"]),
-        run_step([sys.executable, "tools/validate_m4_godot_viewer.py"]),
+        run_step([sys.executable, "tools/validate_m4_godot_backend_compare.py"]),
     ]
     godot = find_godot()
     godot_stage: Dict[str, Any] = {
@@ -171,41 +172,41 @@ def main() -> int:
             "--path",
             "godot",
             "--script",
-            "res://stages/08_m4_candidate_viewer/DumpM4CandidateViewer.gd",
+            "res://stages/09_m4_backend_compare/DumpM4BackendCompare.gd",
         ])
         steps.append(godot_step)
         output_data: Dict[str, Any] = {}
-        if GODOT_VIEWER_OUTPUT.exists():
-            output_data = read_json(GODOT_VIEWER_OUTPUT)
+        if GODOT_COMPARE_OUTPUT.exists():
+            output_data = read_json(GODOT_COMPARE_OUTPUT)
         godot_stage = {
             "status": output_data.get("status", "FAIL_MISSING_OUTPUT"),
             "executed": True,
             "returncode": godot_step["returncode"],
-            "output_path": str(GODOT_VIEWER_OUTPUT.relative_to(ROOT)),
+            "output_path": str(GODOT_COMPARE_OUTPUT.relative_to(ROOT)),
             "output": output_data,
         }
     else:
-        print("M11 requires Godot runtime execution; no Godot executable was found.")
+        print("M12 requires Godot runtime execution; no Godot executable was found.")
 
-    steps.append(run_step([sys.executable, "tools/validate_m4_godot_viewer.py", "--require-output"]))
+    steps.append(run_step([sys.executable, "tools/validate_m4_godot_backend_compare.py", "--require-output"]))
 
-    m10_report = read_json(M10_REPORT)
+    m11_report = read_json(M11_REPORT)
     godot_project = read_json(GODOT_PROJECT_REPORT)
-    viewer_report = read_json(M4_VIEWER_REPORT)
+    compare_report = read_json(BACKEND_COMPARE_REPORT)
     ok = (
         all(step["returncode"] == 0 for step in steps)
-        and m10_report.get("status") == "PASS_M10_M4_GODOT_DATA_PATH_METRICS_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
+        and m11_report.get("status") == "PASS_M11_M4_GODOT_VIEWER_EXPORT_PATH_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
         and godot_project.get("status") == "PASS"
         and bool(godot_stage.get("executed"))
         and godot_stage.get("returncode") == 0
         and godot_stage.get("status") == "PASS"
-        and viewer_report.get("status") == "PASS_M4_GODOT_VIEWER_EXPORT_PATH"
+        and compare_report.get("status") == "PASS_M4_GODOT_BACKEND_COMPARE"
     )
     report: Dict[str, Any] = {
-        "schema": "boqsc.transvoxel.official_topology.m11.report.v1",
+        "schema": "boqsc.transvoxel.official_topology.m12.report.v1",
         "status": (
-            "PASS_M11_M4_GODOT_VIEWER_EXPORT_PATH_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
-            if ok else "FAIL_M11_M4_GODOT_VIEWER_EXPORT_PATH"
+            "PASS_M12_M4_GODOT_BACKEND_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
+            if ok else "FAIL_M12_M4_GODOT_BACKEND_COMPARE"
         ),
         "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
         "official_class_id_mapping": "NOT_PROVEN",
@@ -216,17 +217,17 @@ def main() -> int:
         "steps": steps,
         "outputs": {
             "godot_project_preflight": str(GODOT_PROJECT_REPORT.relative_to(ROOT)),
-            "m4_godot_viewer_validation": str(M4_VIEWER_REPORT.relative_to(ROOT)),
+            "m4_godot_backend_compare_validation": str(BACKEND_COMPARE_REPORT.relative_to(ROOT)),
             "results": str(RESULTS.relative_to(ROOT)),
         },
-        "m10_status": m10_report.get("status"),
+        "m11_status": m11_report.get("status"),
         "godot_project_status": godot_project.get("status"),
-        "m4_godot_viewer_validation": viewer_report,
+        "m4_godot_backend_compare_validation": compare_report,
     }
-    M11_REPORT.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    write_results(report, viewer_report)
+    M12_REPORT.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_results(report, compare_report)
     print()
-    print("M11:", report["status"])
+    print("M12:", report["status"])
     print(RESULTS)
     return 0 if ok else 1
 

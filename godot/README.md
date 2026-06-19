@@ -13,6 +13,8 @@ godot/stages/05_m4_candidate_metrics/
                                 optional M4 candidate data-path metrics
 godot/stages/08_m4_candidate_viewer/
                                 optional M4 candidate ArrayMesh viewer/export path
+godot/stages/09_m4_backend_compare/
+                                optional default-vs-M4 backend comparison
 ```
 
 The main scene is:
@@ -35,6 +37,7 @@ godot/validation/02_mesh_api/mesh_api_dump.json
 godot/validation/03_seam_metrics/seam_metrics.json
 godot/validation/05_m4_candidate_metrics/m4_candidate_metrics.json
 godot/validation/08_m4_candidate_viewer/m4_candidate_viewer.json
+godot/validation/09_m4_backend_compare/m4_backend_compare.json
 ```
 
 Visual controls for the viewer stage:
