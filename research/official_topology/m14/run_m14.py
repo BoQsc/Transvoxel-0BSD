@@ -126,6 +126,7 @@ def main() -> int:
         and readiness.get("next_milestone", {}).get("id") in {
             "M15_M4_SIX_FACE_ORIENTATION_VALIDATION",
             "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION",
+            "M17_M4_SELECTED_PRODUCTION_GATE",
         }
     )
     report: Dict[str, Any] = {

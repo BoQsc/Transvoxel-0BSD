@@ -1,0 +1,91 @@
+{
+  "attempts": [
+    {
+      "candidate": "zig cc",
+      "command": [
+        "zig",
+        "cc",
+        "-std=c99",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-Iinclude",
+        "-Igenerated",
+        "src/transvoxel.c",
+        "src/transvoxel_m4_candidate.c",
+        "examples/c_m16_m4_corner_junctions/main.c",
+        "-o",
+        "<temp>/m16_m4_corner_junctions.exe"
+      ],
+      "parsed": {
+        "builds": 1344,
+        "corner_position_failures": 0,
+        "corner_value_failures": 0,
+        "degenerate_triangles": 0,
+        "fields": 7,
+        "internal_winding_failures": 0,
+        "invalid_triangles": 0,
+        "junctions": 448,
+        "lateral_geometry_failures": 0,
+        "lateral_winding_failures": 0,
+        "nonempty_shared_faces": 500,
+        "octants": 8,
+        "sample_position_failures": 0,
+        "sample_value_failures": 0,
+        "seeds": 8,
+        "shared_faces": 1344,
+        "shared_samples": 6720,
+        "triangles": 2896,
+        "vertices": 4680
+      },
+      "resolved_executable": "<zig>",
+      "returncode": 0,
+      "source": "configured-zig",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "m16 junctions octants=8 fields=7 seeds=8 junctions=448 builds=1344 vertices=4680 triangles=2896 invalid_triangles=0 degenerate_triangles=0 internal_winding_failures=0 shared_faces=1344 nonempty_shared_faces=500 shared_samples=6720 sample_position_failures=0 sample_value_failures=0 lateral_geometry_failures=0 lateral_winding_failures=0 corner_position_failures=0 corner_value_failures=0"
+    }
+  ],
+  "checks": [
+    "compiled mapped/deformed M4 transition cells with Zig C99",
+    "validated all eight block-corner octants",
+    "validated three perpendicular transition cells per junction",
+    "validated coincident lateral-face sample positions and values",
+    "validated matching lateral boundary edges with opposite winding",
+    "validated coherent internal triangle winding",
+    "validated shared inner corner positions and values"
+  ],
+  "compiler": "zig cc",
+  "metrics": {
+    "builds": 1344,
+    "corner_position_failures": 0,
+    "corner_value_failures": 0,
+    "degenerate_triangles": 0,
+    "fields": 7,
+    "internal_winding_failures": 0,
+    "invalid_triangles": 0,
+    "junctions": 448,
+    "lateral_geometry_failures": 0,
+    "lateral_winding_failures": 0,
+    "nonempty_shared_faces": 500,
+    "octants": 8,
+    "sample_position_failures": 0,
+    "sample_value_failures": 0,
+    "seeds": 8,
+    "shared_faces": 1344,
+    "shared_samples": 6720,
+    "triangles": 2896,
+    "vertices": 4680
+  },
+  "ok": true,
+  "schema": "boqsc.transvoxel.official_topology.m16.c_validation.v1",
+  "source": "configured-zig",
+  "status": "PASS_M16_ZIG_M4_DEFORMED_CORNER_JUNCTIONS",
+  "stdout": "m16 junctions octants=8 fields=7 seeds=8 junctions=448 builds=1344 vertices=4680 triangles=2896 invalid_triangles=0 degenerate_triangles=0 internal_winding_failures=0 shared_faces=1344 nonempty_shared_faces=500 shared_samples=6720 sample_position_failures=0 sample_value_failures=0 lateral_geometry_failures=0 lateral_winding_failures=0 corner_position_failures=0 corner_value_failures=0",
+  "validated_files": [
+    "generated/official_topology_candidate_tables.h",
+    "include/transvoxel_m4_candidate.h",
+    "src/transvoxel_m4_candidate.c",
+    "examples/c_m16_m4_corner_junctions/main.c"
+  ]
+}

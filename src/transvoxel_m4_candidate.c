@@ -25,6 +25,14 @@ static TvVec3 tv_m4_add(TvVec3 a, TvVec3 b) {
     return out;
 }
 
+static TvVec3 tv_m4_sub(TvVec3 a, TvVec3 b) {
+    TvVec3 out;
+    out.x = a.x - b.x;
+    out.y = a.y - b.y;
+    out.z = a.z - b.z;
+    return out;
+}
+
 static TvVec3 tv_m4_mul(TvVec3 a, TvVec3 b) {
     TvVec3 out;
     out.x = a.x * b.x;
@@ -199,6 +207,35 @@ TvVec3 tv_m4_transition_frame_position(
     return out;
 }
 
+int tv_m4_transition_frame_sample_positions(
+    const TvM4TransitionFrame *frame,
+    unsigned int boundary_mask,
+    float half_face_inset_u,
+    float half_face_inset_v,
+    TvVec3 out_positions[TV_M4_TRANSITION_SAMPLE_COUNT]) {
+    int sample_id;
+    if (!frame || !out_positions) return TV_ERROR_NULL;
+    for (sample_id = 0; sample_id < TV_M4_TRANSITION_SAMPLE_COUNT; ++sample_id) {
+        TvVec3 local = tv_m4_transition_positions[sample_id];
+        if (sample_id >= 9) {
+            if (local.x == 0.0f && (boundary_mask & TV_M4_BOUNDARY_U_MIN)) {
+                local.x += half_face_inset_u;
+            }
+            if (local.x == 2.0f && (boundary_mask & TV_M4_BOUNDARY_U_MAX)) {
+                local.x -= half_face_inset_u;
+            }
+            if (local.y == 0.0f && (boundary_mask & TV_M4_BOUNDARY_V_MIN)) {
+                local.y += half_face_inset_v;
+            }
+            if (local.y == 2.0f && (boundary_mask & TV_M4_BOUNDARY_V_MAX)) {
+                local.y -= half_face_inset_v;
+            }
+        }
+        out_positions[sample_id] = tv_m4_transition_frame_position(frame, local);
+    }
+    return TV_OK;
+}
+
 TvBuildInfo tv_m4_build_transition_cell_candidate(
     const float sample_values[TV_M4_TRANSITION_SAMPLE_COUNT],
     float iso_level,
@@ -267,6 +304,86 @@ TvBuildInfo tv_m4_build_transition_cell_candidate(
     }
 
     return tv_m4_make_info(TV_OK, case_index, vertex_count, triangle_count);
+}
+
+TvBuildInfo tv_m4_build_transition_cell_candidate_mapped(
+    const float sample_values[TV_M4_TRANSITION_SAMPLE_COUNT],
+    const TvVec3 sample_positions[TV_M4_TRANSITION_SAMPLE_COUNT],
+    float iso_level,
+    TvVec3 *out_vertices,
+    int max_vertices,
+    TvTriangle *out_triangles,
+    int max_triangles) {
+    int case_index;
+    int vertex_start;
+    int vertex_count;
+    int triangle_start;
+    int triangle_count;
+    float determinant;
+    int i;
+
+    if (!sample_values || !sample_positions || !out_vertices || !out_triangles) {
+        return tv_m4_make_info(TV_ERROR_NULL, 0, 0, 0);
+    }
+
+    case_index = tv_m4_transition_case_index(sample_values, iso_level);
+    if (case_index < 0 || case_index >= (int)OTC_M4_CASE_COUNT) {
+        return tv_m4_make_info(TV_ERROR_BAD_CASE, case_index, 0, 0);
+    }
+    vertex_start = (int)otc_m4_case_vertex_start[case_index];
+    vertex_count = (int)otc_m4_case_vertex_count[case_index];
+    triangle_start = (int)otc_m4_case_triangle_start[case_index];
+    triangle_count = (int)otc_m4_case_triangle_count[case_index];
+    if (max_vertices < vertex_count) {
+        return tv_m4_make_info(
+            TV_ERROR_SMALL_VERTEX_BUFFER,
+            case_index,
+            vertex_count,
+            triangle_count);
+    }
+    if (max_triangles < triangle_count) {
+        return tv_m4_make_info(
+            TV_ERROR_SMALL_TRIANGLE_BUFFER,
+            case_index,
+            vertex_count,
+            triangle_count);
+    }
+
+    for (i = 0; i < vertex_count; ++i) {
+        int pair_id = vertex_start + i;
+        int a = (int)otc_m4_vertex_pairs[pair_id][0];
+        int b = (int)otc_m4_vertex_pairs[pair_id][1];
+        out_vertices[i] = tv_m4_interp_position(
+            sample_positions[a],
+            sample_positions[b],
+            sample_values[a],
+            sample_values[b],
+            iso_level);
+    }
+    for (i = 0; i < triangle_count; ++i) {
+        int triangle_id = triangle_start + i;
+        out_triangles[i].a = otc_m4_triangles[triangle_id][0];
+        out_triangles[i].b = otc_m4_triangles[triangle_id][1];
+        out_triangles[i].c = otc_m4_triangles[triangle_id][2];
+    }
+
+    determinant = tv_m4_dot(
+        tv_m4_cross(
+            tv_m4_sub(sample_positions[2], sample_positions[0]),
+            tv_m4_sub(sample_positions[6], sample_positions[0])),
+        tv_m4_sub(sample_positions[9], sample_positions[0]));
+    if (determinant < 0.0f) {
+        for (i = 0; i < triangle_count; ++i) {
+            uint32_t tmp = out_triangles[i].b;
+            out_triangles[i].b = out_triangles[i].c;
+            out_triangles[i].c = tmp;
+        }
+    }
+    return tv_m4_make_info(
+        TV_OK,
+        case_index,
+        vertex_count,
+        triangle_count);
 }
 
 TvBuildInfo tv_m4_build_transition_cell_candidate_oriented(

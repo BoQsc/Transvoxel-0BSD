@@ -464,11 +464,47 @@ transformed winding and inverse frame checks: PASS
 deterministic neighbor side seams per face: PASS
 official reference convention equivalence: NOT_PROVEN
 official transition topology equivalence: NOT_PROVEN
-next milestone: M16 M4 multi-face corner/junction validation
+next milestone before M16: M16 M4 multi-face corner/junction validation
 ```
 
 Run:
 
 ```text
 RUN_M15.cmd
+```
+
+## M16 result
+
+M16 derives mapped transition-cell geometry for block edges and corners from
+the public dissertation description. It also repairs the clean-room M4 winding
+rule, which previously had deterministic but unoriented component cycles.
+
+```text
+research/official_topology/m4/generate_runtime_tables.py
+include/transvoxel_m4_candidate.h
+src/transvoxel_m4_candidate.c
+examples/c_m16_m4_corner_junctions/main.c
+godot/stages/12_m4_corner_junctions/DumpM4CornerJunctions.gd
+tools/validate_m4_corner_junctions.py
+```
+
+Current M16 result:
+
+```text
+Zig C mapped corner execution: PASS
+Godot mapped corner execution: PASS
+all eight signed corner octants: PASS
+three perpendicular transition cells per junction: PASS
+coincident lateral samples and geometry: PASS
+opposite lateral boundary-edge winding: PASS
+common inner-corner positions and values: PASS
+official reference convention equivalence: NOT_PROVEN
+official transition topology equivalence: NOT_PROVEN
+next milestone: M17 M4-selected production gate
+```
+
+Run:
+
+```text
+RUN_M16.cmd
 ```

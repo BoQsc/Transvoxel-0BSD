@@ -33,6 +33,8 @@ default and M4 Godot mesh paths through an explicit backend-selection report.
 or claiming a full replacement.
 `RUN_M15.cmd` validates explicit M4 transition frames for all six axis
 directions in Zig C and actual Godot runtime execution.
+`RUN_M16.cmd` validates mapped non-box M4 transition cells at three-face block
+corners in Zig C and actual Godot runtime execution.
 
 ## Full release proof
 
@@ -63,4 +65,5 @@ RUN_M12.cmd  optional M4 Godot default-vs-M4 comparison proof
 RUN_M13.cmd  optional M4 Godot scripted edit comparison proof
 RUN_M14.cmd  M4 replacement-readiness decision gate
 RUN_M15.cmd  M4 all-six-face C/Godot orientation proof
+RUN_M16.cmd  M4 mapped three-face corner-junction proof
 ```

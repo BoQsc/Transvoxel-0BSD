@@ -21,6 +21,7 @@ optional M4 candidate table can feed a real Godot ArrayMesh/MeshDataTool viewer/
 default and optional M4 Godot transition-strip mesh paths can be compared side by side when RUN_M12 is executed with Godot
 default and optional M4 Godot transition-strip mesh paths can be compared after scripted edits when RUN_M13 is executed with Godot
 optional M4 candidate geometry, winding, ArrayMesh output, and side seams pass in all six explicit transition-face frames when RUN_M15 is executed
+mapped M4 transition cells close shared lateral faces at three-face corners in all eight signed octants when RUN_M16 is executed
 M4 replacement readiness is split into explicit machine-readable candidate/default/full/exact compatibility decisions
 small dist/transvoxel_0bsd_core.zip can be built
 ```
@@ -85,6 +86,12 @@ The M4 six-face orientation proof validates all 512 cases in right-handed
 execution. It checks transformed winding, `ArrayMesh`/`MeshDataTool`, and
 deterministic neighboring-cell side seams. This is `RUN_M15.cmd`. It removes
 the six-face blocker but does not prove the official frame convention.
+
+The M4 corner-junction proof uses mapped sample positions for non-box transition
+cells, coherent outward table winding, and three perpendicular transition
+faces. Zig C and Godot both validate coincident lateral samples and geometry,
+opposite boundary-edge winding, and a common inner corner across all eight
+signed octants. This is `RUN_M16.cmd`.
 
 ## Godot's role
 

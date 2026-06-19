@@ -1,7 +1,6 @@
 {
   "analysis_completed": true,
   "blocking_gate_ids": [
-    "m4_multi_face_corner_junction_validation",
     "m4_selected_full_production_gate",
     "official_reference_convention_equivalence",
     "official_transition_topology_equivalence",
@@ -202,19 +201,19 @@
       "title": "M4 runtime proof across all +/-X, +/-Y, +/-Z transition-face orientations"
     },
     {
-      "actual": "MISSING_M4_SELECTED_JUNCTION_EVIDENCE",
+      "actual": "PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
       "category": "default_replacement",
       "evidence": [
-        "validation/corner_junction_report.json covers the independent default core, not M4-selected junctions."
+        "research/official_topology/m16/m16_report.json",
+        "validation/m4_corner_junction_report.json"
       ],
-      "expected": "PASS M4-specific corner/junction report",
+      "expected": "PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
       "id": "m4_multi_face_corner_junction_validation",
-      "next_action": "After six-face orientation proof, assemble and validate M4 multi-face corner junctions.",
       "required_for": [
         "default_transition_backend",
         "functional_full_replacement"
       ],
-      "status": "BLOCKED",
+      "status": "PASS",
       "title": "M4-selected corner and multi-neighbor LOD junction proof"
     },
     {
@@ -349,9 +348,9 @@
   "load_errors": [],
   "meaning": "The optional M4 transition backend has strong runtime/integration evidence, but it is not ready to replace the default backend and is not a proven full Transvoxel.cpp replacement. A blocked decision is the expected correct result until every required gate is proven.",
   "next_milestone": {
-    "id": "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION",
-    "objective": "Assemble M4-selected transition meshes on multiple perpendicular LOD faces and prove shared-edge/corner closure in C and Godot.",
-    "why_first": "Six-face frame transforms are now proven internally. The next nearest default-replacement blocker is interaction between two or three simultaneously selected transition faces."
+    "id": "M17_M4_SELECTED_PRODUCTION_GATE",
+    "objective": "Run the complete production proof path with M4 explicitly installed through the normal backend API and mapped transition geometry enabled.",
+    "why_first": "Six-face orientation and mapped corner junctions now pass. The remaining self-contained default-replacement blocker is a full production run with M4 selected end to end."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -364,7 +363,8 @@
     "m11_godot_viewer",
     "m12_backend_compare",
     "m13_scripted_edits",
-    "m4_all_six_face_orientation_runtime_validation"
+    "m4_all_six_face_orientation_runtime_validation",
+    "m4_multi_face_corner_junction_validation"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
   "status": "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"

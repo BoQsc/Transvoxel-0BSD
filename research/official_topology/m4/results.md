@@ -9,7 +9,7 @@ M4 converts the M3 clean-room topology derivation into runtime-ready candidate t
 - Research classes: `73`
 - Total runtime vertex pairs: `4096`
 - Total runtime triangles: `2640`
-- SHA-256: `0ae3d220b7a3c6519c7504aba7731164c0b9d0c3587152adc78117717875674d`
+- SHA-256: `00dda23b7d9d3a20889c597c330ee0f84f66f9beef16b04e87b326203ee015d8`
 - Zig header smoke: `PASS_ZIG_HEADER_SMOKE`
 
 ## What passed
@@ -20,6 +20,7 @@ M4 converts the M3 clean-room topology derivation into runtime-ready candidate t
 - every generated vertex lies on a sign-changing sample edge;
 - every case preserves the M3-derived boundary exactly;
 - no generated triangle complex has degenerate triangles, overused edges, or non-adjacent intersections;
+- every triangle component has coherent internal edges and deterministic outward winding under the clean-room transition scalar interpolant;
 - flat runtime arrays match the per-case records;
 - generated JSON and C header regenerate deterministically.
 

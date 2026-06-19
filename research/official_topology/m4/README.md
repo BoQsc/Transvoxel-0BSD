@@ -33,6 +33,8 @@ The generated table contains:
 - 73 M3 research classes;
 - D4/complement transform metadata from each class representative to each case;
 - per-case runtime vertex-pair and triangle records;
+- coherent outward component winding derived from the clean-room piecewise
+  transition scalar interpolant;
 - flat C-friendly arrays;
 - explicit `NOT_PROVEN` official-equivalence fields.
 

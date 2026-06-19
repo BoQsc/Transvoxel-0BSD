@@ -210,6 +210,30 @@ TvBuildInfo info = tv_m4_build_transition_cell_candidate_oriented(
 across the full-resolution face and local `+w` toward the half-resolution
 samples. M15 validates every case and neighbor seams in all six frames.
 
+At block edges and corners, transition cells are not rectangular boxes. Build
+the 13 mapped sample positions and use:
+
+```c
+TvM4TransitionFrame frame = {origin, axis_u, axis_v, axis_w};
+TvVec3 mapped[TV_M4_TRANSITION_SAMPLE_COUNT];
+
+tv_m4_transition_frame_sample_positions(
+    &frame,
+    TV_M4_BOUNDARY_U_MIN | TV_M4_BOUNDARY_V_MIN,
+    0.5f,
+    0.5f,
+    mapped);
+
+TvBuildInfo info = tv_m4_build_transition_cell_candidate_mapped(
+    samples, mapped, 0.0f,
+    vertices, TV_M4_TRANSITION_MAX_VERTICES,
+    triangles, TV_M4_TRANSITION_MAX_TRIANGLES);
+```
+
+The mapped builder derives handedness from sample positions and corrects
+winding. M16 validates three perpendicular mapped transition cells across all
+eight signed corner octants.
+
 The M4 backend is still a candidate path. Official `Transvoxel.cpp` equivalence
 remains unproven.
 

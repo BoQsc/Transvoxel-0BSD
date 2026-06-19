@@ -10,6 +10,7 @@ lookup-table arrays.
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 import hashlib
 import json
 import sys
@@ -115,6 +116,190 @@ def transform_parity_is_negative(transform_id: int) -> bool:
     return transform_id >= 4
 
 
+def vsub(a: m3.Vec3, b: m3.Vec3) -> m3.Vec3:
+    return (a[0] - b[0], a[1] - b[1], a[2] - b[2])
+
+
+def dot(a: m3.Vec3, b: m3.Vec3) -> float:
+    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+
+
+def cross(a: m3.Vec3, b: m3.Vec3) -> m3.Vec3:
+    return (
+        a[1] * b[2] - a[2] * b[1],
+        a[2] * b[0] - a[0] * b[2],
+        a[0] * b[1] - a[1] * b[0],
+    )
+
+
+def edge_midpoint(edge: Edge) -> m3.Vec3:
+    a = m3.SAMPLE_POSITIONS[edge[0]]
+    b = m3.SAMPLE_POSITIONS[edge[1]]
+    return (
+        (a[0] + b[0]) * 0.5,
+        (a[1] + b[1]) * 0.5,
+        (a[2] + b[2]) * 0.5,
+    )
+
+
+def case_value(case_index: int, sample_id: int) -> float:
+    return -1.0 if m3.sample_sign(case_index, sample_id) else 1.0
+
+
+def transition_scalar_gradient(
+    case_index: int,
+    position: m3.Vec3,
+) -> m3.Vec3:
+    """Gradient of the clean-room piecewise transition scalar interpolant.
+
+    The full-resolution face is piecewise bilinear over its four quadrants.
+    The half-resolution face is bilinear over the four duplicated corners.
+    Linear interpolation through local z joins those two face fields.
+    """
+    x, y, z = position
+    cell_x = 0 if x < 1.0 else 1
+    cell_y = 0 if y < 1.0 else 1
+    tx = x - float(cell_x)
+    ty = y - float(cell_y)
+    full_ids = (
+        cell_x + 3 * cell_y,
+        cell_x + 1 + 3 * cell_y,
+        cell_x + 3 * (cell_y + 1),
+        cell_x + 1 + 3 * (cell_y + 1),
+    )
+    f00, f10, f01, f11 = (
+        case_value(case_index, sample_id) for sample_id in full_ids
+    )
+    full_dx = (f10 - f00) * (1.0 - ty) + (f11 - f01) * ty
+    full_dy = (f01 - f00) * (1.0 - tx) + (f11 - f10) * tx
+    full_value = (
+        f00 * (1.0 - tx) * (1.0 - ty)
+        + f10 * tx * (1.0 - ty)
+        + f01 * (1.0 - tx) * ty
+        + f11 * tx * ty
+    )
+
+    tx_half = x * 0.5
+    ty_half = y * 0.5
+    h00, h10, h01, h11 = (
+        case_value(case_index, sample_id) for sample_id in (0, 2, 6, 8)
+    )
+    half_dx = 0.5 * (
+        (h10 - h00) * (1.0 - ty_half)
+        + (h11 - h01) * ty_half
+    )
+    half_dy = 0.5 * (
+        (h01 - h00) * (1.0 - tx_half)
+        + (h11 - h10) * tx_half
+    )
+    half_value = (
+        h00 * (1.0 - tx_half) * (1.0 - ty_half)
+        + h10 * tx_half * (1.0 - ty_half)
+        + h01 * (1.0 - tx_half) * ty_half
+        + h11 * tx_half * ty_half
+    )
+    return (
+        (1.0 - z) * full_dx + z * half_dx,
+        (1.0 - z) * full_dy + z * half_dy,
+        half_value - full_value,
+    )
+
+
+def orient_triangle_components(
+    case_index: int,
+    triangles: Sequence[Triangle],
+) -> List[Triangle]:
+    """Give every component coherent outward winding without an external oracle."""
+    result = [list(triangle) for triangle in triangles]
+    edge_uses: Dict[
+        Tuple[Edge, Edge],
+        List[Tuple[int, Edge, Edge]],
+    ] = defaultdict(list)
+    for triangle_id, triangle in enumerate(result):
+        for a, b in (
+            (triangle[0], triangle[1]),
+            (triangle[1], triangle[2]),
+            (triangle[2], triangle[0]),
+        ):
+            key = (a, b) if a < b else (b, a)
+            edge_uses[key].append((triangle_id, a, b))
+
+    flips: List[bool | None] = [None] * len(result)
+    components: List[List[int]] = []
+    for start in range(len(result)):
+        if flips[start] is not None:
+            continue
+        flips[start] = False
+        pending = [start]
+        component: List[int] = []
+        while pending:
+            triangle_id = pending.pop()
+            component.append(triangle_id)
+            triangle = result[triangle_id]
+            for a, b in (
+                (triangle[0], triangle[1]),
+                (triangle[1], triangle[2]),
+                (triangle[2], triangle[0]),
+            ):
+                key = (a, b) if a < b else (b, a)
+                for neighbor_id, neighbor_a, neighbor_b in edge_uses[key]:
+                    if neighbor_id == triangle_id:
+                        continue
+                    same_direction = a == neighbor_a and b == neighbor_b
+                    neighbor_flip = bool(flips[triangle_id]) ^ same_direction
+                    if flips[neighbor_id] is None:
+                        flips[neighbor_id] = neighbor_flip
+                        pending.append(neighbor_id)
+                    elif flips[neighbor_id] != neighbor_flip:
+                        raise ValueError(
+                            f"case {case_index}: non-orientable triangle component"
+                        )
+        components.append(component)
+
+    for triangle_id, flip in enumerate(flips):
+        if flip:
+            result[triangle_id][1], result[triangle_id][2] = (
+                result[triangle_id][2],
+                result[triangle_id][1],
+            )
+
+    for component in components:
+        outward_score = 0.0
+        for triangle_id in component:
+            positions = [
+                edge_midpoint(edge)
+                for edge in result[triangle_id]
+            ]
+            normal = cross(
+                vsub(positions[1], positions[0]),
+                vsub(positions[2], positions[0]),
+            )
+            centroid = (
+                sum(position[0] for position in positions) / 3.0,
+                sum(position[1] for position in positions) / 3.0,
+                sum(position[2] for position in positions) / 3.0,
+            )
+            outward_score += dot(
+                normal,
+                transition_scalar_gradient(case_index, centroid),
+            )
+        if abs(outward_score) <= 1.0e-12:
+            raise ValueError(
+                f"case {case_index}: cannot derive component winding"
+            )
+        if outward_score < 0.0:
+            for triangle_id in component:
+                result[triangle_id][1], result[triangle_id][2] = (
+                    result[triangle_id][2],
+                    result[triangle_id][1],
+                )
+
+    return [
+        (triangle[0], triangle[1], triangle[2])
+        for triangle in result
+    ]
+
+
 def find_case_transform(representative_case: int, case_index: int) -> Dict[str, object]:
     candidates: List[Tuple[bool, int]] = []
     for transform_id, permutation in enumerate(m3.D4_PERMUTATIONS):
@@ -183,6 +368,7 @@ def class_records(
             json_triangle(value)
             for value in source["triangles"]  # type: ignore[index]
         ]
+        triangles = orient_triangle_components(representative_case, triangles)
         remapped = remap_case_triangles(triangles)
         records.append({
             "research_class_id": class_id,
@@ -235,6 +421,10 @@ def case_records(
             )
             for triangle in class_triangles
         ]
+        transformed_triangles = orient_triangle_components(
+            case_index,
+            transformed_triangles,
+        )
         remapped = remap_case_triangles(transformed_triangles)
         records.append({
             "case": case_index,
@@ -380,10 +570,12 @@ def generate_table() -> Dict[str, object]:
                 "Flat triangle ids are relative to the case vertex_start."
             ),
             "winding_rule": (
-                "Triangles are generated from each research-class representative "
-                "and transformed per case. Orientation is flipped for complemented "
-                "cases and D4 reflections. This is deterministic but not an "
-                "official Transvoxel.cpp winding-equivalence proof."
+                "Triangle components are first made internally coherent across "
+                "shared edges, then oriented toward increasing scalar values "
+                "using the gradient of the documented clean-room piecewise "
+                "transition interpolant. D4/complement transforms are normalized "
+                "again per case. This is deterministic but not an official "
+                "Transvoxel.cpp winding-equivalence proof."
             ),
         },
         "d4_transforms": [

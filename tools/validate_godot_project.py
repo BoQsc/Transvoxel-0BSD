@@ -29,6 +29,7 @@ REQUIRED = [
     STAGES / "09_m4_backend_compare" / "DumpM4BackendCompare.gd",
     STAGES / "10_m4_scripted_edit_compare" / "DumpM4ScriptedEditCompare.gd",
     STAGES / "11_m4_six_face_orientation" / "DumpM4SixFaceOrientation.gd",
+    STAGES / "12_m4_corner_junctions" / "DumpM4CornerJunctions.gd",
 ]
 
 EXPECTED_SCHEMAS = {
@@ -141,6 +142,14 @@ def main() -> int:
         if token not in m4_six_face_script:
             print("godot preflight: FAIL")
             print("M4 six-face orientation script missing token", token)
+            return 1
+
+    m4_corner_script = (STAGES / "12_m4_corner_junctions" / "DumpM4CornerJunctions.gd").read_text(encoding="utf-8")
+    m4_corner_tokens = ["M4_PATH", "OUT_PATH", "_mapped_sample_positions", "_corner_frames", "_compare_shared_samples", "_compare_fingerprints", "_validate_cell", "ArrayMesh", "MeshDataTool"]
+    for token in m4_corner_tokens:
+        if token not in m4_corner_script:
+            print("godot preflight: FAIL")
+            print("M4 corner-junction script missing token", token)
             return 1
 
     for gd_path in sorted(STAGES.rglob("*.gd")):

@@ -93,6 +93,11 @@ TvBuildInfo info = tv_m4_build_transition_cell_candidate_oriented(
 
 The six built-in face frames are validated by `RUN_M15.cmd`.
 
+For edge/corner cells whose half-resolution face must be inset, generate mapped
+sample positions with `tv_m4_transition_frame_sample_positions()` and call
+`tv_m4_build_transition_cell_candidate_mapped()`. `RUN_M16.cmd` validates this
+path where three perpendicular transition faces meet.
+
 The terrain export example can also be compiled with the M4 candidate backend:
 
 ```sh

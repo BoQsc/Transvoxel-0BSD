@@ -333,7 +333,36 @@ frame/transform/winding failures: 0
 seam failures: 0
 six-face replacement-readiness gate: PASS
 official reference/topology equivalence: NOT_PROVEN
-next milestone: M16 M4 multi-face corner/junction validation
+next milestone before M16: M16 M4 multi-face corner/junction validation
+```
+
+## M16
+
+`m16/` derives non-box transition-cell mapping for block corners from the
+public transition-cell geometry and validates three perpendicular M4 cells in
+Zig C and actual Godot runtime execution.
+
+Run:
+
+```text
+RUN_M16.cmd
+```
+
+Current M16 result:
+
+```text
+signed corner octants: 8
+junction scenarios: 448
+mapped transition-cell builds: 1344
+shared lateral faces: 1344
+shared sample comparisons: 6720
+invalid/degenerate triangles: 0
+internal/lateral winding failures: 0
+lateral geometry failures: 0
+corner position/value failures: 0
+corner-junction replacement-readiness gate: PASS
+official reference/topology equivalence: NOT_PROVEN
+next milestone: M17 M4-selected production gate
 ```
 
 Allowed:

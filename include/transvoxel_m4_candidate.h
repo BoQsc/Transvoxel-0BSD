@@ -19,6 +19,11 @@ extern "C" {
 #define TV_M4_TRANSITION_MAX_VERTICES ((int)OTC_M4_MAX_VERTICES_PER_CASE)
 #define TV_M4_TRANSITION_MAX_TRIANGLES ((int)OTC_M4_MAX_TRIANGLES_PER_CASE)
 
+#define TV_M4_BOUNDARY_U_MIN 0x01u
+#define TV_M4_BOUNDARY_U_MAX 0x02u
+#define TV_M4_BOUNDARY_V_MIN 0x04u
+#define TV_M4_BOUNDARY_V_MAX 0x08u
+
 typedef enum TvM4TransitionFace {
     TV_M4_FACE_POSITIVE_X = 0,
     TV_M4_FACE_NEGATIVE_X = 1,
@@ -63,11 +68,32 @@ TvVec3 tv_m4_transition_frame_position(
     const TvM4TransitionFrame *frame,
     TvVec3 local_position);
 
+int tv_m4_transition_frame_sample_positions(
+    const TvM4TransitionFrame *frame,
+    unsigned int boundary_mask,
+    float half_face_inset_u,
+    float half_face_inset_v,
+    TvVec3 out_positions[TV_M4_TRANSITION_SAMPLE_COUNT]);
+
 TvBuildInfo tv_m4_build_transition_cell_candidate(
     const float sample_values[TV_M4_TRANSITION_SAMPLE_COUNT],
     float iso_level,
     TvVec3 origin,
     TvVec3 scale,
+    TvVec3 *out_vertices,
+    int max_vertices,
+    TvTriangle *out_triangles,
+    int max_triangles);
+
+/* Builds from caller-provided positions for all 13 M4 samples. Winding is
+ * corrected from the handedness of full-face axes 0->2, 0->6 and the inward
+ * direction 0->9. This supports non-box transition cells at block edges and
+ * corners while preserving the same clean-room topology table.
+ */
+TvBuildInfo tv_m4_build_transition_cell_candidate_mapped(
+    const float sample_values[TV_M4_TRANSITION_SAMPLE_COUNT],
+    const TvVec3 sample_positions[TV_M4_TRANSITION_SAMPLE_COUNT],
+    float iso_level,
     TvVec3 *out_vertices,
     int max_vertices,
     TvTriangle *out_triangles,

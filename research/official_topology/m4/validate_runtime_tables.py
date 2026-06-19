@@ -124,11 +124,30 @@ def validate_case_topology(case: Dict[str, object]) -> Dict[str, object]:
             bad_vertex_pairs.append(list(edge))
 
     bad_triangle_ids = []
+    directed_edge_uses: Dict[
+        Tuple[int, int],
+        List[Tuple[int, int]],
+    ] = {}
     vertex_count = len(case["vertices"])  # type: ignore[arg-type]
     for triangle_id, triangle in enumerate(case["triangles"]):  # type: ignore[index]
         ids = [int(v) for v in triangle["vertices"]]  # type: ignore[index]
         if len(ids) != 3 or len(set(ids)) != 3 or any(v < 0 or v >= vertex_count for v in ids):
             bad_triangle_ids.append(triangle_id)
+            continue
+        for a, b in ((ids[0], ids[1]), (ids[1], ids[2]), (ids[2], ids[0])):
+            key = (a, b) if a < b else (b, a)
+            directed_edge_uses.setdefault(key, []).append((a, b))
+
+    internal_winding_failures = [
+        [list(edge) for edge in uses]
+        for uses in directed_edge_uses.values()
+        if len(uses) == 2 and uses[0] == uses[1]
+    ]
+    oriented_triangles = generator.orient_triangle_components(
+        case_index,
+        triangles,
+    )
+    outward_winding_matches = oriented_triangles == triangles
 
     status = (
         "PASS"
@@ -136,6 +155,8 @@ def validate_case_topology(case: Dict[str, object]) -> Dict[str, object]:
         and not bad_vertex_pairs
         and not duplicate_vertices
         and not bad_triangle_ids
+        and not internal_winding_failures
+        and outward_winding_matches
         else "FAIL"
     )
     return {
@@ -144,6 +165,8 @@ def validate_case_topology(case: Dict[str, object]) -> Dict[str, object]:
         "bad_vertex_pairs": bad_vertex_pairs,
         "duplicate_vertices": duplicate_vertices,
         "bad_triangle_ids": bad_triangle_ids,
+        "internal_winding_failures": internal_winding_failures,
+        "outward_winding_matches": outward_winding_matches,
     }
 
 
@@ -215,6 +238,7 @@ def validate_table(table: Dict[str, object]) -> Dict[str, object]:
     }
     case_failures = []
     topology_failures = []
+    winding_failures = []
     triangle_counts = []
     vertex_counts = []
     transform_counter: Counter[str] = Counter()
@@ -243,6 +267,11 @@ def validate_table(table: Dict[str, object]) -> Dict[str, object]:
                 "research_class_id": class_id,
                 "topology": topology,
             })
+        if (
+            topology["internal_winding_failures"]
+            or not topology["outward_winding_matches"]
+        ):
+            winding_failures.append(case_index)
         triangle_counts.append(int(case["triangle_count"]))
         vertex_counts.append(int(case["vertex_count"]))
 
@@ -271,6 +300,8 @@ def validate_table(table: Dict[str, object]) -> Dict[str, object]:
         "research_class_count": len(classes),
         "case_topology_failure_count": len(topology_failures),
         "case_topology_failure_examples": topology_failures[:10],
+        "case_winding_failure_count": len(winding_failures),
+        "case_winding_failure_examples": winding_failures[:20],
         "transform_failure_count": len(case_failures),
         "transform_distribution": dict(sorted(transform_counter.items())),
         "triangle_count_histogram": {

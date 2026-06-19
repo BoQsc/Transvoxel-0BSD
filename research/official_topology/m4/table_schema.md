@@ -41,6 +41,11 @@ case_vertex_start[case] .. case_vertex_start[case] + case_vertex_count[case]
 case_triangle_start[case] .. case_triangle_start[case] + case_triangle_count[case]
 ```
 
+Triangle components are oriented coherently across shared internal edges, then
+oriented toward increasing scalar values using the gradient of the clean-room
+piecewise transition interpolant. This winding rule is independently derived;
+it is not an official winding-equivalence claim.
+
 Official-equivalence fields must remain:
 
 ```text

@@ -15,7 +15,8 @@ The optional M4 Godot viewer/export mesh path is validated by `RUN_M11.cmd` only
 The optional default-vs-M4 Godot comparison path is validated by `RUN_M12.cmd` only when Godot is available locally.
 The optional default-vs-M4 Godot scripted edit comparison path is validated by `RUN_M13.cmd` only when Godot is available locally.
 The M4 all-six-face orientation path is validated in Zig C and actual Godot runtime evidence by `RUN_M15.cmd`.
-The M4 replacement-readiness gate still blocks default/full replacement because M4 junction proof, M4-selected production proof, official reference/topology behavior, regular-cell equivalence, and consumer compatibility are not all proven.
+The M4 mapped three-face corner-junction path is validated in Zig C and actual Godot runtime evidence by `RUN_M16.cmd`.
+The M4 replacement-readiness gate still blocks default/full replacement because M4-selected production proof, official reference/topology behavior, regular-cell equivalence, and consumer compatibility are not all proven.
 Game-ready art/texture/lighting quality is not certified.
 Gameplay performance in a complete streaming world is not certified.
 ```
@@ -34,5 +35,6 @@ Optional M4 candidate table can build real Godot ArrayMesh data and pass MeshDat
 Default and M4 Godot transition-strip mesh outputs can be compared side by side when RUN_M12 runs with Godot.
 Default and M4 Godot transition-strip mesh outputs can be compared after scripted edits when RUN_M13 runs with Godot.
 M4 candidate cells and deterministic neighbor seams pass across explicit +X/-X/+Y/-Y/+Z/-Z frames in Zig C and Godot.
+Mapped M4 transition cells share coincident lateral geometry and opposite edge winding at three-face block corners across all eight octants.
 Small public dist package is generated and checked.
 ```

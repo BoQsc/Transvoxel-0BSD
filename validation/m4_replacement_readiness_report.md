@@ -22,13 +22,10 @@ Status: **BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN**
 - `m12_backend_compare`
 - `m13_scripted_edits`
 - `m4_all_six_face_orientation_runtime_validation`
+- `m4_multi_face_corner_junction_validation`
 
 ## Blocking evidence
 
-- `m4_multi_face_corner_junction_validation`: M4-selected corner and multi-neighbor LOD junction proof
-  - Actual: `MISSING_M4_SELECTED_JUNCTION_EVIDENCE`
-  - Required: `PASS M4-specific corner/junction report`
-  - Next: After six-face orientation proof, assemble and validate M4 multi-face corner junctions.
 - `m4_selected_full_production_gate`: Full production gate with M4 installed through the normal backend API
   - Actual: `MISSING_M4_PRODUCTION_GATE`
   - Required: `PASS M4-selected runtime, mesh, six-face seams, scripted edits, and production gate`
@@ -64,6 +61,6 @@ Status: **BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN**
 
 ## Next milestone
 
-`M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION` — Assemble M4-selected transition meshes on multiple perpendicular LOD faces and prove shared-edge/corner closure in C and Godot.
+`M17_M4_SELECTED_PRODUCTION_GATE` — Run the complete production proof path with M4 explicitly installed through the normal backend API and mapped transition geometry enabled.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

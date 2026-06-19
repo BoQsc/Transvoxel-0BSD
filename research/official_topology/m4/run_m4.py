@@ -19,6 +19,30 @@ M4_REPORT = M4_DIR / "m4_report.json"
 RESULTS = M4_DIR / "results.md"
 
 
+def stable_command(command: List[str]) -> List[str]:
+    out: List[str] = []
+    root_native = str(ROOT)
+    root_forward = root_native.replace("\\", "/")
+    for index, item in enumerate(command):
+        if index == 0 and Path(item) == Path(sys.executable):
+            out.append("python")
+        else:
+            out.append(
+                item.replace(root_native, "<repo>").replace(root_forward, "<repo>")
+            )
+    return out
+
+
+def sanitize_output(output: str) -> str:
+    root_native = str(ROOT)
+    root_forward = root_native.replace("\\", "/")
+    return (
+        output.replace(root_native, "<repo>")
+        .replace(root_forward, "<repo>")
+        .replace(str(Path(sys.executable)), "python")
+    )
+
+
 def run_step(command: List[str]) -> Dict[str, object]:
     proc = subprocess.run(
         command,
@@ -29,9 +53,9 @@ def run_step(command: List[str]) -> Dict[str, object]:
     )
     print(proc.stdout, end="")
     return {
-        "command": command,
+        "command": stable_command(command),
         "returncode": proc.returncode,
-        "output": proc.stdout,
+        "output": sanitize_output(proc.stdout),
     }
 
 
@@ -68,6 +92,7 @@ def write_results(
         "- every generated vertex lies on a sign-changing sample edge;",
         "- every case preserves the M3-derived boundary exactly;",
         "- no generated triangle complex has degenerate triangles, overused edges, or non-adjacent intersections;",
+        "- every triangle component has coherent internal edges and deterministic outward winding under the clean-room transition scalar interpolant;",
         "- flat runtime arrays match the per-case records;",
         "- generated JSON and C header regenerate deterministically.",
         "",

@@ -25,6 +25,10 @@ M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
     "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
 )
+M16_REPORT = ROOT / "research" / "official_topology" / "m16" / "m16_report.json"
+M16_EXPECTED_STATUS = (
+    "PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
+)
 
 MILESTONES = {
     "m4_runtime_tables": (
@@ -191,6 +195,15 @@ def main() -> int:
             m15_status = "INVALID_JSON"
     else:
         m15_status = "MISSING"
+    if M16_REPORT.exists():
+        try:
+            m16_status = str(
+                read_json(M16_REPORT).get("status", "MISSING_STATUS")
+            )
+        except Exception:
+            m16_status = "INVALID_JSON"
+    else:
+        m16_status = "MISSING"
 
     gates.extend([
         gate(
@@ -217,11 +230,19 @@ def main() -> int:
             "M4-selected corner and multi-neighbor LOD junction proof",
             "default_replacement",
             ["default_transition_backend", "functional_full_replacement"],
-            "BLOCKED",
-            ["validation/corner_junction_report.json covers the independent default core, not M4-selected junctions."],
-            "MISSING_M4_SELECTED_JUNCTION_EVIDENCE",
-            "PASS M4-specific corner/junction report",
-            "After six-face orientation proof, assemble and validate M4 multi-face corner junctions.",
+            "PASS" if m16_status == M16_EXPECTED_STATUS else "BLOCKED",
+            [
+                rel(M16_REPORT),
+                "validation/m4_corner_junction_report.json",
+            ],
+            m16_status,
+            M16_EXPECTED_STATUS,
+            (
+                "M16: validate mapped non-box M4 cells where three perpendicular "
+                "LOD transition faces meet."
+                if m16_status != M16_EXPECTED_STATUS
+                else None
+            ),
         ),
         gate(
             "m4_selected_full_production_gate",
@@ -348,7 +369,24 @@ def main() -> int:
     failed_ids = [item["id"] for item in gates if item["status"] == "FAIL"]
 
     analysis_ok = not load_errors and not failed_ids and runtime_pass and not default_ready and not functional_ready
-    if m15_status == M15_EXPECTED_STATUS:
+    if (
+        m15_status == M15_EXPECTED_STATUS
+        and m16_status == M16_EXPECTED_STATUS
+    ):
+        next_milestone = {
+            "id": "M17_M4_SELECTED_PRODUCTION_GATE",
+            "objective": (
+                "Run the complete production proof path with M4 explicitly "
+                "installed through the normal backend API and mapped transition "
+                "geometry enabled."
+            ),
+            "why_first": (
+                "Six-face orientation and mapped corner junctions now pass. The "
+                "remaining self-contained default-replacement blocker is a full "
+                "production run with M4 selected end to end."
+            ),
+        }
+    elif m15_status == M15_EXPECTED_STATUS:
         next_milestone = {
             "id": "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION",
             "objective": (
