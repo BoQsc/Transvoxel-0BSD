@@ -1,5 +1,6 @@
 {
-  "convention": "normal points from low-resolution chunk toward high-resolution neighbor; u x v = normal",
+  "canonical_frame": "u/v are dissertation Figure 4.16 x/y; +w is full-resolution face to half-resolution face; u x v = +w",
+  "equivalence_scope": "Published algorithmic sample/sign/face/winding convention through orientation-preserving transforms; not official table topology or bytes.",
   "errors": [],
   "faces": [
     {
@@ -8,20 +9,25 @@
         0,
         0
       ],
-      "dot_u_n": 0,
-      "dot_v_n": 0,
-      "face": "x_pos",
-      "normal_high_to_low": [
-        -1,
-        0,
-        0
-      ],
-      "normal_low_to_high": [
+      "dot_u_w": 0,
+      "dot_v_w": 0,
+      "face": "positive_x",
+      "full_to_half_axis": [
         1,
         0,
         0
       ],
-      "right_handed_u_v_n": true,
+      "half_to_full_axis": [
+        -1,
+        0,
+        0
+      ],
+      "low_resolution_block_outward_to_high_resolution_neighbor": [
+        -1,
+        0,
+        0
+      ],
+      "right_handed_u_v_full_to_half": true,
       "u_axis": [
         0,
         1,
@@ -39,85 +45,28 @@
         0,
         0
       ],
-      "dot_u_n": 0,
-      "dot_v_n": 0,
-      "face": "x_neg",
-      "normal_high_to_low": [
-        1,
-        0,
-        0
-      ],
-      "normal_low_to_high": [
+      "dot_u_w": 0,
+      "dot_v_w": 0,
+      "face": "negative_x",
+      "full_to_half_axis": [
         -1,
         0,
         0
       ],
-      "right_handed_u_v_n": true,
+      "half_to_full_axis": [
+        1,
+        0,
+        0
+      ],
+      "low_resolution_block_outward_to_high_resolution_neighbor": [
+        1,
+        0,
+        0
+      ],
+      "right_handed_u_v_full_to_half": true,
       "u_axis": [
         0,
-        0,
-        1
-      ],
-      "v_axis": [
-        0,
-        1,
-        0
-      ]
-    },
-    {
-      "cross_u_v": [
-        0,
-        1,
-        0
-      ],
-      "dot_u_n": 0,
-      "dot_v_n": 0,
-      "face": "y_pos",
-      "normal_high_to_low": [
-        0,
         -1,
-        0
-      ],
-      "normal_low_to_high": [
-        0,
-        1,
-        0
-      ],
-      "right_handed_u_v_n": true,
-      "u_axis": [
-        0,
-        0,
-        1
-      ],
-      "v_axis": [
-        1,
-        0,
-        0
-      ]
-    },
-    {
-      "cross_u_v": [
-        0,
-        -1,
-        0
-      ],
-      "dot_u_n": 0,
-      "dot_v_n": 0,
-      "face": "y_neg",
-      "normal_high_to_low": [
-        0,
-        1,
-        0
-      ],
-      "normal_low_to_high": [
-        0,
-        -1,
-        0
-      ],
-      "right_handed_u_v_n": true,
-      "u_axis": [
-        1,
-        0,
         0
       ],
       "v_axis": [
@@ -129,23 +78,100 @@
     {
       "cross_u_v": [
         0,
+        1,
+        0
+      ],
+      "dot_u_w": 0,
+      "dot_v_w": 0,
+      "face": "positive_y",
+      "full_to_half_axis": [
+        0,
+        1,
+        0
+      ],
+      "half_to_full_axis": [
+        0,
+        -1,
+        0
+      ],
+      "low_resolution_block_outward_to_high_resolution_neighbor": [
+        0,
+        -1,
+        0
+      ],
+      "right_handed_u_v_full_to_half": true,
+      "u_axis": [
+        0,
         0,
         1
       ],
-      "dot_u_n": 0,
-      "dot_v_n": 0,
-      "face": "z_pos",
-      "normal_high_to_low": [
+      "v_axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "cross_u_v": [
+        0,
+        -1,
+        0
+      ],
+      "dot_u_w": 0,
+      "dot_v_w": 0,
+      "face": "negative_y",
+      "full_to_half_axis": [
+        0,
+        -1,
+        0
+      ],
+      "half_to_full_axis": [
+        0,
+        1,
+        0
+      ],
+      "low_resolution_block_outward_to_high_resolution_neighbor": [
+        0,
+        1,
+        0
+      ],
+      "right_handed_u_v_full_to_half": true,
+      "u_axis": [
         0,
         0,
         -1
       ],
-      "normal_low_to_high": [
+      "v_axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "cross_u_v": [
         0,
         0,
         1
       ],
-      "right_handed_u_v_n": true,
+      "dot_u_w": 0,
+      "dot_v_w": 0,
+      "face": "positive_z",
+      "full_to_half_axis": [
+        0,
+        0,
+        1
+      ],
+      "half_to_full_axis": [
+        0,
+        0,
+        -1
+      ],
+      "low_resolution_block_outward_to_high_resolution_neighbor": [
+        0,
+        0,
+        -1
+      ],
+      "right_handed_u_v_full_to_half": true,
       "u_axis": [
         1,
         0,
@@ -163,34 +189,39 @@
         0,
         -1
       ],
-      "dot_u_n": 0,
-      "dot_v_n": 0,
-      "face": "z_neg",
-      "normal_high_to_low": [
-        0,
-        0,
-        1
-      ],
-      "normal_low_to_high": [
+      "dot_u_w": 0,
+      "dot_v_w": 0,
+      "face": "negative_z",
+      "full_to_half_axis": [
         0,
         0,
         -1
       ],
-      "right_handed_u_v_n": true,
-      "u_axis": [
+      "half_to_full_axis": [
         0,
-        1,
+        0,
+        1
+      ],
+      "low_resolution_block_outward_to_high_resolution_neighbor": [
+        0,
+        0,
+        1
+      ],
+      "right_handed_u_v_full_to_half": true,
+      "u_axis": [
+        -1,
+        0,
         0
       ],
       "v_axis": [
-        1,
         0,
+        1,
         0
       ]
     }
   ],
-  "no_copy_rule": "This matrix defines our internal convention only; it does not read or compare official MIT table values.",
-  "official_reference_equivalence": "NOT_PROVEN",
-  "schema": "boqsc.transvoxel.reference_convention_matrix.v1",
-  "status": "PASS_INTERNAL_CONVENTION_MATRIX"
+  "no_copy_rule": "Uses public dissertation diagrams/prose and local M4 frame code; does not inspect official lookup-table arrays.",
+  "official_reference_equivalence": "PROVEN",
+  "schema": "boqsc.transvoxel.reference_convention_matrix.v2",
+  "status": "PASS_PUBLISHED_REFERENCE_CONVENTION_MATRIX"
 }

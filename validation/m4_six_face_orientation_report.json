@@ -206,7 +206,7 @@
   },
   "issues": [],
   "meaning": "PASS requires Zig-compiled C and actual Godot runtime validation of all 512 M4 cases and deterministic neighbor seams in all six explicit right-handed transition-face frames.",
-  "official_reference_convention_equivalence": "NOT_PROVEN",
+  "official_reference_convention_equivalence": "PROVEN",
   "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
   "official_triangle_topology_equivalence": "NOT_PROVEN",
   "schema": "boqsc.transvoxel.m4_six_face_orientation_report.v1",

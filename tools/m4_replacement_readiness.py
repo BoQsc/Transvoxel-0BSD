@@ -278,14 +278,32 @@ def main() -> int:
         ),
         gate(
             "official_reference_convention_equivalence",
-            "Official sign, sample-order, face-frame, winding, and orientation convention equivalence",
+            "Published sign, sample-order, face-frame, winding, and orientation convention equivalence",
             "official_equivalence",
             ["functional_full_replacement", "exact_table_compatible_replacement"],
-            "BLOCKED",
-            [rel(reference_path)],
+            (
+                "PASS"
+                if reference.get("official_reference_equivalence") == "PROVEN"
+                else "BLOCKED"
+            ),
+            [
+                rel(reference_path),
+                "validation/reference_convention_report.json",
+                "research/official_topology/m18/m18_report.json",
+            ],
             reference.get("official_reference_equivalence", "MISSING"),
             "PROVEN",
-            "Derive a no-copy reference transform specification and prove all transition orientations against it.",
+            (
+                "Derive a no-copy reference transform specification and prove "
+                "all transition orientations against it."
+                if reference.get("official_reference_equivalence") != "PROVEN"
+                else None
+            ),
+            (
+                "This gate covers the published algorithmic convention through "
+                "an explicit case-index bijection. Exact table encoding remains "
+                "tracked separately."
+            ),
         ),
         gate(
             "official_transition_topology_equivalence",
@@ -395,7 +413,29 @@ def main() -> int:
         and runtime_pass
         and not functional_ready
     )
+    reference_proven = (
+        reference.get("official_reference_equivalence") == "PROVEN"
+    )
     if (
+        m15_status == M15_EXPECTED_STATUS
+        and m16_status == M16_EXPECTED_STATUS
+        and m17_status == M17_EXPECTED_STATUS
+        and reference_proven
+    ):
+        next_milestone = {
+            "id": "M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION",
+            "objective": (
+                "Prove the independently derived transition triangulation "
+                "topology satisfies the published Transvoxel topology rules "
+                "for all 512 cases without reading official lookup arrays."
+            ),
+            "why_first": (
+                "The default-backend production gate and published reference "
+                "convention now pass. Transition topology is the next "
+                "algorithmic blocker to a functional full replacement claim."
+            ),
+        }
+    elif (
         m15_status == M15_EXPECTED_STATUS
         and m16_status == M16_EXPECTED_STATUS
         and m17_status == M17_EXPECTED_STATUS

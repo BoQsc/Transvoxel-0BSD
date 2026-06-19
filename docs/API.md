@@ -189,6 +189,24 @@ generated/official_topology_candidate_tables.h
 
 See `examples/c_m4_backend_switch/` for a package-level smoke example.
 
+The direct M4 API keeps its generated table in stable row-major sample-bit
+order and exposes exact conversion helpers for the published dissertation
+Figure 4.17 case index:
+
+```c
+int local_case = tv_m4_transition_case_index(samples, iso_level);
+int published_case =
+    tv_m4_transition_reference_case_index(samples, iso_level);
+
+published_case =
+    tv_m4_transition_reference_case_from_local(local_case);
+local_case =
+    tv_m4_transition_local_case_from_reference(published_case);
+```
+
+M18 proves both conversions are bijective across all 512 cases. `TvBuildInfo`
+continues to report the stable local runtime-table index.
+
 The direct candidate API also exposes explicit right-handed face frames:
 
 ```c
@@ -206,9 +224,12 @@ TvBuildInfo info = tv_m4_build_transition_cell_candidate_oriented(
     TV_M4_TRANSITION_MAX_TRIANGLES);
 ```
 
-`TV_M4_FACE_POSITIVE_X` through `TV_M4_FACE_NEGATIVE_Z` map local `u/v`
-across the full-resolution face and local `+w` toward the half-resolution
-samples. M15 validates every case and neighbor seams in all six frames.
+`TV_M4_FACE_POSITIVE_X` through `TV_M4_FACE_NEGATIVE_Z` name the world
+direction of local `+w`. Local `u/v` span the full-resolution face, `+w`
+points toward the half-resolution samples and into the low-resolution block,
+and `-w` points toward the high-resolution neighbor. M15 validates every case
+and neighbor seam in all six frames; M18 proves this is an
+orientation-preserving transform of the published canonical cell.
 
 At block edges and corners, transition cells are not rectangular boxes. Build
 the 13 mapped sample positions and use:
@@ -234,8 +255,9 @@ The mapped builder derives handedness from sample positions and corrects
 winding. M16 validates three perpendicular mapped transition cells across all
 eight signed corner octants.
 
-The M4 backend is still a candidate path. Official `Transvoxel.cpp` equivalence
-remains unproven.
+The M4 backend is still a candidate path. Its published reference convention is
+proven, but official transition topology and complete `Transvoxel.cpp`
+replacement equivalence remain unproven.
 
 ## Ownership
 

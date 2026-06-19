@@ -23,6 +23,7 @@ default and optional M4 Godot transition-strip mesh paths can be compared after 
 optional M4 candidate geometry, winding, ArrayMesh output, and side seams pass in all six explicit transition-face frames when RUN_M15 is executed
 mapped M4 transition cells close shared lateral faces at three-face corners in all eight signed octants when RUN_M16 is executed
 the M4-selected combined production gate passes when RUN_M17 is executed
+the published M4 transition reference convention passes exhaustive Python and Zig C proof when RUN_M18 is executed
 M4 replacement readiness is split into explicit machine-readable candidate/default/full/exact compatibility decisions
 small dist/transvoxel_0bsd_core.zip can be built
 ```
@@ -100,6 +101,13 @@ terrain export, current Godot scripted edits, six-face/corner reports, and the
 base production gate. This is `RUN_M17.cmd`. It proves readiness to replace the
 default transition backend, not a full official-behavior replacement.
 
+The M18 reference-convention proof maps the M4 row-major runtime case index to
+the published Figure 4.17 index for all 512 cases. It validates sample
+coordinates, negative-inside polarity, complement and D4 transforms, outward
+winding, same-topology inverse winding, and all six face frames. This proves
+the published algorithmic convention, not official triangle topology or table
+bytes.
+
 ## Godot's role
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.
@@ -139,7 +147,9 @@ Eric Lengyel's Transvoxel.cpp under public domain.
 
 ## v25 strict audit addition
 
-v25 adds a strict audit matrix. It checks internal duplicate/degenerate/winding/self-intersection conditions, but it still marks official 73-class/reference equivalence as `NOT_PROVEN`.
+v25 added the strict audit matrix. M18 now marks the published reference
+convention as `PROVEN`; official 73-class numeric mapping and transition
+topology equivalence remain `NOT_PROVEN`.
 
 See `docs/PROOF_MATRIX.md` and `validation/strict_correctness_audit.json`.
 

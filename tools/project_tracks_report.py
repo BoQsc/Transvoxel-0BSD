@@ -63,7 +63,10 @@ def main() -> int:
                 "purpose": "Research official 73-class/topology/reference-convention equivalence without copying MIT table values.",
                 "missing": missing_official,
                 "official_73_class_mapping": "NOT_PROVEN",
-                "reference_convention_equivalence": "NOT_PROVEN",
+                "reference_convention_equivalence": ref_matrix.get(
+                    "official_reference_equivalence",
+                    "NOT_PROVEN",
+                ),
                 "original_topology_equivalence": "NOT_PROVEN",
             },
         },
@@ -79,7 +82,12 @@ def main() -> int:
             "reference_convention_matrix_status": ref_matrix.get("status"),
             "official_topology_constraints_status": constraints.get("status"),
         },
-        "meaning": "The independent core can be released/evaluated without waiting for official-equivalence research. Official topology research remains separate and explicitly NOT_PROVEN.",
+        "meaning": (
+            "The independent core can be released/evaluated independently. "
+            "The published transition reference convention is proven by M18; "
+            "official transition topology and table compatibility remain "
+            "separate and not proven."
+        ),
     }
     VALIDATION.mkdir(exist_ok=True)
     (VALIDATION / "project_tracks_report.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")

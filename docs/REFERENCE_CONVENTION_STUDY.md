@@ -1,39 +1,54 @@
 # Reference Convention Study
 
-This document records what still has to be proven before claiming official-reference convention equivalence.
+M18 proves the M4 candidate's equivalence to the published algorithmic
+transition-cell convention without reading official lookup-table arrays.
 
-## We currently prove
+## Published convention
 
-- Our generated transition tables are internally consistent.
-- Our side-face fingerprints match across neighboring transition cells.
-- Godot seam metrics report zero seam open edges under scripted fields and edits.
-- The C core compiles and runs with the generated tables.
+The dissertation provides enough public information to define the convention:
 
-## We do not yet prove
+- Section 4.3 and Figure 4.8 define the full-resolution, half-resolution, and
+  lateral faces.
+- Figure 4.10 classifies solid samples as inside and shows outward normals.
+- Section 4.5 and Figure 4.16 number the 3 by 3 full-face samples `0..8` and
+  half-face corners `9, A, B, C`.
+- Section 4.5 and Figure 4.17 assign case-index weights to negative samples.
+- Section 4.5 requires reversed triangle winding for inverted cases.
 
-- That our 9 sample index order matches the official sample numbering.
-- That our high-face / low-face orientation matches the official tables.
-- That our inside/outside sign polarity matches Eric's table polarity.
-- That our winding convention matches the reference after inversion and rotation.
-- That our generated triangles are topologically identical to the official 73-class triangulations.
+The M4 sample coordinates match Figure 4.16 directly. Its stable clean-room
+runtime table uses row-major bits, so numeric case indexes are related by this
+explicit permutation:
 
-## Convention proof plan
-
-A future proof should define a small explicit convention object:
-
-```json
-{
-  "sample_order": "documented 3x3 high face plus low side samples",
-  "inside_sign": "value < isolevel",
-  "face_axes": "documented right-handed local frame",
-  "transition_direction": "low-resolution cell face looking toward high-resolution neighbor",
-  "winding": "front faces point toward decreasing density or documented normal side"
-}
+```text
+sample:          0   1   2   3    4     5   6    7    8
+local bit:      01  02  04  08   10    20  40   80  100
+published bit:  01  02  04  80  100    08  40   20   10
 ```
 
-Then every generated case should be tested under all six face directions by transform matrices, not by hand inspection.
+The conversion is a bijection over all 512 cases. Numeric identity is not
+claimed or required for behavioral convention equivalence.
 
-## Current v29 status
+## Proven by M18
 
-`validate_reference_convention.py` checks internal convention consistency. It does not prove official-reference equivalence.
+- all 512 local-to-published and published-to-local mappings;
+- complement mapping;
+- Figure 4.17's 180-degree low-nibble/high-nibble transpose property;
+- all 4096 D4 case-transform comparisons;
+- full/half face and corner correspondence;
+- negative values as inside/solid;
+- coherent outward winding toward increasing scalar values;
+- reversed winding for every complement pair sharing the same topology;
+- orientation-preserving transforms through all six M4 face frames;
+- the public C conversion helpers through Zig-compiled exhaustive execution.
 
+## Still separate
+
+M18 does not prove:
+
+- official transition triangle topology for all 512 cases;
+- official numeric 73-class IDs;
+- official vertex/cache encoding;
+- byte identity with `Transvoxel.cpp`.
+
+Those remain separate gates because convention equivalence does not imply table
+or triangulation identity.

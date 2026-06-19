@@ -11,7 +11,7 @@
   "ok": true,
   "research_class_count": 73,
   "schema": "boqsc.transvoxel.official_topology.m4.validation.v1",
-  "sha256_without_this_field": "00dda23b7d9d3a20889c597c330ee0f84f66f9beef16b04e87b326203ee015d8",
+  "sha256_without_this_field": "e1b833af6dbcfb0644fa9913a7104b9e64912807ef5a905cd6e9b96b0b6492b6",
   "status": "PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
   "total_triangles": 2640,
   "total_vertex_pairs": 4096,

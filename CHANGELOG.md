@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Added M18 exhaustive published transition reference-convention proof.
+- Added C helpers converting between the stable M4 row-major case index and
+  the dissertation Figure 4.17 case index.
+- Proved all 512 index mappings, all 4096 D4 mapping combinations, outward and
+  inverse winding, and all six right-handed face frames without official table
+  arrays.
+
 ## v34
 
 - Fixed GitHub-ready repository check so local generated proof/cache files created during CI do not fail unless they are tracked by Git.

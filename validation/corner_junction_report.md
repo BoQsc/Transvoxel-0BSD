@@ -1,13 +1,13 @@
 # Corner and Neighboring Chunk Junction Audit
 
-Status: **PARTIAL_OR_BLOCKED**
+Status: **PASS_PARTIAL_JUNCTION_AUDIT**
 
 ## Proven by current package data
 
 - PASS — `transition_side_faces_match_in_python_chunk_strips`
-- NOT AVAILABLE / NOT PROVEN — `godot_seam_metrics_all_six_faces`
-- NOT AVAILABLE / NOT PROVEN — `godot_seam_metrics_multiple_fields`
-- NOT AVAILABLE / NOT PROVEN — `automated_scripted_edits_pass`
+- PASS — `godot_seam_metrics_all_six_faces`
+- PASS — `godot_seam_metrics_multiple_fields`
+- PASS — `automated_scripted_edits_pass`
 
 ## Not fully proven yet
 

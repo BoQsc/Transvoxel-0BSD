@@ -115,10 +115,9 @@ BOUNDARY_TRIANGLES = [
 
 TETRAHEDRA = [(a, b, c, CENTER_ID) for (a, b, c) in BOUNDARY_TRIANGLES]
 
-# Case bits from the full-resolution samples. This follows the natural bit
-# order for sample ids 0..8. The dissertation uses hexadecimal quantities shown
-# in Figure 4.17; those are equivalent to 1 << sample_id for the numbering in
-# Figure 4.16.
+# Case bits from the full-resolution samples. This older independent core uses
+# local row-major bit order. Dissertation Figure 4.17 uses a different numeric
+# bit permutation; M18 documents and proves the explicit bijection.
 CASE_BITS = {i: (1 << i) for i in range(9)}
 
 

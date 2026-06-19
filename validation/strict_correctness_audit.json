@@ -1,7 +1,7 @@
 {
   "matrix": {
     "all_corners_and_multi_neighbor_production_junctions": "NOT_FULLY_PROVEN",
-    "edited_terrain_all_six_faces_scripted": "NOT_PROVEN_OR_NOT_RUN",
+    "edited_terrain_all_six_faces_scripted": "PASS",
     "every_512_transition_case_internally_valid": "PASS",
     "generated_topology_signature_closest_to_73": {
       "class_count": 51,
@@ -9,17 +9,17 @@
       "name": "raw_d4_complement_orbit"
     },
     "generated_topology_signature_matches_official_73_count": "MISMATCH_OR_NOT_PROVEN",
-    "internal_reference_convention_matrix": "PASS_INTERNAL_CONVENTION_MATRIX",
+    "internal_reference_convention_matrix": "PASS_PUBLISHED_REFERENCE_CONVENTION_MATRIX",
     "no_duplicate_triangles_in_generated_cases": "PASS",
     "no_generated_case_self_intersections_midpoint_geometry": "PASS",
     "no_zero_area_degenerate_triangles_in_generated_cases": "PASS",
     "official_73_candidate_derivation_status": "RESEARCH_PASS_OFFICIAL_73_NOT_DERIVED",
     "official_73_equivalence_classes_mapped": "NOT_PROVEN",
     "official_topology_public_constraints": "PASS_STRUCTURAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
-    "same_orientation_sign_convention_as_reference": "NOT_PROVEN",
+    "same_orientation_sign_convention_as_reference": "PROVEN",
     "triangle_winding_normals_internal_consistency": "PASS"
   },
-  "meaning": "This is an honesty gate. It strengthens generated-table audits while clearly marking official 73-class/reference/topology equivalence and exhaustive production corner-junction proof as not proven.",
+  "meaning": "This is an honesty gate. It proves the published M4 reference convention when M18 evidence passes while keeping official 73-class numeric mapping and transition topology equivalence explicitly not proven.",
   "official_transvoxel_equivalence_proof": "NOT_PROVEN",
   "reports": {
     "73_classes": {
@@ -42,7 +42,7 @@
       "status": "PASS_INTERNAL_DIRECT_MAPPING_NOT_OFFICIAL_73"
     },
     "corner_junctions": {
-      "auto_interaction_status": "NOT_AVAILABLE",
+      "auto_interaction_status": "PASS",
       "chunk_report_status": "PASS",
       "failed_auto_checks": 0,
       "meaning": "This audit proves the current six-face and scripted-edit evidence when present. It does not claim exhaustive proof for every possible production corner/multi-neighbor junction topology.",
@@ -53,17 +53,17 @@
         "GPU compute implementation parity; this audit is CPU/Godot/Python proof oriented"
       ],
       "proven_checks": {
-        "automated_scripted_edits_pass": false,
-        "godot_seam_metrics_all_six_faces": false,
-        "godot_seam_metrics_multiple_fields": false,
+        "automated_scripted_edits_pass": true,
+        "godot_seam_metrics_all_six_faces": true,
+        "godot_seam_metrics_multiple_fields": true,
         "transition_side_faces_match_in_python_chunk_strips": true
       },
       "schema": "boqsc.transvoxel.corner_junction_audit.v1",
-      "scripted_edits": 0,
-      "seam_metrics_status": "NOT_AVAILABLE",
-      "status": "PARTIAL_OR_BLOCKED",
-      "tested_face_directions": 0,
-      "tested_fields": 0
+      "scripted_edits": 168,
+      "seam_metrics_status": "PASS",
+      "status": "PASS_PARTIAL_JUNCTION_AUDIT",
+      "tested_face_directions": 6,
+      "tested_fields": 7
     },
     "official_73_candidate_derivation": {
       "ambiguous_orbit_split_candidates": [
@@ -4424,24 +4424,99 @@
     },
     "reference_convention": {
       "checks": {
-        "full_resolution_transition_samples_are_9": true,
-        "half_resolution_corner_sources_exist": true,
-        "synthetic_center_source_exists": true,
-        "total_transition_samples_are_14": true,
-        "transition_case_count_is_512": true
+        "all_d4_sample_transforms_commute_with_index_mapping": true,
+        "all_triangle_components_are_coherent_and_outward": true,
+        "case_complement_commutes_with_index_mapping": true,
+        "generated_runtime_contract_records_mapping": true,
+        "local_and_published_indexes_are_bijective_for_all_512_cases": true,
+        "negative_values_are_inside_case_bits": true,
+        "published_180_degree_nibble_property_holds": true,
+        "published_case_weights_match_figure_4_17": true,
+        "same_13_sample_geometry_as_figures_4_8_and_4_16": true,
+        "same_half_face_corner_correspondence": true,
+        "same_topology_complements_reverse_winding": true,
+        "six_face_frames_are_orientation_preserving": true,
+        "source_spec_is_published_convention_proof": true
       },
-      "future_pass_condition": [
-        "write an independent convention document for sample order, face orientation, case-bit meaning, and inside/outside sign",
-        "derive transforms from that document to the published dissertation diagrams without copying table values",
-        "validate a public-domain reference-case corpus if one becomes available or is generated independently"
-      ],
-      "reason": "The project intentionally does not load or compare against Eric Lengyel's MIT Transvoxel.cpp tables. Therefore exact reference sign/orientation convention equivalence is not proven.",
-      "reference_equivalence_status": "NOT_PROVEN",
-      "schema": "boqsc.transvoxel.reference_convention_audit.v1",
-      "status": "PASS_INTERNAL_CONVENTION"
+      "claim_boundary": {
+        "not_proven": [
+          "official transition triangle topology for all 512 cases",
+          "official class ID mapping",
+          "official vertex/cache encoding",
+          "Transvoxel.cpp byte identity"
+        ],
+        "proven": "Behavioral equivalence to the published transition-cell reference convention through an explicit case-index bijection."
+      },
+      "equivalence_scope": "Published algorithmic sample geometry, sign polarity, case-index encoding, face direction, inversion winding, and six-face orientation transforms.",
+      "explicit_non_identity_mapping": {
+        "bijection": true,
+        "local_case_bits": {
+          "0": 1,
+          "1": 2,
+          "2": 4,
+          "3": 8,
+          "4": 16,
+          "5": 32,
+          "6": 64,
+          "7": 128,
+          "8": 256
+        },
+        "numeric_identity": false,
+        "published_reference_case_bits": {
+          "0": 1,
+          "1": 2,
+          "2": 4,
+          "3": 128,
+          "4": 256,
+          "5": 8,
+          "6": 64,
+          "7": 32,
+          "8": 16
+        }
+      },
+      "metrics": {
+        "case_mapping_cases": 512,
+        "complement_mapping_failures": 0,
+        "d4_mapping_comparisons": 4096,
+        "d4_mapping_failures": 0,
+        "distinct_reference_indexes": 512,
+        "face_frames": 6,
+        "mapping_failures": 0,
+        "rotate_180_mapping_failures": 0,
+        "winding": {
+          "cases": 512,
+          "complement_pairs_reverse_wound": 143,
+          "complement_pairs_same_topology": 143,
+          "complement_winding_failures": 0,
+          "components": 729,
+          "degenerate_triangles": 0,
+          "incoherent_shared_edges": 0,
+          "non_outward_components": 0,
+          "nonmanifold_edges": 0,
+          "triangles": 2640
+        }
+      },
+      "no_copy_rule": "No official lookup-table arrays were read or compared.",
+      "official_reference_equivalence": "PROVEN",
+      "reference_equivalence_status": "PROVEN",
+      "schema": "boqsc.transvoxel.reference_convention_audit.v2",
+      "source_evidence": {
+        "author": "Eric Lengyel",
+        "public_constraints": [
+          "Section 4.3 and Figure 4.8 define full-, half-, and lateral faces.",
+          "Figure 4.10 defines inside/solid and outward surface normals.",
+          "Section 4.5 and Figure 4.16 define sample coordinates and corner correspondence.",
+          "Section 4.5 and Figure 4.17 define negative-value case bits.",
+          "Section 4.5 requires reversed triangle winding for inverted cases."
+        ],
+        "title": "Voxel-Based Terrain for Real-Time Virtual Simulations",
+        "url": "https://transvoxel.org/Lengyel-VoxelTerrain.pdf"
+      },
+      "status": "PASS_PUBLISHED_REFERENCE_CONVENTION_EQUIVALENCE"
     },
     "reference_convention_matrix": {
-      "convention": "normal points from low-resolution chunk toward high-resolution neighbor; u x v = normal",
+      "canonical_frame": "u/v are dissertation Figure 4.16 x/y; +w is full-resolution face to half-resolution face; u x v = +w",
+      "equivalence_scope": "Published algorithmic sample/sign/face/winding convention through orientation-preserving transforms; not official table topology or bytes.",
       "errors": [],
       "faces": [
         {
@@ -4450,20 +4525,25 @@
             0,
             0
           ],
-          "dot_u_n": 0,
-          "dot_v_n": 0,
-          "face": "x_pos",
-          "normal_high_to_low": [
-            -1,
-            0,
-            0
-          ],
-          "normal_low_to_high": [
+          "dot_u_w": 0,
+          "dot_v_w": 0,
+          "face": "positive_x",
+          "full_to_half_axis": [
             1,
             0,
             0
           ],
-          "right_handed_u_v_n": true,
+          "half_to_full_axis": [
+            -1,
+            0,
+            0
+          ],
+          "low_resolution_block_outward_to_high_resolution_neighbor": [
+            -1,
+            0,
+            0
+          ],
+          "right_handed_u_v_full_to_half": true,
           "u_axis": [
             0,
             1,
@@ -4481,85 +4561,28 @@
             0,
             0
           ],
-          "dot_u_n": 0,
-          "dot_v_n": 0,
-          "face": "x_neg",
-          "normal_high_to_low": [
-            1,
-            0,
-            0
-          ],
-          "normal_low_to_high": [
+          "dot_u_w": 0,
+          "dot_v_w": 0,
+          "face": "negative_x",
+          "full_to_half_axis": [
             -1,
             0,
             0
           ],
-          "right_handed_u_v_n": true,
+          "half_to_full_axis": [
+            1,
+            0,
+            0
+          ],
+          "low_resolution_block_outward_to_high_resolution_neighbor": [
+            1,
+            0,
+            0
+          ],
+          "right_handed_u_v_full_to_half": true,
           "u_axis": [
             0,
-            0,
-            1
-          ],
-          "v_axis": [
-            0,
-            1,
-            0
-          ]
-        },
-        {
-          "cross_u_v": [
-            0,
-            1,
-            0
-          ],
-          "dot_u_n": 0,
-          "dot_v_n": 0,
-          "face": "y_pos",
-          "normal_high_to_low": [
-            0,
             -1,
-            0
-          ],
-          "normal_low_to_high": [
-            0,
-            1,
-            0
-          ],
-          "right_handed_u_v_n": true,
-          "u_axis": [
-            0,
-            0,
-            1
-          ],
-          "v_axis": [
-            1,
-            0,
-            0
-          ]
-        },
-        {
-          "cross_u_v": [
-            0,
-            -1,
-            0
-          ],
-          "dot_u_n": 0,
-          "dot_v_n": 0,
-          "face": "y_neg",
-          "normal_high_to_low": [
-            0,
-            1,
-            0
-          ],
-          "normal_low_to_high": [
-            0,
-            -1,
-            0
-          ],
-          "right_handed_u_v_n": true,
-          "u_axis": [
-            1,
-            0,
             0
           ],
           "v_axis": [
@@ -4571,23 +4594,100 @@
         {
           "cross_u_v": [
             0,
+            1,
+            0
+          ],
+          "dot_u_w": 0,
+          "dot_v_w": 0,
+          "face": "positive_y",
+          "full_to_half_axis": [
+            0,
+            1,
+            0
+          ],
+          "half_to_full_axis": [
+            0,
+            -1,
+            0
+          ],
+          "low_resolution_block_outward_to_high_resolution_neighbor": [
+            0,
+            -1,
+            0
+          ],
+          "right_handed_u_v_full_to_half": true,
+          "u_axis": [
+            0,
             0,
             1
           ],
-          "dot_u_n": 0,
-          "dot_v_n": 0,
-          "face": "z_pos",
-          "normal_high_to_low": [
+          "v_axis": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "cross_u_v": [
+            0,
+            -1,
+            0
+          ],
+          "dot_u_w": 0,
+          "dot_v_w": 0,
+          "face": "negative_y",
+          "full_to_half_axis": [
+            0,
+            -1,
+            0
+          ],
+          "half_to_full_axis": [
+            0,
+            1,
+            0
+          ],
+          "low_resolution_block_outward_to_high_resolution_neighbor": [
+            0,
+            1,
+            0
+          ],
+          "right_handed_u_v_full_to_half": true,
+          "u_axis": [
             0,
             0,
             -1
           ],
-          "normal_low_to_high": [
+          "v_axis": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "cross_u_v": [
             0,
             0,
             1
           ],
-          "right_handed_u_v_n": true,
+          "dot_u_w": 0,
+          "dot_v_w": 0,
+          "face": "positive_z",
+          "full_to_half_axis": [
+            0,
+            0,
+            1
+          ],
+          "half_to_full_axis": [
+            0,
+            0,
+            -1
+          ],
+          "low_resolution_block_outward_to_high_resolution_neighbor": [
+            0,
+            0,
+            -1
+          ],
+          "right_handed_u_v_full_to_half": true,
           "u_axis": [
             1,
             0,
@@ -4605,36 +4705,41 @@
             0,
             -1
           ],
-          "dot_u_n": 0,
-          "dot_v_n": 0,
-          "face": "z_neg",
-          "normal_high_to_low": [
-            0,
-            0,
-            1
-          ],
-          "normal_low_to_high": [
+          "dot_u_w": 0,
+          "dot_v_w": 0,
+          "face": "negative_z",
+          "full_to_half_axis": [
             0,
             0,
             -1
           ],
-          "right_handed_u_v_n": true,
-          "u_axis": [
+          "half_to_full_axis": [
             0,
-            1,
+            0,
+            1
+          ],
+          "low_resolution_block_outward_to_high_resolution_neighbor": [
+            0,
+            0,
+            1
+          ],
+          "right_handed_u_v_full_to_half": true,
+          "u_axis": [
+            -1,
+            0,
             0
           ],
           "v_axis": [
-            1,
             0,
+            1,
             0
           ]
         }
       ],
-      "no_copy_rule": "This matrix defines our internal convention only; it does not read or compare official MIT table values.",
-      "official_reference_equivalence": "NOT_PROVEN",
-      "schema": "boqsc.transvoxel.reference_convention_matrix.v1",
-      "status": "PASS_INTERNAL_CONVENTION_MATRIX"
+      "no_copy_rule": "Uses public dissertation diagrams/prose and local M4 frame code; does not inspect official lookup-table arrays.",
+      "official_reference_equivalence": "PROVEN",
+      "schema": "boqsc.transvoxel.reference_convention_matrix.v2",
+      "status": "PASS_PUBLISHED_REFERENCE_CONVENTION_MATRIX"
     },
     "self_intersections": {
       "limitations": [
@@ -4891,37 +4996,37 @@
   "steps": [
     {
       "command": "tools/validate_73_classes.py",
-      "elapsed_seconds": 0.018,
+      "elapsed_seconds": 0.048,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/validate_winding_normals.py",
-      "elapsed_seconds": 0.371,
+      "elapsed_seconds": 0.844,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/validate_self_intersections.py",
-      "elapsed_seconds": 1.815,
+      "elapsed_seconds": 8.046,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/validate_reference_convention.py",
-      "elapsed_seconds": 0.04,
+      "elapsed_seconds": 0.209,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/validate_corner_junctions.py",
-      "elapsed_seconds": 0.005,
+      "elapsed_seconds": 0.006,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/topology_signature_analysis.py",
-      "elapsed_seconds": 1.018,
+      "elapsed_seconds": 2.702,
       "ok": true,
       "returncode": 0
     }

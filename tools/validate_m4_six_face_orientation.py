@@ -357,7 +357,12 @@ def main() -> int:
         "c_report": rel(C_REPORT),
         "godot_runtime_output": rel(GODOT_OUTPUT),
         "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
-        "official_reference_convention_equivalence": "NOT_PROVEN",
+        "official_reference_convention_equivalence": (
+            read_json(ROOT / "validation" / "reference_convention_matrix.json")
+            .get("official_reference_equivalence", "NOT_PROVEN")
+            if (ROOT / "validation" / "reference_convention_matrix.json").exists()
+            else "NOT_PROVEN"
+        ),
         "official_triangle_topology_equivalence": "NOT_PROVEN",
         "default_core_replaced": False,
         "issues": issues,

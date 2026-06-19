@@ -1,18 +1,92 @@
 {
   "checks": {
-    "full_resolution_transition_samples_are_9": true,
-    "half_resolution_corner_sources_exist": true,
-    "synthetic_center_source_exists": true,
-    "total_transition_samples_are_14": true,
-    "transition_case_count_is_512": true
+    "all_d4_sample_transforms_commute_with_index_mapping": true,
+    "all_triangle_components_are_coherent_and_outward": true,
+    "case_complement_commutes_with_index_mapping": true,
+    "generated_runtime_contract_records_mapping": true,
+    "local_and_published_indexes_are_bijective_for_all_512_cases": true,
+    "negative_values_are_inside_case_bits": true,
+    "published_180_degree_nibble_property_holds": true,
+    "published_case_weights_match_figure_4_17": true,
+    "same_13_sample_geometry_as_figures_4_8_and_4_16": true,
+    "same_half_face_corner_correspondence": true,
+    "same_topology_complements_reverse_winding": true,
+    "six_face_frames_are_orientation_preserving": true,
+    "source_spec_is_published_convention_proof": true
   },
-  "future_pass_condition": [
-    "write an independent convention document for sample order, face orientation, case-bit meaning, and inside/outside sign",
-    "derive transforms from that document to the published dissertation diagrams without copying table values",
-    "validate a public-domain reference-case corpus if one becomes available or is generated independently"
-  ],
-  "reason": "The project intentionally does not load or compare against Eric Lengyel's MIT Transvoxel.cpp tables. Therefore exact reference sign/orientation convention equivalence is not proven.",
-  "reference_equivalence_status": "NOT_PROVEN",
-  "schema": "boqsc.transvoxel.reference_convention_audit.v1",
-  "status": "PASS_INTERNAL_CONVENTION"
+  "claim_boundary": {
+    "not_proven": [
+      "official transition triangle topology for all 512 cases",
+      "official class ID mapping",
+      "official vertex/cache encoding",
+      "Transvoxel.cpp byte identity"
+    ],
+    "proven": "Behavioral equivalence to the published transition-cell reference convention through an explicit case-index bijection."
+  },
+  "equivalence_scope": "Published algorithmic sample geometry, sign polarity, case-index encoding, face direction, inversion winding, and six-face orientation transforms.",
+  "explicit_non_identity_mapping": {
+    "bijection": true,
+    "local_case_bits": {
+      "0": 1,
+      "1": 2,
+      "2": 4,
+      "3": 8,
+      "4": 16,
+      "5": 32,
+      "6": 64,
+      "7": 128,
+      "8": 256
+    },
+    "numeric_identity": false,
+    "published_reference_case_bits": {
+      "0": 1,
+      "1": 2,
+      "2": 4,
+      "3": 128,
+      "4": 256,
+      "5": 8,
+      "6": 64,
+      "7": 32,
+      "8": 16
+    }
+  },
+  "metrics": {
+    "case_mapping_cases": 512,
+    "complement_mapping_failures": 0,
+    "d4_mapping_comparisons": 4096,
+    "d4_mapping_failures": 0,
+    "distinct_reference_indexes": 512,
+    "face_frames": 6,
+    "mapping_failures": 0,
+    "rotate_180_mapping_failures": 0,
+    "winding": {
+      "cases": 512,
+      "complement_pairs_reverse_wound": 143,
+      "complement_pairs_same_topology": 143,
+      "complement_winding_failures": 0,
+      "components": 729,
+      "degenerate_triangles": 0,
+      "incoherent_shared_edges": 0,
+      "non_outward_components": 0,
+      "nonmanifold_edges": 0,
+      "triangles": 2640
+    }
+  },
+  "no_copy_rule": "No official lookup-table arrays were read or compared.",
+  "official_reference_equivalence": "PROVEN",
+  "reference_equivalence_status": "PROVEN",
+  "schema": "boqsc.transvoxel.reference_convention_audit.v2",
+  "source_evidence": {
+    "author": "Eric Lengyel",
+    "public_constraints": [
+      "Section 4.3 and Figure 4.8 define full-, half-, and lateral faces.",
+      "Figure 4.10 defines inside/solid and outward surface normals.",
+      "Section 4.5 and Figure 4.16 define sample coordinates and corner correspondence.",
+      "Section 4.5 and Figure 4.17 define negative-value case bits.",
+      "Section 4.5 requires reversed triangle winding for inverted cases."
+    ],
+    "title": "Voxel-Based Terrain for Real-Time Virtual Simulations",
+    "url": "https://transvoxel.org/Lengyel-VoxelTerrain.pdf"
+  },
+  "status": "PASS_PUBLISHED_REFERENCE_CONVENTION_EQUIVALENCE"
 }

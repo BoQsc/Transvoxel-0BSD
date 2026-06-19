@@ -540,3 +540,42 @@ Run:
 ```text
 RUN_M17.cmd
 ```
+
+## M18 result
+
+M18 derives and validates the published transition-cell convention without
+using official lookup-table arrays:
+
+```text
+research/official_topology/derive_reference_convention.py
+research/official_topology/reference_convention_matrix.py
+tools/validate_reference_convention.py
+examples/c_m18_reference_convention/main.c
+research/official_topology/m18/
+```
+
+The M4 sample coordinates directly match dissertation Figure 4.16. The stable
+runtime table uses row-major case bits, while Figure 4.17 uses a different
+numeric permutation. M18 proves an explicit bijection instead of claiming
+numeric identity.
+
+Current M18 result:
+
+```text
+published reference convention equivalence: PROVEN
+all 512 local/reference mappings and inverse mappings: PASS
+complement and 180-degree nibble properties: PASS
+all 4096 D4 mapping comparisons: PASS
+coherent outward triangle components: PASS
+same-topology inverse pairs reverse-wound: 143/143 PASS
+all six M4 face frames orientation-preserving: PASS
+Zig C conversion API: PASS
+official transition topology equivalence: NOT_PROVEN
+next milestone: M19 official transition-topology validation
+```
+
+Run:
+
+```text
+RUN_M18.cmd
+```

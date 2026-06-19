@@ -84,7 +84,12 @@ def main() -> int:
         "no_duplicate_triangles_in_generated_cases": "PASS" if reports["winding_normals"].get("status") == "PASS" else "NOT_PROVEN",
         "no_zero_area_degenerate_triangles_in_generated_cases": "PASS" if reports["winding_normals"].get("status") == "PASS" else "NOT_PROVEN",
         "no_generated_case_self_intersections_midpoint_geometry": reports["self_intersections"].get("status", "UNKNOWN"),
-        "same_orientation_sign_convention_as_reference": "NOT_PROVEN",
+        "same_orientation_sign_convention_as_reference": (
+            reports["reference_convention"].get(
+                "reference_equivalence_status",
+                "NOT_PROVEN",
+            )
+        ),
         "internal_reference_convention_matrix": reports.get("reference_convention_matrix", {}).get("status", "MISSING"),
         "edited_terrain_all_six_faces_scripted": "PASS" if (
             reports["corner_junctions"].get("tested_face_directions", 0) >= 6
@@ -104,7 +109,12 @@ def main() -> int:
         "steps": steps,
         "matrix": matrix,
         "reports": reports,
-        "meaning": "This is an honesty gate. It strengthens generated-table audits while clearly marking official 73-class/reference/topology equivalence and exhaustive production corner-junction proof as not proven.",
+        "meaning": (
+            "This is an honesty gate. It proves the published M4 reference "
+            "convention when M18 evidence passes while keeping official "
+            "73-class numeric mapping and transition topology equivalence "
+            "explicitly not proven."
+        ),
     }
     (VALIDATION / "strict_correctness_audit.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
     lines = [

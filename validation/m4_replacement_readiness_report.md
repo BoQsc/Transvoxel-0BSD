@@ -24,13 +24,10 @@ Status: **READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKE
 - `m4_all_six_face_orientation_runtime_validation`
 - `m4_multi_face_corner_junction_validation`
 - `m4_selected_full_production_gate`
+- `official_reference_convention_equivalence`
 
 ## Blocking evidence
 
-- `official_reference_convention_equivalence`: Official sign, sample-order, face-frame, winding, and orientation convention equivalence
-  - Actual: `NOT_PROVEN`
-  - Required: `PROVEN`
-  - Next: Derive a no-copy reference transform specification and prove all transition orientations against it.
 - `official_transition_topology_equivalence`: Official transition triangulation/topology equivalence for all 512 cases
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN`
@@ -58,6 +55,6 @@ Status: **READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKE
 
 ## Next milestone
 
-`M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION` — Derive and prove the official sign, sample-order, face-frame, winding, and orientation convention without reading official lookup-table arrays.
+`M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION` — Prove the independently derived transition triangulation topology satisfies the published Transvoxel topology rules for all 512 cases without reading official lookup arrays.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

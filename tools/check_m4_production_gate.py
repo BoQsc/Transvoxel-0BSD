@@ -169,6 +169,15 @@ def main() -> int:
     )
     if int(m4_validation.get("case_winding_failure_count", -1)) != 0:
         issues.append("M4 case winding failures are not zero")
+    reference_path = ROOT / "validation" / "reference_convention_matrix.json"
+    reference_status = "NOT_PROVEN"
+    if reference_path.exists():
+        reference_status = str(
+            read_json(reference_path).get(
+                "official_reference_equivalence",
+                "NOT_PROVEN",
+            )
+        )
 
     status = (
         "PASS_M4_SELECTED_PRODUCTION_GATE"
@@ -182,7 +191,9 @@ def main() -> int:
             "PASS proves the clean-room M4 transition candidate can run through "
             "the normal C backend hook, terrain export, Godot scripted edits, "
             "all six face frames, mapped corner junctions, and the existing base "
-            "production gate. It does not prove official Transvoxel equivalence."
+            "production gate. Published reference convention evidence is "
+            "reported separately; topology and full replacement equivalence "
+            "are not proven by this gate."
         ),
         "m4_table_sha256": m4_table.get("sha256_without_this_field"),
         "m4_case_winding_failure_count": m4_validation.get(
@@ -205,7 +216,7 @@ def main() -> int:
         },
         "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
         "official_class_id_mapping": "NOT_PROVEN",
-        "official_reference_convention_equivalence": "NOT_PROVEN",
+        "official_reference_convention_equivalence": reference_status,
         "official_triangle_topology_equivalence": "NOT_PROVEN",
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)

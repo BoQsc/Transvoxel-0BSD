@@ -1,7 +1,6 @@
 {
   "analysis_completed": true,
   "blocking_gate_ids": [
-    "official_reference_convention_equivalence",
     "official_transition_topology_equivalence",
     "official_class_id_mapping",
     "official_vertex_encoding_equivalence",
@@ -232,20 +231,22 @@
       "title": "Full production gate with M4 installed through the normal backend API"
     },
     {
-      "actual": "NOT_PROVEN",
+      "actual": "PROVEN",
       "category": "official_equivalence",
       "evidence": [
-        "validation/reference_convention_matrix.json"
+        "validation/reference_convention_matrix.json",
+        "validation/reference_convention_report.json",
+        "research/official_topology/m18/m18_report.json"
       ],
       "expected": "PROVEN",
       "id": "official_reference_convention_equivalence",
-      "next_action": "Derive a no-copy reference transform specification and prove all transition orientations against it.",
+      "note": "This gate covers the published algorithmic convention through an explicit case-index bijection. Exact table encoding remains tracked separately.",
       "required_for": [
         "functional_full_replacement",
         "exact_table_compatible_replacement"
       ],
-      "status": "BLOCKED",
-      "title": "Official sign, sample-order, face-frame, winding, and orientation convention equivalence"
+      "status": "PASS",
+      "title": "Published sign, sample-order, face-frame, winding, and orientation convention equivalence"
     },
     {
       "actual": "NOT_PROVEN",
@@ -346,9 +347,9 @@
   "load_errors": [],
   "meaning": "M4 now passes the explicit default-transition-backend runtime and production gates, but a functional full Transvoxel.cpp replacement remains blocked on official behavior, regular-cell equivalence, and consumer compatibility.",
   "next_milestone": {
-    "id": "M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION",
-    "objective": "Derive and prove the official sign, sample-order, face-frame, winding, and orientation convention without reading official lookup-table arrays.",
-    "why_first": "The M4 candidate now passes every default-backend runtime and production gate. Reference-convention equivalence is the next algorithmic blocker to a functional full replacement claim."
+    "id": "M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION",
+    "objective": "Prove the independently derived transition triangulation topology satisfies the published Transvoxel topology rules for all 512 cases without reading official lookup arrays.",
+    "why_first": "The default-backend production gate and published reference convention now pass. Transition topology is the next algorithmic blocker to a functional full replacement claim."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -363,7 +364,8 @@
     "m13_scripted_edits",
     "m4_all_six_face_orientation_runtime_validation",
     "m4_multi_face_corner_junction_validation",
-    "m4_selected_full_production_gate"
+    "m4_selected_full_production_gate",
+    "official_reference_convention_equivalence"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
   "status": "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED"

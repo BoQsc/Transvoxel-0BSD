@@ -31,7 +31,8 @@ Optional M4 official-topology candidate backend: package-validated candidate
 Optional M4 terrain export path: validated through normal C API
 Optional M4 Godot data path: metrics, backend/edit comparison, six-face orientation, and mapped corner junctions runtime-validated
 M4 default transition-backend readiness: READY by the M17 production gate; switch not yet made
-Functional full replacement readiness: BLOCKED on official behavior, regular-cell equivalence, and compatibility evidence
+Published transition reference convention: PROVEN by M18 through an explicit 512-case index bijection
+Functional full replacement readiness: BLOCKED on transition topology, regular-cell equivalence, and compatibility evidence
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -128,6 +129,7 @@ RUN_M14.cmd         M4 default/full replacement-readiness decision gate
 RUN_M15.cmd         M4 all-six-face C/Godot orientation proof
 RUN_M16.cmd         M4 mapped three-face corner-junction proof
 RUN_M17.cmd         M4-selected combined production gate
+RUN_M18.cmd         published reference-convention/index-mapping proof
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:
@@ -145,7 +147,9 @@ core/independent/          proven practical 0BSD core candidate
 research/official_topology/ no-copy research into official 73-class/topology equivalence
 ```
 
-The independent core is the usable product candidate. Official-equivalence research remains separate and currently `NOT_PROVEN`.
+The independent core is the usable product candidate. M18 proves the published
+transition reference convention, while topology/table equivalence remains
+separate and currently `NOT_PROVEN`.
 
 ## What this proves
 

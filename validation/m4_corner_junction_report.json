@@ -61,7 +61,7 @@
   "m4_winding_report": "research/official_topology/m4/runtime_table_validation.json",
   "m4_winding_status": "PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
   "meaning": "PASS requires coherent clean-room M4 table winding plus Zig-compiled C and actual Godot runtime evidence for three mapped transition cells meeting at every signed corner octant.",
-  "official_reference_convention_equivalence": "NOT_PROVEN",
+  "official_reference_convention_equivalence": "PROVEN",
   "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
   "official_triangle_topology_equivalence": "NOT_PROVEN",
   "schema": "boqsc.transvoxel.m4_corner_junction_report.v1",

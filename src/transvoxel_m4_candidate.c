@@ -9,6 +9,14 @@ static const TvVec3 tv_m4_transition_positions[TV_M4_TRANSITION_SAMPLE_COUNT] = 
     {0.0f, 2.0f, 1.0f}, {2.0f, 2.0f, 1.0f}
 };
 
+static const unsigned short tv_m4_reference_case_bits[
+    TV_TRANSITION_HIGH_SAMPLE_COUNT
+] = {
+    0x001u, 0x002u, 0x004u,
+    0x080u, 0x100u, 0x008u,
+    0x040u, 0x020u, 0x010u
+};
+
 static TvVec3 tv_m4_vec3(float x, float y, float z) {
     TvVec3 v;
     v.x = x;
@@ -124,6 +132,48 @@ int tv_m4_transition_case_index(
         }
     }
     return index;
+}
+
+int tv_m4_transition_reference_case_index(
+    const float samples[TV_M4_TRANSITION_SAMPLE_COUNT],
+    float iso_level) {
+    int index = 0;
+    int i;
+    if (!samples) return 0;
+    for (i = 0; i < TV_TRANSITION_HIGH_SAMPLE_COUNT; ++i) {
+        if (samples[i] < iso_level) {
+            index |= (int)tv_m4_reference_case_bits[i];
+        }
+    }
+    return index;
+}
+
+int tv_m4_transition_reference_case_from_local(int local_case_index) {
+    int reference_case_index = 0;
+    int i;
+    if (local_case_index < 0 || local_case_index > 0x1FF) {
+        return TV_ERROR_BAD_CASE;
+    }
+    for (i = 0; i < TV_TRANSITION_HIGH_SAMPLE_COUNT; ++i) {
+        if (local_case_index & (1 << i)) {
+            reference_case_index |= (int)tv_m4_reference_case_bits[i];
+        }
+    }
+    return reference_case_index;
+}
+
+int tv_m4_transition_local_case_from_reference(int reference_case_index) {
+    int local_case_index = 0;
+    int i;
+    if (reference_case_index < 0 || reference_case_index > 0x1FF) {
+        return TV_ERROR_BAD_CASE;
+    }
+    for (i = 0; i < TV_TRANSITION_HIGH_SAMPLE_COUNT; ++i) {
+        if (reference_case_index & (int)tv_m4_reference_case_bits[i]) {
+            local_case_index |= (1 << i);
+        }
+    }
+    return local_case_index;
 }
 
 void tv_m4_transition_fill_derived_samples(

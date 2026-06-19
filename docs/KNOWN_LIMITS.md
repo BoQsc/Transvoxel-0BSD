@@ -6,7 +6,6 @@ Still not claimed:
 
 ```text
 Official 73-equivalence-class mapping is not proven.
-Exact sign/orientation convention equivalence with Eric Lengyel's MIT table file is not proven.
 Exact topology identity with the official table file is not proven.
 The optional M4 candidate backend is package-tested, but official equivalence is still not proven.
 The optional M4 terrain export path is C-tested, but full Godot gameplay/GDExtension terrain integration through M4 is still not proven.
@@ -17,7 +16,8 @@ The optional default-vs-M4 Godot scripted edit comparison path is validated by `
 The M4 all-six-face orientation path is validated in Zig C and actual Godot runtime evidence by `RUN_M15.cmd`.
 The M4 mapped three-face corner-junction path is validated in Zig C and actual Godot runtime evidence by `RUN_M16.cmd`.
 The M4-selected production gate passes through `RUN_M17.cmd`, so M4 is now ready to replace the default transition backend when the project chooses to make that switch.
-The full replacement claim remains blocked because official reference/topology behavior, regular-cell equivalence, and consumer compatibility are not all proven.
+The published transition reference convention is proven by `RUN_M18.cmd` through an explicit 512-case index bijection and winding/frame validation.
+The full replacement claim remains blocked because transition topology, regular-cell equivalence, and consumer compatibility are not all proven.
 Game-ready art/texture/lighting quality is not certified.
 Gameplay performance in a complete streaming world is not certified.
 ```
@@ -38,5 +38,6 @@ Default and M4 Godot transition-strip mesh outputs can be compared after scripte
 M4 candidate cells and deterministic neighbor seams pass across explicit +X/-X/+Y/-Y/+Z/-Z frames in Zig C and Godot.
 Mapped M4 transition cells share coincident lateral geometry and opposite edge winding at three-face block corners across all eight octants.
 The combined M4 production gate passes normal-API selection, terrain export, scripted edits, six-face, corner-junction, and base production evidence.
+M4 matches the published transition sample geometry, negative-inside polarity, Figure 4.17 case encoding through an explicit bijection, inversion winding, and six-face orientation contract.
 Small public dist package is generated and checked.
 ```

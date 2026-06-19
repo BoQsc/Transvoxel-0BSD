@@ -35,8 +35,11 @@ typedef enum TvM4TransitionFace {
 } TvM4TransitionFace;
 
 /* The local transition cell uses u/v on the 3x3 full-resolution face and w
- * from that face toward the four half-resolution samples. The frame axes
- * include the caller-provided local u/v/w scale.
+ * from that face toward the four half-resolution samples. Thus +w points
+ * into the low-resolution block and -w points toward the high-resolution
+ * neighbor. TvM4TransitionFace names the world direction of local +w, not the
+ * outward face normal of the low-resolution block. The frame axes include the
+ * caller-provided local u/v/w scale.
  */
 typedef struct TvM4TransitionFrame {
     TvVec3 origin;
@@ -52,6 +55,21 @@ typedef struct TvM4TransitionFrame {
 int tv_m4_transition_case_index(
     const float samples[TV_M4_TRANSITION_SAMPLE_COUNT],
     float iso_level);
+
+/* M4 stores its clean-room runtime table in row-major sample-bit order:
+ * sample ids 0..8 map to bits 0..8. The published dissertation convention
+ * uses the same sample coordinates but the bit weights from Figure 4.17:
+ * 01,02,04,80,100,08,40,20,10. These helpers provide an exact bijection
+ * without changing the stable runtime-table index.
+ */
+int tv_m4_transition_reference_case_index(
+    const float samples[TV_M4_TRANSITION_SAMPLE_COUNT],
+    float iso_level);
+
+/* The integer conversion helpers return TV_ERROR_BAD_CASE outside 0..511. */
+int tv_m4_transition_reference_case_from_local(int local_case_index);
+
+int tv_m4_transition_local_case_from_reference(int reference_case_index);
 
 void tv_m4_transition_fill_derived_samples(
     float samples[TV_M4_TRANSITION_SAMPLE_COUNT]);

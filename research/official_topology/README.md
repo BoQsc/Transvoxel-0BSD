@@ -9,7 +9,7 @@ Current status:
 ```text
 73-class clean-room research partition: DERIVED
 official class ID mapping: NOT_PROVEN
-reference_sign_orientation_equivalence: NOT_PROVEN
+published_reference_sign_orientation_equivalence: PROVEN_M18
 original_topology_equivalence: NOT_PROVEN
 ```
 
@@ -390,6 +390,32 @@ ready to replace default transition backend: true
 functional full replacement ready: false
 official reference/topology equivalence: NOT_PROVEN
 next milestone: M18 official reference-convention validation
+```
+
+## M18
+
+`m18/` derives the published transition-cell convention from dissertation
+Sections 4.3 and 4.5 and Figures 4.8, 4.10, 4.16, and 4.17. It proves the M4
+runtime convention through an explicit case-index permutation without reading
+official lookup-table arrays.
+
+Run:
+
+```text
+RUN_M18.cmd
+```
+
+Current M18 result:
+
+```text
+published sample/sign/face/winding convention: PROVEN
+local/reference case-index bijection: 512/512 PASS
+D4 transform/index comparisons: 4096 PASS
+same-topology inverse winding pairs: 143/143 PASS
+six orientation-preserving face frames: PASS
+Zig C conversion API and 512 runtime builds: PASS
+official transition topology equivalence: NOT_PROVEN
+next milestone: M19 official transition-topology validation
 ```
 
 Allowed:

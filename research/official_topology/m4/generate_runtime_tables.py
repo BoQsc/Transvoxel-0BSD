@@ -47,6 +47,18 @@ D4_TRANSFORM_NAMES = {
     7: "reflect_x_then_rotate_270",
 }
 
+PUBLISHED_REFERENCE_CASE_BITS = {
+    0: 0x001,
+    1: 0x002,
+    2: 0x004,
+    3: 0x080,
+    4: 0x100,
+    5: 0x008,
+    6: 0x040,
+    7: 0x020,
+    8: 0x010,
+}
+
 
 def read_json(path: Path) -> Dict[str, object]:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -558,6 +570,28 @@ def generate_table() -> Dict[str, object]:
             "research_class_count": 73,
             "sample_count": 13,
             "case_bits": {str(i): 1 << i for i in range(9)},
+            "case_index_space": (
+                "clean-room local row-major sample-bit order; use the published "
+                "reference mapping below for dissertation Figure 4.17 indexes"
+            ),
+            "published_reference_convention": {
+                "status": "PROVEN_BY_EXPLICIT_BIJECTION",
+                "source": (
+                    "Lengyel dissertation Figures 4.16 and 4.17 and "
+                    "Section 4.5"
+                ),
+                "negative_value_means_inside": True,
+                "sample_case_bits": {
+                    str(sample_id): bit
+                    for sample_id, bit in PUBLISHED_REFERENCE_CASE_BITS.items()
+                },
+                "local_to_reference": (
+                    "For every set local bit i, set sample_case_bits[i]."
+                ),
+                "reference_to_local": (
+                    "For every set sample_case_bits[i], set local bit i."
+                ),
+            },
             "half_resolution_sign_sources": {
                 str(k): v for k, v in sorted(m3.HALF_TO_FULL.items())
             },

@@ -30,10 +30,13 @@ In addition to default-backend readiness, this requires:
 
 ```text
 independently proven official transition topology behavior
-independently proven official sign/orientation/reference convention
+independently proven published sign/orientation/reference convention
 clean-room regular-cell equivalence
 a documented and tested consumer compatibility contract
 ```
+
+The reference-convention item is proven by M18. Transition topology,
+regular-cell equivalence, and consumer compatibility remain blocking.
 
 Byte-for-byte identity is not required for functional replacement.
 
@@ -56,8 +59,10 @@ RUN_M14.cmd
 RUN_M15.cmd
 RUN_M16.cmd
 RUN_M17.cmd
+RUN_M18.cmd
 ```
 
 The current expected result is a passing readiness analysis with the
 default-transition-backend decision ready, the functional full replacement
-decision blocked, and M18 selected as the next milestone.
+decision blocked, and M19 transition-topology validation selected as the next
+milestone.

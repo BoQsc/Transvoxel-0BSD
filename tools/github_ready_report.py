@@ -42,6 +42,7 @@ REQUIRED_FILES = [
     "RUN_M15.cmd",
     "RUN_M16.cmd",
     "RUN_M17.cmd",
+    "RUN_M18.cmd",
     "include/transvoxel.h",
     "include/transvoxel_m4_candidate.h",
     "include/transvoxel_m4_backend.h",
@@ -83,6 +84,9 @@ REQUIRED_FILES = [
     "examples/c_m17_m4_production/main.c",
     "research/official_topology/m17/m17_report.json",
     "proof/m4_production_gate.json",
+    "examples/c_m18_reference_convention/main.c",
+    "research/official_topology/m18/m18_report.json",
+    "validation/reference_convention_report.json",
     "dist/transvoxel_0bsd_core.zip",
 ]
 

@@ -1,0 +1,71 @@
+{
+  "attempts": [
+    {
+      "candidate": "zig cc",
+      "command": [
+        "zig",
+        "cc",
+        "-std=c99",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-Iinclude",
+        "-Igenerated",
+        "src/transvoxel.c",
+        "src/transvoxel_m4_candidate.c",
+        "examples/c_m18_reference_convention/main.c",
+        "-o",
+        "<temp>/m18_reference_convention.exe"
+      ],
+      "output_errors": [],
+      "parsed": {
+        "build_checks": 512,
+        "cases": 512,
+        "complement_checks": 512,
+        "failures": 0,
+        "frame_checks": 6,
+        "mapping_checks": 512,
+        "rotation_checks": 512,
+        "roundtrip_checks": 1024,
+        "triangles": 2640,
+        "vertices": 4096
+      },
+      "returncode": 0,
+      "source": "configured-zig",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "m18 reference cases=512 mapping_checks=512 roundtrip_checks=1024 complement_checks=512 rotation_checks=512 build_checks=512 frame_checks=6 vertices=4096 triangles=2640 failures=0"
+    }
+  ],
+  "checks": [
+    "all 512 local-to-published case-index mappings",
+    "all 512 published-to-local round trips",
+    "complement mapping",
+    "published 180-degree nibble property",
+    "all 512 M4 runtime builds remain unchanged",
+    "all six frame determinants are positive"
+  ],
+  "compiler": "zig cc",
+  "metrics": {
+    "build_checks": 512,
+    "cases": 512,
+    "complement_checks": 512,
+    "failures": 0,
+    "frame_checks": 6,
+    "mapping_checks": 512,
+    "rotation_checks": 512,
+    "roundtrip_checks": 1024,
+    "triangles": 2640,
+    "vertices": 4096
+  },
+  "ok": true,
+  "schema": "boqsc.transvoxel.official_topology.m18.c_validation.v1",
+  "source": "configured-zig",
+  "status": "PASS_M18_ZIG_PUBLISHED_REFERENCE_CONVENTION_API",
+  "stdout": "m18 reference cases=512 mapping_checks=512 roundtrip_checks=1024 complement_checks=512 rotation_checks=512 build_checks=512 frame_checks=6 vertices=4096 triangles=2640 failures=0",
+  "validated_files": [
+    "include/transvoxel_m4_candidate.h",
+    "src/transvoxel_m4_candidate.c",
+    "examples/c_m18_reference_convention/main.c"
+  ]
+}

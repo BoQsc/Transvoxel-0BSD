@@ -105789,11 +105789,30 @@
       "8": 256
     },
     "case_count": 512,
+    "case_index_space": "clean-room local row-major sample-bit order; use the published reference mapping below for dissertation Figure 4.17 indexes",
     "half_resolution_sign_sources": {
       "10": 2,
       "11": 6,
       "12": 8,
       "9": 0
+    },
+    "published_reference_convention": {
+      "local_to_reference": "For every set local bit i, set sample_case_bits[i].",
+      "negative_value_means_inside": true,
+      "reference_to_local": "For every set sample_case_bits[i], set local bit i.",
+      "sample_case_bits": {
+        "0": 1,
+        "1": 2,
+        "2": 4,
+        "3": 128,
+        "4": 256,
+        "5": 8,
+        "6": 64,
+        "7": 32,
+        "8": 16
+      },
+      "source": "Lengyel dissertation Figures 4.16 and 4.17 and Section 4.5",
+      "status": "PROVEN_BY_EXPLICIT_BIJECTION"
     },
     "research_class_count": 73,
     "sample_count": 13,
@@ -105934,7 +105953,7 @@
     }
   ],
   "schema": "boqsc.transvoxel.official_topology.m4.runtime_candidate.v1",
-  "sha256_without_this_field": "00dda23b7d9d3a20889c597c330ee0f84f66f9beef16b04e87b326203ee015d8",
+  "sha256_without_this_field": "e1b833af6dbcfb0644fa9913a7104b9e64912807ef5a905cd6e9b96b0b6492b6",
   "source_inputs": {
     "boundary_loops": {
       "path": "research/official_topology/m3/boundary_loops.json",

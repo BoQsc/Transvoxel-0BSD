@@ -45,7 +45,7 @@ Status:
 
 ```text
 official_73_class_mapping: NOT_PROVEN
-reference_sign_orientation_equivalence: NOT_PROVEN
+published_reference_sign_orientation_equivalence: PROVEN_M18
 original_topology_equivalence: NOT_PROVEN
 ```
 

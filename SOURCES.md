@@ -24,6 +24,11 @@ full-resolution face with nine samples, an opposite half-resolution face whose
 corner values equal the matching full-resolution corners, and 512 possible
 case-index configurations.
 
+M18 uses the dissertation's public Section 4.3, Figures 4.8 and 4.10, and
+Section 4.5, Figures 4.16 and 4.17, to derive sample coordinates, full/half face
+semantics, negative-inside polarity, case-index bit weights, outward winding,
+and inversion behavior. It does not use the official lookup-table arrays.
+
 ## License references
 
 - SPDX 0BSD page.

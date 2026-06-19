@@ -9,7 +9,7 @@ M4 converts the M3 clean-room topology derivation into runtime-ready candidate t
 - Research classes: `73`
 - Total runtime vertex pairs: `4096`
 - Total runtime triangles: `2640`
-- SHA-256: `00dda23b7d9d3a20889c597c330ee0f84f66f9beef16b04e87b326203ee015d8`
+- SHA-256: `e1b833af6dbcfb0644fa9913a7104b9e64912807ef5a905cd6e9b96b0b6492b6`
 - Zig header smoke: `PASS_ZIG_HEADER_SMOKE`
 
 ## What passed
