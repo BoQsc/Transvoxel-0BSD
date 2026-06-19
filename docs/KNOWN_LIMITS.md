@@ -14,6 +14,7 @@ The optional M4 Godot data path is staged and Python-metrics validated; `RUN_M10
 The optional M4 Godot viewer/export mesh path is validated by `RUN_M11.cmd` only when Godot is available locally.
 The optional default-vs-M4 Godot comparison path is validated by `RUN_M12.cmd` only when Godot is available locally.
 The optional default-vs-M4 Godot scripted edit comparison path is validated by `RUN_M13.cmd` only when Godot is available locally.
+The M4 replacement-readiness gate currently blocks default/full replacement because all-six-face M4 validation, M4 junction proof, M4-selected production proof, official reference/topology behavior, regular-cell equivalence, and consumer compatibility are not all proven.
 Game-ready art/texture/lighting quality is not certified.
 Gameplay performance in a complete streaming world is not certified.
 ```

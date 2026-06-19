@@ -1,0 +1,75 @@
+{
+  "m13_status": "PASS_M13_M4_GODOT_SCRIPTED_EDIT_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "meaning": "M14 passes when the readiness analysis correctly recognizes the optional M4 backend as a strong candidate while blocking default/full replacement claims until all required evidence exists.",
+  "outputs": {
+    "readiness_json": "validation\\m4_replacement_readiness_report.json",
+    "readiness_markdown": "validation/m4_replacement_readiness_report.md",
+    "results": "research\\official_topology\\m14\\results.md"
+  },
+  "readiness": {
+    "analysis_completed": true,
+    "blocking_gate_ids": [
+      "m4_all_six_face_orientation_runtime_validation",
+      "m4_multi_face_corner_junction_validation",
+      "m4_selected_full_production_gate",
+      "official_reference_convention_equivalence",
+      "official_transition_topology_equivalence",
+      "official_class_id_mapping",
+      "official_vertex_encoding_equivalence",
+      "official_regular_cell_equivalence",
+      "transvoxel_cpp_consumer_compatibility_contract",
+      "official_transvoxel_cpp_byte_identity"
+    ],
+    "claim_boundary": {
+      "allowed_now": "Optional clean-room M4 transition-backend candidate with passing runtime/integration milestones.",
+      "byte_identity_required_for_exact_table_identity_claim": true,
+      "byte_identity_required_for_functional_replacement": false,
+      "not_allowed_now": "Proven full Transvoxel.cpp replacement, official topology equivalent, or default backend replacement."
+    },
+    "decisions": {
+      "exact_table_compatible_replacement_ready": false,
+      "functional_full_replacement_ready": false,
+      "optional_transition_backend_candidate_ready": true,
+      "ready_to_replace_default_transition_backend": false
+    },
+    "failed_gate_ids": [],
+    "next_milestone": {
+      "id": "M15_M4_SIX_FACE_ORIENTATION_VALIDATION",
+      "objective": "Prove M4 runtime geometry and seams across all six transition-face orientations using explicit sample/vertex frame transforms in C and Godot.",
+      "why_first": "This is the nearest self-contained blocker to making M4 the default and creates the orientation machinery required for later official-reference and corner-junction proofs."
+    },
+    "passing_gate_ids": [
+      "m4_runtime_tables",
+      "m5_c_runtime",
+      "m6_c_seams",
+      "m7_normal_api",
+      "m8_package",
+      "m9_terrain_export",
+      "m10_godot_metrics",
+      "m11_godot_viewer",
+      "m12_backend_compare",
+      "m13_scripted_edits"
+    ],
+    "status": "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
+  },
+  "schema": "boqsc.transvoxel.official_topology.m14.report.v1",
+  "status": "PASS_M14_REPLACEMENT_READINESS_GATE_BLOCKED_ON_REQUIRED_EVIDENCE",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "research/official_topology/m13/run_m13.py"
+      ],
+      "output": "M4 runtime candidate table: <repo>\\generated\\official_topology_candidate_tables.json\nM4 C header: <repo>\\generated\\official_topology_candidate_tables.h\nstatus: candidate_runtime_tables_official_equivalence_not_proven\nsha256: 0ae3d220b7a3c6519c7504aba7731164c0b9d0c3587152adc78117717875674d\nM4 runtime table validation: <repo>\\research\\official_topology\\m4\\runtime_table_validation.json\nstatus: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\ntotal triangles: 2640\ntotal vertex pairs: 4096\nM4 Zig header smoke: PASS_ZIG_HEADER_SMOKE\n\nM4: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m4\\results.md\nM5 C validation: PASS_M5_ZIG_CANDIDATE_BUILDER\nm4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12\n\nM5: PASS_M5_OPT_IN_C_RUNTIME_CANDIDATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m5\\results.md\nM6 C seam validation: PASS_M6_ZIG_M4_SEAM_VALIDATION\nm6 m4 seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\nm6 default comparison cases=512 default_failures=0 m4_failures=0 count_differences=510 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 structurally_distinct=1\n\nM6: PASS_M6_M4_C_SEAM_VALIDATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m6\\results.md\nM7 C backend-switch validation: PASS_M7_ZIG_NORMAL_API_BACKEND_SWITCH\nm7 backend switch cases=512 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 count_differences=510 restored_default=1\nm7 normal_api_m4_seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\n\nM7: PASS_M7_NORMAL_API_M4_BACKEND_SWITCH_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m7\\results.md\nM4 backend package C test: PASS_M4_BACKEND_PACKAGE_C_EXAMPLE\nm4 package backend case=341 default_vertices=24 default_triangles=24 m4_vertices=12 m4_triangles=12 restored_default=1 custom_after=0\n\nM8: PASS_M8_M4_BACKEND_PACKAGE_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m8\\results.md\nM4 terrain C test: PASS_M4_TERRAIN_NORMAL_API_EXPORT\ndefault transition triangles=36 m4 transition triangles=6\n\nM9: PASS_M9_M4_TERRAIN_EXPORT_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m9\\results.md\nsynced godot\\generated\\regular_tables.json\nsynced godot\\generated\\transition_tables.json\nsynced godot\\generated\\transvoxel_tables.json\nsynced godot\\generated\\official_topology_candidate_tables.json\ngodot table sync: PASS\ngodot preflight: PASS\n<repo>\\validation\\godot_project_report.md\nM4 Godot candidate: PASS_M4_GODOT_STYLE_CANDIDATE_METRICS\nm4 godot-style builds=5376 shared_faces=9408 seam_open_edges=0\nGodot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_candidate_metrics=PASS\n<repo>/godot/validation/05_m4_candidate_metrics/m4_candidate_metrics.json\n\nM10: PASS_M10_M4_GODOT_DATA_PATH_METRICS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m10\\results.md\ngodot preflight: PASS\n<repo>\\validation\\godot_project_report.md\nM4 Godot viewer: BLOCKED_M4_GODOT_VIEWER_NOT_RUN\nGodot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_candidate_viewer=PASS\n<repo>/godot/validation/08_m4_candidate_viewer/m4_candidate_viewer.json\nM4 Godot viewer: PASS_M4_GODOT_VIEWER_EXPORT_PATH\nm4 viewer strip cells=63 vertices=373 triangles=245\n\nM11: PASS_M11_M4_GODOT_VIEWER_EXPORT_PATH_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m11\\results.md\ngodot preflight: PASS\n<repo>\\validation\\godot_project_report.md\nM4 Godot backend compare: BLOCKED_M4_GODOT_BACKEND_COMPARE_NOT_RUN\nGodot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_backend_compare=PASS\n<repo>/godot/validation/09_m4_backend_compare/m4_backend_compare.json\nM4 Godot backend compare: PASS_M4_GODOT_BACKEND_COMPARE\ndefault triangles=1362 m4 triangles=245 delta=-1117\n\nM12: PASS_M12_M4_GODOT_BACKEND_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m12\\results.md\ngodot preflight: PASS\n<repo>\\validation\\godot_project_report.md\nM4 Godot scripted edit compare: BLOCKED_M4_GODOT_SCRIPTED_EDIT_COMPARE_NOT_RUN\nGodot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_scripted_edit_compare=PASS\n<repo>/godot/validation/10_m4_scripted_edit_compare/m4_scripted_edit_compare.json\nM4 Godot scripted edit compare: PASS_M4_GODOT_SCRIPTED_EDIT_COMPARE\nchecks=126 edits=112 changed=104 default_tris=22566 m4_tris=4303\n\nM13: PASS_M13_M4_GODOT_SCRIPTED_EDIT_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m13\\results.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN\noptional backend candidate ready: True\ndefault replacement ready: False\nfunctional full replacement ready: False\nblocking gates: 10\nnext milestone: M15_M4_SIX_FACE_ORIENTATION_VALIDATION\n",
+      "returncode": 0
+    }
+  ]
+}

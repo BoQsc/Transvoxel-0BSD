@@ -1,0 +1,371 @@
+{
+  "analysis_completed": true,
+  "blocking_gate_ids": [
+    "m4_all_six_face_orientation_runtime_validation",
+    "m4_multi_face_corner_junction_validation",
+    "m4_selected_full_production_gate",
+    "official_reference_convention_equivalence",
+    "official_transition_topology_equivalence",
+    "official_class_id_mapping",
+    "official_vertex_encoding_equivalence",
+    "official_regular_cell_equivalence",
+    "transvoxel_cpp_consumer_compatibility_contract",
+    "official_transvoxel_cpp_byte_identity"
+  ],
+  "claim_boundary": {
+    "allowed_now": "Optional clean-room M4 transition-backend candidate with passing runtime/integration milestones.",
+    "byte_identity_required_for_exact_table_identity_claim": true,
+    "byte_identity_required_for_functional_replacement": false,
+    "not_allowed_now": "Proven full Transvoxel.cpp replacement, official topology equivalent, or default backend replacement."
+  },
+  "decisions": {
+    "exact_table_compatible_replacement_ready": false,
+    "functional_full_replacement_ready": false,
+    "optional_transition_backend_candidate_ready": true,
+    "ready_to_replace_default_transition_backend": false
+  },
+  "failed_gate_ids": [],
+  "gates": [
+    {
+      "actual": "PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m4/m4_report.json"
+      ],
+      "expected": "PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m4_runtime_tables",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m4 runtime tables"
+    },
+    {
+      "actual": "PASS_M5_OPT_IN_C_RUNTIME_CANDIDATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m5/m5_report.json"
+      ],
+      "expected": "PASS_M5_OPT_IN_C_RUNTIME_CANDIDATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m5_c_runtime",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m5 c runtime"
+    },
+    {
+      "actual": "PASS_M6_M4_C_SEAM_VALIDATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m6/m6_report.json"
+      ],
+      "expected": "PASS_M6_M4_C_SEAM_VALIDATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m6_c_seams",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m6 c seams"
+    },
+    {
+      "actual": "PASS_M7_NORMAL_API_M4_BACKEND_SWITCH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m7/m7_report.json"
+      ],
+      "expected": "PASS_M7_NORMAL_API_M4_BACKEND_SWITCH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m7_normal_api",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m7 normal api"
+    },
+    {
+      "actual": "PASS_M8_M4_BACKEND_PACKAGE_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m8/m8_report.json"
+      ],
+      "expected": "PASS_M8_M4_BACKEND_PACKAGE_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m8_package",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m8 package"
+    },
+    {
+      "actual": "PASS_M9_M4_TERRAIN_EXPORT_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m9/m9_report.json"
+      ],
+      "expected": "PASS_M9_M4_TERRAIN_EXPORT_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m9_terrain_export",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m9 terrain export"
+    },
+    {
+      "actual": "PASS_M10_M4_GODOT_DATA_PATH_METRICS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m10/m10_report.json"
+      ],
+      "expected": "PASS_M10_M4_GODOT_DATA_PATH_METRICS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m10_godot_metrics",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m10 godot metrics"
+    },
+    {
+      "actual": "PASS_M11_M4_GODOT_VIEWER_EXPORT_PATH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m11/m11_report.json"
+      ],
+      "expected": "PASS_M11_M4_GODOT_VIEWER_EXPORT_PATH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m11_godot_viewer",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m11 godot viewer"
+    },
+    {
+      "actual": "PASS_M12_M4_GODOT_BACKEND_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m12/m12_report.json"
+      ],
+      "expected": "PASS_M12_M4_GODOT_BACKEND_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m12_backend_compare",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m12 backend compare"
+    },
+    {
+      "actual": "PASS_M13_M4_GODOT_SCRIPTED_EDIT_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "category": "candidate_runtime",
+      "evidence": [
+        "research/official_topology/m13/m13_report.json"
+      ],
+      "expected": "PASS_M13_M4_GODOT_SCRIPTED_EDIT_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+      "id": "m13_scripted_edits",
+      "required_for": [
+        "optional_transition_backend",
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "PASS",
+      "title": "m13 scripted edits"
+    },
+    {
+      "actual": "MISSING_EVIDENCE",
+      "category": "default_replacement",
+      "evidence": [
+        "No validation/m4_six_face_orientation_report.json exists."
+      ],
+      "expected": "PASS with at least 6 tested face directions, zero seam failures, invalid triangles, and degenerates",
+      "id": "m4_all_six_face_orientation_runtime_validation",
+      "next_action": "M15: transform M4 sample/vertex frames through all six face orientations and validate C/Godot mesh output.",
+      "required_for": [
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "M4 runtime proof across all \u00b1X/\u00b1Y/\u00b1Z transition-face orientations"
+    },
+    {
+      "actual": "MISSING_M4_SELECTED_JUNCTION_EVIDENCE",
+      "category": "default_replacement",
+      "evidence": [
+        "validation/corner_junction_report.json covers the independent default core, not M4-selected junctions."
+      ],
+      "expected": "PASS M4-specific corner/junction report",
+      "id": "m4_multi_face_corner_junction_validation",
+      "next_action": "After six-face orientation proof, assemble and validate M4 multi-face corner junctions.",
+      "required_for": [
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "M4-selected corner and multi-neighbor LOD junction proof"
+    },
+    {
+      "actual": "MISSING_M4_PRODUCTION_GATE",
+      "category": "default_replacement",
+      "evidence": [
+        "proof/production_gate.json currently proves the independent default backend.",
+        "No proof/m4_production_gate.json exists."
+      ],
+      "expected": "PASS M4-selected runtime, mesh, six-face seams, scripted edits, and production gate",
+      "id": "m4_selected_full_production_gate",
+      "next_action": "Run the complete production assembler/gate with M4 explicitly installed after orientation and junction validation.",
+      "required_for": [
+        "default_transition_backend",
+        "functional_full_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "Full production gate with M4 installed through the normal backend API"
+    },
+    {
+      "actual": "NOT_PROVEN",
+      "category": "official_equivalence",
+      "evidence": [
+        "validation/reference_convention_matrix.json"
+      ],
+      "expected": "PROVEN",
+      "id": "official_reference_convention_equivalence",
+      "next_action": "Derive a no-copy reference transform specification and prove all transition orientations against it.",
+      "required_for": [
+        "functional_full_replacement",
+        "exact_table_compatible_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "Official sign, sample-order, face-frame, winding, and orientation convention equivalence"
+    },
+    {
+      "actual": "NOT_PROVEN",
+      "category": "official_equivalence",
+      "evidence": [
+        "research/official_topology/m3/candidate_triangulations.json"
+      ],
+      "expected": "PROVEN",
+      "id": "official_transition_topology_equivalence",
+      "next_action": "Prove the independently derived ambiguity resolutions and triangle topology match the published algorithmic topology.",
+      "required_for": [
+        "functional_full_replacement",
+        "exact_table_compatible_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "Official transition triangulation/topology equivalence for all 512 cases"
+    },
+    {
+      "actual": "NOT_PROVEN",
+      "category": "table_compatibility",
+      "evidence": [
+        "research/official_topology/m3/class_partition.json"
+      ],
+      "expected": "PROVEN",
+      "id": "official_class_id_mapping",
+      "next_action": "Derive official-compatible class numbering from a no-copy canonical representative ordering.",
+      "required_for": [
+        "exact_table_compatible_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "Official 73 transition-class mapping"
+    },
+    {
+      "actual": "NOT_PROVEN",
+      "category": "table_compatibility",
+      "evidence": [
+        "research/official_topology/m3/candidate_triangulations.json"
+      ],
+      "expected": "PROVEN",
+      "id": "official_vertex_encoding_equivalence",
+      "next_action": "Define and prove an independently derived vertex-code/cache-reuse encoding contract.",
+      "required_for": [
+        "exact_table_compatible_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "Official transition vertex encoding and reuse metadata equivalence"
+    },
+    {
+      "actual": "MISSING_OFFICIAL_REGULAR_CELL_CANDIDATE",
+      "category": "full_replacement",
+      "evidence": [
+        "M4 currently supplies only an official-topology transition candidate.",
+        "No official regular-cell candidate/report exists."
+      ],
+      "expected": "Proven clean-room regular-cell topology/reference behavior",
+      "id": "official_regular_cell_equivalence",
+      "next_action": "Create a separate no-copy regular-cell equivalence track after the transition orientation gate is established.",
+      "required_for": [
+        "functional_full_replacement",
+        "exact_table_compatible_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "Official regular-cell topology/reference behavior for a full Transvoxel.cpp replacement"
+    },
+    {
+      "actual": "NOT_CLAIMED",
+      "category": "full_replacement",
+      "evidence": [
+        "The current public product is a plain C API and does not claim field-for-field Transvoxel.cpp consumer compatibility."
+      ],
+      "expected": "Explicit adapter/compatibility contract with compile and behavior tests",
+      "id": "transvoxel_cpp_consumer_compatibility_contract",
+      "next_action": "Specify whether the final product is behavioral replacement, source adapter, or table-layout compatible, then test that contract.",
+      "required_for": [
+        "functional_full_replacement",
+        "exact_table_compatible_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "Documented and tested compatibility contract for Transvoxel.cpp consumers"
+    },
+    {
+      "actual": "NOT_PROVEN",
+      "category": "informational",
+      "evidence": [
+        "research/official_topology/m13/m13_report.json"
+      ],
+      "expected": "PROVEN only if exact table-file compatibility is claimed",
+      "id": "official_transvoxel_cpp_byte_identity",
+      "next_action": "Do not use official arrays as an oracle. This is not required for a functional clean-room replacement.",
+      "note": "Not a blocker for functional replacement; it blocks only an exact table-file identity claim.",
+      "required_for": [
+        "exact_table_compatible_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "Byte-for-byte identity with the MIT Transvoxel.cpp table file"
+    }
+  ],
+  "load_errors": [],
+  "meaning": "The optional M4 transition backend has strong runtime/integration evidence, but it is not ready to replace the default backend and is not a proven full Transvoxel.cpp replacement. A blocked decision is the expected correct result until every required gate is proven.",
+  "next_milestone": {
+    "id": "M15_M4_SIX_FACE_ORIENTATION_VALIDATION",
+    "objective": "Prove M4 runtime geometry and seams across all six transition-face orientations using explicit sample/vertex frame transforms in C and Godot.",
+    "why_first": "This is the nearest self-contained blocker to making M4 the default and creates the orientation machinery required for later official-reference and corner-junction proofs."
+  },
+  "passing_gate_ids": [
+    "m4_runtime_tables",
+    "m5_c_runtime",
+    "m6_c_seams",
+    "m7_normal_api",
+    "m8_package",
+    "m9_terrain_export",
+    "m10_godot_metrics",
+    "m11_godot_viewer",
+    "m12_backend_compare",
+    "m13_scripted_edits"
+  ],
+  "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
+  "status": "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
+}

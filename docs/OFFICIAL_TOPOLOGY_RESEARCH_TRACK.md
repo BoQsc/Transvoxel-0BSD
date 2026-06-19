@@ -410,3 +410,32 @@ Run:
 ```text
 RUN_M13.cmd
 ```
+
+## M14 result
+
+M14 adds an explicit replacement-readiness gate:
+
+```text
+tools/m4_replacement_readiness.py
+validation/m4_replacement_readiness_report.json
+validation/m4_replacement_readiness_report.md
+```
+
+The gate distinguishes optional transition-backend readiness from default
+replacement, functional full replacement, and exact table compatibility.
+
+Current M14 result:
+
+```text
+optional M4 transition backend candidate: READY
+replace default transition backend: BLOCKED
+functional full Transvoxel.cpp replacement: BLOCKED
+exact table/encoding compatibility: BLOCKED
+next milestone: M15 M4 six-face orientation validation
+```
+
+Run:
+
+```text
+RUN_M14.cmd
+```

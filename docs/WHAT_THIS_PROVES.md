@@ -20,6 +20,7 @@ optional M4 candidate table is synced into the Godot data path and passes Godot-
 optional M4 candidate table can feed a real Godot ArrayMesh/MeshDataTool viewer/export path when RUN_M11 is executed with Godot
 default and optional M4 Godot transition-strip mesh paths can be compared side by side when RUN_M12 is executed with Godot
 default and optional M4 Godot transition-strip mesh paths can be compared after scripted edits when RUN_M13 is executed with Godot
+M4 replacement readiness is split into explicit machine-readable candidate/default/full/exact compatibility decisions
 small dist/transvoxel_0bsd_core.zip can be built
 ```
 
@@ -72,6 +73,12 @@ The M4 Godot scripted edit comparison proof runs deterministic dig/add edits
 over multiple fields and origins, then compares default and M4 transition-strip
 mesh outputs after every edit. This is `RUN_M13.cmd`; it still keeps M4
 optional.
+
+The M4 replacement-readiness gate evaluates all accumulated evidence and
+separates optional-backend readiness from default-backend replacement,
+functional full replacement, and exact table compatibility. This is
+`RUN_M14.cmd`. A passing M14 currently means the gate correctly blocks stronger
+replacement claims.
 
 ## Godot's role
 

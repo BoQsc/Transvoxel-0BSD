@@ -289,6 +289,27 @@ M4 requires explicit selection: true
 official Transvoxel.cpp equivalence: NOT_PROVEN
 ```
 
+## M14
+
+`m14/` converts the accumulated evidence into an explicit machine-readable
+replacement-readiness decision.
+
+Run:
+
+```text
+RUN_M14.cmd
+```
+
+Current M14 result:
+
+```text
+optional M4 transition backend candidate: READY
+replace default transition backend: BLOCKED
+functional full Transvoxel.cpp replacement: BLOCKED
+exact table/encoding compatibility: BLOCKED
+next milestone: M15 M4 six-face orientation validation
+```
+
 Allowed:
 
 ```text

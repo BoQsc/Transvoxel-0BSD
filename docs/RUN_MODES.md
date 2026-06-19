@@ -29,6 +29,8 @@ proof suite and `RUN_M10.cmd`. `RUN_M11.cmd` additionally requires actual Godot
 runtime execution of the M4 viewer/export mesh path. `RUN_M12.cmd` compares the
 default and M4 Godot mesh paths through an explicit backend-selection report.
 `RUN_M13.cmd` repeats that comparison after deterministic scripted edits.
+`RUN_M14.cmd` evaluates whether current evidence permits making M4 the default
+or claiming a full replacement.
 
 ## Full release proof
 
@@ -57,4 +59,5 @@ RUN_M10.cmd  optional M4 Godot data-path metrics proof
 RUN_M11.cmd  optional M4 Godot viewer/export mesh proof
 RUN_M12.cmd  optional M4 Godot default-vs-M4 comparison proof
 RUN_M13.cmd  optional M4 Godot scripted edit comparison proof
+RUN_M14.cmd  M4 replacement-readiness decision gate
 ```
