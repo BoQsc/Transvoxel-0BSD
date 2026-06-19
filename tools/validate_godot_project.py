@@ -28,6 +28,7 @@ REQUIRED = [
     STAGES / "08_m4_candidate_viewer" / "DumpM4CandidateViewer.gd",
     STAGES / "09_m4_backend_compare" / "DumpM4BackendCompare.gd",
     STAGES / "10_m4_scripted_edit_compare" / "DumpM4ScriptedEditCompare.gd",
+    STAGES / "11_m4_six_face_orientation" / "DumpM4SixFaceOrientation.gd",
 ]
 
 EXPECTED_SCHEMAS = {
@@ -132,6 +133,14 @@ def main() -> int:
         if token not in m4_edit_compare_script:
             print("godot preflight: FAIL")
             print("M4 scripted edit compare script missing token", token)
+            return 1
+
+    m4_six_face_script = (STAGES / "11_m4_six_face_orientation" / "DumpM4SixFaceOrientation.gd").read_text(encoding="utf-8")
+    m4_six_face_tokens = ["M4_PATH", "OUT_PATH", "_face_specs", "_frame_to_local", "_expected_transformed_cross", "_validate_face_cases", "_validate_face_seams", "ArrayMesh", "MeshDataTool"]
+    for token in m4_six_face_tokens:
+        if token not in m4_six_face_script:
+            print("godot preflight: FAIL")
+            print("M4 six-face orientation script missing token", token)
             return 1
 
     for gd_path in sorted(STAGES.rglob("*.gd")):

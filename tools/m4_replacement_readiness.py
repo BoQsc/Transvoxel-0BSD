@@ -21,6 +21,10 @@ from typing import Any, Dict, List
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_JSON = ROOT / "validation" / "m4_replacement_readiness_report.json"
 REPORT_MD = ROOT / "validation" / "m4_replacement_readiness_report.md"
+M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
+M15_EXPECTED_STATUS = (
+    "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
+)
 
 MILESTONES = {
     "m4_runtime_tables": (
@@ -178,18 +182,35 @@ def main() -> int:
     partition = read_json(m3_partition_path)
     triangles = read_json(m3_triangles_path)
     reference = read_json(reference_path)
+    if M15_REPORT.exists():
+        try:
+            m15_status = str(
+                read_json(M15_REPORT).get("status", "MISSING_STATUS")
+            )
+        except Exception:
+            m15_status = "INVALID_JSON"
+    else:
+        m15_status = "MISSING"
 
     gates.extend([
         gate(
             "m4_all_six_face_orientation_runtime_validation",
-            "M4 runtime proof across all ±X/±Y/±Z transition-face orientations",
+            "M4 runtime proof across all +/-X, +/-Y, +/-Z transition-face orientations",
             "default_replacement",
             ["default_transition_backend", "functional_full_replacement"],
-            "BLOCKED",
-            ["No validation/m4_six_face_orientation_report.json exists."],
-            "MISSING_EVIDENCE",
-            "PASS with at least 6 tested face directions, zero seam failures, invalid triangles, and degenerates",
-            "M15: transform M4 sample/vertex frames through all six face orientations and validate C/Godot mesh output.",
+            "PASS" if m15_status == M15_EXPECTED_STATUS else "BLOCKED",
+            [
+                rel(M15_REPORT),
+                "validation/m4_six_face_orientation_report.json",
+            ],
+            m15_status,
+            M15_EXPECTED_STATUS,
+            (
+                "M15: transform M4 sample/vertex frames through all six face "
+                "orientations and validate C/Godot mesh output."
+                if m15_status != M15_EXPECTED_STATUS
+                else None
+            ),
         ),
         gate(
             "m4_multi_face_corner_junction_validation",
@@ -327,6 +348,32 @@ def main() -> int:
     failed_ids = [item["id"] for item in gates if item["status"] == "FAIL"]
 
     analysis_ok = not load_errors and not failed_ids and runtime_pass and not default_ready and not functional_ready
+    if m15_status == M15_EXPECTED_STATUS:
+        next_milestone = {
+            "id": "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION",
+            "objective": (
+                "Assemble M4-selected transition meshes on multiple perpendicular "
+                "LOD faces and prove shared-edge/corner closure in C and Godot."
+            ),
+            "why_first": (
+                "Six-face frame transforms are now proven internally. The next "
+                "nearest default-replacement blocker is interaction between two "
+                "or three simultaneously selected transition faces."
+            ),
+        }
+    else:
+        next_milestone = {
+            "id": "M15_M4_SIX_FACE_ORIENTATION_VALIDATION",
+            "objective": (
+                "Prove M4 runtime geometry and seams across all six transition-face "
+                "orientations using explicit sample/vertex frame transforms in C and Godot."
+            ),
+            "why_first": (
+                "This is the nearest self-contained blocker to making M4 the default and "
+                "creates the orientation machinery required for later official-reference "
+                "and corner-junction proofs."
+            ),
+        }
     report: Dict[str, Any] = {
         "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
         "status": (
@@ -351,18 +398,7 @@ def main() -> int:
         "blocking_gate_ids": blocking_ids,
         "failed_gate_ids": failed_ids,
         "gates": gates,
-        "next_milestone": {
-            "id": "M15_M4_SIX_FACE_ORIENTATION_VALIDATION",
-            "objective": (
-                "Prove M4 runtime geometry and seams across all six transition-face "
-                "orientations using explicit sample/vertex frame transforms in C and Godot."
-            ),
-            "why_first": (
-                "This is the nearest self-contained blocker to making M4 the default and "
-                "creates the orientation machinery required for later official-reference "
-                "and corner-junction proofs."
-            ),
-        },
+        "next_milestone": next_milestone,
         "claim_boundary": {
             "allowed_now": "Optional clean-room M4 transition-backend candidate with passing runtime/integration milestones.",
             "not_allowed_now": "Proven full Transvoxel.cpp replacement, official topology equivalent, or default backend replacement.",

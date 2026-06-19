@@ -39,6 +39,7 @@ REQUIRED_FILES = [
     "RUN_M12.cmd",
     "RUN_M13.cmd",
     "RUN_M14.cmd",
+    "RUN_M15.cmd",
     "include/transvoxel.h",
     "include/transvoxel_m4_candidate.h",
     "include/transvoxel_m4_backend.h",
@@ -56,6 +57,7 @@ REQUIRED_FILES = [
     "tools/validate_m4_godot_viewer.py",
     "tools/validate_m4_godot_backend_compare.py",
     "tools/validate_m4_godot_scripted_edit_compare.py",
+    "tools/validate_m4_six_face_orientation.py",
     "tools/m4_replacement_readiness.py",
     "godot/generated/official_topology_candidate_tables.json",
     "godot/stages/05_m4_candidate_metrics/DumpM4CandidateMetrics.gd",
@@ -66,6 +68,10 @@ REQUIRED_FILES = [
     "godot/stages/09_m4_backend_compare/README.md",
     "godot/stages/10_m4_scripted_edit_compare/DumpM4ScriptedEditCompare.gd",
     "godot/stages/10_m4_scripted_edit_compare/README.md",
+    "godot/stages/11_m4_six_face_orientation/DumpM4SixFaceOrientation.gd",
+    "godot/stages/11_m4_six_face_orientation/README.md",
+    "examples/c_m15_m4_six_faces/main.c",
+    "research/official_topology/m15/m15_report.json",
     "dist/transvoxel_0bsd_core.zip",
 ]
 

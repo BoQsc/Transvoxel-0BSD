@@ -157,6 +157,7 @@ def create_upload_bundle(run_id: str, archive_dir: Optional[Path]) -> Optional[P
                 "validation/m4_godot_viewer_report.json",
                 "validation/m4_godot_backend_compare_report.json",
                 "validation/m4_godot_scripted_edit_compare_report.json",
+                "validation/m4_six_face_orientation_report.json",
                 "validation/m4_replacement_readiness_report.json",
                 "validation/m4_replacement_readiness_report.md",
                 "validation/core_c_report.json",
@@ -172,6 +173,7 @@ def create_upload_bundle(run_id: str, archive_dir: Optional[Path]) -> Optional[P
                 "godot/validation/08_m4_candidate_viewer/m4_candidate_viewer.json",
                 "godot/validation/09_m4_backend_compare/m4_backend_compare.json",
                 "godot/validation/10_m4_scripted_edit_compare/m4_scripted_edit_compare.json",
+                "godot/validation/11_m4_six_face_orientation/m4_six_face_orientation.json",
                 "validation/auto_interaction_report.json",
                 "validation/external_alignment_report.json",
                 "validation/topology_signature_report.json",
@@ -359,6 +361,7 @@ def make_summary(report: Dict[str, Any]) -> str:
         "validation/m4_godot_viewer_report.json",
         "validation/m4_godot_backend_compare_report.json",
         "validation/m4_godot_scripted_edit_compare_report.json",
+        "validation/m4_six_face_orientation_report.json",
         "validation/m4_replacement_readiness_report.json",
         "validation/m4_replacement_readiness_report.md",
         "validation/dist_report.json",
@@ -372,6 +375,7 @@ def make_summary(report: Dict[str, Any]) -> str:
         "godot/validation/08_m4_candidate_viewer/m4_candidate_viewer.json",
         "godot/validation/09_m4_backend_compare/m4_backend_compare.json",
         "godot/validation/10_m4_scripted_edit_compare/m4_scripted_edit_compare.json",
+        "godot/validation/11_m4_six_face_orientation/m4_six_face_orientation.json",
         "validation/auto_interaction_report.json",
         "validation/external_alignment_report.json",
         "validation/official_equivalence_research_report.json",
@@ -425,6 +429,7 @@ def run_godot_steps(steps: List[Dict[str, Any]], py: str, godot_exe: Path, inclu
         ("godot M4 candidate viewer", "res://stages/08_m4_candidate_viewer/DumpM4CandidateViewer.gd"),
         ("godot M4 backend compare", "res://stages/09_m4_backend_compare/DumpM4BackendCompare.gd"),
         ("godot M4 scripted edit compare", "res://stages/10_m4_scripted_edit_compare/DumpM4ScriptedEditCompare.gd"),
+        ("godot M4 six-face orientation", "res://stages/11_m4_six_face_orientation/DumpM4SixFaceOrientation.gd"),
     ]:
         steps.append(run_cmd(name, [str(godot_exe), "--headless", "--path", str(godot_dir), "--script", script], ROOT))
         hard_ok = hard_ok and bool(steps[-1]["ok"])
@@ -442,6 +447,9 @@ def run_godot_steps(steps: List[Dict[str, Any]], py: str, godot_exe: Path, inclu
         hard_ok = hard_ok and bool(steps[-1]["ok"])
     if hard_ok:
         steps.append(run_cmd("validate M4 Godot scripted edit compare", [py, "tools/validate_m4_godot_scripted_edit_compare.py", "--require-output"], ROOT))
+        hard_ok = hard_ok and bool(steps[-1]["ok"])
+    if hard_ok:
+        steps.append(run_cmd("validate M4 six-face orientation", [py, "tools/validate_m4_six_face_orientation.py", "--require-output"], ROOT))
         hard_ok = hard_ok and bool(steps[-1]["ok"])
     if hard_ok and include_auto:
         steps.append(run_cmd("validate auto interaction", [py, "tools/validate_auto_interaction.py"], ROOT))

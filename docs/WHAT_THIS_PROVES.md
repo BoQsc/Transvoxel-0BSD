@@ -20,6 +20,7 @@ optional M4 candidate table is synced into the Godot data path and passes Godot-
 optional M4 candidate table can feed a real Godot ArrayMesh/MeshDataTool viewer/export path when RUN_M11 is executed with Godot
 default and optional M4 Godot transition-strip mesh paths can be compared side by side when RUN_M12 is executed with Godot
 default and optional M4 Godot transition-strip mesh paths can be compared after scripted edits when RUN_M13 is executed with Godot
+optional M4 candidate geometry, winding, ArrayMesh output, and side seams pass in all six explicit transition-face frames when RUN_M15 is executed
 M4 replacement readiness is split into explicit machine-readable candidate/default/full/exact compatibility decisions
 small dist/transvoxel_0bsd_core.zip can be built
 ```
@@ -77,8 +78,13 @@ optional.
 The M4 replacement-readiness gate evaluates all accumulated evidence and
 separates optional-backend readiness from default-backend replacement,
 functional full replacement, and exact table compatibility. This is
-`RUN_M14.cmd`. A passing M14 currently means the gate correctly blocks stronger
-replacement claims.
+`RUN_M14.cmd`.
+
+The M4 six-face orientation proof validates all 512 cases in right-handed
+`+X/-X/+Y/-Y/+Z/-Z` frames in Zig-compiled C and actual Godot runtime
+execution. It checks transformed winding, `ArrayMesh`/`MeshDataTool`, and
+deterministic neighboring-cell side seams. This is `RUN_M15.cmd`. It removes
+the six-face blocker but does not prove the official frame convention.
 
 ## Godot's role
 

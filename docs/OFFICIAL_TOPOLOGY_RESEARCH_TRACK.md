@@ -431,11 +431,44 @@ optional M4 transition backend candidate: READY
 replace default transition backend: BLOCKED
 functional full Transvoxel.cpp replacement: BLOCKED
 exact table/encoding compatibility: BLOCKED
-next milestone: M15 M4 six-face orientation validation
+next milestone before M15: M15 M4 six-face orientation validation
 ```
 
 Run:
 
 ```text
 RUN_M14.cmd
+```
+
+## M15 result
+
+M15 adds an explicit right-handed transition-frame contract and validates M4
+through all six axis directions:
+
+```text
+include/transvoxel_m4_candidate.h
+src/transvoxel_m4_candidate.c
+examples/c_m15_m4_six_faces/main.c
+godot/stages/11_m4_six_face_orientation/DumpM4SixFaceOrientation.gd
+tools/validate_m4_six_face_orientation.py
+```
+
+Current M15 result:
+
+```text
+Zig C six-face execution: PASS
+Godot six-face execution: PASS
+all 512 cases per face: PASS
+ArrayMesh/MeshDataTool per face: PASS
+transformed winding and inverse frame checks: PASS
+deterministic neighbor side seams per face: PASS
+official reference convention equivalence: NOT_PROVEN
+official transition topology equivalence: NOT_PROVEN
+next milestone: M16 M4 multi-face corner/junction validation
+```
+
+Run:
+
+```text
+RUN_M15.cmd
 ```

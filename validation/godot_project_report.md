@@ -21,5 +21,6 @@ Validated files:
 - `godot\stages\08_m4_candidate_viewer\DumpM4CandidateViewer.gd`
 - `godot\stages\09_m4_backend_compare\DumpM4BackendCompare.gd`
 - `godot\stages\10_m4_scripted_edit_compare\DumpM4ScriptedEditCompare.gd`
+- `godot\stages\11_m4_six_face_orientation\DumpM4SixFaceOrientation.gd`
 
 This preflight does not execute Godot. It verifies that the staged runtime validation project is packaged correctly.

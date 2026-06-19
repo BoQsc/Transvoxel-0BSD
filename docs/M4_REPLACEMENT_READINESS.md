@@ -21,6 +21,9 @@ M4-specific multi-face/corner junction validation
 the full production gate with M4 installed through the normal backend API
 ```
 
+The first item is now proven by M15. The junction and M4-selected production
+gates remain blocking.
+
 ## 3. Functional full Transvoxel.cpp replacement
 
 In addition to default-backend readiness, this requires:
@@ -50,7 +53,8 @@ Run:
 
 ```text
 RUN_M14.cmd
+RUN_M15.cmd
 ```
 
 The current expected result is a passing readiness analysis with the
-replacement decision blocked.
+replacement decision blocked and M16 selected as the next milestone.

@@ -122,8 +122,11 @@ def main() -> int:
         and decisions.get("optional_transition_backend_candidate_ready") is True
         and decisions.get("ready_to_replace_default_transition_backend") is False
         and decisions.get("functional_full_replacement_ready") is False
-        and len(readiness.get("blocking_gate_ids", [])) >= 8
-        and readiness.get("next_milestone", {}).get("id") == "M15_M4_SIX_FACE_ORIENTATION_VALIDATION"
+        and len(readiness.get("blocking_gate_ids", [])) >= 7
+        and readiness.get("next_milestone", {}).get("id") in {
+            "M15_M4_SIX_FACE_ORIENTATION_VALIDATION",
+            "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION",
+        }
     )
     report: Dict[str, Any] = {
         "schema": "boqsc.transvoxel.official_topology.m14.report.v1",

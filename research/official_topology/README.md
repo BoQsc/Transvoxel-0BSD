@@ -307,7 +307,33 @@ optional M4 transition backend candidate: READY
 replace default transition backend: BLOCKED
 functional full Transvoxel.cpp replacement: BLOCKED
 exact table/encoding compatibility: BLOCKED
-next milestone: M15 M4 six-face orientation validation
+next milestone before M15: M15 M4 six-face orientation validation
+```
+
+## M15
+
+`m15/` adds reusable explicit M4 face frames and validates the candidate in
+Zig-compiled C and actual Godot runtime execution for all six axis directions.
+
+Run:
+
+```text
+RUN_M15.cmd
+```
+
+Current M15 result:
+
+```text
+face directions: 6
+oriented case builds: 3072
+oriented triangles: 15840
+shared side faces checked: 4032
+invalid/degenerate triangles: 0
+frame/transform/winding failures: 0
+seam failures: 0
+six-face replacement-readiness gate: PASS
+official reference/topology equivalence: NOT_PROVEN
+next milestone: M16 M4 multi-face corner/junction validation
 ```
 
 Allowed:

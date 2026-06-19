@@ -33,6 +33,26 @@ static TvVec3 tv_m4_mul(TvVec3 a, TvVec3 b) {
     return out;
 }
 
+static TvVec3 tv_m4_scale(TvVec3 a, float scale) {
+    TvVec3 out;
+    out.x = a.x * scale;
+    out.y = a.y * scale;
+    out.z = a.z * scale;
+    return out;
+}
+
+static TvVec3 tv_m4_cross(TvVec3 a, TvVec3 b) {
+    TvVec3 out;
+    out.x = a.y * b.z - a.z * b.y;
+    out.y = a.z * b.x - a.x * b.z;
+    out.z = a.x * b.y - a.y * b.x;
+    return out;
+}
+
+static float tv_m4_dot(TvVec3 a, TvVec3 b) {
+    return a.x * b.x + a.y * b.y + a.z * b.z;
+}
+
 static TvVec3 tv_m4_lerp(TvVec3 a, TvVec3 b, float t) {
     TvVec3 out;
     out.x = a.x + (b.x - a.x) * t;
@@ -114,6 +134,71 @@ TvVec3 tv_m4_transition_sample_position(int sample_id) {
     return tv_m4_transition_positions[sample_id];
 }
 
+int tv_m4_transition_face_frame(
+    TvM4TransitionFace face,
+    TvVec3 origin,
+    TvVec3 local_scale,
+    TvM4TransitionFrame *out_frame) {
+    TvVec3 unit_u;
+    TvVec3 unit_v;
+    TvVec3 unit_w;
+
+    if (!out_frame) return TV_ERROR_NULL;
+
+    switch (face) {
+        case TV_M4_FACE_POSITIVE_X:
+            unit_u = tv_m4_vec3(0.0f, 1.0f, 0.0f);
+            unit_v = tv_m4_vec3(0.0f, 0.0f, 1.0f);
+            unit_w = tv_m4_vec3(1.0f, 0.0f, 0.0f);
+            break;
+        case TV_M4_FACE_NEGATIVE_X:
+            unit_u = tv_m4_vec3(0.0f, -1.0f, 0.0f);
+            unit_v = tv_m4_vec3(0.0f, 0.0f, 1.0f);
+            unit_w = tv_m4_vec3(-1.0f, 0.0f, 0.0f);
+            break;
+        case TV_M4_FACE_POSITIVE_Y:
+            unit_u = tv_m4_vec3(0.0f, 0.0f, 1.0f);
+            unit_v = tv_m4_vec3(1.0f, 0.0f, 0.0f);
+            unit_w = tv_m4_vec3(0.0f, 1.0f, 0.0f);
+            break;
+        case TV_M4_FACE_NEGATIVE_Y:
+            unit_u = tv_m4_vec3(0.0f, 0.0f, -1.0f);
+            unit_v = tv_m4_vec3(1.0f, 0.0f, 0.0f);
+            unit_w = tv_m4_vec3(0.0f, -1.0f, 0.0f);
+            break;
+        case TV_M4_FACE_POSITIVE_Z:
+            unit_u = tv_m4_vec3(1.0f, 0.0f, 0.0f);
+            unit_v = tv_m4_vec3(0.0f, 1.0f, 0.0f);
+            unit_w = tv_m4_vec3(0.0f, 0.0f, 1.0f);
+            break;
+        case TV_M4_FACE_NEGATIVE_Z:
+            unit_u = tv_m4_vec3(-1.0f, 0.0f, 0.0f);
+            unit_v = tv_m4_vec3(0.0f, 1.0f, 0.0f);
+            unit_w = tv_m4_vec3(0.0f, 0.0f, -1.0f);
+            break;
+        default:
+            return TV_ERROR_BAD_CASE;
+    }
+
+    out_frame->origin = origin;
+    out_frame->axis_u = tv_m4_scale(unit_u, local_scale.x);
+    out_frame->axis_v = tv_m4_scale(unit_v, local_scale.y);
+    out_frame->axis_w = tv_m4_scale(unit_w, local_scale.z);
+    return TV_OK;
+}
+
+TvVec3 tv_m4_transition_frame_position(
+    const TvM4TransitionFrame *frame,
+    TvVec3 local_position) {
+    TvVec3 out;
+    if (!frame) return tv_m4_vec3(0.0f, 0.0f, 0.0f);
+    out = frame->origin;
+    out = tv_m4_add(out, tv_m4_scale(frame->axis_u, local_position.x));
+    out = tv_m4_add(out, tv_m4_scale(frame->axis_v, local_position.y));
+    out = tv_m4_add(out, tv_m4_scale(frame->axis_w, local_position.z));
+    return out;
+}
+
 TvBuildInfo tv_m4_build_transition_cell_candidate(
     const float sample_values[TV_M4_TRANSITION_SAMPLE_COUNT],
     float iso_level,
@@ -182,4 +267,57 @@ TvBuildInfo tv_m4_build_transition_cell_candidate(
     }
 
     return tv_m4_make_info(TV_OK, case_index, vertex_count, triangle_count);
+}
+
+TvBuildInfo tv_m4_build_transition_cell_candidate_oriented(
+    const float sample_values[TV_M4_TRANSITION_SAMPLE_COUNT],
+    float iso_level,
+    TvM4TransitionFace face,
+    TvVec3 origin,
+    TvVec3 local_scale,
+    TvVec3 *out_vertices,
+    int max_vertices,
+    TvTriangle *out_triangles,
+    int max_triangles) {
+    TvM4TransitionFrame frame;
+    TvBuildInfo info;
+    float determinant;
+    int i;
+    int frame_result = tv_m4_transition_face_frame(
+        face,
+        origin,
+        local_scale,
+        &frame);
+
+    if (frame_result != TV_OK) {
+        return tv_m4_make_info(frame_result, 0, 0, 0);
+    }
+
+    info = tv_m4_build_transition_cell_candidate(
+        sample_values,
+        iso_level,
+        tv_m4_vec3(0.0f, 0.0f, 0.0f),
+        tv_m4_vec3(1.0f, 1.0f, 1.0f),
+        out_vertices,
+        max_vertices,
+        out_triangles,
+        max_triangles);
+    if (info.result != TV_OK) return info;
+
+    for (i = 0; i < info.vertex_count; ++i) {
+        out_vertices[i] = tv_m4_transition_frame_position(&frame, out_vertices[i]);
+    }
+
+    determinant = tv_m4_dot(
+        tv_m4_cross(frame.axis_u, frame.axis_v),
+        frame.axis_w);
+    if (determinant < 0.0f) {
+        for (i = 0; i < info.triangle_count; ++i) {
+            uint32_t tmp = out_triangles[i].b;
+            out_triangles[i].b = out_triangles[i].c;
+            out_triangles[i].c = tmp;
+        }
+    }
+
+    return info;
 }

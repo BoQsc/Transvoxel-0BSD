@@ -21,13 +21,10 @@ Status: **BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN**
 - `m11_godot_viewer`
 - `m12_backend_compare`
 - `m13_scripted_edits`
+- `m4_all_six_face_orientation_runtime_validation`
 
 ## Blocking evidence
 
-- `m4_all_six_face_orientation_runtime_validation`: M4 runtime proof across all ±X/±Y/±Z transition-face orientations
-  - Actual: `MISSING_EVIDENCE`
-  - Required: `PASS with at least 6 tested face directions, zero seam failures, invalid triangles, and degenerates`
-  - Next: M15: transform M4 sample/vertex frames through all six face orientations and validate C/Godot mesh output.
 - `m4_multi_face_corner_junction_validation`: M4-selected corner and multi-neighbor LOD junction proof
   - Actual: `MISSING_M4_SELECTED_JUNCTION_EVIDENCE`
   - Required: `PASS M4-specific corner/junction report`
@@ -67,6 +64,6 @@ Status: **BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN**
 
 ## Next milestone
 
-`M15_M4_SIX_FACE_ORIENTATION_VALIDATION` — Prove M4 runtime geometry and seams across all six transition-face orientations using explicit sample/vertex frame transforms in C and Godot.
+`M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION` — Assemble M4-selected transition meshes on multiple perpendicular LOD faces and prove shared-edge/corner closure in C and Godot.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

@@ -1,7 +1,6 @@
 {
   "analysis_completed": true,
   "blocking_gate_ids": [
-    "m4_all_six_face_orientation_runtime_validation",
     "m4_multi_face_corner_junction_validation",
     "m4_selected_full_production_gate",
     "official_reference_convention_equivalence",
@@ -187,20 +186,20 @@
       "title": "m13 scripted edits"
     },
     {
-      "actual": "MISSING_EVIDENCE",
+      "actual": "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
       "category": "default_replacement",
       "evidence": [
-        "No validation/m4_six_face_orientation_report.json exists."
+        "research/official_topology/m15/m15_report.json",
+        "validation/m4_six_face_orientation_report.json"
       ],
-      "expected": "PASS with at least 6 tested face directions, zero seam failures, invalid triangles, and degenerates",
+      "expected": "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
       "id": "m4_all_six_face_orientation_runtime_validation",
-      "next_action": "M15: transform M4 sample/vertex frames through all six face orientations and validate C/Godot mesh output.",
       "required_for": [
         "default_transition_backend",
         "functional_full_replacement"
       ],
-      "status": "BLOCKED",
-      "title": "M4 runtime proof across all \u00b1X/\u00b1Y/\u00b1Z transition-face orientations"
+      "status": "PASS",
+      "title": "M4 runtime proof across all +/-X, +/-Y, +/-Z transition-face orientations"
     },
     {
       "actual": "MISSING_M4_SELECTED_JUNCTION_EVIDENCE",
@@ -350,9 +349,9 @@
   "load_errors": [],
   "meaning": "The optional M4 transition backend has strong runtime/integration evidence, but it is not ready to replace the default backend and is not a proven full Transvoxel.cpp replacement. A blocked decision is the expected correct result until every required gate is proven.",
   "next_milestone": {
-    "id": "M15_M4_SIX_FACE_ORIENTATION_VALIDATION",
-    "objective": "Prove M4 runtime geometry and seams across all six transition-face orientations using explicit sample/vertex frame transforms in C and Godot.",
-    "why_first": "This is the nearest self-contained blocker to making M4 the default and creates the orientation machinery required for later official-reference and corner-junction proofs."
+    "id": "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION",
+    "objective": "Assemble M4-selected transition meshes on multiple perpendicular LOD faces and prove shared-edge/corner closure in C and Godot.",
+    "why_first": "Six-face frame transforms are now proven internally. The next nearest default-replacement blocker is interaction between two or three simultaneously selected transition faces."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -364,7 +363,8 @@
     "m10_godot_metrics",
     "m11_godot_viewer",
     "m12_backend_compare",
-    "m13_scripted_edits"
+    "m13_scripted_edits",
+    "m4_all_six_face_orientation_runtime_validation"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
   "status": "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"

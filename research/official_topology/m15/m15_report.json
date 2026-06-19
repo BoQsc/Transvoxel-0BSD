@@ -1,0 +1,322 @@
+{
+  "c_status": "PASS_M15_ZIG_M4_SIX_FACE_ORIENTATION_VALIDATION",
+  "default_core_replaced": false,
+  "godot_project_status": "PASS",
+  "godot_runtime_executed": true,
+  "godot_stage": {
+    "executed": true,
+    "output_path": "godot/validation/11_m4_six_face_orientation/m4_six_face_orientation.json",
+    "output_summary": {
+      "schema": "boqsc.transvoxel.godot_m4_six_face_orientation.v1",
+      "status": "PASS",
+      "totals": {
+        "cases": 3072,
+        "degenerate_triangles": 0,
+        "faces": 6,
+        "failed_faces": 0,
+        "frame_failures": 0,
+        "invalid_triangles": 0,
+        "orientation_failures": 0,
+        "seam_builds": 2688,
+        "seam_failures": 0,
+        "seam_triangles": 6120,
+        "seam_vertices": 9696,
+        "shared_faces": 4032,
+        "transform_failures": 0,
+        "triangles": 15840,
+        "vertices": 24576
+      }
+    },
+    "returncode": 0,
+    "status": "PASS"
+  },
+  "m14_status": "PASS_M14_REPLACEMENT_READINESS_GATE_BLOCKED_ON_REQUIRED_EVIDENCE",
+  "meaning": "M15 passes only after Zig-compiled C and actual Godot runtime validation cover all 512 M4 cases and deterministic side seams in all six explicit right-handed transition-face frames.",
+  "next_milestone": {
+    "id": "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION",
+    "objective": "Assemble M4-selected transition meshes on multiple perpendicular LOD faces and prove shared-edge/corner closure in C and Godot.",
+    "why_first": "Six-face frame transforms are now proven internally. The next nearest default-replacement blocker is interaction between two or three simultaneously selected transition faces."
+  },
+  "official_reference_convention_equivalence": "NOT_PROVEN",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "orientation_validation": {
+    "c_report": "research/official_topology/m15/m15_c_validation.json",
+    "c_runtime_executed": true,
+    "c_status": "PASS_M15_ZIG_M4_SIX_FACE_ORIENTATION_VALIDATION",
+    "c_totals": {
+      "cases": 3072,
+      "degenerate_triangles": 0,
+      "faces": 6,
+      "failed_faces": 0,
+      "frame_failures": 0,
+      "invalid_triangles": 0,
+      "orientation_failures": 0,
+      "seam_builds": 2688,
+      "seam_failures": 0,
+      "seam_triangles": 6120,
+      "seam_vertices": 9696,
+      "shared_faces": 4032,
+      "transform_failures": 0,
+      "triangles": 15840,
+      "vertices": 24576
+    },
+    "default_core_replaced": false,
+    "faces": [
+      {
+        "cases": 512,
+        "degenerate_triangles": 0,
+        "determinant": 1.0,
+        "frame_failures": 0,
+        "id": 0,
+        "invalid_triangles": 0,
+        "mesh": {
+          "mdt_edges": 6008,
+          "mdt_error": 0,
+          "mdt_faces": 2640,
+          "mdt_vertices": 4096,
+          "status": "PASS",
+          "surface_count": 1
+        },
+        "name": "positive_x",
+        "orientation_failures": 0,
+        "seam_builds": 448,
+        "seam_failures": 0,
+        "seam_triangles": 1020,
+        "seam_vertices": 1616,
+        "shared_faces": 672,
+        "status": "PASS",
+        "transform_failures": 0,
+        "triangles": 2640,
+        "vertices": 4096
+      },
+      {
+        "cases": 512,
+        "degenerate_triangles": 0,
+        "determinant": 1.0,
+        "frame_failures": 0,
+        "id": 1,
+        "invalid_triangles": 0,
+        "mesh": {
+          "mdt_edges": 6008,
+          "mdt_error": 0,
+          "mdt_faces": 2640,
+          "mdt_vertices": 4096,
+          "status": "PASS",
+          "surface_count": 1
+        },
+        "name": "negative_x",
+        "orientation_failures": 0,
+        "seam_builds": 448,
+        "seam_failures": 0,
+        "seam_triangles": 1020,
+        "seam_vertices": 1616,
+        "shared_faces": 672,
+        "status": "PASS",
+        "transform_failures": 0,
+        "triangles": 2640,
+        "vertices": 4096
+      },
+      {
+        "cases": 512,
+        "degenerate_triangles": 0,
+        "determinant": 1.0,
+        "frame_failures": 0,
+        "id": 2,
+        "invalid_triangles": 0,
+        "mesh": {
+          "mdt_edges": 6008,
+          "mdt_error": 0,
+          "mdt_faces": 2640,
+          "mdt_vertices": 4096,
+          "status": "PASS",
+          "surface_count": 1
+        },
+        "name": "positive_y",
+        "orientation_failures": 0,
+        "seam_builds": 448,
+        "seam_failures": 0,
+        "seam_triangles": 1020,
+        "seam_vertices": 1616,
+        "shared_faces": 672,
+        "status": "PASS",
+        "transform_failures": 0,
+        "triangles": 2640,
+        "vertices": 4096
+      },
+      {
+        "cases": 512,
+        "degenerate_triangles": 0,
+        "determinant": 1.0,
+        "frame_failures": 0,
+        "id": 3,
+        "invalid_triangles": 0,
+        "mesh": {
+          "mdt_edges": 6008,
+          "mdt_error": 0,
+          "mdt_faces": 2640,
+          "mdt_vertices": 4096,
+          "status": "PASS",
+          "surface_count": 1
+        },
+        "name": "negative_y",
+        "orientation_failures": 0,
+        "seam_builds": 448,
+        "seam_failures": 0,
+        "seam_triangles": 1020,
+        "seam_vertices": 1616,
+        "shared_faces": 672,
+        "status": "PASS",
+        "transform_failures": 0,
+        "triangles": 2640,
+        "vertices": 4096
+      },
+      {
+        "cases": 512,
+        "degenerate_triangles": 0,
+        "determinant": 1.0,
+        "frame_failures": 0,
+        "id": 4,
+        "invalid_triangles": 0,
+        "mesh": {
+          "mdt_edges": 6008,
+          "mdt_error": 0,
+          "mdt_faces": 2640,
+          "mdt_vertices": 4096,
+          "status": "PASS",
+          "surface_count": 1
+        },
+        "name": "positive_z",
+        "orientation_failures": 0,
+        "seam_builds": 448,
+        "seam_failures": 0,
+        "seam_triangles": 1020,
+        "seam_vertices": 1616,
+        "shared_faces": 672,
+        "status": "PASS",
+        "transform_failures": 0,
+        "triangles": 2640,
+        "vertices": 4096
+      },
+      {
+        "cases": 512,
+        "degenerate_triangles": 0,
+        "determinant": 1.0,
+        "frame_failures": 0,
+        "id": 5,
+        "invalid_triangles": 0,
+        "mesh": {
+          "mdt_edges": 6008,
+          "mdt_error": 0,
+          "mdt_faces": 2640,
+          "mdt_vertices": 4096,
+          "status": "PASS",
+          "surface_count": 1
+        },
+        "name": "negative_z",
+        "orientation_failures": 0,
+        "seam_builds": 448,
+        "seam_failures": 0,
+        "seam_triangles": 1020,
+        "seam_vertices": 1616,
+        "shared_faces": 672,
+        "status": "PASS",
+        "transform_failures": 0,
+        "triangles": 2640,
+        "vertices": 4096
+      }
+    ],
+    "godot_runtime_executed": true,
+    "godot_runtime_output": "godot/validation/11_m4_six_face_orientation/m4_six_face_orientation.json",
+    "godot_status": "PASS",
+    "godot_totals": {
+      "cases": 3072,
+      "degenerate_triangles": 0,
+      "faces": 6,
+      "failed_faces": 0,
+      "frame_failures": 0,
+      "invalid_triangles": 0,
+      "orientation_failures": 0,
+      "seam_builds": 2688,
+      "seam_failures": 0,
+      "seam_triangles": 6120,
+      "seam_vertices": 9696,
+      "shared_faces": 4032,
+      "transform_failures": 0,
+      "triangles": 15840,
+      "vertices": 24576
+    },
+    "issues": [],
+    "meaning": "PASS requires Zig-compiled C and actual Godot runtime validation of all 512 M4 cases and deterministic neighbor seams in all six explicit right-handed transition-face frames.",
+    "official_reference_convention_equivalence": "NOT_PROVEN",
+    "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+    "official_triangle_topology_equivalence": "NOT_PROVEN",
+    "schema": "boqsc.transvoxel.m4_six_face_orientation_report.v1",
+    "stage": "godot/stages/11_m4_six_face_orientation/DumpM4SixFaceOrientation.gd",
+    "status": "PASS_M4_SIX_FACE_ORIENTATION_C_AND_GODOT"
+  },
+  "outputs": {
+    "c_validation": "research/official_topology/m15/m15_c_validation.json",
+    "combined_validation": "validation/m4_six_face_orientation_report.json",
+    "results": "research/official_topology/m15/results.md"
+  },
+  "readiness_status": "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN",
+  "schema": "boqsc.transvoxel.official_topology.m15.report.v1",
+  "six_face_gate_status": "PASS",
+  "status": "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "research/official_topology/m15/test_m4_six_faces_c.py"
+      ],
+      "output": "M15 C six-face validation: PASS_M15_ZIG_M4_SIX_FACE_ORIENTATION_VALIDATION\nm15 face id=0 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=1 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=2 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=3 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=4 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=5 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 totals faces=6 failed_faces=0 cases=3072 vertices=24576 triangles=15840 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=2688 shared_faces=4032 seam_failures=0 seam_vertices=9696 seam_triangles=6120\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_godot_project.py"
+      ],
+      "output": "godot preflight: PASS\n<repo>\\validation\\godot_project_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_m4_six_face_orientation.py"
+      ],
+      "output": "M4 six-face orientation: BLOCKED_M4_SIX_FACE_ORIENTATION_GODOT_NOT_RUN\nC totals: {'cases': 3072, 'degenerate_triangles': 0, 'faces': 6, 'failed_faces': 0, 'frame_failures': 0, 'invalid_triangles': 0, 'orientation_failures': 0, 'seam_builds': 2688, 'seam_failures': 0, 'seam_triangles': 6120, 'seam_vertices': 9696, 'shared_faces': 4032, 'transform_failures': 0, 'triangles': 15840, 'vertices': 24576}\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "godot",
+        "--script",
+        "res://stages/11_m4_six_face_orientation/DumpM4SixFaceOrientation.gd"
+      ],
+      "output": "Godot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_six_face_orientation=PASS\n<repo>/godot/validation/11_m4_six_face_orientation/m4_six_face_orientation.json\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_m4_six_face_orientation.py",
+        "--require-output"
+      ],
+      "output": "M4 six-face orientation: PASS_M4_SIX_FACE_ORIENTATION_C_AND_GODOT\nC totals: {'cases': 3072, 'degenerate_triangles': 0, 'faces': 6, 'failed_faces': 0, 'frame_failures': 0, 'invalid_triangles': 0, 'orientation_failures': 0, 'seam_builds': 2688, 'seam_failures': 0, 'seam_triangles': 6120, 'seam_vertices': 9696, 'shared_faces': 4032, 'transform_failures': 0, 'triangles': 15840, 'vertices': 24576}\nGodot totals: {'cases': 3072, 'degenerate_triangles': 0, 'faces': 6, 'failed_faces': 0, 'frame_failures': 0, 'invalid_triangles': 0, 'orientation_failures': 0, 'seam_builds': 2688, 'seam_failures': 0, 'seam_triangles': 6120, 'seam_vertices': 9696, 'shared_faces': 4032, 'transform_failures': 0, 'triangles': 15840, 'vertices': 24576}\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN\noptional backend candidate ready: True\ndefault replacement ready: False\nfunctional full replacement ready: False\nblocking gates: 9\nnext milestone: M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION\n",
+      "returncode": 0
+    }
+  ]
+}

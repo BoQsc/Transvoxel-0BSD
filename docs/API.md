@@ -189,6 +189,27 @@ generated/official_topology_candidate_tables.h
 
 See `examples/c_m4_backend_switch/` for a package-level smoke example.
 
+The direct candidate API also exposes explicit right-handed face frames:
+
+```c
+#include "transvoxel_m4_candidate.h"
+
+TvBuildInfo info = tv_m4_build_transition_cell_candidate_oriented(
+    samples,
+    0.0f,
+    TV_M4_FACE_NEGATIVE_Z,
+    origin,
+    tv_vec3(1.0f, 1.0f, 1.0f),
+    vertices,
+    TV_M4_TRANSITION_MAX_VERTICES,
+    triangles,
+    TV_M4_TRANSITION_MAX_TRIANGLES);
+```
+
+`TV_M4_FACE_POSITIVE_X` through `TV_M4_FACE_NEGATIVE_Z` map local `u/v`
+across the full-resolution face and local `+w` toward the half-resolution
+samples. M15 validates every case and neighbor seams in all six frames.
+
 The M4 backend is still a candidate path. Official `Transvoxel.cpp` equivalence
 remains unproven.
 

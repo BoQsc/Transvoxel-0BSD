@@ -29,7 +29,7 @@ Independent 0BSD core: release-candidate track
 Functional Transvoxel-style proof: PASS when the full proof gate passes
 Optional M4 official-topology candidate backend: package-validated candidate
 Optional M4 terrain export path: validated through normal C API
-Optional M4 Godot data path: metrics, viewer/export, default-vs-M4 comparison, and scripted edit comparison runtime-validated when Godot is available
+Optional M4 Godot data path: metrics, viewer/export, backend/edit comparison, and all-six-face orientation runtime-validated
 M4 default/full replacement readiness: machine-gated and currently BLOCKED on required evidence
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
@@ -124,6 +124,7 @@ RUN_M11.cmd         optional M4 Godot viewer/export mesh proof
 RUN_M12.cmd         optional M4 Godot default-vs-M4 comparison proof
 RUN_M13.cmd         optional M4 Godot scripted edit comparison proof
 RUN_M14.cmd         M4 default/full replacement-readiness decision gate
+RUN_M15.cmd         M4 all-six-face C/Godot orientation proof
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:

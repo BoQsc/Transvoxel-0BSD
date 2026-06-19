@@ -82,6 +82,17 @@ tv_uninstall_m4_transition_backend_candidate();
 This path remains a candidate. Official `Transvoxel.cpp` byte/table identity and
 triangle-topology equivalence are still `NOT_PROVEN`.
 
+For an explicitly oriented transition face, call the direct candidate API:
+
+```c
+TvBuildInfo info = tv_m4_build_transition_cell_candidate_oriented(
+    samples, 0.0f, TV_M4_FACE_POSITIVE_X, origin, scale,
+    vertices, TV_M4_TRANSITION_MAX_VERTICES,
+    triangles, TV_M4_TRANSITION_MAX_TRIANGLES);
+```
+
+The six built-in face frames are validated by `RUN_M15.cmd`.
+
 The terrain export example can also be compiled with the M4 candidate backend:
 
 ```sh
