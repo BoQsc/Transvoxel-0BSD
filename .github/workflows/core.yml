@@ -31,6 +31,12 @@ jobs:
       - name: Compile C/C++ consumer compatibility test
         run: python tools/test_consumer_compatibility.py
 
+      - name: Check exact compatibility claim boundary
+        run: |
+          python tools/m4_replacement_readiness.py
+          python tools/validate_exact_compatibility_claim_boundary.py
+          python tools/m4_replacement_readiness.py
+
       - name: Build public core package
         run: python tools/build_dist.py
 

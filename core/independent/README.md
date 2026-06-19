@@ -28,3 +28,7 @@ M21 sync note: the default regular table is the clean-room M20 table and the
 default transition table is the clean-room M4 published-topology table. Exact
 official class IDs, vertex encoding, triangulation identity, and byte identity
 remain outside this snapshot's claim.
+
+M22 sync note: the exact compatibility claim boundary is documented and
+machine-checked. This snapshot may be described as a functional clean-room
+replacement through the public C/C++ API, not as an exact official table clone.

@@ -34,6 +34,7 @@ REQUIRED = {
     "transvoxel_0bsd_core/docs/DROP_IN.md",
     "transvoxel_0bsd_core/docs/WHAT_THIS_PROVES.md",
     "transvoxel_0bsd_core/docs/C_COMPILER.md",
+    "transvoxel_0bsd_core/docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md",
     "transvoxel_0bsd_core/docs/CORE_PACKAGE_CONTENTS.md",
     "transvoxel_0bsd_core/docs/KNOWN_LIMITS.md",
     "transvoxel_0bsd_core/docs/TESTING_BY_USERS.md",

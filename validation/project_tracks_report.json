@@ -1,9 +1,10 @@
 {
-  "meaning": "The independent core can be released/evaluated independently. The published transition reference convention, transition topology behavior, and clean-room regular-cell behavior are proven by M18-M20. M21 proves the default clean-room M4 transition export and public C/C++ consumer contract; exact table compatibility remains separate.",
+  "meaning": "The independent core can be released/evaluated independently. The published transition reference convention, transition topology behavior, and clean-room regular-cell behavior are proven by M18-M20. M21 proves the default clean-room M4 transition export and public C/C++ consumer contract. M22 locks the exact compatibility claim boundary; exact table compatibility remains separate.",
   "schema": "boqsc.transvoxel.project_tracks_report.v1",
   "status": "PASS",
   "supporting_reports": {
     "consumer_compatibility_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+    "exact_compatibility_claim_boundary_status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
     "official_73_candidate_derivation_status": "RESEARCH_PASS_OFFICIAL_73_NOT_DERIVED",
     "official_equivalence_research_status": "RESEARCH_PASS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
     "official_reference_convention_status": "PROVEN_PUBLISHED_ALGORITHMIC_REFERENCE_CONVENTION",
@@ -21,6 +22,7 @@
   "tracks": {
     "independent_core": {
       "consumer_compatibility": "PROVEN",
+      "exact_compatibility_claim_boundary": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
       "functional_transvoxel_cpp_replacement": "PROVEN",
       "missing": [],
       "official_equivalence": "NOT_CLAIMED",

@@ -45,6 +45,11 @@ table, while exact table/encoding/byte compatibility remains separate.
 
 Byte-for-byte identity is not required for functional replacement.
 
+M22 documents and machine-checks this claim boundary. After M22, the allowed
+claim is functional replacement through the public C/C++ API. Exact official
+table layout, 73-class IDs, vertex/reuse encoding, triangulation identity, and
+byte identity remain blocked claims.
+
 ## 4. Exact table/encoding compatibility
 
 This additionally requires:
@@ -68,9 +73,10 @@ RUN_M18.cmd
 RUN_M19.cmd
 RUN_M20.cmd
 RUN_M21.cmd
+RUN_M22.cmd
 ```
 
 The current expected result is a passing readiness analysis with the
 functional full replacement decision ready, exact table-compatible replacement
-blocked, and M22 exact compatibility claim-boundary work selected as the next
-milestone.
+blocked, the M22 claim boundary documented, and M23 functional release hardening
+without a local zip selected as the next milestone.

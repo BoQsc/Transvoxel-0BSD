@@ -2,6 +2,9 @@
 
 M21 makes the public C/C++ API ready as a functional clean-room Transvoxel.cpp replacement: default regular cells use the M20 clean-room table, default transition cells use the M21 clean-room M4 published-topology table, and the consumer compatibility contract is tested.
 
+M22 locks the exact-compatibility claim boundary. The functional replacement
+claim is allowed; exact official compatibility claims remain blocked.
+
 Still not claimed:
 
 ```text
@@ -24,6 +27,7 @@ M19 published transition topology behavior for all 512 transition cases.
 M20 default clean-room regular-cell table replacement.
 M21 default clean-room M4 transition table replacement.
 M21 C/C++ consumer compatibility through the public API.
+M22 exact compatibility claim-boundary validation.
 Public transition ABI keeps 14 samples; sample 13 is ignored by the default M4 path.
 Default transition table totals: 512 cases, 4096 vertex refs, 2640 triangles, max 12 vertices and 12 triangles.
 Default regular table totals: 256 cases, 1536 vertex refs, 820 triangles, max 12 vertices and 5 triangles.

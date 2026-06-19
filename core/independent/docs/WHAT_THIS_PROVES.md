@@ -27,6 +27,7 @@ the published M4 transition reference convention passes exhaustive Python and Zi
 published M4 transition topology behavior passes all 512 cases when RUN_M19 is executed
 the default clean-room regular-cell table passes preferred-polarity, neighbor-seam, M4-boundary, Zig C, and Godot proof when RUN_M20 is executed
 the default clean-room M4 transition table and C/C++ consumer contract pass when RUN_M21 is executed
+the exact compatibility claim boundary passes when RUN_M22 is executed
 M4 replacement readiness is split into explicit machine-readable candidate/default/full/exact compatibility decisions
 small dist/transvoxel_0bsd_core.zip can be built
 ```
@@ -129,6 +130,11 @@ from the clean-room M4 published-topology source, validates 512 default cases,
 4096 vertex refs, 2640 triangles, 12/12 transition maxima, C callback behavior,
 sample-13 ABI retention, C++ include/link smoke, and actual Godot runtime
 loading of the default transvoxel export.
+
+The M22 exact-compatibility claim-boundary proof validates that product docs and
+machine-readable reports allow the functional public C/C++ replacement claim
+while keeping exact official table layout, 73-class IDs, vertex/reuse encoding,
+triangulation identity, and byte identity unclaimed.
 
 ## Godot's role
 

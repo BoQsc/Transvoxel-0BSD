@@ -29,6 +29,7 @@ REQUIRED_FILES = [
     "docs/PUBLIC_RELEASE.md",
     "docs/KNOWN_LIMITS.md",
     "docs/WHAT_THIS_PROVES.md",
+    "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md",
     "docs/API.md",
     "docs/DROP_IN.md",
     "docs/CORE_PACKAGE_CONTENTS.md",
@@ -46,6 +47,7 @@ REQUIRED_FILES = [
     "RUN_M19.cmd",
     "RUN_M20.cmd",
     "RUN_M21.cmd",
+    "RUN_M22.cmd",
     "include/transvoxel.h",
     "include/transvoxel_m4_candidate.h",
     "include/transvoxel_m4_backend.h",
@@ -60,6 +62,7 @@ REQUIRED_FILES = [
     "tools/test_m4_backend_c.py",
     "tools/test_m4_terrain_c.py",
     "tools/test_consumer_compatibility.py",
+    "tools/validate_exact_compatibility_claim_boundary.py",
     "tools/validate_m4_godot_candidate.py",
     "tools/validate_m4_godot_viewer.py",
     "tools/validate_m4_godot_backend_compare.py",
@@ -103,6 +106,9 @@ REQUIRED_FILES = [
     "research/official_topology/m21/run_m21.py",
     "research/official_topology/m21/m21_report.json",
     "validation/consumer_compatibility_report.json",
+    "research/official_topology/m22/run_m22.py",
+    "research/official_topology/m22/m22_report.json",
+    "validation/exact_compatibility_claim_boundary_report.json",
     "dist/transvoxel_0bsd_core.zip",
 ]
 

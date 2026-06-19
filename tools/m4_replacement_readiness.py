@@ -31,6 +31,9 @@ REGULAR_EQUIVALENCE_REPORT = (
 CONSUMER_COMPATIBILITY_REPORT = (
     ROOT / "validation" / "consumer_compatibility_report.json"
 )
+EXACT_CLAIM_BOUNDARY_REPORT = (
+    ROOT / "validation" / "exact_compatibility_claim_boundary_report.json"
+)
 M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
     "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
@@ -213,6 +216,11 @@ def main() -> int:
     consumer_compatibility = (
         read_json(CONSUMER_COMPATIBILITY_REPORT)
         if CONSUMER_COMPATIBILITY_REPORT.exists()
+        else {}
+    )
+    exact_claim_boundary = (
+        read_json(EXACT_CLAIM_BOUNDARY_REPORT)
+        if EXACT_CLAIM_BOUNDARY_REPORT.exists()
         else {}
     )
     if M15_REPORT.exists():
@@ -570,20 +578,39 @@ def main() -> int:
         regular_equivalence.get("functional_regular_cell_equivalence")
         == "PROVEN"
     )
+    claim_boundary_documented = (
+        exact_claim_boundary.get("status")
+        == "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY"
+    )
     if functional_ready:
-        next_milestone = {
-            "id": "M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
-            "objective": (
-                "Keep functional replacement evidence green while deciding "
-                "whether exact table-layout/class-ID/encoding compatibility is "
-                "a required product goal."
-            ),
-            "why_first": (
-                "M21 makes the public C/C++ functional replacement ready. The "
-                "remaining blockers are exact official compatibility claims, "
-                "not functional behavior blockers."
-            ),
-        }
+        if claim_boundary_documented:
+            next_milestone = {
+                "id": "M23_FUNCTIONAL_RELEASE_HARDENING_NO_LOCAL_ZIP",
+                "objective": (
+                    "Keep the functional replacement evidence green and harden "
+                    "release-facing docs/checks without building a local zip."
+                ),
+                "why_first": (
+                    "M22 locks the exact-compatibility claim boundary. The next "
+                    "useful work is release hardening around the functional "
+                    "0BSD core while exact official compatibility remains a "
+                    "separate research track."
+                ),
+            }
+        else:
+            next_milestone = {
+                "id": "M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
+                "objective": (
+                    "Keep functional replacement evidence green while deciding "
+                    "whether exact table-layout/class-ID/encoding compatibility is "
+                    "a required product goal."
+                ),
+                "why_first": (
+                    "M21 makes the public C/C++ functional replacement ready. The "
+                    "remaining blockers are exact official compatibility claims, "
+                    "not functional behavior blockers."
+                ),
+            }
     elif (
         m15_status == M15_EXPECTED_STATUS
         and m16_status == M16_EXPECTED_STATUS
@@ -801,6 +828,7 @@ def main() -> int:
             "ready_to_replace_default_transition_backend": default_ready,
             "functional_full_replacement_ready": functional_ready,
             "exact_table_compatible_replacement_ready": exact_ready,
+            "exact_compatibility_claim_boundary_documented": claim_boundary_documented,
         },
         "load_errors": load_errors,
         "passing_gate_ids": passing_ids,
@@ -813,6 +841,11 @@ def main() -> int:
             "not_allowed_now": claim_not_allowed,
             "byte_identity_required_for_functional_replacement": False,
             "byte_identity_required_for_exact_table_identity_claim": True,
+            "m22_claim_boundary_report": (
+                rel(EXACT_CLAIM_BOUNDARY_REPORT)
+                if EXACT_CLAIM_BOUNDARY_REPORT.exists()
+                else "validation/exact_compatibility_claim_boundary_report.json"
+            ),
         },
     }
     REPORT_JSON.parent.mkdir(parents=True, exist_ok=True)
@@ -822,6 +855,7 @@ def main() -> int:
     print("optional backend candidate ready:", runtime_pass)
     print("default replacement ready:", default_ready)
     print("functional full replacement ready:", functional_ready)
+    print("exact claim boundary documented:", claim_boundary_documented)
     print("blocking gates:", len(blocking_ids))
     print("next milestone:", report["next_milestone"]["id"])
     return 0 if analysis_ok else 1

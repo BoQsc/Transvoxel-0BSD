@@ -23,10 +23,17 @@ Read first:
   docs/API.md
   docs/WHAT_THIS_PROVES.md
   docs/C_COMPILER.md
+  docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md
 
 License: 0BSD.
 
 Important: this is an independent clean-room Transvoxel-style core. It is not a relicensed copy of Eric Lengyel's MIT Transvoxel.cpp and does not claim official 73-class table or byte identity.
+
+Current public claim: functional Transvoxel.cpp replacement through public C/C++ API.
+
+M22 locks the exact compatibility claim boundary: exact official table layout,
+73-class IDs, vertex/reuse encoding, triangulation identity, and byte identity
+remain unclaimed.
 
 The default regular-cell table is a clean-room preferred-polarity modified-Marching-Cubes derivation proven by M20. It uses 256 cases, 18 behavior classes, at most 12 vertices and 5 triangles.
 

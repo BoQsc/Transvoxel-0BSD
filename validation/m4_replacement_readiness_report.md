@@ -54,6 +54,6 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
 
 ## Next milestone
 
-`M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY` — Keep functional replacement evidence green while deciding whether exact table-layout/class-ID/encoding compatibility is a required product goal.
+`M23_FUNCTIONAL_RELEASE_HARDENING_NO_LOCAL_ZIP` — Keep the functional replacement evidence green and harden release-facing docs/checks without building a local zip.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

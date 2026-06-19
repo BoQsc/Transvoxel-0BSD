@@ -1,0 +1,88 @@
+{
+  "claim_contract": {
+    "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.",
+    "byte_identity_required_for_exact_table_identity_claim": true,
+    "byte_identity_required_for_functional_replacement": false,
+    "not_allowed_now": [
+      "Exact official Transvoxel.cpp table layout claim.",
+      "Official 73-class ID compatibility claim.",
+      "Official vertex/reuse encoding compatibility claim.",
+      "Exact official transition triangulation identity claim.",
+      "Exact official regular table identity claim.",
+      "Byte-for-byte Transvoxel.cpp table/file identity claim."
+    ],
+    "official_arrays_allowed_as_generator_inputs": false
+  },
+  "errors": [],
+  "evidence": {
+    "blocking_gate_ids": [
+      "official_class_id_mapping",
+      "official_regular_table_identity",
+      "official_transvoxel_cpp_byte_identity",
+      "official_triangle_triangulation_identity",
+      "official_vertex_encoding_equivalence"
+    ],
+    "claim_boundary": {
+      "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.",
+      "byte_identity_required_for_exact_table_identity_claim": true,
+      "byte_identity_required_for_functional_replacement": false,
+      "m22_claim_boundary_report": "validation/exact_compatibility_claim_boundary_report.json",
+      "not_allowed_now": "Exact official Transvoxel.cpp table layout, class-ID, vertex encoding, triangulation-identity, or byte-identity claim."
+    },
+    "consumer_status": "PASS_M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+    "decisions": {
+      "exact_compatibility_claim_boundary_documented": true,
+      "exact_table_compatible_replacement_ready": false,
+      "functional_full_replacement_ready": true,
+      "optional_transition_backend_candidate_ready": true,
+      "ready_to_replace_default_transition_backend": true
+    },
+    "m21_status": "PASS_M21_DEFAULT_M4_FUNCTIONAL_CONSUMER_COMPATIBILITY",
+    "readiness_status": "READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_BLOCKED",
+    "transition_case_count": 512,
+    "transition_class_count": 512,
+    "transition_max_triangles": 12,
+    "transition_max_vertices": 12,
+    "transition_source": "generated/official_topology_candidate_tables.json",
+    "transition_triangles": 2640,
+    "transition_vertex_refs": 4096
+  },
+  "meaning": "Functional clean-room replacement is allowed through the public C/C++ API. Exact official Transvoxel.cpp table layout, 73-class IDs, vertex/reuse encoding, triangulation identity, and byte identity remain explicitly unclaimed until their gates pass.",
+  "scanned_claim_files": {
+    "PROVENANCE.md": {
+      "bytes": 4340
+    },
+    "README.md": {
+      "bytes": 7295
+    },
+    "README_CORE.txt": {
+      "bytes": 1658
+    },
+    "SOURCES.md": {
+      "bytes": 3168
+    },
+    "docs/API.md": {
+      "bytes": 8314
+    },
+    "docs/CORE_PACKAGE_CONTENTS.md": {
+      "bytes": 2156
+    },
+    "docs/DROP_IN.md": {
+      "bytes": 5502
+    },
+    "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md": {
+      "bytes": 1405
+    },
+    "docs/KNOWN_LIMITS.md": {
+      "bytes": 2189
+    },
+    "docs/M4_REPLACEMENT_READINESS.md": {
+      "bytes": 2665
+    },
+    "docs/WHAT_THIS_PROVES.md": {
+      "bytes": 9481
+    }
+  },
+  "schema": "boqsc.transvoxel.m22.exact_compatibility_claim_boundary.v1",
+  "status": "PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY"
+}

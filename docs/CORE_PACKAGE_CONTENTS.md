@@ -27,6 +27,8 @@ docs/API.md                       API reference
 docs/DROP_IN.md                   how to embed
 docs/WHAT_THIS_PROVES.md          proof boundary
 docs/C_COMPILER.md                C compiler notes
+docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md
+                                  M22 exact-compatibility claim boundary
 docs/KNOWN_LIMITS.md              known limits and non-claims
 docs/TESTING_BY_USERS.md          third-party testing and report guide
 LICENSE                           0BSD license

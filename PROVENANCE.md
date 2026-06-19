@@ -93,6 +93,13 @@ with the clean-room preferred-polarity derivation. The default transition table
 is the M21 clean-room M4 export. Exact official class numbering, reuse encoding,
 triangulation identity, and table bytes are not claimed.
 
+The default transition table is the M21 clean-room M4 export.
+
+Exact official class numbering, reuse encoding, triangulation identity, and table bytes are not claimed.
+
+M22 machine-checks this exact compatibility claim boundary in
+`validation/exact_compatibility_claim_boundary_report.json`.
+
 ## Acceptance policy before production use
 
 A table generated here should not become the default terrain path until it passes

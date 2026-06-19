@@ -35,6 +35,7 @@ Published transition reference convention: PROVEN by M18 through an explicit 512
 Published transition topology behavior: PROVEN by M19 for all 512 cases
 Clean-room regular-cell behavior: PROVEN and default regular table replaced by M20
 Functional full replacement readiness: READY by M21 through public C/C++ API
+Exact compatibility claim boundary: LOCKED by M22; exact official compatibility remains NOT_PROVEN
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -103,6 +104,7 @@ docs/WHAT_THIS_PROVES.md
 docs/C_COMPILER.md
 docs/CORE_PACKAGE_CONTENTS.md
 docs/KNOWN_LIMITS.md
+docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md
 LICENSE
 PROVENANCE.md
 SOURCES.md
@@ -137,6 +139,7 @@ RUN_M18.cmd         published reference-convention/index-mapping proof
 RUN_M19.cmd         published transition-topology behavior proof
 RUN_M20.cmd         clean-room regular-cell replacement/equivalence proof
 RUN_M21.cmd         default M4 transition + C/C++ consumer compatibility proof
+RUN_M22.cmd         exact compatibility claim-boundary proof
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:
@@ -179,6 +182,7 @@ See:
 ```text
 docs/WHAT_THIS_PROVES.md
 docs/KNOWN_LIMITS.md
+docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md
 docs/PROJECT_TRACKS.md
 ```
 

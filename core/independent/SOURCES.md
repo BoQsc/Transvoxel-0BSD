@@ -39,6 +39,10 @@ default transition source and the clean-room regular table proven by M20 as the
 default regular source. It proves the public C/C++ functional consumer contract.
 No official transition or regular lookup-table arrays are used.
 
+M22 uses the M21 evidence only to lock the public claim boundary. It does not
+use official lookup-table arrays and does not create any new exact official
+compatibility claim.
+
 ## License references
 
 - SPDX 0BSD page.

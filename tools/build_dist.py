@@ -22,6 +22,7 @@ CORE_FILES = [
     "docs/API.md",
     "docs/C_COMPILER.md",
     "docs/WHAT_THIS_PROVES.md",
+    "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md",
     "docs/CORE_PACKAGE_CONTENTS.md",
     "docs/KNOWN_LIMITS.md",
     "docs/TESTING_BY_USERS.md",

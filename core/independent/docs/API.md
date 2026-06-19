@@ -279,7 +279,8 @@ eight signed corner octants.
 M21 proves the functional public C/C++ consumer contract for the clean-room
 default regular and transition builders. Exact official table layout, 73-class
 IDs, vertex/reuse encoding, triangulation identity, and byte identity remain
-separate unproven compatibility claims.
+separate unproven compatibility claims. M22 locks that claim boundary in
+`docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md`.
 
 ## Ownership
 

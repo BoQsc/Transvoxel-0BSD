@@ -44,6 +44,8 @@ minimal genus-zero surface behavior for all 512 cases.
 regular-cell table, including exhaustive regular/M4 seam checks.
 `RUN_M21.cmd` selects the clean-room M4 transition table by default and proves
 the public C/C++ consumer contract. It does not build a zip.
+`RUN_M22.cmd` locks the exact compatibility claim boundary while keeping the
+functional evidence green. It does not build a zip.
 
 ## Full release proof
 
@@ -80,4 +82,5 @@ RUN_M18.cmd  published reference-convention/index-mapping proof
 RUN_M19.cmd  published transition-topology behavior proof
 RUN_M20.cmd  clean-room regular-cell replacement/equivalence proof
 RUN_M21.cmd  default M4 transition + C/C++ consumer compatibility proof
+RUN_M22.cmd  exact compatibility claim-boundary proof
 ```
