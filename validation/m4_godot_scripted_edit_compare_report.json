@@ -1,0 +1,30 @@
+{
+  "comparison": {
+    "changed_after_edit_checks": 104,
+    "check_count": 126,
+    "default_backend_by_default": true,
+    "default_triangles_total": 22566,
+    "failed_checks": 0,
+    "failed_scenarios": 0,
+    "field_count": 7,
+    "m4_requires_explicit_selection": true,
+    "m4_triangles_total": 4303,
+    "scenario_count": 14,
+    "scenarios_with_changes": 14,
+    "scripted_edits": 112,
+    "status": "PASS",
+    "structurally_distinct_checks": 126,
+    "triangle_delta_m4_minus_default_total": -18263
+  },
+  "default_core_replaced": false,
+  "godot_runtime_executed": true,
+  "issues": [],
+  "meaning": "Validates the optional Godot scripted-edit default-vs-M4 comparison path. PASS requires a real Godot output with edited case-sequence changes and valid ArrayMesh/MeshDataTool output for both backends.",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "runtime_output": "godot/validation/10_m4_scripted_edit_compare/m4_scripted_edit_compare.json",
+  "runtime_status": "PASS",
+  "schema": "boqsc.transvoxel.m4_godot_scripted_edit_compare_report.v1",
+  "stage": "godot/stages/10_m4_scripted_edit_compare/DumpM4ScriptedEditCompare.gd",
+  "status": "PASS_M4_GODOT_SCRIPTED_EDIT_COMPARE"
+}

@@ -378,3 +378,35 @@ Run:
 ```text
 RUN_M12.cmd
 ```
+
+## M13 result
+
+M13 validates a scripted-edit comparison path for default-vs-M4 Godot mesh
+generation:
+
+```text
+godot/stages/10_m4_scripted_edit_compare/DumpM4ScriptedEditCompare.gd
+tools/validate_m4_godot_scripted_edit_compare.py
+```
+
+The stage runs deterministic dig/add edits over multiple fields and origins,
+then builds both explicit backend outputs after every edit.
+
+Current M13 result:
+
+```text
+actual Godot scripted edit comparison execution: PASS when Godot is available
+scripted edits changed case sequences: PASS
+default mesh ArrayMesh/MeshDataTool after edits: PASS
+M4 mesh ArrayMesh/MeshDataTool after edits: PASS
+M4 structurally distinct from default: PASS
+default backend by default: true
+M4 requires explicit selection: true
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
+Run:
+
+```text
+RUN_M13.cmd
+```

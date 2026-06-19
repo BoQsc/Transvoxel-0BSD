@@ -264,6 +264,31 @@ M4 requires explicit selection: true
 official Transvoxel.cpp equivalence: NOT_PROVEN
 ```
 
+## M13
+
+`m13/` validates an explicit default-vs-M4 Godot comparison path after
+deterministic scripted terrain edits. It runs multiple fields and origins,
+applies dig/add edits, and builds both selected transition-strip-style mesh
+outputs after every edit.
+
+Run:
+
+```text
+RUN_M13.cmd
+```
+
+Current M13 result:
+
+```text
+default Godot scripted edit mesh path: PASS
+M4 Godot scripted edit mesh path: PASS
+scripted edits changed case sequences: PASS
+M4 output structurally distinct from default: PASS
+default backend by default: true
+M4 requires explicit selection: true
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
 Allowed:
 
 ```text

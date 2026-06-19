@@ -1,0 +1,120 @@
+{
+  "default_core_replaced": false,
+  "godot_project_status": "PASS",
+  "godot_runtime_executed": true,
+  "godot_stage": {
+    "executed": true,
+    "output_path": "godot\\validation\\10_m4_scripted_edit_compare\\m4_scripted_edit_compare.json",
+    "output_summary": {
+      "comparison": {
+        "changed_after_edit_checks": 104,
+        "check_count": 126,
+        "default_backend_by_default": true,
+        "default_triangles_total": 22566,
+        "failed_checks": 0,
+        "failed_scenarios": 0,
+        "field_count": 7,
+        "m4_requires_explicit_selection": true,
+        "m4_triangles_total": 4303,
+        "scenario_count": 14,
+        "scenarios_with_changes": 14,
+        "scripted_edits": 112,
+        "status": "PASS",
+        "structurally_distinct_checks": 126,
+        "triangle_delta_m4_minus_default_total": -18263
+      },
+      "schema": "boqsc.transvoxel.godot_m4_scripted_edit_compare.v1",
+      "status": "PASS"
+    },
+    "returncode": 0,
+    "status": "PASS"
+  },
+  "m12_status": "PASS_M12_M4_GODOT_BACKEND_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "m4_godot_scripted_edit_compare_validation": {
+    "comparison": {
+      "changed_after_edit_checks": 104,
+      "check_count": 126,
+      "default_backend_by_default": true,
+      "default_triangles_total": 22566,
+      "failed_checks": 0,
+      "failed_scenarios": 0,
+      "field_count": 7,
+      "m4_requires_explicit_selection": true,
+      "m4_triangles_total": 4303,
+      "scenario_count": 14,
+      "scenarios_with_changes": 14,
+      "scripted_edits": 112,
+      "status": "PASS",
+      "structurally_distinct_checks": 126,
+      "triangle_delta_m4_minus_default_total": -18263
+    },
+    "default_core_replaced": false,
+    "godot_runtime_executed": true,
+    "issues": [],
+    "meaning": "Validates the optional Godot scripted-edit default-vs-M4 comparison path. PASS requires a real Godot output with edited case-sequence changes and valid ArrayMesh/MeshDataTool output for both backends.",
+    "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+    "official_triangle_topology_equivalence": "NOT_PROVEN",
+    "runtime_output": "godot/validation/10_m4_scripted_edit_compare/m4_scripted_edit_compare.json",
+    "runtime_status": "PASS",
+    "schema": "boqsc.transvoxel.m4_godot_scripted_edit_compare_report.v1",
+    "stage": "godot/stages/10_m4_scripted_edit_compare/DumpM4ScriptedEditCompare.gd",
+    "status": "PASS_M4_GODOT_SCRIPTED_EDIT_COMPARE"
+  },
+  "official_class_id_mapping": "NOT_PROVEN",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "outputs": {
+    "godot_project_preflight": "validation\\godot_project_report.json",
+    "m4_godot_scripted_edit_compare_validation": "validation\\m4_godot_scripted_edit_compare_report.json",
+    "results": "research\\official_topology\\m13\\results.md"
+  },
+  "schema": "boqsc.transvoxel.official_topology.m13.report.v1",
+  "status": "PASS_M13_M4_GODOT_SCRIPTED_EDIT_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "research/official_topology/m12/run_m12.py"
+      ],
+      "output": "M4 runtime candidate table: <repo>\\generated\\official_topology_candidate_tables.json\nM4 C header: <repo>\\generated\\official_topology_candidate_tables.h\nstatus: candidate_runtime_tables_official_equivalence_not_proven\nsha256: 0ae3d220b7a3c6519c7504aba7731164c0b9d0c3587152adc78117717875674d\nM4 runtime table validation: <repo>\\research\\official_topology\\m4\\runtime_table_validation.json\nstatus: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\ntotal triangles: 2640\ntotal vertex pairs: 4096\nM4 Zig header smoke: PASS_ZIG_HEADER_SMOKE\n\nM4: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m4\\results.md\nM5 C validation: PASS_M5_ZIG_CANDIDATE_BUILDER\nm4 candidate exhaustive cases=512 vertices=4096 triangles=2640 max_vertices=12 max_triangles=12\n\nM5: PASS_M5_OPT_IN_C_RUNTIME_CANDIDATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m5\\results.md\nM6 C seam validation: PASS_M6_ZIG_M4_SEAM_VALIDATION\nm6 m4 seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\nm6 default comparison cases=512 default_failures=0 m4_failures=0 count_differences=510 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 structurally_distinct=1\n\nM6: PASS_M6_M4_C_SEAM_VALIDATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m6\\results.md\nM7 C backend-switch validation: PASS_M7_ZIG_NORMAL_API_BACKEND_SWITCH\nm7 backend switch cases=512 default_vertices=10496 default_triangles=12288 m4_vertices=4096 m4_triangles=2640 count_differences=510 restored_default=1\nm7 normal_api_m4_seams fields=7 seeds=12 grid=8 builds=5376 shared_faces=9408 failures=0 total_vertices=14909 total_triangles=9503\n\nM7: PASS_M7_NORMAL_API_M4_BACKEND_SWITCH_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m7\\results.md\nM4 backend package C test: PASS_M4_BACKEND_PACKAGE_C_EXAMPLE\nm4 package backend case=341 default_vertices=24 default_triangles=24 m4_vertices=12 m4_triangles=12 restored_default=1 custom_after=0\n\nM8: PASS_M8_M4_BACKEND_PACKAGE_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m8\\results.md\nM4 terrain C test: PASS_M4_TERRAIN_NORMAL_API_EXPORT\ndefault transition triangles=36 m4 transition triangles=6\n\nM9: PASS_M9_M4_TERRAIN_EXPORT_PROOF_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m9\\results.md\nsynced godot\\generated\\regular_tables.json\nsynced godot\\generated\\transition_tables.json\nsynced godot\\generated\\transvoxel_tables.json\nsynced godot\\generated\\official_topology_candidate_tables.json\ngodot table sync: PASS\ngodot preflight: PASS\n<repo>\\validation\\godot_project_report.md\nM4 Godot candidate: PASS_M4_GODOT_STYLE_CANDIDATE_METRICS\nm4 godot-style builds=5376 shared_faces=9408 seam_open_edges=0\nGodot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_candidate_metrics=PASS\n<repo>/godot/validation/05_m4_candidate_metrics/m4_candidate_metrics.json\n\nM10: PASS_M10_M4_GODOT_DATA_PATH_METRICS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m10\\results.md\ngodot preflight: PASS\n<repo>\\validation\\godot_project_report.md\nM4 Godot viewer: BLOCKED_M4_GODOT_VIEWER_NOT_RUN\nGodot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_candidate_viewer=PASS\n<repo>/godot/validation/08_m4_candidate_viewer/m4_candidate_viewer.json\nM4 Godot viewer: PASS_M4_GODOT_VIEWER_EXPORT_PATH\nm4 viewer strip cells=63 vertices=373 triangles=245\n\nM11: PASS_M11_M4_GODOT_VIEWER_EXPORT_PATH_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m11\\results.md\ngodot preflight: PASS\n<repo>\\validation\\godot_project_report.md\nM4 Godot backend compare: BLOCKED_M4_GODOT_BACKEND_COMPARE_NOT_RUN\nGodot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_backend_compare=PASS\n<repo>/godot/validation/09_m4_backend_compare/m4_backend_compare.json\nM4 Godot backend compare: PASS_M4_GODOT_BACKEND_COMPARE\ndefault triangles=1362 m4 triangles=245 delta=-1117\n\nM12: PASS_M12_M4_GODOT_BACKEND_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m12\\results.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_godot_project.py"
+      ],
+      "output": "godot preflight: PASS\n<repo>\\validation\\godot_project_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_m4_godot_scripted_edit_compare.py"
+      ],
+      "output": "M4 Godot scripted edit compare: BLOCKED_M4_GODOT_SCRIPTED_EDIT_COMPARE_NOT_RUN\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "godot",
+        "--script",
+        "res://stages/10_m4_scripted_edit_compare/DumpM4ScriptedEditCompare.gd"
+      ],
+      "output": "Godot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_scripted_edit_compare=PASS\n<repo>/godot/validation/10_m4_scripted_edit_compare/m4_scripted_edit_compare.json\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_m4_godot_scripted_edit_compare.py",
+        "--require-output"
+      ],
+      "output": "M4 Godot scripted edit compare: PASS_M4_GODOT_SCRIPTED_EDIT_COMPARE\nchecks=126 edits=112 changed=104 default_tris=22566 m4_tris=4303\n",
+      "returncode": 0
+    }
+  ]
+}

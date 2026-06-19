@@ -28,6 +28,7 @@ The optional M4 candidate Godot data-path metrics are checked by the Python
 proof suite and `RUN_M10.cmd`. `RUN_M11.cmd` additionally requires actual Godot
 runtime execution of the M4 viewer/export mesh path. `RUN_M12.cmd` compares the
 default and M4 Godot mesh paths through an explicit backend-selection report.
+`RUN_M13.cmd` repeats that comparison after deterministic scripted edits.
 
 ## Full release proof
 
@@ -55,4 +56,5 @@ RUN_M9.cmd   optional M4 terrain export proof
 RUN_M10.cmd  optional M4 Godot data-path metrics proof
 RUN_M11.cmd  optional M4 Godot viewer/export mesh proof
 RUN_M12.cmd  optional M4 Godot default-vs-M4 comparison proof
+RUN_M13.cmd  optional M4 Godot scripted edit comparison proof
 ```
