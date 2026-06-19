@@ -26,7 +26,7 @@ M15 validates explicit right-handed M4 transition frames for all six axis direct
 ## Readiness effect
 
 - Six-face readiness gate: `PASS`
-- Remaining blocking gates: `9`
-- Next milestone: `M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION`
+- Remaining blocking gates: `7`
+- Next milestone: `M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION`
 
 M15 proves internal six-face runtime consistency. Official reference convention and official transition topology equivalence remain `NOT_PROVEN`.

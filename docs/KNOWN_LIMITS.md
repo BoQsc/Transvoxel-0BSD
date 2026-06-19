@@ -16,7 +16,8 @@ The optional default-vs-M4 Godot comparison path is validated by `RUN_M12.cmd` o
 The optional default-vs-M4 Godot scripted edit comparison path is validated by `RUN_M13.cmd` only when Godot is available locally.
 The M4 all-six-face orientation path is validated in Zig C and actual Godot runtime evidence by `RUN_M15.cmd`.
 The M4 mapped three-face corner-junction path is validated in Zig C and actual Godot runtime evidence by `RUN_M16.cmd`.
-The M4 replacement-readiness gate still blocks default/full replacement because M4-selected production proof, official reference/topology behavior, regular-cell equivalence, and consumer compatibility are not all proven.
+The M4-selected production gate passes through `RUN_M17.cmd`, so M4 is now ready to replace the default transition backend when the project chooses to make that switch.
+The full replacement claim remains blocked because official reference/topology behavior, regular-cell equivalence, and consumer compatibility are not all proven.
 Game-ready art/texture/lighting quality is not certified.
 Gameplay performance in a complete streaming world is not certified.
 ```
@@ -36,5 +37,6 @@ Default and M4 Godot transition-strip mesh outputs can be compared side by side 
 Default and M4 Godot transition-strip mesh outputs can be compared after scripted edits when RUN_M13 runs with Godot.
 M4 candidate cells and deterministic neighbor seams pass across explicit +X/-X/+Y/-Y/+Z/-Z frames in Zig C and Godot.
 Mapped M4 transition cells share coincident lateral geometry and opposite edge winding at three-face block corners across all eight octants.
+The combined M4 production gate passes normal-API selection, terrain export, scripted edits, six-face, corner-junction, and base production evidence.
 Small public dist package is generated and checked.
 ```

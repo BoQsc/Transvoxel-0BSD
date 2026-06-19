@@ -30,7 +30,8 @@ Functional Transvoxel-style proof: PASS when the full proof gate passes
 Optional M4 official-topology candidate backend: package-validated candidate
 Optional M4 terrain export path: validated through normal C API
 Optional M4 Godot data path: metrics, backend/edit comparison, six-face orientation, and mapped corner junctions runtime-validated
-M4 default/full replacement readiness: machine-gated and currently BLOCKED on required evidence
+M4 default transition-backend readiness: READY by the M17 production gate; switch not yet made
+Functional full replacement readiness: BLOCKED on official behavior, regular-cell equivalence, and compatibility evidence
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -126,6 +127,7 @@ RUN_M13.cmd         optional M4 Godot scripted edit comparison proof
 RUN_M14.cmd         M4 default/full replacement-readiness decision gate
 RUN_M15.cmd         M4 all-six-face C/Godot orientation proof
 RUN_M16.cmd         M4 mapped three-face corner-junction proof
+RUN_M17.cmd         M4-selected combined production gate
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:

@@ -22,6 +22,7 @@ default and optional M4 Godot transition-strip mesh paths can be compared side b
 default and optional M4 Godot transition-strip mesh paths can be compared after scripted edits when RUN_M13 is executed with Godot
 optional M4 candidate geometry, winding, ArrayMesh output, and side seams pass in all six explicit transition-face frames when RUN_M15 is executed
 mapped M4 transition cells close shared lateral faces at three-face corners in all eight signed octants when RUN_M16 is executed
+the M4-selected combined production gate passes when RUN_M17 is executed
 M4 replacement readiness is split into explicit machine-readable candidate/default/full/exact compatibility decisions
 small dist/transvoxel_0bsd_core.zip can be built
 ```
@@ -92,6 +93,12 @@ cells, coherent outward table winding, and three perpendicular transition
 faces. Zig C and Godot both validate coincident lateral samples and geometry,
 opposite boundary-edge winding, and a common inner corner across all eight
 signed octants. This is `RUN_M16.cmd`.
+
+The M4-selected production proof combines normal C backend installation, all
+512 normal-API transition cases, mapped corner geometry in the same process,
+terrain export, current Godot scripted edits, six-face/corner reports, and the
+base production gate. This is `RUN_M17.cmd`. It proves readiness to replace the
+default transition backend, not a full official-behavior replacement.
 
 ## Godot's role
 

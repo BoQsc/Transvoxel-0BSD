@@ -299,11 +299,15 @@ def main() -> int:
     final_ok = (
         base_ok
         and readiness_step["returncode"] == 0
-        and readiness.get("status")
-        == "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
+        and readiness.get("status") in {
+            "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN",
+            "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED",
+        }
         and junction_gate.get("status") == "PASS"
-        and readiness.get("next_milestone", {}).get("id")
-        == "M17_M4_SELECTED_PRODUCTION_GATE"
+        and readiness.get("next_milestone", {}).get("id") in {
+            "M17_M4_SELECTED_PRODUCTION_GATE",
+            "M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION",
+        }
     )
     report["status"] = (
         PASS_STATUS if final_ok else "FAIL_M16_M4_CORNER_JUNCTIONS"

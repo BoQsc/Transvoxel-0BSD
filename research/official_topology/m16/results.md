@@ -27,7 +27,7 @@ M16 validates mapped non-box M4 transition cells where three perpendicular LOD f
 ## Readiness effect
 
 - M4 corner-junction gate: `PASS`
-- Remaining blocking gates: `8`
-- Next milestone: `M17_M4_SELECTED_PRODUCTION_GATE`
+- Remaining blocking gates: `7`
+- Next milestone: `M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION`
 
 The geometry and winding rules are independently derived from the public transition-cell description. Official table/class/topology equivalence remains `NOT_PROVEN`.

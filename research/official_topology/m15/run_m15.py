@@ -313,11 +313,16 @@ def main() -> int:
     final_ok = (
         base_ok
         and readiness_step["returncode"] == 0
-        and readiness.get("status")
-        == "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
+        and readiness.get("status") in {
+            "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN",
+            "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED",
+        }
         and six_face_gate.get("status") == "PASS"
-        and readiness.get("next_milestone", {}).get("id")
-        == "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION"
+        and readiness.get("next_milestone", {}).get("id") in {
+            "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION",
+            "M17_M4_SELECTED_PRODUCTION_GATE",
+            "M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION",
+        }
     )
     report["status"] = (
         PASS_STATUS if final_ok else "FAIL_M15_M4_SIX_FACE_ORIENTATION"

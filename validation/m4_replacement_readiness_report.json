@@ -1,7 +1,6 @@
 {
   "analysis_completed": true,
   "blocking_gate_ids": [
-    "m4_selected_full_production_gate",
     "official_reference_convention_equivalence",
     "official_transition_topology_equivalence",
     "official_class_id_mapping",
@@ -11,16 +10,16 @@
     "official_transvoxel_cpp_byte_identity"
   ],
   "claim_boundary": {
-    "allowed_now": "Optional clean-room M4 transition-backend candidate with passing runtime/integration milestones.",
+    "allowed_now": "Clean-room M4 transition backend with enough runtime and production evidence to replace the independent default transition backend; the switch has not been made.",
     "byte_identity_required_for_exact_table_identity_claim": true,
     "byte_identity_required_for_functional_replacement": false,
-    "not_allowed_now": "Proven full Transvoxel.cpp replacement, official topology equivalent, or default backend replacement."
+    "not_allowed_now": "Proven full Transvoxel.cpp replacement or official topology equivalence."
   },
   "decisions": {
     "exact_table_compatible_replacement_ready": false,
     "functional_full_replacement_ready": false,
     "optional_transition_backend_candidate_ready": true,
-    "ready_to_replace_default_transition_backend": false
+    "ready_to_replace_default_transition_backend": true
   },
   "failed_gate_ids": [],
   "gates": [
@@ -217,20 +216,19 @@
       "title": "M4-selected corner and multi-neighbor LOD junction proof"
     },
     {
-      "actual": "MISSING_M4_PRODUCTION_GATE",
+      "actual": "PASS_M17_M4_SELECTED_PRODUCTION_GATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
       "category": "default_replacement",
       "evidence": [
-        "proof/production_gate.json currently proves the independent default backend.",
-        "No proof/m4_production_gate.json exists."
+        "research/official_topology/m17/m17_report.json",
+        "proof/m4_production_gate.json"
       ],
-      "expected": "PASS M4-selected runtime, mesh, six-face seams, scripted edits, and production gate",
+      "expected": "PASS_M17_M4_SELECTED_PRODUCTION_GATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
       "id": "m4_selected_full_production_gate",
-      "next_action": "Run the complete production assembler/gate with M4 explicitly installed after orientation and junction validation.",
       "required_for": [
         "default_transition_backend",
         "functional_full_replacement"
       ],
-      "status": "BLOCKED",
+      "status": "PASS",
       "title": "Full production gate with M4 installed through the normal backend API"
     },
     {
@@ -346,11 +344,11 @@
     }
   ],
   "load_errors": [],
-  "meaning": "The optional M4 transition backend has strong runtime/integration evidence, but it is not ready to replace the default backend and is not a proven full Transvoxel.cpp replacement. A blocked decision is the expected correct result until every required gate is proven.",
+  "meaning": "M4 now passes the explicit default-transition-backend runtime and production gates, but a functional full Transvoxel.cpp replacement remains blocked on official behavior, regular-cell equivalence, and consumer compatibility.",
   "next_milestone": {
-    "id": "M17_M4_SELECTED_PRODUCTION_GATE",
-    "objective": "Run the complete production proof path with M4 explicitly installed through the normal backend API and mapped transition geometry enabled.",
-    "why_first": "Six-face orientation and mapped corner junctions now pass. The remaining self-contained default-replacement blocker is a full production run with M4 selected end to end."
+    "id": "M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION",
+    "objective": "Derive and prove the official sign, sample-order, face-frame, winding, and orientation convention without reading official lookup-table arrays.",
+    "why_first": "The M4 candidate now passes every default-backend runtime and production gate. Reference-convention equivalence is the next algorithmic blocker to a functional full replacement claim."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -364,8 +362,9 @@
     "m12_backend_compare",
     "m13_scripted_edits",
     "m4_all_six_face_orientation_runtime_validation",
-    "m4_multi_face_corner_junction_validation"
+    "m4_multi_face_corner_junction_validation",
+    "m4_selected_full_production_gate"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
-  "status": "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
+  "status": "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED"
 }

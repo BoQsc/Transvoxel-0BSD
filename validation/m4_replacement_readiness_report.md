@@ -1,11 +1,11 @@
 # M4 Replacement Readiness
 
-Status: **BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN**
+Status: **READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED**
 
 ## Decisions
 
 - Optional M4 transition backend candidate ready: `True`
-- Ready to replace the default transition backend: `False`
+- Ready to replace the default transition backend: `True`
 - Ready to claim a functional full Transvoxel.cpp replacement: `False`
 - Ready to claim exact table/encoding compatibility: `False`
 
@@ -23,13 +23,10 @@ Status: **BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN**
 - `m13_scripted_edits`
 - `m4_all_six_face_orientation_runtime_validation`
 - `m4_multi_face_corner_junction_validation`
+- `m4_selected_full_production_gate`
 
 ## Blocking evidence
 
-- `m4_selected_full_production_gate`: Full production gate with M4 installed through the normal backend API
-  - Actual: `MISSING_M4_PRODUCTION_GATE`
-  - Required: `PASS M4-selected runtime, mesh, six-face seams, scripted edits, and production gate`
-  - Next: Run the complete production assembler/gate with M4 explicitly installed after orientation and junction validation.
 - `official_reference_convention_equivalence`: Official sign, sample-order, face-frame, winding, and orientation convention equivalence
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN`
@@ -61,6 +58,6 @@ Status: **BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN**
 
 ## Next milestone
 
-`M17_M4_SELECTED_PRODUCTION_GATE` — Run the complete production proof path with M4 explicitly installed through the normal backend API and mapped transition geometry enabled.
+`M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION` — Derive and prove the official sign, sample-order, face-frame, winding, and orientation convention without reading official lookup-table arrays.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

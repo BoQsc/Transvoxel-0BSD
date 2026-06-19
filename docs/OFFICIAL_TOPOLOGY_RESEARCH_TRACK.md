@@ -500,11 +500,43 @@ opposite lateral boundary-edge winding: PASS
 common inner-corner positions and values: PASS
 official reference convention equivalence: NOT_PROVEN
 official transition topology equivalence: NOT_PROVEN
-next milestone: M17 M4-selected production gate
+next milestone before M17: M17 M4-selected production gate
 ```
 
 Run:
 
 ```text
 RUN_M16.cmd
+```
+
+## M17 result
+
+M17 combines the M4 transition candidate's production evidence:
+
+```text
+examples/c_m17_m4_production/main.c
+research/official_topology/m17/test_m4_production_c.py
+tools/check_m4_production_gate.py
+proof/m4_production_gate.json
+```
+
+Current M17 result:
+
+```text
+normal backend hook install/restore: PASS
+all 512 cases through tv_build_transition_cell: PASS
+mapped corner geometry in the same C process: PASS
+terrain export: PASS
+Godot scripted edits: PASS
+six-face and corner-junction evidence: PASS
+base production gate: PASS
+ready to replace default transition backend: true
+functional full replacement ready: false
+next milestone: M18 official reference-convention validation
+```
+
+Run:
+
+```text
+RUN_M17.cmd
 ```

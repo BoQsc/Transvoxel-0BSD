@@ -1,0 +1,64 @@
+{
+  "attempts": [
+    {
+      "candidate": "zig cc",
+      "command": [
+        "zig",
+        "cc",
+        "-std=c99",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-Iinclude",
+        "-Igenerated",
+        "src/transvoxel.c",
+        "src/transvoxel_m4_candidate.c",
+        "src/transvoxel_m4_backend.c",
+        "examples/c_m17_m4_production/main.c",
+        "-o",
+        "<temp>/m17_m4_production.exe"
+      ],
+      "parsed": {
+        "backend_installed": 1,
+        "failures": 0,
+        "mapped_builds": 672,
+        "mapped_triangles": 1464,
+        "mapped_vertices": 2372,
+        "normal_cases": 512,
+        "normal_triangles": 2640,
+        "normal_vertices": 4096,
+        "restored_default": 1
+      },
+      "resolved_executable": "<zig>",
+      "returncode": 0,
+      "source": "configured-zig",
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "m17 production normal_cases=512 normal_vertices=4096 normal_triangles=2640 mapped_builds=672 mapped_vertices=2372 mapped_triangles=1464 backend_installed=1 restored_default=1 failures=0"
+    }
+  ],
+  "checks": [
+    "installed M4 through the normal transvoxel.h backend hook",
+    "built all 512 cases through tv_build_transition_cell",
+    "built mapped edge/corner cells in the same process",
+    "validated every produced triangle",
+    "uninstalled M4 and restored the independent default backend"
+  ],
+  "compiler": "zig cc",
+  "metrics": {
+    "backend_installed": 1,
+    "failures": 0,
+    "mapped_builds": 672,
+    "mapped_triangles": 1464,
+    "mapped_vertices": 2372,
+    "normal_cases": 512,
+    "normal_triangles": 2640,
+    "normal_vertices": 4096,
+    "restored_default": 1
+  },
+  "ok": true,
+  "schema": "boqsc.transvoxel.official_topology.m17.c_validation.v1",
+  "source": "configured-zig",
+  "status": "PASS_M17_ZIG_M4_SELECTED_PRODUCTION_ASSEMBLER",
+  "stdout": "m17 production normal_cases=512 normal_vertices=4096 normal_triangles=2640 mapped_builds=672 mapped_vertices=2372 mapped_triangles=1464 backend_installed=1 restored_default=1 failures=0"
+}

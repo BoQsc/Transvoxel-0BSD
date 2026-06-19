@@ -21,8 +21,8 @@ M4-specific multi-face/corner junction validation
 the full production gate with M4 installed through the normal backend API
 ```
 
-The first item is proven by M15 and the second by M16. The M4-selected
-production gate remains blocking.
+The first item is proven by M15, the second by M16, and the production gate by
+M17. The readiness report now permits replacing the default transition backend.
 
 ## 3. Functional full Transvoxel.cpp replacement
 
@@ -55,7 +55,9 @@ Run:
 RUN_M14.cmd
 RUN_M15.cmd
 RUN_M16.cmd
+RUN_M17.cmd
 ```
 
 The current expected result is a passing readiness analysis with the
-replacement decision blocked and M17 selected as the next milestone.
+default-transition-backend decision ready, the functional full replacement
+decision blocked, and M18 selected as the next milestone.

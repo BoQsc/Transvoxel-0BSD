@@ -29,6 +29,10 @@ M16_REPORT = ROOT / "research" / "official_topology" / "m16" / "m16_report.json"
 M16_EXPECTED_STATUS = (
     "PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
 )
+M17_REPORT = ROOT / "research" / "official_topology" / "m17" / "m17_report.json"
+M17_EXPECTED_STATUS = (
+    "PASS_M17_M4_SELECTED_PRODUCTION_GATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
+)
 
 MILESTONES = {
     "m4_runtime_tables": (
@@ -204,6 +208,15 @@ def main() -> int:
             m16_status = "INVALID_JSON"
     else:
         m16_status = "MISSING"
+    if M17_REPORT.exists():
+        try:
+            m17_status = str(
+                read_json(M17_REPORT).get("status", "MISSING_STATUS")
+            )
+        except Exception:
+            m17_status = "INVALID_JSON"
+    else:
+        m17_status = "MISSING"
 
     gates.extend([
         gate(
@@ -249,11 +262,19 @@ def main() -> int:
             "Full production gate with M4 installed through the normal backend API",
             "default_replacement",
             ["default_transition_backend", "functional_full_replacement"],
-            "BLOCKED",
-            ["proof/production_gate.json currently proves the independent default backend.", "No proof/m4_production_gate.json exists."],
-            "MISSING_M4_PRODUCTION_GATE",
-            "PASS M4-selected runtime, mesh, six-face seams, scripted edits, and production gate",
-            "Run the complete production assembler/gate with M4 explicitly installed after orientation and junction validation.",
+            "PASS" if m17_status == M17_EXPECTED_STATUS else "BLOCKED",
+            [
+                rel(M17_REPORT),
+                "proof/m4_production_gate.json",
+            ],
+            m17_status,
+            M17_EXPECTED_STATUS,
+            (
+                "M17: run the complete production assembler/gate with M4 "
+                "explicitly installed."
+                if m17_status != M17_EXPECTED_STATUS
+                else None
+            ),
         ),
         gate(
             "official_reference_convention_equivalence",
@@ -368,8 +389,31 @@ def main() -> int:
     blocking_ids = [item["id"] for item in gates if item["status"] == "BLOCKED"]
     failed_ids = [item["id"] for item in gates if item["status"] == "FAIL"]
 
-    analysis_ok = not load_errors and not failed_ids and runtime_pass and not default_ready and not functional_ready
+    analysis_ok = (
+        not load_errors
+        and not failed_ids
+        and runtime_pass
+        and not functional_ready
+    )
     if (
+        m15_status == M15_EXPECTED_STATUS
+        and m16_status == M16_EXPECTED_STATUS
+        and m17_status == M17_EXPECTED_STATUS
+    ):
+        next_milestone = {
+            "id": "M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION",
+            "objective": (
+                "Derive and prove the official sign, sample-order, face-frame, "
+                "winding, and orientation convention without reading official "
+                "lookup-table arrays."
+            ),
+            "why_first": (
+                "The M4 candidate now passes every default-backend runtime and "
+                "production gate. Reference-convention equivalence is the next "
+                "algorithmic blocker to a functional full replacement claim."
+            ),
+        }
+    elif (
         m15_status == M15_EXPECTED_STATUS
         and m16_status == M16_EXPECTED_STATUS
     ):
@@ -415,15 +459,27 @@ def main() -> int:
     report: Dict[str, Any] = {
         "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
         "status": (
-            "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
-            if analysis_ok else "FAIL_M4_REPLACEMENT_READINESS_ANALYSIS"
+            (
+                "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED"
+                if default_ready
+                else "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN"
+            )
+            if analysis_ok
+            else "FAIL_M4_REPLACEMENT_READINESS_ANALYSIS"
         ),
         "analysis_completed": analysis_ok,
         "meaning": (
-            "The optional M4 transition backend has strong runtime/integration evidence, "
-            "but it is not ready to replace the default backend and is not a proven full "
-            "Transvoxel.cpp replacement. A blocked decision is the expected correct result "
-            "until every required gate is proven."
+            (
+                "M4 now passes the explicit default-transition-backend runtime "
+                "and production gates, but a functional full Transvoxel.cpp "
+                "replacement remains blocked on official behavior, regular-cell "
+                "equivalence, and consumer compatibility."
+                if default_ready
+                else
+                "The optional M4 transition backend has strong runtime/integration "
+                "evidence, but it is not ready to replace the default backend and "
+                "is not a proven full Transvoxel.cpp replacement."
+            )
         ),
         "decisions": {
             "optional_transition_backend_candidate_ready": runtime_pass,
@@ -438,8 +494,22 @@ def main() -> int:
         "gates": gates,
         "next_milestone": next_milestone,
         "claim_boundary": {
-            "allowed_now": "Optional clean-room M4 transition-backend candidate with passing runtime/integration milestones.",
-            "not_allowed_now": "Proven full Transvoxel.cpp replacement, official topology equivalent, or default backend replacement.",
+            "allowed_now": (
+                "Clean-room M4 transition backend with enough runtime and "
+                "production evidence to replace the independent default "
+                "transition backend; the switch has not been made."
+                if default_ready
+                else
+                "Optional clean-room M4 transition-backend candidate with "
+                "passing runtime/integration milestones."
+            ),
+            "not_allowed_now": (
+                "Proven full Transvoxel.cpp replacement or official topology equivalence."
+                if default_ready
+                else
+                "Proven full Transvoxel.cpp replacement, official topology "
+                "equivalence, or default backend replacement."
+            ),
             "byte_identity_required_for_functional_replacement": False,
             "byte_identity_required_for_exact_table_identity_claim": True,
         },

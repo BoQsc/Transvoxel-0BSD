@@ -33,9 +33,9 @@
   "m14_status": "PASS_M14_REPLACEMENT_READINESS_GATE_BLOCKED_ON_REQUIRED_EVIDENCE",
   "meaning": "M15 passes only after Zig-compiled C and actual Godot runtime validation cover all 512 M4 cases and deterministic side seams in all six explicit right-handed transition-face frames.",
   "next_milestone": {
-    "id": "M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION",
-    "objective": "Assemble M4-selected transition meshes on multiple perpendicular LOD faces and prove shared-edge/corner closure in C and Godot.",
-    "why_first": "Six-face frame transforms are now proven internally. The next nearest default-replacement blocker is interaction between two or three simultaneously selected transition faces."
+    "id": "M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION",
+    "objective": "Derive and prove the official sign, sample-order, face-frame, winding, and orientation convention without reading official lookup-table arrays.",
+    "why_first": "The M4 candidate now passes every default-backend runtime and production gate. Reference-convention equivalence is the next algorithmic blocker to a functional full replacement claim."
   },
   "official_reference_convention_equivalence": "NOT_PROVEN",
   "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
@@ -260,7 +260,7 @@
     "combined_validation": "validation/m4_six_face_orientation_report.json",
     "results": "research/official_topology/m15/results.md"
   },
-  "readiness_status": "BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN",
+  "readiness_status": "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED",
   "schema": "boqsc.transvoxel.official_topology.m15.report.v1",
   "six_face_gate_status": "PASS",
   "status": "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
@@ -315,7 +315,7 @@
         "python",
         "tools/m4_replacement_readiness.py"
       ],
-      "output": "M4 replacement readiness: BLOCKED_M4_DEFAULT_REPLACEMENT_REQUIRED_EVIDENCE_NOT_PROVEN\noptional backend candidate ready: True\ndefault replacement ready: False\nfunctional full replacement ready: False\nblocking gates: 9\nnext milestone: M16_M4_MULTI_FACE_CORNER_JUNCTION_VALIDATION\n",
+      "output": "M4 replacement readiness: READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: False\nblocking gates: 7\nnext milestone: M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION\n",
       "returncode": 0
     }
   ]

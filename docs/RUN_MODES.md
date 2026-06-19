@@ -35,6 +35,7 @@ or claiming a full replacement.
 directions in Zig C and actual Godot runtime execution.
 `RUN_M16.cmd` validates mapped non-box M4 transition cells at three-face block
 corners in Zig C and actual Godot runtime execution.
+`RUN_M17.cmd` runs the combined M4-selected production gate.
 
 ## Full release proof
 
@@ -66,4 +67,5 @@ RUN_M13.cmd  optional M4 Godot scripted edit comparison proof
 RUN_M14.cmd  M4 replacement-readiness decision gate
 RUN_M15.cmd  M4 all-six-face C/Godot orientation proof
 RUN_M16.cmd  M4 mapped three-face corner-junction proof
+RUN_M17.cmd  M4-selected combined production gate
 ```

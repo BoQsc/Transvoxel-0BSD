@@ -362,7 +362,34 @@ lateral geometry failures: 0
 corner position/value failures: 0
 corner-junction replacement-readiness gate: PASS
 official reference/topology equivalence: NOT_PROVEN
-next milestone: M17 M4-selected production gate
+next milestone before M17: M17 M4-selected production gate
+```
+
+## M17
+
+`m17/` combines normal-API backend selection, mapped corner geometry, terrain
+export, Godot scripted edits, six-face/corner evidence, and the base production
+gate.
+
+Run:
+
+```text
+RUN_M17.cmd
+```
+
+Current M17 result:
+
+```text
+normal API M4 cases: 512
+mapped production builds: 672
+normal/mapped C failures: 0
+Godot scripted edits: PASS
+base production gate: PASS
+M4-selected production gate: PASS
+ready to replace default transition backend: true
+functional full replacement ready: false
+official reference/topology equivalence: NOT_PROVEN
+next milestone: M18 official reference-convention validation
 ```
 
 Allowed:

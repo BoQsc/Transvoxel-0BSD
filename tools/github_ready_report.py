@@ -41,6 +41,7 @@ REQUIRED_FILES = [
     "RUN_M14.cmd",
     "RUN_M15.cmd",
     "RUN_M16.cmd",
+    "RUN_M17.cmd",
     "include/transvoxel.h",
     "include/transvoxel_m4_candidate.h",
     "include/transvoxel_m4_backend.h",
@@ -78,6 +79,10 @@ REQUIRED_FILES = [
     "godot/stages/12_m4_corner_junctions/README.md",
     "examples/c_m16_m4_corner_junctions/main.c",
     "research/official_topology/m16/m16_report.json",
+    "tools/check_m4_production_gate.py",
+    "examples/c_m17_m4_production/main.c",
+    "research/official_topology/m17/m17_report.json",
+    "proof/m4_production_gate.json",
     "dist/transvoxel_0bsd_core.zip",
 ]
 

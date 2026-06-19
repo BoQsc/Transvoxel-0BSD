@@ -1,0 +1,266 @@
+{
+  "backend_status": "PASS_M4_BACKEND_PACKAGE_C_EXAMPLE",
+  "c_metrics": {
+    "backend_installed": 1,
+    "failures": 0,
+    "mapped_builds": 672,
+    "mapped_triangles": 1464,
+    "mapped_vertices": 2372,
+    "normal_cases": 512,
+    "normal_triangles": 2640,
+    "normal_vertices": 4096,
+    "restored_default": 1
+  },
+  "c_status": "PASS_M17_ZIG_M4_SELECTED_PRODUCTION_ASSEMBLER",
+  "default_core_replaced": false,
+  "godot_scripted_runtime_executed": true,
+  "godot_stage": {
+    "comparison": {
+      "changed_after_edit_checks": 104,
+      "check_count": 126,
+      "default_backend_by_default": true,
+      "default_triangles_total": 22566,
+      "failed_checks": 0,
+      "failed_scenarios": 0,
+      "field_count": 7,
+      "m4_requires_explicit_selection": true,
+      "m4_triangles_total": 4303,
+      "scenario_count": 14,
+      "scenarios_with_changes": 14,
+      "scripted_edits": 112,
+      "status": "PASS",
+      "structurally_distinct_checks": 126,
+      "triangle_delta_m4_minus_default_total": -18263
+    },
+    "executed": true,
+    "output_path": "godot/validation/10_m4_scripted_edit_compare/m4_scripted_edit_compare.json",
+    "returncode": 0,
+    "status": "PASS"
+  },
+  "m16_status": "PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "m4_production_gate": {
+    "checks": [
+      {
+        "actual": "PASS_M4_BACKEND_PACKAGE_C_EXAMPLE",
+        "expected": "PASS_M4_BACKEND_PACKAGE_C_EXAMPLE",
+        "id": "m4_backend_normal_api",
+        "path": "validation/m4_backend_c_report.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS_M4_TERRAIN_NORMAL_API_EXPORT",
+        "expected": "PASS_M4_TERRAIN_NORMAL_API_EXPORT",
+        "id": "m4_terrain_normal_api",
+        "path": "validation/m4_terrain_c_report.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS_M13_M4_GODOT_SCRIPTED_EDIT_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "expected": "PASS_M13_M4_GODOT_SCRIPTED_EDIT_COMPARE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m4_scripted_edits",
+        "path": "research/official_topology/m13/m13_report.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "expected": "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m4_six_faces",
+        "path": "research/official_topology/m15/m15_report.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "expected": "PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+        "id": "m4_corner_junctions",
+        "path": "research/official_topology/m16/m16_report.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS_M17_ZIG_M4_SELECTED_PRODUCTION_ASSEMBLER",
+        "expected": "PASS_M17_ZIG_M4_SELECTED_PRODUCTION_ASSEMBLER",
+        "id": "m4_combined_c_assembler",
+        "path": "research/official_topology/m17/m17_c_validation.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS_M4_SIX_FACE_ORIENTATION_C_AND_GODOT",
+        "expected": "PASS_M4_SIX_FACE_ORIENTATION_C_AND_GODOT",
+        "id": "m4_six_face_validation",
+        "path": "validation/m4_six_face_orientation_report.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS_M4_DEFORMED_CORNER_JUNCTIONS_C_AND_GODOT",
+        "expected": "PASS_M4_DEFORMED_CORNER_JUNCTIONS_C_AND_GODOT",
+        "id": "m4_corner_validation",
+        "path": "validation/m4_corner_junction_report.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS",
+        "expected": "PASS",
+        "id": "godot_runtime_scripted_edits",
+        "path": "godot/validation/10_m4_scripted_edit_compare/m4_scripted_edit_compare.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS",
+        "expected": "PASS",
+        "id": "godot_runtime_six_faces",
+        "path": "godot/validation/11_m4_six_face_orientation/m4_six_face_orientation.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS",
+        "expected": "PASS",
+        "id": "godot_runtime_corner_junctions",
+        "path": "godot/validation/12_m4_corner_junctions/m4_corner_junctions.json",
+        "status": "PASS"
+      },
+      {
+        "actual": "PASS",
+        "expected": "PASS",
+        "id": "base_production_gate",
+        "path": "proof/production_gate.json",
+        "status": "PASS"
+      }
+    ],
+    "hard_requirements": {
+      "all_six_face_orientations": true,
+      "base_production_gate": true,
+      "degenerate_triangles": 0,
+      "godot_scripted_edits": true,
+      "invalid_triangles": 0,
+      "mapped_three_face_corner_junctions": true,
+      "normal_api_all_512_cases": true,
+      "normal_api_backend_install": true,
+      "seam_failures": 0,
+      "terrain_export": true,
+      "winding_failures": 0
+    },
+    "issues": [],
+    "m4_case_winding_failure_count": 0,
+    "m4_table_sha256": "00dda23b7d9d3a20889c597c330ee0f84f66f9beef16b04e87b326203ee015d8",
+    "meaning": "PASS proves the clean-room M4 transition candidate can run through the normal C backend hook, terrain export, Godot scripted edits, all six face frames, mapped corner junctions, and the existing base production gate. It does not prove official Transvoxel equivalence.",
+    "official_class_id_mapping": "NOT_PROVEN",
+    "official_reference_convention_equivalence": "NOT_PROVEN",
+    "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+    "official_triangle_topology_equivalence": "NOT_PROVEN",
+    "schema": "boqsc.transvoxel.m4_production_gate.v1",
+    "status": "PASS_M4_SELECTED_PRODUCTION_GATE"
+  },
+  "meaning": "M17 passes only when M4 is selected through the normal C backend hook, mapped geometry runs in the same assembler, current Godot scripted edits pass, and all prior orientation/junction/base production gates are green.",
+  "next_milestone": {
+    "id": "M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION",
+    "objective": "Derive and prove the official sign, sample-order, face-frame, winding, and orientation convention without reading official lookup-table arrays.",
+    "why_first": "The M4 candidate now passes every default-backend runtime and production gate. Reference-convention equivalence is the next algorithmic blocker to a functional full replacement claim."
+  },
+  "official_class_id_mapping": "NOT_PROVEN",
+  "official_reference_convention_equivalence": "NOT_PROVEN",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "outputs": {
+    "c_validation": "research/official_topology/m17/m17_c_validation.json",
+    "m4_production_gate": "proof/m4_production_gate.json",
+    "results": "research/official_topology/m17/results.md"
+  },
+  "production_gate_status": "PASS",
+  "readiness_decisions": {
+    "exact_table_compatible_replacement_ready": false,
+    "functional_full_replacement_ready": false,
+    "optional_transition_backend_candidate_ready": true,
+    "ready_to_replace_default_transition_backend": true
+  },
+  "readiness_status": "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED",
+  "schema": "boqsc.transvoxel.official_topology.m17.report.v1",
+  "scripted_edit_status": "PASS_M4_GODOT_SCRIPTED_EDIT_COMPARE",
+  "status": "PASS_M17_M4_SELECTED_PRODUCTION_GATE_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "research/official_topology/m16/run_m16.py"
+      ],
+      "output": "M4 runtime candidate table: <repo>\\generated\\official_topology_candidate_tables.json\nM4 C header: <repo>\\generated\\official_topology_candidate_tables.h\nstatus: candidate_runtime_tables_official_equivalence_not_proven\nsha256: 00dda23b7d9d3a20889c597c330ee0f84f66f9beef16b04e87b326203ee015d8\nM4 runtime table validation: <repo>\\research\\official_topology\\m4\\runtime_table_validation.json\nstatus: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\ntotal triangles: 2640\ntotal vertex pairs: 4096\nM4 Zig header smoke: PASS_ZIG_HEADER_SMOKE\n\nM4: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m4\\results.md\nM15 C six-face validation: PASS_M15_ZIG_M4_SIX_FACE_ORIENTATION_VALIDATION\nm15 face id=0 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=1 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=2 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=3 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=4 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 face id=5 cases=512 vertices=4096 triangles=2640 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=448 shared_faces=672 seam_failures=0 seam_vertices=1616 seam_triangles=1020\nm15 totals faces=6 failed_faces=0 cases=3072 vertices=24576 triangles=15840 invalid_triangles=0 degenerate_triangles=0 transform_failures=0 orientation_failures=0 frame_failures=0 seam_builds=2688 shared_faces=4032 seam_failures=0 seam_vertices=9696 seam_triangles=6120\ngodot preflight: PASS\n<repo>\\validation\\godot_project_report.md\nM4 six-face orientation: BLOCKED_M4_SIX_FACE_ORIENTATION_GODOT_NOT_RUN\nC totals: {'cases': 3072, 'degenerate_triangles': 0, 'faces': 6, 'failed_faces': 0, 'frame_failures': 0, 'invalid_triangles': 0, 'orientation_failures': 0, 'seam_builds': 2688, 'seam_failures': 0, 'seam_triangles': 6120, 'seam_vertices': 9696, 'shared_faces': 4032, 'transform_failures': 0, 'triangles': 15840, 'vertices': 24576}\nGodot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_six_face_orientation=PASS\n<repo>/godot/validation/11_m4_six_face_orientation/m4_six_face_orientation.json\nM4 six-face orientation: PASS_M4_SIX_FACE_ORIENTATION_C_AND_GODOT\nC totals: {'cases': 3072, 'degenerate_triangles': 0, 'faces': 6, 'failed_faces': 0, 'frame_failures': 0, 'invalid_triangles': 0, 'orientation_failures': 0, 'seam_builds': 2688, 'seam_failures': 0, 'seam_triangles': 6120, 'seam_vertices': 9696, 'shared_faces': 4032, 'transform_failures': 0, 'triangles': 15840, 'vertices': 24576}\nGodot totals: {'cases': 3072, 'degenerate_triangles': 0, 'faces': 6, 'failed_faces': 0, 'frame_failures': 0, 'invalid_triangles': 0, 'orientation_failures': 0, 'seam_builds': 2688, 'seam_failures': 0, 'seam_triangles': 6120, 'seam_vertices': 9696, 'shared_faces': 4032, 'transform_failures': 0, 'triangles': 15840, 'vertices': 24576}\nM4 replacement readiness: READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: False\nblocking gates: 7\nnext milestone: M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION\n\nM15: PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m15\\results.md\nM16 C corner junctions: PASS_M16_ZIG_M4_DEFORMED_CORNER_JUNCTIONS\nm16 junctions octants=8 fields=7 seeds=8 junctions=448 builds=1344 vertices=4680 triangles=2896 invalid_triangles=0 degenerate_triangles=0 internal_winding_failures=0 shared_faces=1344 nonempty_shared_faces=500 shared_samples=6720 sample_position_failures=0 sample_value_failures=0 lateral_geometry_failures=0 lateral_winding_failures=0 corner_position_failures=0 corner_value_failures=0\ngodot preflight: PASS\n<repo>\\validation\\godot_project_report.md\nM4 corner junctions: BLOCKED_M4_CORNER_JUNCTIONS_GODOT_NOT_RUN\nC metrics: {'builds': 1344, 'corner_position_failures': 0, 'corner_value_failures': 0, 'degenerate_triangles': 0, 'fields': 7, 'internal_winding_failures': 0, 'invalid_triangles': 0, 'junctions': 448, 'lateral_geometry_failures': 0, 'lateral_winding_failures': 0, 'nonempty_shared_faces': 500, 'octants': 8, 'sample_position_failures': 0, 'sample_value_failures': 0, 'seeds': 8, 'shared_faces': 1344, 'shared_samples': 6720, 'triangles': 2896, 'vertices': 4680}\nGodot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_corner_junctions=PASS\n<repo>/godot/validation/12_m4_corner_junctions/m4_corner_junctions.json\nM4 corner junctions: PASS_M4_DEFORMED_CORNER_JUNCTIONS_C_AND_GODOT\nC metrics: {'builds': 1344, 'corner_position_failures': 0, 'corner_value_failures': 0, 'degenerate_triangles': 0, 'fields': 7, 'internal_winding_failures': 0, 'invalid_triangles': 0, 'junctions': 448, 'lateral_geometry_failures': 0, 'lateral_winding_failures': 0, 'nonempty_shared_faces': 500, 'octants': 8, 'sample_position_failures': 0, 'sample_value_failures': 0, 'seeds': 8, 'shared_faces': 1344, 'shared_samples': 6720, 'triangles': 2896, 'vertices': 4680}\nGodot metrics: {'builds': 1344, 'corner_position_failures': 0, 'corner_value_failures': 0, 'degenerate_triangles': 0, 'fields': 7, 'internal_winding_failures': 0, 'invalid_triangles': 0, 'junctions': 448, 'lateral_geometry_failures': 0, 'lateral_winding_failures': 0, 'nonempty_shared_faces': 500, 'octants': 8, 'sample_position_failures': 0, 'sample_value_failures': 0, 'seeds': 8, 'shared_faces': 1344, 'shared_samples': 6720, 'triangles': 2896, 'vertices': 4680}\nM4 replacement readiness: READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: False\nblocking gates: 7\nnext milestone: M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION\n\nM16: PASS_M16_M4_DEFORMED_CORNER_JUNCTIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m16\\results.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_m4_backend_c.py"
+      ],
+      "output": "M4 backend package C test: PASS_M4_BACKEND_PACKAGE_C_EXAMPLE\nm4 package backend case=341 default_vertices=24 default_triangles=24 m4_vertices=12 m4_triangles=12 restored_default=1 custom_after=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_m4_terrain_c.py"
+      ],
+      "output": "M4 terrain C test: PASS_M4_TERRAIN_NORMAL_API_EXPORT\ndefault transition triangles=36 m4 transition triangles=6\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m17/test_m4_production_c.py"
+      ],
+      "output": "M17 C production: PASS_M17_ZIG_M4_SELECTED_PRODUCTION_ASSEMBLER\nm17 production normal_cases=512 normal_vertices=4096 normal_triangles=2640 mapped_builds=672 mapped_vertices=2372 mapped_triangles=1464 backend_installed=1 restored_default=1 failures=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_godot_project.py"
+      ],
+      "output": "godot preflight: PASS\n<repo>\\validation\\godot_project_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "godot",
+        "--script",
+        "res://stages/10_m4_scripted_edit_compare/DumpM4ScriptedEditCompare.gd"
+      ],
+      "output": "Godot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nm4_scripted_edit_compare=PASS\n<repo>/godot/validation/10_m4_scripted_edit_compare/m4_scripted_edit_compare.json\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_m4_godot_scripted_edit_compare.py",
+        "--require-output"
+      ],
+      "output": "M4 Godot scripted edit compare: PASS_M4_GODOT_SCRIPTED_EDIT_COMPARE\nchecks=126 edits=112 changed=104 default_tris=22566 m4_tris=4303\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/check_production_gate.py"
+      ],
+      "output": "production gate: PASS\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/check_m4_production_gate.py"
+      ],
+      "output": "M4 production gate: PASS_M4_SELECTED_PRODUCTION_GATE\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: False\nblocking gates: 7\nnext milestone: M18_OFFICIAL_REFERENCE_CONVENTION_VALIDATION\n",
+      "returncode": 0
+    }
+  ],
+  "terrain_status": "PASS_M4_TERRAIN_NORMAL_API_EXPORT"
+}
