@@ -31,8 +31,16 @@ The transition generator constructs an independent transition-cell table as foll
 7. Emit the resulting edge-intersection vertices and triangles as canonical JSON,
    C, and D.
 
-The regular generator creates a 256-case marching-tetrahedra baseline for ordinary
-regular cells.
+The regular generator independently derives a 256-case modified-Marching-Cubes
+table:
+
+1. Use the Figure 3.8 corner numbering and Listing 3.1 case bits.
+2. Derive every cube-face contour with the public preferred-polarity rule.
+3. Trace the resulting closed boundary loops.
+4. Fill each loop with a minimal nonintersecting triangle disk.
+5. Orient every connected component toward increasing scalar values.
+6. Validate all 256 cases, 18 rotation/inversion behavior classes, regular-cell
+   neighbors, and regular/M4 transition boundaries.
 
 ## Compatibility exporter
 
@@ -53,10 +61,10 @@ Current table export policy:
 
 ## Important limitation
 
-This is an independently generated transition-cell table, not the official
-Transvoxel table. The synthetic center sample and tetrahedral fan are our own
-implementation choice. This makes the table auditable and 0BSD, but it must be
-tested for seam behavior and mesh quality.
+The old independent transition table remains available until M4 becomes the
+default transition path. The default regular table no longer uses marching
+tetrahedra; M20 replaced it with the clean-room preferred-polarity derivation.
+Exact official class numbering, reuse encoding, and table bytes are not claimed.
 
 ## Acceptance policy before production use
 

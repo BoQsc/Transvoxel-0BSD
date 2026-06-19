@@ -47,6 +47,9 @@ def main() -> int:
     published_topology = read_json(
         "validation/published_transition_topology_report.json"
     )
+    regular_equivalence = read_json(
+        "validation/regular_cell_equivalence_report.json"
+    )
 
     independent_ok = not missing_independent
     official_track_ok = not missing_official
@@ -77,6 +80,12 @@ def main() -> int:
                         "NOT_PROVEN",
                     )
                 ),
+                "clean_room_regular_cell_equivalence": (
+                    regular_equivalence.get(
+                        "functional_regular_cell_equivalence",
+                        "NOT_PROVEN",
+                    )
+                ),
             },
         },
         "supporting_reports": {
@@ -93,12 +102,15 @@ def main() -> int:
             "published_transition_topology_status": published_topology.get(
                 "status"
             ),
+            "regular_cell_equivalence_status": regular_equivalence.get(
+                "status"
+            ),
         },
         "meaning": (
             "The independent core can be released/evaluated independently. "
-            "The published transition reference convention is proven by M18; "
-            "official transition topology and table compatibility remain "
-            "separate and not proven."
+            "The published transition reference convention, transition "
+            "topology behavior, and clean-room regular-cell behavior are "
+            "proven by M18-M20; exact table compatibility remains separate."
         ),
     }
     VALIDATION.mkdir(exist_ok=True)

@@ -1,0 +1,204 @@
+{
+  "c_status": "PASS_M20_ZIG_CLEAN_ROOM_REGULAR_CELL_RUNTIME",
+  "claim_boundary": {
+    "not_proven": [
+      "official numeric regular class IDs",
+      "official vertex reuse/cache codes",
+      "Transvoxel.cpp regular table bytes"
+    ],
+    "proven": "Functional clean-room modified-Marching-Cubes regular-cell behavior and crack-free compatibility with M4 transition boundaries."
+  },
+  "core_c_status": "PASS",
+  "default_regular_core_replaced": true,
+  "exact_regular_table_identity": "NOT_PROVEN",
+  "functional_regular_cell_equivalence": "PROVEN",
+  "godot_runtime_executed": true,
+  "godot_stage": {
+    "executed": true,
+    "returncode": 0,
+    "status": "PASS",
+    "tables": {
+      "regular_cases": 256,
+      "regular_max_triangles": 5,
+      "regular_max_vertices": 12,
+      "regular_schema": "boqsc.regular_tables.v1",
+      "regular_status": "clean_room_modified_marching_cubes_preferred_polarity",
+      "regular_total_triangles": 820,
+      "regular_total_vertices": 1536,
+      "transition_cases": 512,
+      "transition_schema": "boqsc.transition_tables.v1",
+      "transvoxel_schema": "boqsc.transvoxel_tables.v1",
+      "transvoxel_status": "transvoxel-table-export; not official Transvoxel.cpp byte/table clone"
+    }
+  },
+  "m19_status": "PASS_M19_PUBLISHED_TRANSITION_TOPOLOGY_BEHAVIOR",
+  "meaning": "M20 replaces and proves the default regular-cell table using a clean-room preferred-polarity modified-Marching-Cubes derivation that is seam-compatible with M4.",
+  "metrics": {
+    "class_signature_failures": 0,
+    "classes": {
+      "base_rotation_inversion_classes": 15,
+      "behavior_classes": 18,
+      "covered_cases": 256,
+      "cube_rotations": 24,
+      "preferred_polarity_inverse_splits": 3
+    },
+    "regular_m4_comparisons": 40960,
+    "regular_m4_failures": 0,
+    "regular_neighbor_comparisons": 12288,
+    "regular_neighbor_failures": 0,
+    "topology": {
+      "boundary_failures": 0,
+      "cases": 256,
+      "inactive_edge_vertices": 0,
+      "intersection_failures": 0,
+      "max_triangles": 5,
+      "max_vertices": 12,
+      "topology_failures": 0,
+      "triangles": 820,
+      "vertices": 1536,
+      "winding_failures": 0
+    }
+  },
+  "next_milestone": {
+    "id": "M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+    "objective": "Define and test the functional compatibility contract for Transvoxel.cpp consumers, then select the clean-room M4 transition path by default.",
+    "why_first": "Transition and regular-cell functional behavior now pass. The remaining functional replacement blocker is the consumer compatibility/default-selection contract."
+  },
+  "readiness_status": "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED",
+  "regular_gate_status": "PASS",
+  "regular_validation_status": "PASS_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
+  "schema": "boqsc.transvoxel.official_topology.m20.report.v1",
+  "source_reference": {
+    "author": "Eric Lengyel",
+    "relevant_public_rules": [
+      "Section 3.1.2 and Figure 3.5: preferred-polarity face contours",
+      "Section 3.1.2: 15 base classes plus 3 ambiguity inverse splits",
+      "Figure 3.8 and Listing 3.1: corner numbering and 8-bit case index",
+      "Section 3.2: vertices only on active edges",
+      "Section 3.2: at most 12 vertices and 5 triangles"
+    ],
+    "title": "Voxel-Based Terrain for Real-Time Virtual Simulations",
+    "url": "https://transvoxel.org/Lengyel-VoxelTerrain.pdf"
+  },
+  "status": "PASS_M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "tools/generate_regular.py",
+        "--out",
+        "generated"
+      ],
+      "output": "generated: generated\nschema: boqsc.regular_tables.v1\nstatus: clean_room_modified_marching_cubes_preferred_polarity\nsha256: fb749cd25ee3ee77be38f1b6d12e0a26e2f5817c8ee246d1b30e5b9cc73f2a15\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/export_transvoxel.py"
+      ],
+      "output": "wrote <repo>\\generated\\transvoxel_tables.json\nsha256 308f84d257294f03adeb35651d60bc905bf0d8b12c1cdedb9bdf089bcc325b14\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/sync_godot_tables.py"
+      ],
+      "output": "synced godot\\generated\\regular_tables.json\nsynced godot\\generated\\transition_tables.json\nsynced godot\\generated\\transvoxel_tables.json\nsynced godot\\generated\\official_topology_candidate_tables.json\ngodot table sync: PASS\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/verify_generated_tables.py"
+      ],
+      "output": "ok\nsha256: db8d6c36ca74d014afa8a78303db2b746b523a8223dd89c250230ff3a9eb21c0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_tables.py"
+      ],
+      "output": "all tables report: <repo>\\validation\\all_tables_report.md\nok: True\nregular sha256: fb749cd25ee3ee77be38f1b6d12e0a26e2f5817c8ee246d1b30e5b9cc73f2a15\ntransition sha256: db8d6c36ca74d014afa8a78303db2b746b523a8223dd89c250230ff3a9eb21c0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_transvoxel.py"
+      ],
+      "output": "PASS\n<repo>\\validation\\transvoxel_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_regular_cell_equivalence.py"
+      ],
+      "output": "regular cell equivalence: PASS_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE\ncases=256 classes= 18 triangles= 820 regular_seams= 12288 m4_seams= 40960 failures= 0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m20/test_regular_cell_c.py"
+      ],
+      "output": "M20 C regular: PASS_M20_ZIG_CLEAN_ROOM_REGULAR_CELL_RUNTIME\nm20 regular cases=256 vertices=1536 triangles=820 max_vertices=12 max_triangles=5 small_buffer_checks=508 failures=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_core_c.py"
+      ],
+      "output": "trying C compiler: C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe cc\nregular case=23 vertices=6 triangles=4\nregular first_vertex=(1.000, 0.250, 0.000)\ntransition case=11 vertices=16 triangles=18\ntransition first_vertex=(0.625, 0.625, 0.000)\nwrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_independent\nhigh_lod0 triangles=45 transition triangles=36 low_lod1 triangles=9\ncore C test: PASS\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_m4_backend_c.py"
+      ],
+      "output": "M4 backend package C test: PASS_M4_BACKEND_PACKAGE_C_EXAMPLE\nm4 package backend case=341 default_vertices=24 default_triangles=24 m4_vertices=12 m4_triangles=12 restored_default=1 custom_after=0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/test_m4_terrain_c.py"
+      ],
+      "output": "M4 terrain C test: PASS_M4_TERRAIN_NORMAL_API_EXPORT\ndefault transition triangles=36 m4 transition triangles=6\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_godot_project.py"
+      ],
+      "output": "godot preflight: PASS\n<repo>\\validation\\godot_project_report.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        "godot",
+        "--script",
+        "res://stages/01_runtime/DumpRuntimeData.gd"
+      ],
+      "output": "Godot Engine v4.6.3.stable.steam.7d41c59c4 - https://godotengine.org\n\nruntime_dump=PASS\n<repo>/godot/validation/01_runtime/runtime_dump.json\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: False\nblocking gates: 6\nnext milestone: M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY\n",
+      "returncode": 0
+    }
+  ]
+}

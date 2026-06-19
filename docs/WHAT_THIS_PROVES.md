@@ -25,6 +25,7 @@ mapped M4 transition cells close shared lateral faces at three-face corners in a
 the M4-selected combined production gate passes when RUN_M17 is executed
 the published M4 transition reference convention passes exhaustive Python and Zig C proof when RUN_M18 is executed
 published M4 transition topology behavior passes all 512 cases when RUN_M19 is executed
+the default clean-room regular-cell table passes preferred-polarity, neighbor-seam, M4-boundary, Zig C, and Godot proof when RUN_M20 is executed
 M4 replacement readiness is split into explicit machine-readable candidate/default/full/exact compatibility decisions
 small dist/transvoxel_0bsd_core.zip can be built
 ```
@@ -114,6 +115,12 @@ contour rule, the D4/conditional-inversion class construction, closed degree-2
 boundaries, and minimal genus-zero surface fillings for all 512 cases. It
 proves functional transition topology behavior, not identical official
 interior diagonals or table encoding.
+
+The M20 regular-cell proof replaces the fixed-diagonal tetrahedral regular
+table with a preferred-polarity modified-Marching-Cubes derivation. It proves
+256 cases, 18 behavior classes, 12/5 vertex/triangle maxima, 12,288
+regular-neighbor comparisons, 40,960 regular/M4 boundary comparisons, the
+public C runtime, and actual Godot loading.
 
 ## Godot's role
 

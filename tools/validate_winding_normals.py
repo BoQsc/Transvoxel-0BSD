@@ -15,12 +15,19 @@ MD = ROOT / "validation" / "winding_normals_report.md"
 EPS = 1.0e-12
 
 
-def audit_table(name: str, filename: str, complement_mask: int) -> Dict[str, object]:
+def audit_table(
+    name: str,
+    filename: str,
+    complement_mask: int,
+    allow_complement_topology_splits: bool = False,
+) -> Dict[str, object]:
     table = load_table(ROOT, filename)
     cases = table["cases"]  # type: ignore[index]
     duplicate_examples: List[object] = []
     degenerate_examples: List[object] = []
     complement_mismatch_examples: List[object] = []
+    complement_topology_split_examples: List[object] = []
+    complement_same_topology_pairs = 0
     triangle_count = 0
     for idx, case in enumerate(cases):  # type: ignore[union-attr]
         tris = case_triangles(table, case)
@@ -40,9 +47,18 @@ def audit_table(name: str, filename: str, complement_mask: int) -> Dict[str, obj
         a_tris = {tri_unordered_key(t): t for t in case_triangles(table, case)}
         b_tris = {tri_unordered_key(t): t for t in case_triangles(table, other)}
         if set(a_tris) != set(b_tris):
-            if len(complement_mismatch_examples) < 20:
-                complement_mismatch_examples.append({"case": idx, "reason": "geometry differs from complement"})
+            target = (
+                complement_topology_split_examples
+                if allow_complement_topology_splits
+                else complement_mismatch_examples
+            )
+            if len(target) < 20:
+                target.append({
+                    "case": idx,
+                    "reason": "geometry differs from complement",
+                })
             continue
+        complement_same_topology_pairs += 1
         for key, tri in a_tris.items():
             n1 = triangle_normal(tri)
             n2 = triangle_normal(b_tris[key])
@@ -59,13 +75,25 @@ def audit_table(name: str, filename: str, complement_mask: int) -> Dict[str, obj
         "duplicate_triangle_examples": duplicate_examples,
         "degenerate_triangle_examples": degenerate_examples,
         "complement_winding_mismatch_examples": complement_mismatch_examples,
-        "meaning": "Checks generated table geometry for duplicate/degenerate triangles and verifies complement cases expose opposite normals. This proves internal winding consistency, not identity with an external reference table.",
+        "complement_topology_split_examples": complement_topology_split_examples,
+        "complement_same_topology_cases": complement_same_topology_pairs,
+        "meaning": (
+            "Checks duplicate/degenerate triangles and verifies opposite "
+            "normals whenever complement cases share topology. Preferred-"
+            "polarity ambiguity splits may legally use different complement "
+            "topology."
+        ),
     }
 
 
 def main() -> int:
     reports = [
-        audit_table("regular", "regular_tables.json", 255),
+        audit_table(
+            "regular",
+            "regular_tables.json",
+            255,
+            allow_complement_topology_splits=True,
+        ),
         audit_table("transition", "transition_tables.json", 511),
     ]
     ok = all(bool(r["ok"]) for r in reports)
@@ -88,6 +116,7 @@ def main() -> int:
             f"Degenerate examples: `{len(r['degenerate_triangle_examples'])}`",
             f"Duplicate examples: `{len(r['duplicate_triangle_examples'])}`",
             f"Complement winding mismatch examples: `{len(r['complement_winding_mismatch_examples'])}`",
+            f"Legal complement topology split examples: `{len(r['complement_topology_split_examples'])}`",
             "",
         ]
     lines += ["Reference orientation equivalence: **NOT_PROVEN**", ""]

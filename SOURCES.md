@@ -29,6 +29,11 @@ Section 4.5, Figures 4.16 and 4.17, to derive sample coordinates, full/half face
 semantics, negative-inside polarity, case-index bit weights, outward winding,
 and inversion behavior. It does not use the official lookup-table arrays.
 
+M20 uses dissertation Section 3.1.2 and Figure 3.5 for preferred-polarity face
+contours, Figure 3.8 and Listing 3.1 for regular-corner numbering and case bits,
+and Section 3.2 for the active-edge, 12-vertex, and 5-triangle limits. No
+official regular lookup-table arrays are used.
+
 ## License references
 
 - SPDX 0BSD page.

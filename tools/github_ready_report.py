@@ -44,6 +44,7 @@ REQUIRED_FILES = [
     "RUN_M17.cmd",
     "RUN_M18.cmd",
     "RUN_M19.cmd",
+    "RUN_M20.cmd",
     "include/transvoxel.h",
     "include/transvoxel_m4_candidate.h",
     "include/transvoxel_m4_backend.h",
@@ -91,6 +92,10 @@ REQUIRED_FILES = [
     "tools/validate_published_transition_topology.py",
     "research/official_topology/m19/m19_report.json",
     "validation/published_transition_topology_report.json",
+    "tools/validate_regular_cell_equivalence.py",
+    "examples/c_m20_regular_cell/main.c",
+    "research/official_topology/m20/m20_report.json",
+    "validation/regular_cell_equivalence_report.json",
     "dist/transvoxel_0bsd_core.zip",
 ]
 

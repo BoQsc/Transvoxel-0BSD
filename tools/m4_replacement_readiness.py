@@ -24,6 +24,9 @@ REPORT_MD = ROOT / "validation" / "m4_replacement_readiness_report.md"
 PUBLISHED_TOPOLOGY_REPORT = (
     ROOT / "validation" / "published_transition_topology_report.json"
 )
+REGULAR_EQUIVALENCE_REPORT = (
+    ROOT / "validation" / "regular_cell_equivalence_report.json"
+)
 M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
     "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
@@ -196,6 +199,11 @@ def main() -> int:
     published_topology = (
         read_json(PUBLISHED_TOPOLOGY_REPORT)
         if PUBLISHED_TOPOLOGY_REPORT.exists()
+        else {}
+    )
+    regular_equivalence = (
+        read_json(REGULAR_EQUIVALENCE_REPORT)
+        if REGULAR_EQUIVALENCE_REPORT.exists()
         else {}
     )
     if M15_REPORT.exists():
@@ -397,14 +405,54 @@ def main() -> int:
         ),
         gate(
             "official_regular_cell_equivalence",
-            "Official regular-cell topology/reference behavior for a full Transvoxel.cpp replacement",
+            "Clean-room modified-Marching-Cubes regular-cell behavior",
             "full_replacement",
             ["functional_full_replacement", "exact_table_compatible_replacement"],
+            (
+                "PASS"
+                if regular_equivalence.get(
+                    "functional_regular_cell_equivalence"
+                )
+                == "PROVEN"
+                else "BLOCKED"
+            ),
+            [
+                rel(REGULAR_EQUIVALENCE_REPORT),
+                "research/official_topology/m20/m20_report.json",
+                "generated/regular_tables.json",
+            ],
+            regular_equivalence.get(
+                "functional_regular_cell_equivalence",
+                "MISSING",
+            ),
+            "PROVEN",
+            (
+                "Derive and validate preferred-polarity regular-cell topology "
+                "with exhaustive regular/regular and regular/M4 seam proof."
+                if regular_equivalence.get(
+                    "functional_regular_cell_equivalence"
+                )
+                != "PROVEN"
+                else None
+            ),
+            (
+                "Functional behavior is separate from exact official regular "
+                "class numbers, reuse codes, and table bytes."
+            ),
+        ),
+        gate(
+            "official_regular_table_identity",
+            "Exact official regular-cell class/encoding/table identity",
+            "table_compatibility",
+            ["exact_table_compatible_replacement"],
             "BLOCKED",
-            ["M4 currently supplies only an official-topology transition candidate.", "No official regular-cell candidate/report exists."],
-            "MISSING_OFFICIAL_REGULAR_CELL_CANDIDATE",
-            "Proven clean-room regular-cell topology/reference behavior",
-            "Create a separate no-copy regular-cell equivalence track after the transition orientation gate is established.",
+            [rel(REGULAR_EQUIVALENCE_REPORT)],
+            "NOT_PROVEN",
+            "PROVEN",
+            (
+                "Do not use official arrays as an oracle. Exact regular table "
+                "identity is not required for functional replacement."
+            ),
         ),
         gate(
             "transvoxel_cpp_consumer_compatibility_contract",
@@ -454,6 +502,7 @@ def main() -> int:
         "official_class_id_mapping",
         "official_vertex_encoding_equivalence",
         "official_triangle_triangulation_identity",
+        "official_regular_table_identity",
         "official_transvoxel_cpp_byte_identity",
     }
 
@@ -478,7 +527,32 @@ def main() -> int:
         published_topology.get("published_transition_topology_behavior")
         == "PROVEN"
     )
+    regular_proven = (
+        regular_equivalence.get("functional_regular_cell_equivalence")
+        == "PROVEN"
+    )
     if (
+        m15_status == M15_EXPECTED_STATUS
+        and m16_status == M16_EXPECTED_STATUS
+        and m17_status == M17_EXPECTED_STATUS
+        and reference_proven
+        and topology_proven
+        and regular_proven
+    ):
+        next_milestone = {
+            "id": "M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+            "objective": (
+                "Define and test the functional compatibility contract for "
+                "Transvoxel.cpp consumers, then select the clean-room M4 "
+                "transition path by default."
+            ),
+            "why_first": (
+                "Transition and regular-cell functional behavior now pass. "
+                "The remaining functional replacement blocker is the consumer "
+                "compatibility/default-selection contract."
+            ),
+        }
+    elif (
         m15_status == M15_EXPECTED_STATUS
         and m16_status == M16_EXPECTED_STATUS
         and m17_status == M17_EXPECTED_STATUS
@@ -598,7 +672,13 @@ def main() -> int:
                     "topology behavior gates, but a functional full "
                     "Transvoxel.cpp replacement remains blocked on regular-cell "
                     "equivalence and consumer compatibility."
-                    if reference_proven and topology_proven
+                    if reference_proven and topology_proven and not regular_proven
+                    else
+                    "M4 and the clean-room regular core now pass all functional "
+                    "geometry gates, but a full Transvoxel.cpp replacement "
+                    "remains blocked on the consumer compatibility and default-"
+                    "selection contract."
+                    if reference_proven and topology_proven and regular_proven
                     else
                     "M4 now passes the explicit default-transition-backend "
                     "runtime and production gates, but a functional full "

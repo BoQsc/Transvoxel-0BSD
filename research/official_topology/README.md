@@ -11,6 +11,7 @@ Current status:
 official class ID mapping: NOT_PROVEN
 published_reference_sign_orientation_equivalence: PROVEN_M18
 published_transition_topology_behavior: PROVEN_M19
+clean_room_regular_cell_equivalence: PROVEN_M20
 exact_official_triangulation_identity: NOT_PROVEN
 ```
 
@@ -444,6 +445,32 @@ failures: 0
 published transition topology behavior: PROVEN
 exact official interior triangulation identity: NOT_PROVEN
 next milestone: M20 clean-room regular-cell equivalence
+```
+
+## M20
+
+`m20/` replaces the old regular marching-tetrahedra baseline with a clean-room
+preferred-polarity modified-Marching-Cubes table and proves its compatibility
+with M4.
+
+Run:
+
+```text
+RUN_M20.cmd
+```
+
+Current M20 result:
+
+```text
+cases / behavior classes: 256 / 18
+vertices / triangles: 1536 / 820
+maximum vertices / triangles: 12 / 5
+regular-neighbor comparisons: 12288 PASS
+regular/M4 comparisons: 40960 PASS
+Zig C runtime: PASS
+actual Godot load: PASS
+functional regular-cell equivalence: PROVEN
+next milestone: M21 consumer compatibility/default selection
 ```
 
 Allowed:

@@ -610,3 +610,37 @@ Run:
 ```text
 RUN_M19.cmd
 ```
+
+## M20 result
+
+M20 replaces the default fixed-diagonal regular table with a clean-room
+preferred-polarity modified-Marching-Cubes derivation:
+
+```text
+tools/generate_regular.py
+tools/validate_regular_cell_equivalence.py
+examples/c_m20_regular_cell/main.c
+research/official_topology/m20/
+```
+
+Current M20 result:
+
+```text
+regular cases: 256
+rotation/inversion behavior classes: 18
+vertices / triangles across cases: 1536 / 820
+maximum vertices / triangles: 12 / 5
+regular/regular seam comparisons: 12288 PASS
+regular/M4 seam comparisons: 40960 PASS
+Zig C all-case runtime: PASS
+actual Godot regular-table load: PASS
+functional regular-cell equivalence: PROVEN
+exact regular class/reuse/table identity: NOT_PROVEN
+next milestone: M21 consumer compatibility/default selection
+```
+
+Run:
+
+```text
+RUN_M20.cmd
+```

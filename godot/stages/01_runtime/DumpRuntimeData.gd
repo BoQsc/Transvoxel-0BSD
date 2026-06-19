@@ -59,8 +59,40 @@ func _init() -> void:
 	data["tables"]["transvoxel_schema"] = transvoxel.get("schema", "missing")
 	data["tables"]["regular_cases"] = (regular.get("cases", []) as Array).size() if regular.has("cases") else 0
 	data["tables"]["transition_cases"] = (transition.get("cases", []) as Array).size() if transition.has("cases") else 0
+	data["tables"]["regular_status"] = regular.get("status", "missing")
+	data["tables"]["regular_total_vertices"] = 0
+	data["tables"]["regular_total_triangles"] = 0
+	data["tables"]["regular_max_vertices"] = 0
+	data["tables"]["regular_max_triangles"] = 0
+	for raw_case: Variant in regular.get("cases", []):
+		if typeof(raw_case) != TYPE_DICTIONARY:
+			data["status"] = "FAIL"
+			continue
+		var case_data: Dictionary = raw_case as Dictionary
+		var vertex_count: int = (case_data.get("vertices", []) as Array).size()
+		var triangle_count: int = (case_data.get("triangles", []) as Array).size()
+		data["tables"]["regular_total_vertices"] += vertex_count
+		data["tables"]["regular_total_triangles"] += triangle_count
+		data["tables"]["regular_max_vertices"] = max(
+			int(data["tables"]["regular_max_vertices"]),
+			vertex_count
+		)
+		data["tables"]["regular_max_triangles"] = max(
+			int(data["tables"]["regular_max_triangles"]),
+			triangle_count
+		)
 	data["tables"]["transvoxel_status"] = transvoxel.get("status", "missing")
 	if int(data["tables"]["regular_cases"]) != 256:
+		data["status"] = "FAIL"
+	if String(data["tables"]["regular_status"]) != "clean_room_modified_marching_cubes_preferred_polarity":
+		data["status"] = "FAIL"
+	if int(data["tables"]["regular_total_vertices"]) != 1536:
+		data["status"] = "FAIL"
+	if int(data["tables"]["regular_total_triangles"]) != 820:
+		data["status"] = "FAIL"
+	if int(data["tables"]["regular_max_vertices"]) != 12:
+		data["status"] = "FAIL"
+	if int(data["tables"]["regular_max_triangles"]) != 5:
 		data["status"] = "FAIL"
 	if int(data["tables"]["transition_cases"]) != 512:
 		data["status"] = "FAIL"

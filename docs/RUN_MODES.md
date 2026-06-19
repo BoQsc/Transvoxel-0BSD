@@ -40,6 +40,8 @@ corners in Zig C and actual Godot runtime execution.
 convention through exhaustive Python and Zig C validation.
 `RUN_M19.cmd` proves the published transition face-contour, D4/inversion, and
 minimal genus-zero surface behavior for all 512 cases.
+`RUN_M20.cmd` replaces and proves the default clean-room preferred-polarity
+regular-cell table, including exhaustive regular/M4 seam checks.
 
 ## Full release proof
 
@@ -74,4 +76,5 @@ RUN_M16.cmd  M4 mapped three-face corner-junction proof
 RUN_M17.cmd  M4-selected combined production gate
 RUN_M18.cmd  published reference-convention/index-mapping proof
 RUN_M19.cmd  published transition-topology behavior proof
+RUN_M20.cmd  clean-room regular-cell replacement/equivalence proof
 ```

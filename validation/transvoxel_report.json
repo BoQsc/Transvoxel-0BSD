@@ -1,12 +1,8 @@
 {
   "c_smoke_test": {
-    "attempted": true,
-    "compiler": "/usr/bin/cc",
-    "ok": true,
-    "returncode": 0,
-    "stage": "run",
-    "stderr": "",
-    "stdout": "regular=1920 transition=12288"
+    "attempted": false,
+    "ok": null,
+    "reason": "no C compiler found"
   },
   "ok": true,
   "status": "validates Transvoxel table ABI against canonical JSON; not official Transvoxel.cpp byte clone",
@@ -15,12 +11,12 @@
       "case_count": 256,
       "class_count": 256,
       "errors": [],
-      "max_triangle_count": 12,
-      "max_vertex_count": 13,
+      "max_triangle_count": 5,
+      "max_vertex_count": 12,
       "name": "regular",
       "ok": true,
-      "triangle_count": 1920,
-      "vertex_ref_count": 2432
+      "triangle_count": 820,
+      "vertex_ref_count": 1536
     },
     {
       "case_count": 512,
@@ -35,5 +31,5 @@
     }
   ],
   "transvoxel_schema": "boqsc.transvoxel_tables.v1",
-  "transvoxel_sha256": "245447e0c377138bd01c16f60a49c9b7e726556b9efcf3e5c384efb15a9aefd0"
+  "transvoxel_sha256": "308f84d257294f03adeb35651d60bc905bf0d8b12c1cdedb9bdf089bcc325b14"
 }

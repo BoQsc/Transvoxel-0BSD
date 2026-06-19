@@ -3,67 +3,109 @@
     {
       "candidate": {
         "args": [
-          "/usr/bin/cc"
+          "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe",
+          "cc"
         ],
-        "kind": "generic",
-        "source": "PATH:cc"
+        "kind": "zig",
+        "source": "cache"
       },
-      "compile_output": "",
-      "compile_returncode": 0
+      "examples": [
+        {
+          "build_dir": "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_minimal",
+          "compile_command": [
+            "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe",
+            "cc",
+            "-std=c99",
+            "-Wall",
+            "-Wextra",
+            "-pedantic",
+            "-Iinclude",
+            "-Igenerated",
+            "src/transvoxel.c",
+            "examples/c_minimal/main.c",
+            "-o",
+            "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_minimal\\c_minimal.exe"
+          ],
+          "compile_output": "",
+          "compile_returncode": 0,
+          "exe": "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_minimal\\c_minimal.exe",
+          "name": "c_minimal",
+          "output_errors": [],
+          "run_command": [
+            "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_minimal\\c_minimal.exe"
+          ],
+          "run_output": "regular case=23 vertices=6 triangles=4\nregular first_vertex=(1.000, 0.250, 0.000)\ntransition case=11 vertices=16 triangles=18\ntransition first_vertex=(0.625, 0.625, 0.000)\n",
+          "run_returncode": 0,
+          "source": "examples/c_minimal/main.c",
+          "status": "PASS"
+        },
+        {
+          "build_dir": "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_terrain_export",
+          "compile_command": [
+            "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe",
+            "cc",
+            "-std=c99",
+            "-Wall",
+            "-Wextra",
+            "-pedantic",
+            "-Iinclude",
+            "-Igenerated",
+            "src/transvoxel.c",
+            "examples/c_terrain_export/main.c",
+            "-o",
+            "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_terrain_export\\terrain_export.exe"
+          ],
+          "compile_output": "",
+          "compile_returncode": 0,
+          "exe": "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_terrain_export\\terrain_export.exe",
+          "name": "c_terrain_export",
+          "output_errors": [],
+          "run_command": [
+            "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\build\\core_c\\c_terrain_export\\terrain_export.exe"
+          ],
+          "run_output": "wrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_independent\nhigh_lod0 triangles=45 transition triangles=36 low_lod1 triangles=9\n",
+          "run_returncode": 0,
+          "source": "examples/c_terrain_export/main.c",
+          "status": "PASS"
+        }
+      ],
+      "resolved_executable": "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe",
+      "status": "PASS"
     }
   ],
   "candidates": [
     {
       "args": [
-        "/usr/bin/cc"
+        "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe",
+        "cc"
       ],
-      "kind": "generic",
-      "source": "PATH:cc"
+      "kind": "zig",
+      "source": "cache"
     },
     {
       "args": [
-        "/usr/bin/gcc"
+        "C:\\Users\\Windows10_new\\Documents\\quaternius-cube-world\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe",
+        "cc"
       ],
-      "kind": "generic",
-      "source": "PATH:gcc"
-    },
-    {
-      "args": [
-        "/usr/local/swift/usr/bin/clang"
-      ],
-      "kind": "generic",
-      "source": "PATH:clang"
+      "kind": "zig",
+      "source": "auto-search:C:\\Users\\Windows10_new\\Documents\\*\\addons\\gdextension_setup\\zig-*\\zig.exe"
     }
   ],
-  "commands": [
-    [
-      "/usr/bin/cc",
-      "-std=c99",
-      "-Wall",
-      "-Wextra",
-      "-pedantic",
-      "-Iinclude",
-      "-Igenerated",
-      "src/transvoxel.c",
-      "examples/c_minimal/main.c",
-      "-o",
-      "/mnt/data/v33work/transvoxel_0bsd/build/core_c/c_minimal"
-    ],
-    [
-      "/mnt/data/v33work/transvoxel_0bsd/build/core_c/c_minimal"
-    ]
+  "examples_required": [
+    "c_minimal",
+    "c_terrain_export"
   ],
-  "os_name": "posix",
-  "platform": "linux",
-  "run_output": "regular case=23 vertices=13 triangles=12\nregular first_vertex=(0.625, 0.625, 0.000)\ntransition case=11 vertices=16 triangles=18\ntransition first_vertex=(0.625, 0.625, 0.000)\n",
-  "run_returncode": 0,
-  "schema": "boqsc.transvoxel.core_c_report.v4",
+  "meaning": "Compiles and runs the public C examples: c_minimal and c_terrain_export.",
+  "os_name": "nt",
+  "platform": "win32",
+  "schema": "boqsc.transvoxel.core_c_report.v5",
   "selected": {
     "args": [
-      "/usr/bin/cc"
+      "C:\\Users\\Windows10_new\\Documents\\gpu-marching-cubes\\addons\\gdextension_setup\\zig-x86_64-windows-0.16.0-dev.1484+d0ba6642b\\zig.exe",
+      "cc"
     ],
-    "kind": "generic",
-    "source": "PATH:cc"
+    "kind": "zig",
+    "source": "cache"
   },
   "status": "PASS"
 }

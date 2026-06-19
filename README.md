@@ -33,7 +33,8 @@ Optional M4 Godot data path: metrics, backend/edit comparison, six-face orientat
 M4 default transition-backend readiness: READY by the M17 production gate; switch not yet made
 Published transition reference convention: PROVEN by M18 through an explicit 512-case index bijection
 Published transition topology behavior: PROVEN by M19 for all 512 cases
-Functional full replacement readiness: BLOCKED on regular-cell equivalence and compatibility evidence
+Clean-room regular-cell behavior: PROVEN and default regular table replaced by M20
+Functional full replacement readiness: BLOCKED on consumer compatibility/default-selection evidence
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -132,6 +133,7 @@ RUN_M16.cmd         M4 mapped three-face corner-junction proof
 RUN_M17.cmd         M4-selected combined production gate
 RUN_M18.cmd         published reference-convention/index-mapping proof
 RUN_M19.cmd         published transition-topology behavior proof
+RUN_M20.cmd         clean-room regular-cell replacement/equivalence proof
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:

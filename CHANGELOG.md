@@ -11,6 +11,9 @@
 - Added M19 proof of published transition topology behavior: all public
   face-contour rules, D4/inversion behavior classes, closed boundaries, and
   minimal genus-zero fillings for all 512 cases.
+- Replaced the default fixed-diagonal regular table with an M20 clean-room
+  preferred-polarity modified-Marching-Cubes derivation and exhaustive
+  regular/regular plus regular/M4 seam proof.
 
 ## v34
 

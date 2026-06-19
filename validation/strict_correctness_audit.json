@@ -1,6 +1,7 @@
 {
   "matrix": {
     "all_corners_and_multi_neighbor_production_junctions": "NOT_FULLY_PROVEN",
+    "clean_room_regular_cell_equivalence": "PROVEN",
     "edited_terrain_all_six_faces_scripted": "PASS",
     "every_512_transition_case_internally_valid": "PASS",
     "generated_topology_signature_closest_to_73": {
@@ -20,7 +21,7 @@
     "same_orientation_sign_convention_as_reference": "PROVEN",
     "triangle_winding_normals_internal_consistency": "PASS"
   },
-  "meaning": "This is an honesty gate. It proves the published M4 reference convention when M18 evidence passes while keeping official 73-class numeric mapping and exact transition triangulation identity explicitly not proven.",
+  "meaning": "This is an honesty gate. It proves the published M4 reference convention when M18 evidence passes while keeping official 73-class numeric mapping and exact transition triangulation identity and exact regular encoding explicitly not proven.",
   "official_transvoxel_equivalence_proof": "NOT_PROVEN",
   "reports": {
     "73_classes": {
@@ -4809,6 +4810,71 @@
       "schema": "boqsc.transvoxel.reference_convention_matrix.v2",
       "status": "PASS_PUBLISHED_REFERENCE_CONVENTION_MATRIX"
     },
+    "regular_cell_equivalence": {
+      "checks": {
+        "all_256_cases_are_present": true,
+        "all_regular_m4_boundaries_match_with_opposite_winding": true,
+        "all_regular_neighbors_match_with_opposite_boundary_winding": true,
+        "all_triangle_complexes_are_valid_and_outward": true,
+        "all_vertices_are_on_active_cube_edges": true,
+        "derived_total_triangle_count_is_820": true,
+        "modified_marching_cubes_18_behavior_classes": true,
+        "published_corner_numbering_and_case_bits_match": true,
+        "published_vertex_and_triangle_limits_match": true,
+        "trivial_cases_are_empty": true
+      },
+      "claim_boundary": {
+        "not_proven": [
+          "official numeric regular class IDs",
+          "official vertex reuse/cache codes",
+          "Transvoxel.cpp regular table bytes"
+        ],
+        "proven": "Functional clean-room modified-Marching-Cubes regular-cell behavior and crack-free compatibility with M4 transition boundaries."
+      },
+      "failures": [],
+      "functional_regular_cell_equivalence": "PROVEN",
+      "metrics": {
+        "class_signature_failures": 0,
+        "classes": {
+          "base_rotation_inversion_classes": 15,
+          "behavior_classes": 18,
+          "covered_cases": 256,
+          "cube_rotations": 24,
+          "preferred_polarity_inverse_splits": 3
+        },
+        "regular_m4_comparisons": 40960,
+        "regular_m4_failures": 0,
+        "regular_neighbor_comparisons": 12288,
+        "regular_neighbor_failures": 0,
+        "topology": {
+          "boundary_failures": 0,
+          "cases": 256,
+          "inactive_edge_vertices": 0,
+          "intersection_failures": 0,
+          "max_triangles": 5,
+          "max_vertices": 12,
+          "topology_failures": 0,
+          "triangles": 820,
+          "vertices": 1536,
+          "winding_failures": 0
+        }
+      },
+      "no_copy_rule": "Derived from public prose/figures and first principles; no official regular lookup-table arrays are read or compared.",
+      "schema": "boqsc.transvoxel.regular_cell_equivalence.v1",
+      "source_reference": {
+        "author": "Eric Lengyel",
+        "relevant_public_rules": [
+          "Section 3.1.2 and Figure 3.5: preferred-polarity face contours",
+          "Section 3.1.2: 15 base classes plus 3 ambiguity inverse splits",
+          "Figure 3.8 and Listing 3.1: corner numbering and 8-bit case index",
+          "Section 3.2: vertices only on active edges",
+          "Section 3.2: at most 12 vertices and 5 triangles"
+        ],
+        "title": "Voxel-Based Terrain for Real-Time Virtual Simulations",
+        "url": "https://transvoxel.org/Lengyel-VoxelTerrain.pdf"
+      },
+      "status": "PASS_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE"
+    },
     "self_intersections": {
       "limitations": [
         "This is a conservative generated-case geometry audit, not a formal computational geometry proof for all floating point interpolation values.",
@@ -4824,7 +4890,7 @@
           "meaning": "Checks non-adjacent triangle pairs inside each generated case for obvious intersections. Adjacent triangles sharing vertices are ignored.",
           "name": "regular",
           "ok": true,
-          "triangle_pairs_checked": 7008
+          "triangle_pairs_checked": 1066
         },
         {
           "case_count": 512,
@@ -5038,20 +5104,105 @@
       "tables": [
         {
           "case_count": 256,
+          "complement_same_topology_cases": 136,
+          "complement_topology_split_examples": [
+            {
+              "case": 6,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 9,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 18,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 20,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 22,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 25,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 26,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 28,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 30,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 33,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 37,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 38,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 40,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 41,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 44,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 45,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 52,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 54,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 56,
+              "reason": "geometry differs from complement"
+            },
+            {
+              "case": 57,
+              "reason": "geometry differs from complement"
+            }
+          ],
           "complement_winding_mismatch_examples": [],
           "degenerate_triangle_examples": [],
           "duplicate_triangle_examples": [],
-          "meaning": "Checks generated table geometry for duplicate/degenerate triangles and verifies complement cases expose opposite normals. This proves internal winding consistency, not identity with an external reference table.",
+          "meaning": "Checks duplicate/degenerate triangles and verifies opposite normals whenever complement cases share topology. Preferred-polarity ambiguity splits may legally use different complement topology.",
           "name": "regular",
           "ok": true,
-          "triangle_count": 1920
+          "triangle_count": 820
         },
         {
           "case_count": 512,
+          "complement_same_topology_cases": 512,
+          "complement_topology_split_examples": [],
           "complement_winding_mismatch_examples": [],
           "degenerate_triangle_examples": [],
           "duplicate_triangle_examples": [],
-          "meaning": "Checks generated table geometry for duplicate/degenerate triangles and verifies complement cases expose opposite normals. This proves internal winding consistency, not identity with an external reference table.",
+          "meaning": "Checks duplicate/degenerate triangles and verifies opposite normals whenever complement cases share topology. Preferred-polarity ambiguity splits may legally use different complement topology.",
           "name": "transition",
           "ok": true,
           "triangle_count": 12288
@@ -5064,37 +5215,37 @@
   "steps": [
     {
       "command": "tools/validate_73_classes.py",
-      "elapsed_seconds": 0.056,
+      "elapsed_seconds": 0.091,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/validate_winding_normals.py",
-      "elapsed_seconds": 1.073,
+      "elapsed_seconds": 0.932,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/validate_self_intersections.py",
-      "elapsed_seconds": 4.849,
+      "elapsed_seconds": 4.513,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/validate_reference_convention.py",
-      "elapsed_seconds": 0.171,
+      "elapsed_seconds": 0.212,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/validate_corner_junctions.py",
-      "elapsed_seconds": 0.007,
+      "elapsed_seconds": 0.01,
       "ok": true,
       "returncode": 0
     },
     {
       "command": "tools/topology_signature_analysis.py",
-      "elapsed_seconds": 2.131,
+      "elapsed_seconds": 1.959,
       "ok": true,
       "returncode": 0
     }

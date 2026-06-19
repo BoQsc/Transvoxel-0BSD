@@ -187,7 +187,10 @@ def main() -> int:
         and topology_gate.get("status") == "PASS"
         and len(readiness.get("blocking_gate_ids", [])) == 6
         and readiness.get("next_milestone", {}).get("id")
-        == "M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE"
+        in {
+            "M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
+            "M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+        }
     )
     report["status"] = (
         PASS_STATUS if final_ok else "FAIL_M19_TRANSITION_TOPOLOGY"

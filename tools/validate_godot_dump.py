@@ -32,6 +32,19 @@ def main() -> int:
             issues.append("runtime_dump status is not PASS")
         if int(data.get("tables", {}).get("transition_cases", 0)) != 512:
             issues.append("runtime_dump transition case count is not 512")
+        if (
+            data.get("tables", {}).get("regular_status")
+            != "clean_room_modified_marching_cubes_preferred_polarity"
+        ):
+            issues.append("runtime_dump regular status is not M20 clean-room")
+        if int(data.get("tables", {}).get("regular_total_vertices", 0)) != 1536:
+            issues.append("runtime_dump regular vertex total is not 1536")
+        if int(data.get("tables", {}).get("regular_total_triangles", 0)) != 820:
+            issues.append("runtime_dump regular triangle total is not 820")
+        if int(data.get("tables", {}).get("regular_max_vertices", 0)) != 12:
+            issues.append("runtime_dump regular max vertices is not 12")
+        if int(data.get("tables", {}).get("regular_max_triangles", 0)) != 5:
+            issues.append("runtime_dump regular max triangles is not 5")
     if not MESH.exists():
         issues.append("missing " + rel(MESH))
     else:

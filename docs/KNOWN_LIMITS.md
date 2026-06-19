@@ -18,7 +18,8 @@ The M4 mapped three-face corner-junction path is validated in Zig C and actual G
 The M4-selected production gate passes through `RUN_M17.cmd`, so M4 is now ready to replace the default transition backend when the project chooses to make that switch.
 The published transition reference convention is proven by `RUN_M18.cmd` through an explicit 512-case index bijection and winding/frame validation.
 Published transition topology behavior is proven by `RUN_M19.cmd`; identical official interior diagonals remain an exact-compatibility question.
-The full replacement claim remains blocked because regular-cell equivalence and consumer compatibility are not yet proven.
+The default regular-cell table is replaced and proven by `RUN_M20.cmd`.
+The full replacement claim remains blocked because the consumer compatibility/default-selection contract is not yet proven.
 Game-ready art/texture/lighting quality is not certified.
 Gameplay performance in a complete streaming world is not certified.
 ```
@@ -41,5 +42,6 @@ Mapped M4 transition cells share coincident lateral geometry and opposite edge w
 The combined M4 production gate passes normal-API selection, terrain export, scripted edits, six-face, corner-junction, and base production evidence.
 M4 matches the published transition sample geometry, negative-inside polarity, Figure 4.17 case encoding through an explicit bijection, inversion winding, and six-face orientation contract.
 M4 satisfies the published transition face contours, D4/inversion behavior classes, and minimal genus-zero filling contract for all 512 cases.
+The default regular core satisfies preferred-polarity modified-Marching-Cubes behavior, all same-resolution neighbor seams, and all M4 full/half transition boundaries.
 Small public dist package is generated and checked.
 ```

@@ -1,0 +1,65 @@
+{
+  "checks": {
+    "all_256_cases_are_present": true,
+    "all_regular_m4_boundaries_match_with_opposite_winding": true,
+    "all_regular_neighbors_match_with_opposite_boundary_winding": true,
+    "all_triangle_complexes_are_valid_and_outward": true,
+    "all_vertices_are_on_active_cube_edges": true,
+    "derived_total_triangle_count_is_820": true,
+    "modified_marching_cubes_18_behavior_classes": true,
+    "published_corner_numbering_and_case_bits_match": true,
+    "published_vertex_and_triangle_limits_match": true,
+    "trivial_cases_are_empty": true
+  },
+  "claim_boundary": {
+    "not_proven": [
+      "official numeric regular class IDs",
+      "official vertex reuse/cache codes",
+      "Transvoxel.cpp regular table bytes"
+    ],
+    "proven": "Functional clean-room modified-Marching-Cubes regular-cell behavior and crack-free compatibility with M4 transition boundaries."
+  },
+  "failures": [],
+  "functional_regular_cell_equivalence": "PROVEN",
+  "metrics": {
+    "class_signature_failures": 0,
+    "classes": {
+      "base_rotation_inversion_classes": 15,
+      "behavior_classes": 18,
+      "covered_cases": 256,
+      "cube_rotations": 24,
+      "preferred_polarity_inverse_splits": 3
+    },
+    "regular_m4_comparisons": 40960,
+    "regular_m4_failures": 0,
+    "regular_neighbor_comparisons": 12288,
+    "regular_neighbor_failures": 0,
+    "topology": {
+      "boundary_failures": 0,
+      "cases": 256,
+      "inactive_edge_vertices": 0,
+      "intersection_failures": 0,
+      "max_triangles": 5,
+      "max_vertices": 12,
+      "topology_failures": 0,
+      "triangles": 820,
+      "vertices": 1536,
+      "winding_failures": 0
+    }
+  },
+  "no_copy_rule": "Derived from public prose/figures and first principles; no official regular lookup-table arrays are read or compared.",
+  "schema": "boqsc.transvoxel.regular_cell_equivalence.v1",
+  "source_reference": {
+    "author": "Eric Lengyel",
+    "relevant_public_rules": [
+      "Section 3.1.2 and Figure 3.5: preferred-polarity face contours",
+      "Section 3.1.2: 15 base classes plus 3 ambiguity inverse splits",
+      "Figure 3.8 and Listing 3.1: corner numbering and 8-bit case index",
+      "Section 3.2: vertices only on active edges",
+      "Section 3.2: at most 12 vertices and 5 triangles"
+    ],
+    "title": "Voxel-Based Terrain for Real-Time Virtual Simulations",
+    "url": "https://transvoxel.org/Lengyel-VoxelTerrain.pdf"
+  },
+  "status": "PASS_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE"
+}

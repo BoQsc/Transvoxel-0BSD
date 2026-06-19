@@ -13,7 +13,7 @@
       "meaning": "Checks non-adjacent triangle pairs inside each generated case for obvious intersections. Adjacent triangles sharing vertices are ignored.",
       "name": "regular",
       "ok": true,
-      "triangle_pairs_checked": 7008
+      "triangle_pairs_checked": 1066
     },
     {
       "case_count": 512,

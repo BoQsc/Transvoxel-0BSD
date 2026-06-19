@@ -26,6 +26,8 @@ License: 0BSD.
 
 Important: this is an independent Transvoxel-style transition core. It is not a relicensed copy of Eric Lengyel's MIT Transvoxel.cpp and does not claim official 73-class table equivalence.
 
+The default regular-cell table is a clean-room preferred-polarity modified-Marching-Cubes derivation proven by M20. It uses 256 cases, 18 behavior classes, at most 12 vertices and 5 triangles, and is seam-compatible with the optional M4 transition backend.
+
 Optional: the package includes an M4 official-topology candidate backend. It must be compiled and installed explicitly with transvoxel_m4_backend.h. It is not the default backend and still does not prove official Transvoxel.cpp equivalence.
 
 For terrain-style smoke testing, examples/c_terrain_export can be compiled with TV_EXAMPLE_USE_M4_BACKEND_CANDIDATE and the optional M4 source files.

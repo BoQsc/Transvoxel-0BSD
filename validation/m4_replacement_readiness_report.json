@@ -4,7 +4,7 @@
     "official_class_id_mapping",
     "official_vertex_encoding_equivalence",
     "official_triangle_triangulation_identity",
-    "official_regular_cell_equivalence",
+    "official_regular_table_identity",
     "transvoxel_cpp_consumer_compatibility_contract",
     "official_transvoxel_cpp_byte_identity"
   ],
@@ -313,21 +313,37 @@
       "title": "Exact official transition interior triangulation identity"
     },
     {
-      "actual": "MISSING_OFFICIAL_REGULAR_CELL_CANDIDATE",
+      "actual": "PROVEN",
       "category": "full_replacement",
       "evidence": [
-        "M4 currently supplies only an official-topology transition candidate.",
-        "No official regular-cell candidate/report exists."
+        "validation/regular_cell_equivalence_report.json",
+        "research/official_topology/m20/m20_report.json",
+        "generated/regular_tables.json"
       ],
-      "expected": "Proven clean-room regular-cell topology/reference behavior",
+      "expected": "PROVEN",
       "id": "official_regular_cell_equivalence",
-      "next_action": "Create a separate no-copy regular-cell equivalence track after the transition orientation gate is established.",
+      "note": "Functional behavior is separate from exact official regular class numbers, reuse codes, and table bytes.",
       "required_for": [
         "functional_full_replacement",
         "exact_table_compatible_replacement"
       ],
+      "status": "PASS",
+      "title": "Clean-room modified-Marching-Cubes regular-cell behavior"
+    },
+    {
+      "actual": "NOT_PROVEN",
+      "category": "table_compatibility",
+      "evidence": [
+        "validation/regular_cell_equivalence_report.json"
+      ],
+      "expected": "PROVEN",
+      "id": "official_regular_table_identity",
+      "next_action": "Do not use official arrays as an oracle. Exact regular table identity is not required for functional replacement.",
+      "required_for": [
+        "exact_table_compatible_replacement"
+      ],
       "status": "BLOCKED",
-      "title": "Official regular-cell topology/reference behavior for a full Transvoxel.cpp replacement"
+      "title": "Exact official regular-cell class/encoding/table identity"
     },
     {
       "actual": "NOT_CLAIMED",
@@ -363,11 +379,11 @@
     }
   ],
   "load_errors": [],
-  "meaning": "M4 now passes the default-transition-backend production, published reference-convention, and published transition-topology behavior gates, but a functional full Transvoxel.cpp replacement remains blocked on regular-cell equivalence and consumer compatibility.",
+  "meaning": "M4 and the clean-room regular core now pass all functional geometry gates, but a full Transvoxel.cpp replacement remains blocked on the consumer compatibility and default-selection contract.",
   "next_milestone": {
-    "id": "M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
-    "objective": "Prove clean-room regular-cell topology/reference behavior needed for a functional full Transvoxel.cpp replacement.",
-    "why_first": "Transition production, reference convention, and published transition topology behavior now pass. Regular-cell behavior is the next implementation blocker to a functional full replacement."
+    "id": "M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
+    "objective": "Define and test the functional compatibility contract for Transvoxel.cpp consumers, then select the clean-room M4 transition path by default.",
+    "why_first": "Transition and regular-cell functional behavior now pass. The remaining functional replacement blocker is the consumer compatibility/default-selection contract."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -384,7 +400,8 @@
     "m4_multi_face_corner_junction_validation",
     "m4_selected_full_production_gate",
     "official_reference_convention_equivalence",
-    "official_transition_topology_equivalence"
+    "official_transition_topology_equivalence",
+    "official_regular_cell_equivalence"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
   "status": "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED"

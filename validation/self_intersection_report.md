@@ -5,7 +5,7 @@ Status: **PASS**
 ## regular
 
 Cases: `256`
-Triangle pairs checked: `7008`
+Triangle pairs checked: `1066`
 Failures: `0`
 
 ## transition

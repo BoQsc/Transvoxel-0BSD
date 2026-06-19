@@ -8,15 +8,15 @@ Overall OK: `True`
 
 - OK: `True`
 - Schema: `boqsc.regular_tables.v1`
-- Status: `experimental_regular_marching_tetrahedra_not_marching_cubes`
-- SHA-256: `80fd4f980e0f101b11467749f7c59720ddee3606d7c424700d547acb207db18d`
+- Status: `clean_room_modified_marching_cubes_preferred_polarity`
+- SHA-256: `fb749cd25ee3ee77be38f1b6d12e0a26e2f5817c8ee246d1b30e5b9cc73f2a15`
 - Cases: `256`
 - Non-empty cases: `254`
 - Empty cases: `2`
-- Vertices per case: `0` .. `13`
-- Triangles per case: `0` .. `12`
-- Total vertex-pairs across cases: `2432`
-- Total triangles across cases: `1920`
+- Vertices per case: `0` .. `12`
+- Triangles per case: `0` .. `5`
+- Total vertex-pairs across cases: `1536`
+- Total triangles across cases: `820`
 
 ## transition
 

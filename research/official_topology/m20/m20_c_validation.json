@@ -1,0 +1,40 @@
+{
+  "attempts": [
+    {
+      "errors": [],
+      "metrics": {
+        "cases": 256,
+        "failures": 0,
+        "max_triangles": 5,
+        "max_vertices": 12,
+        "small_buffer_checks": 508,
+        "triangles": 820,
+        "vertices": 1536
+      },
+      "returncode": 0,
+      "status": "PASS",
+      "stderr": "",
+      "stdout": "m20 regular cases=256 vertices=1536 triangles=820 max_vertices=12 max_triangles=5 small_buffer_checks=508 failures=0"
+    }
+  ],
+  "checks": [
+    "all 256 regular cases through public C API",
+    "table counts and case indexes",
+    "active-edge interpolation",
+    "triangle index validity",
+    "small vertex and triangle buffers"
+  ],
+  "compiler": "zig cc",
+  "metrics": {
+    "cases": 256,
+    "failures": 0,
+    "max_triangles": 5,
+    "max_vertices": 12,
+    "small_buffer_checks": 508,
+    "triangles": 820,
+    "vertices": 1536
+  },
+  "ok": true,
+  "schema": "boqsc.transvoxel.official_topology.m20.c_validation.v1",
+  "status": "PASS_M20_ZIG_CLEAN_ROOM_REGULAR_CELL_RUNTIME"
+}

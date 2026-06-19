@@ -61,6 +61,10 @@ TV_TRANSITION_MAX_TRIANGLES
 
 Use these constants for stack arrays or fixed scratch buffers.
 
+The M20 clean-room regular table has exact maxima of 12 vertices and 5
+triangles. Its topology is derived from the public preferred-polarity face
+rule, not marching tetrahedra.
+
 ## Utility
 
 ```c
@@ -126,6 +130,11 @@ The output positions are:
 ```text
 origin + local_position * scale
 ```
+
+The regular builder uses Figure 3.8 corner numbering, `sample < iso_level` as
+inside, and a preferred-polarity modified-Marching-Cubes topology. M20 proves
+all 256 cases, 18 rotation/inversion behavior classes, same-resolution neighbor
+faces, and compatibility with M4 transition full/half faces.
 
 ## Build transition cell
 

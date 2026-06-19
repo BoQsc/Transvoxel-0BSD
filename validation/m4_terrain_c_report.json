@@ -5,15 +5,15 @@
       "comparison": {
         "default": {
           "backend": "default_independent",
-          "high_lod0_triangles": 126,
-          "low_lod1_triangles": 32,
+          "high_lod0_triangles": 45,
+          "low_lod1_triangles": 9,
           "transition_triangles": 36
         },
         "errors": [],
         "m4": {
           "backend": "m4_candidate",
-          "high_lod0_triangles": 126,
-          "low_lod1_triangles": 32,
+          "high_lod0_triangles": 45,
+          "low_lod1_triangles": 9,
           "transition_triangles": 6
         },
         "status": "PASS"
@@ -40,14 +40,14 @@
         "output_errors": [],
         "parsed": {
           "backend": "default_independent",
-          "high_lod0_triangles": 126,
-          "low_lod1_triangles": 32,
+          "high_lod0_triangles": 45,
+          "low_lod1_triangles": 9,
           "transition_triangles": 36
         },
         "run_returncode": 0,
         "status": "PASS",
         "stderr": "",
-        "stdout": "wrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_independent\nhigh_lod0 triangles=126 transition triangles=36 low_lod1 triangles=32\n"
+        "stdout": "wrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=default_independent\nhigh_lod0 triangles=45 transition triangles=36 low_lod1 triangles=9\n"
       },
       "m4": {
         "command": [
@@ -74,14 +74,14 @@
         "output_errors": [],
         "parsed": {
           "backend": "m4_candidate",
-          "high_lod0_triangles": 126,
-          "low_lod1_triangles": 32,
+          "high_lod0_triangles": 45,
+          "low_lod1_triangles": 9,
           "transition_triangles": 6
         },
         "run_returncode": 0,
         "status": "PASS",
         "stderr": "",
-        "stdout": "wrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=m4_candidate\nhigh_lod0 triangles=126 transition triangles=6 low_lod1 triangles=32\n"
+        "stdout": "wrote terrain_lod_seam.obj\nwrote terrain_lod_seam.mtl\nwrote terrain_lod_seam_report.txt\ntransition backend=m4_candidate\nhigh_lod0 triangles=45 transition triangles=6 low_lod1 triangles=9\n"
       },
       "source": "configured-c-compiler",
       "status": "PASS"
@@ -98,15 +98,15 @@
   "comparison": {
     "default": {
       "backend": "default_independent",
-      "high_lod0_triangles": 126,
-      "low_lod1_triangles": 32,
+      "high_lod0_triangles": 45,
+      "low_lod1_triangles": 9,
       "transition_triangles": 36
     },
     "errors": [],
     "m4": {
       "backend": "m4_candidate",
-      "high_lod0_triangles": 126,
-      "low_lod1_triangles": 32,
+      "high_lod0_triangles": 45,
+      "low_lod1_triangles": 9,
       "transition_triangles": 6
     },
     "status": "PASS"
@@ -114,15 +114,15 @@
   "compiler": "zig cc",
   "default": {
     "backend": "default_independent",
-    "high_lod0_triangles": 126,
-    "low_lod1_triangles": 32,
+    "high_lod0_triangles": 45,
+    "low_lod1_triangles": 9,
     "transition_triangles": 36
   },
   "default_core_replaced": false,
   "m4": {
     "backend": "m4_candidate",
-    "high_lod0_triangles": 126,
-    "low_lod1_triangles": 32,
+    "high_lod0_triangles": 45,
+    "low_lod1_triangles": 9,
     "transition_triangles": 6
   },
   "meaning": "Compiles and runs the terrain OBJ export path with the default transition backend and with the optional M4 backend installed through the normal transvoxel.h API.",

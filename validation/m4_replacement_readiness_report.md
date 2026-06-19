@@ -26,6 +26,7 @@ Status: **READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKE
 - `m4_selected_full_production_gate`
 - `official_reference_convention_equivalence`
 - `official_transition_topology_equivalence`
+- `official_regular_cell_equivalence`
 
 ## Blocking evidence
 
@@ -41,10 +42,10 @@ Status: **READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKE
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN`
   - Next: Do not use official arrays as an oracle. This is not required for a functional behavioral replacement.
-- `official_regular_cell_equivalence`: Official regular-cell topology/reference behavior for a full Transvoxel.cpp replacement
-  - Actual: `MISSING_OFFICIAL_REGULAR_CELL_CANDIDATE`
-  - Required: `Proven clean-room regular-cell topology/reference behavior`
-  - Next: Create a separate no-copy regular-cell equivalence track after the transition orientation gate is established.
+- `official_regular_table_identity`: Exact official regular-cell class/encoding/table identity
+  - Actual: `NOT_PROVEN`
+  - Required: `PROVEN`
+  - Next: Do not use official arrays as an oracle. Exact regular table identity is not required for functional replacement.
 - `transvoxel_cpp_consumer_compatibility_contract`: Documented and tested compatibility contract for Transvoxel.cpp consumers
   - Actual: `NOT_CLAIMED`
   - Required: `Explicit adapter/compatibility contract with compile and behavior tests`
@@ -56,6 +57,6 @@ Status: **READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKE
 
 ## Next milestone
 
-`M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE` — Prove clean-room regular-cell topology/reference behavior needed for a functional full Transvoxel.cpp replacement.
+`M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY` — Define and test the functional compatibility contract for Transvoxel.cpp consumers, then select the clean-room M4 transition path by default.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

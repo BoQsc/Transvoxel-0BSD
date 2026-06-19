@@ -7,16 +7,16 @@
       "stats": {
         "case_count": 256,
         "empty_cases": 2,
-        "max_triangles_per_case": 12,
-        "max_vertices_per_case": 13,
+        "max_triangles_per_case": 5,
+        "max_vertices_per_case": 12,
         "min_triangles_per_case": 0,
         "min_vertices_per_case": 0,
         "non_empty_cases": 254,
         "schema": "boqsc.regular_tables.v1",
-        "sha256_without_this_field": "80fd4f980e0f101b11467749f7c59720ddee3606d7c424700d547acb207db18d",
-        "status": "experimental_regular_marching_tetrahedra_not_marching_cubes",
-        "total_triangles_across_cases": 1920,
-        "total_vertices_across_cases": 2432
+        "sha256_without_this_field": "fb749cd25ee3ee77be38f1b6d12e0a26e2f5817c8ee246d1b30e5b9cc73f2a15",
+        "status": "clean_room_modified_marching_cubes_preferred_polarity",
+        "total_triangles_across_cases": 820,
+        "total_vertices_across_cases": 1536
       }
     },
     "transition": {

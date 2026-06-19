@@ -33,6 +33,7 @@ REPORT_FILES = {
     "reference_convention_matrix": "validation/reference_convention_matrix.json",
     "official_topology_constraints": "validation/official_topology_constraints.json",
     "published_transition_topology": "validation/published_transition_topology_report.json",
+    "regular_cell_equivalence": "validation/regular_cell_equivalence_report.json",
 }
 
 
@@ -104,6 +105,10 @@ def main() -> int:
             "published_transition_topology",
             {},
         ).get("published_transition_topology_behavior", "NOT_PROVEN"),
+        "clean_room_regular_cell_equivalence": reports.get(
+            "regular_cell_equivalence",
+            {},
+        ).get("functional_regular_cell_equivalence", "NOT_PROVEN"),
     }
     status = "FAIL" if hard_fail else "PASS_WITH_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
     report = {
@@ -118,7 +123,7 @@ def main() -> int:
             "This is an honesty gate. It proves the published M4 reference "
             "convention when M18 evidence passes while keeping official "
             "73-class numeric mapping and exact transition triangulation "
-            "identity explicitly not proven."
+            "identity and exact regular encoding explicitly not proven."
         ),
     }
     (VALIDATION / "strict_correctness_audit.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")

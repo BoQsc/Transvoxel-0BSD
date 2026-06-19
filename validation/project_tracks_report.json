@@ -1,5 +1,5 @@
 {
-  "meaning": "The independent core can be released/evaluated independently. The published transition reference convention is proven by M18; official transition topology and table compatibility remain separate and not proven.",
+  "meaning": "The independent core can be released/evaluated independently. The published transition reference convention, transition topology behavior, and clean-room regular-cell behavior are proven by M18-M20; exact table compatibility remains separate.",
   "schema": "boqsc.transvoxel.project_tracks_report.v1",
   "status": "PASS",
   "supporting_reports": {
@@ -11,6 +11,7 @@
     "official_transvoxel_equivalence_proof": "NOT_PROVEN",
     "published_transition_topology_status": "PASS_PUBLISHED_TRANSITION_TOPOLOGY_BEHAVIOR",
     "reference_convention_matrix_status": "PASS_PUBLISHED_REFERENCE_CONVENTION_MATRIX",
+    "regular_cell_equivalence_status": "PASS_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
     "strict_correctness_audit_status": "PASS_WITH_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
     "topology_signature_status": "RESEARCH_PASS_TOPOLOGY_CLASSES_DERIVED_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
     "transvoxel_style_proof": "PASS"
@@ -23,6 +24,7 @@
       "status": "PASS"
     },
     "official_topology_research": {
+      "clean_room_regular_cell_equivalence": "PROVEN",
       "missing": [],
       "official_73_class_mapping": "NOT_PROVEN",
       "original_topology_equivalence": "NOT_PROVEN",

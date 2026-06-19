@@ -112,5 +112,5 @@ Known differences remain:
 
 - It is not byte-for-byte compatible with the official MIT `Transvoxel.cpp`.
 - It does not currently use the official 73 transition equivalence class compression.
-- Its regular-cell generator is a clean-room tetrahedralized approach, not the exact official modified Marching Cubes table.
+- Its regular-cell generator is now a clean-room preferred-polarity modified-Marching-Cubes derivation proven behaviorally by M20; exact official class numbering, reuse codes, and table bytes are not claimed.
 - It proves seam correctness and implementation usability, not identical triangulation topology or final visual art quality.

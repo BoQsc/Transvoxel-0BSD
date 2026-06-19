@@ -213,6 +213,7 @@ def main() -> int:
         in {
             "M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION",
             "M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
+            "M21_TRANSVOXEL_CPP_CONSUMER_COMPATIBILITY",
         }
     )
     report["status"] = (

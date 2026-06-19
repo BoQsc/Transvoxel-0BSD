@@ -47,6 +47,7 @@ Status:
 official_73_class_mapping: NOT_PROVEN
 published_reference_sign_orientation_equivalence: PROVEN_M18
 published_transition_topology_behavior: PROVEN_M19
+clean_room_regular_cell_equivalence: PROVEN_M20
 exact_official_triangulation_identity: NOT_PROVEN
 ```
 

@@ -6,20 +6,105 @@
   "tables": [
     {
       "case_count": 256,
+      "complement_same_topology_cases": 136,
+      "complement_topology_split_examples": [
+        {
+          "case": 6,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 9,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 18,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 20,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 22,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 25,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 26,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 28,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 30,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 33,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 37,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 38,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 40,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 41,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 44,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 45,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 52,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 54,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 56,
+          "reason": "geometry differs from complement"
+        },
+        {
+          "case": 57,
+          "reason": "geometry differs from complement"
+        }
+      ],
       "complement_winding_mismatch_examples": [],
       "degenerate_triangle_examples": [],
       "duplicate_triangle_examples": [],
-      "meaning": "Checks generated table geometry for duplicate/degenerate triangles and verifies complement cases expose opposite normals. This proves internal winding consistency, not identity with an external reference table.",
+      "meaning": "Checks duplicate/degenerate triangles and verifies opposite normals whenever complement cases share topology. Preferred-polarity ambiguity splits may legally use different complement topology.",
       "name": "regular",
       "ok": true,
-      "triangle_count": 1920
+      "triangle_count": 820
     },
     {
       "case_count": 512,
+      "complement_same_topology_cases": 512,
+      "complement_topology_split_examples": [],
       "complement_winding_mismatch_examples": [],
       "degenerate_triangle_examples": [],
       "duplicate_triangle_examples": [],
-      "meaning": "Checks generated table geometry for duplicate/degenerate triangles and verifies complement cases expose opposite normals. This proves internal winding consistency, not identity with an external reference table.",
+      "meaning": "Checks duplicate/degenerate triangles and verifies opposite normals whenever complement cases share topology. Preferred-polarity ambiguity splits may legally use different complement topology.",
       "name": "transition",
       "ok": true,
       "triangle_count": 12288

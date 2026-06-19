@@ -35,9 +35,9 @@ clean-room regular-cell equivalence
 a documented and tested consumer compatibility contract
 ```
 
-The reference-convention item is proven by M18 and transition topology behavior
-is proven by M19. Regular-cell equivalence and consumer compatibility remain
-blocking.
+The reference-convention item is proven by M18, transition topology behavior is
+proven by M19, and regular-cell equivalence is proven by M20. Consumer
+compatibility/default selection remains the functional blocker.
 
 Byte-for-byte identity is not required for functional replacement.
 
@@ -62,9 +62,10 @@ RUN_M16.cmd
 RUN_M17.cmd
 RUN_M18.cmd
 RUN_M19.cmd
+RUN_M20.cmd
 ```
 
 The current expected result is a passing readiness analysis with the
 default-transition-backend decision ready, the functional full replacement
-decision blocked, and M20 clean-room regular-cell equivalence selected as the
-next milestone.
+decision blocked, and M21 consumer compatibility/default selection selected as
+the next milestone.
