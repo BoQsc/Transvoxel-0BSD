@@ -17,7 +17,8 @@ The M4 all-six-face orientation path is validated in Zig C and actual Godot runt
 The M4 mapped three-face corner-junction path is validated in Zig C and actual Godot runtime evidence by `RUN_M16.cmd`.
 The M4-selected production gate passes through `RUN_M17.cmd`, so M4 is now ready to replace the default transition backend when the project chooses to make that switch.
 The published transition reference convention is proven by `RUN_M18.cmd` through an explicit 512-case index bijection and winding/frame validation.
-The full replacement claim remains blocked because transition topology, regular-cell equivalence, and consumer compatibility are not all proven.
+Published transition topology behavior is proven by `RUN_M19.cmd`; identical official interior diagonals remain an exact-compatibility question.
+The full replacement claim remains blocked because regular-cell equivalence and consumer compatibility are not yet proven.
 Game-ready art/texture/lighting quality is not certified.
 Gameplay performance in a complete streaming world is not certified.
 ```
@@ -39,5 +40,6 @@ M4 candidate cells and deterministic neighbor seams pass across explicit +X/-X/+
 Mapped M4 transition cells share coincident lateral geometry and opposite edge winding at three-face block corners across all eight octants.
 The combined M4 production gate passes normal-API selection, terrain export, scripted edits, six-face, corner-junction, and base production evidence.
 M4 matches the published transition sample geometry, negative-inside polarity, Figure 4.17 case encoding through an explicit bijection, inversion winding, and six-face orientation contract.
+M4 satisfies the published transition face contours, D4/inversion behavior classes, and minimal genus-zero filling contract for all 512 cases.
 Small public dist package is generated and checked.
 ```

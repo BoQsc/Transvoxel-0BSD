@@ -1,19 +1,22 @@
 {
-  "official_equivalence": "NOT_PROVEN",
+  "exact_compatibility_not_proven": [
+    "official numeric class IDs",
+    "identical official interior triangle diagonals",
+    "official vertex/cache encoding",
+    "Transvoxel.cpp table bytes"
+  ],
   "public_constraints_checked": {
+    "clean_room_behavior_class_count_is_73": true,
     "has_2_to_1_lod_assumption_in_docs": true,
-    "has_six_face_reference_matrix": true,
-    "internal_sample_count": 14,
-    "official_73_derivation_exists": false,
-    "regular_case_count_is_256": true,
+    "published_reference_convention_is_proven": true,
+    "published_transition_topology_behavior_is_proven": true,
+    "six_face_reference_matrix_exists": true,
     "transition_case_count_is_512": true,
-    "transition_public_case_bits_are_9": true
+    "transition_distinct_case_bits_are_9": true,
+    "transition_public_boundary_samples_are_13": true
   },
-  "schema": "boqsc.transvoxel.official_topology_constraints.v1",
-  "status": "PASS_STRUCTURAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN",
-  "why_not_proven": [
-    "The project has not derived a no-copy 73-class mapping.",
-    "The project has not matched Eric's reference sign/orientation convention without table comparison.",
-    "The project has not derived the official transition topology family from paper diagrams alone."
-  ]
+  "published_reference_convention": "PROVEN",
+  "published_transition_topology_behavior": "PROVEN",
+  "schema": "boqsc.transvoxel.official_topology_constraints.v2",
+  "status": "PASS_PUBLISHED_TRANSITION_STRUCTURAL_CONSTRAINTS"
 }

@@ -35,9 +35,9 @@
     }
   },
   "next_milestone": {
-    "id": "M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION",
-    "objective": "Prove the independently derived transition triangulation topology satisfies the published Transvoxel topology rules for all 512 cases without reading official lookup arrays.",
-    "why_first": "The default-backend production gate and published reference convention now pass. Transition topology is the next algorithmic blocker to a functional full replacement claim."
+    "id": "M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
+    "objective": "Prove clean-room regular-cell topology/reference behavior needed for a functional full Transvoxel.cpp replacement.",
+    "why_first": "Transition production, reference convention, and published transition topology behavior now pass. Regular-cell behavior is the next implementation blocker to a functional full replacement."
   },
   "official_class_id_mapping": "NOT_PROVEN",
   "official_reference_convention_equivalence": "PROVEN",
@@ -122,7 +122,7 @@
         "python",
         "tools/strict_correctness_audit.py"
       ],
-      "output": "RUN tools/validate_73_classes.py\n73-class audit: PASS_INTERNAL_DIRECT_MAPPING_NOT_OFFICIAL_73\nPASS tools/validate_73_classes.py 0.05s\nRUN tools/validate_winding_normals.py\nwinding/normals audit: PASS\nPASS tools/validate_winding_normals.py 0.84s\nRUN tools/validate_self_intersections.py\nself-intersection audit: PASS\nPASS tools/validate_self_intersections.py 8.05s\nRUN tools/validate_reference_convention.py\nreference convention audit: PASS_PUBLISHED_REFERENCE_CONVENTION_EQUIVALENCE\ncases: 512 d4 comparisons: 4096 triangles: 2640 failures: 0\nPASS tools/validate_reference_convention.py 0.21s\nRUN tools/validate_corner_junctions.py\ncorner junction audit: PASS_PARTIAL_JUNCTION_AUDIT\nPASS tools/validate_corner_junctions.py 0.01s\nRUN tools/topology_signature_analysis.py\ntopology signature analysis: RESEARCH_PASS_TOPOLOGY_CLASSES_DERIVED_OFFICIAL_EQUIVALENCE_NOT_PROVEN\nclosest-to-73: raw_d4_complement_orbit 51 classes\nPASS tools/topology_signature_analysis.py 2.70s\nstrict correctness audit: PASS_WITH_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n",
+      "output": "RUN tools/validate_73_classes.py\n73-class audit: PASS_INTERNAL_DIRECT_MAPPING_NOT_OFFICIAL_73\nPASS tools/validate_73_classes.py 0.07s\nRUN tools/validate_winding_normals.py\nwinding/normals audit: PASS\nPASS tools/validate_winding_normals.py 1.06s\nRUN tools/validate_self_intersections.py\nself-intersection audit: PASS\nPASS tools/validate_self_intersections.py 4.95s\nRUN tools/validate_reference_convention.py\nreference convention audit: PASS_PUBLISHED_REFERENCE_CONVENTION_EQUIVALENCE\ncases: 512 d4 comparisons: 4096 triangles: 2640 failures: 0\nPASS tools/validate_reference_convention.py 0.17s\nRUN tools/validate_corner_junctions.py\ncorner junction audit: PASS_PARTIAL_JUNCTION_AUDIT\nPASS tools/validate_corner_junctions.py 0.01s\nRUN tools/topology_signature_analysis.py\ntopology signature analysis: RESEARCH_PASS_TOPOLOGY_CLASSES_DERIVED_OFFICIAL_EQUIVALENCE_NOT_PROVEN\nclosest-to-73: raw_d4_complement_orbit 51 classes\nPASS tools/topology_signature_analysis.py 2.18s\nstrict correctness audit: PASS_WITH_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n",
       "returncode": 0
     },
     {
@@ -130,7 +130,7 @@
         "python",
         "tools/m4_replacement_readiness.py"
       ],
-      "output": "M4 replacement readiness: READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: False\nblocking gates: 6\nnext milestone: M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION\n",
+      "output": "M4 replacement readiness: READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: False\nblocking gates: 6\nnext milestone: M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE\n",
       "returncode": 0
     }
   ],

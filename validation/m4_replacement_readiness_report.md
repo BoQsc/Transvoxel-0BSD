@@ -25,13 +25,10 @@ Status: **READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKE
 - `m4_multi_face_corner_junction_validation`
 - `m4_selected_full_production_gate`
 - `official_reference_convention_equivalence`
+- `official_transition_topology_equivalence`
 
 ## Blocking evidence
 
-- `official_transition_topology_equivalence`: Official transition triangulation/topology equivalence for all 512 cases
-  - Actual: `NOT_PROVEN`
-  - Required: `PROVEN`
-  - Next: Prove the independently derived ambiguity resolutions and triangle topology match the published algorithmic topology.
 - `official_class_id_mapping`: Official 73 transition-class mapping
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN`
@@ -40,6 +37,10 @@ Status: **READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKE
   - Actual: `NOT_PROVEN`
   - Required: `PROVEN`
   - Next: Define and prove an independently derived vertex-code/cache-reuse encoding contract.
+- `official_triangle_triangulation_identity`: Exact official transition interior triangulation identity
+  - Actual: `NOT_PROVEN`
+  - Required: `PROVEN`
+  - Next: Do not use official arrays as an oracle. This is not required for a functional behavioral replacement.
 - `official_regular_cell_equivalence`: Official regular-cell topology/reference behavior for a full Transvoxel.cpp replacement
   - Actual: `MISSING_OFFICIAL_REGULAR_CELL_CANDIDATE`
   - Required: `Proven clean-room regular-cell topology/reference behavior`
@@ -55,6 +56,6 @@ Status: **READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKE
 
 ## Next milestone
 
-`M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION` — Prove the independently derived transition triangulation topology satisfies the published Transvoxel topology rules for all 512 cases without reading official lookup arrays.
+`M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE` — Prove clean-room regular-cell topology/reference behavior needed for a functional full Transvoxel.cpp replacement.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.

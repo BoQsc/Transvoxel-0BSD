@@ -10,7 +10,8 @@ Current status:
 73-class clean-room research partition: DERIVED
 official class ID mapping: NOT_PROVEN
 published_reference_sign_orientation_equivalence: PROVEN_M18
-original_topology_equivalence: NOT_PROVEN
+published_transition_topology_behavior: PROVEN_M19
+exact_official_triangulation_identity: NOT_PROVEN
 ```
 
 ## M3
@@ -416,6 +417,33 @@ six orientation-preserving face frames: PASS
 Zig C conversion API and 512 runtime builds: PASS
 official transition topology equivalence: NOT_PROVEN
 next milestone: M19 official transition-topology validation
+```
+
+## M19
+
+`m19/` validates the public full-, half-, and lateral-face topology rules, the
+D4/conditional-inversion behavior classes, and minimal genus-zero candidate
+surfaces for all 512 cases.
+
+Run:
+
+```text
+RUN_M19.cmd
+```
+
+Current M19 result:
+
+```text
+public face-rule checks: 4608 PASS
+clean-room behavior classes: 73
+cases: 512
+boundary loops: 730
+surface components: 729
+candidate triangles: 2640
+failures: 0
+published transition topology behavior: PROVEN
+exact official interior triangulation identity: NOT_PROVEN
+next milestone: M20 clean-room regular-cell equivalence
 ```
 
 Allowed:

@@ -24,6 +24,7 @@ optional M4 candidate geometry, winding, ArrayMesh output, and side seams pass i
 mapped M4 transition cells close shared lateral faces at three-face corners in all eight signed octants when RUN_M16 is executed
 the M4-selected combined production gate passes when RUN_M17 is executed
 the published M4 transition reference convention passes exhaustive Python and Zig C proof when RUN_M18 is executed
+published M4 transition topology behavior passes all 512 cases when RUN_M19 is executed
 M4 replacement readiness is split into explicit machine-readable candidate/default/full/exact compatibility decisions
 small dist/transvoxel_0bsd_core.zip can be built
 ```
@@ -108,6 +109,12 @@ winding, same-topology inverse winding, and all six face frames. This proves
 the published algorithmic convention, not official triangle topology or table
 bytes.
 
+The M19 topology proof validates every published full-, half-, and lateral-face
+contour rule, the D4/conditional-inversion class construction, closed degree-2
+boundaries, and minimal genus-zero surface fillings for all 512 cases. It
+proves functional transition topology behavior, not identical official
+interior diagonals or table encoding.
+
 ## Godot's role
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.
@@ -119,8 +126,8 @@ This project does not claim:
 ```text
 byte-for-byte identity with Eric Lengyel's MIT Transvoxel.cpp
 field-for-field drop-in compatibility with every existing Transvoxel.cpp consumer
-official 73-class transition compression
-official topology equivalence for the optional M4 candidate backend
+official numeric 73-class IDs
+exact official interior triangulation identity for the optional M4 candidate backend
 finished Godot gameplay terrain/GDExtension integration through the optional M4 candidate backend
 a complete game terrain engine
 chunk streaming
@@ -147,9 +154,10 @@ Eric Lengyel's Transvoxel.cpp under public domain.
 
 ## v25 strict audit addition
 
-v25 added the strict audit matrix. M18 now marks the published reference
-convention as `PROVEN`; official 73-class numeric mapping and transition
-topology equivalence remain `NOT_PROVEN`.
+v25 added the strict audit matrix. M18 marks the published reference convention
+as `PROVEN`, and M19 marks published transition topology behavior as `PROVEN`.
+Official class numbering, exact interior triangulation identity, vertex
+encoding, and bytes remain `NOT_PROVEN`.
 
 See `docs/PROOF_MATRIX.md` and `validation/strict_correctness_audit.json`.
 

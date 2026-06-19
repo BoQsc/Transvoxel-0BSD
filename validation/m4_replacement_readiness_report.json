@@ -1,9 +1,9 @@
 {
   "analysis_completed": true,
   "blocking_gate_ids": [
-    "official_transition_topology_equivalence",
     "official_class_id_mapping",
     "official_vertex_encoding_equivalence",
+    "official_triangle_triangulation_identity",
     "official_regular_cell_equivalence",
     "transvoxel_cpp_consumer_compatibility_contract",
     "official_transvoxel_cpp_byte_identity"
@@ -249,20 +249,22 @@
       "title": "Published sign, sample-order, face-frame, winding, and orientation convention equivalence"
     },
     {
-      "actual": "NOT_PROVEN",
+      "actual": "PROVEN",
       "category": "official_equivalence",
       "evidence": [
-        "research/official_topology/m3/candidate_triangulations.json"
+        "validation/published_transition_topology_report.json",
+        "research/official_topology/m3/candidate_triangulations.json",
+        "research/official_topology/m19/m19_report.json"
       ],
       "expected": "PROVEN",
       "id": "official_transition_topology_equivalence",
-      "next_action": "Prove the independently derived ambiguity resolutions and triangle topology match the published algorithmic topology.",
+      "note": "Functional behavior does not require identical official interior diagonals; exact triangulation identity is tracked separately.",
       "required_for": [
         "functional_full_replacement",
         "exact_table_compatible_replacement"
       ],
-      "status": "BLOCKED",
-      "title": "Official transition triangulation/topology equivalence for all 512 cases"
+      "status": "PASS",
+      "title": "Published transition topology behavior for all 512 cases"
     },
     {
       "actual": "NOT_PROVEN",
@@ -293,6 +295,22 @@
       ],
       "status": "BLOCKED",
       "title": "Official transition vertex encoding and reuse metadata equivalence"
+    },
+    {
+      "actual": "NOT_PROVEN",
+      "category": "table_compatibility",
+      "evidence": [
+        "research/official_topology/m3/candidate_triangulations.json"
+      ],
+      "expected": "PROVEN",
+      "id": "official_triangle_triangulation_identity",
+      "next_action": "Do not use official arrays as an oracle. This is not required for a functional behavioral replacement.",
+      "note": "Exact official interior diagonal identity is separate from the published topology behavior proven by M19.",
+      "required_for": [
+        "exact_table_compatible_replacement"
+      ],
+      "status": "BLOCKED",
+      "title": "Exact official transition interior triangulation identity"
     },
     {
       "actual": "MISSING_OFFICIAL_REGULAR_CELL_CANDIDATE",
@@ -345,11 +363,11 @@
     }
   ],
   "load_errors": [],
-  "meaning": "M4 now passes the explicit default-transition-backend runtime and production gates, but a functional full Transvoxel.cpp replacement remains blocked on official behavior, regular-cell equivalence, and consumer compatibility.",
+  "meaning": "M4 now passes the default-transition-backend production, published reference-convention, and published transition-topology behavior gates, but a functional full Transvoxel.cpp replacement remains blocked on regular-cell equivalence and consumer compatibility.",
   "next_milestone": {
-    "id": "M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION",
-    "objective": "Prove the independently derived transition triangulation topology satisfies the published Transvoxel topology rules for all 512 cases without reading official lookup arrays.",
-    "why_first": "The default-backend production gate and published reference convention now pass. Transition topology is the next algorithmic blocker to a functional full replacement claim."
+    "id": "M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
+    "objective": "Prove clean-room regular-cell topology/reference behavior needed for a functional full Transvoxel.cpp replacement.",
+    "why_first": "Transition production, reference convention, and published transition topology behavior now pass. Regular-cell behavior is the next implementation blocker to a functional full replacement."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",
@@ -365,7 +383,8 @@
     "m4_all_six_face_orientation_runtime_validation",
     "m4_multi_face_corner_junction_validation",
     "m4_selected_full_production_gate",
-    "official_reference_convention_equivalence"
+    "official_reference_convention_equivalence",
+    "official_transition_topology_equivalence"
   ],
   "schema": "boqsc.transvoxel.m4_replacement_readiness.v1",
   "status": "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED"

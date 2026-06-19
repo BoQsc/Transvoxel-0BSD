@@ -210,7 +210,10 @@ def main() -> int:
         and reference_gate.get("status") == "PASS"
         and len(readiness.get("blocking_gate_ids", [])) == 6
         and readiness.get("next_milestone", {}).get("id")
-        == "M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION"
+        in {
+            "M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION",
+            "M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
+        }
     )
     report["status"] = (
         PASS_STATUS if final_ok else "FAIL_M18_REFERENCE_CONVENTION"

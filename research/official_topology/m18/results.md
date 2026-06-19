@@ -21,6 +21,6 @@ M18 proves M4's published sample/sign/case-index/face/winding convention through
 ## Readiness effect
 
 - Remaining blocking gates: `6`
-- Next milestone: `M19_OFFICIAL_TRANSITION_TOPOLOGY_VALIDATION`
+- Next milestone: `M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE`
 
 M18 proves the published algorithmic reference convention. Official transition triangulation topology, class IDs, vertex encoding, regular-cell equivalence, consumer compatibility, and table bytes remain separate.

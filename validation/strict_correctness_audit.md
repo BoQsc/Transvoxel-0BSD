@@ -20,8 +20,9 @@ Official Transvoxel equivalence proof: **NOT_PROVEN**
 - `internal_reference_convention_matrix`: **PASS_PUBLISHED_REFERENCE_CONVENTION_MATRIX**
 - `edited_terrain_all_six_faces_scripted`: **PASS**
 - `all_corners_and_multi_neighbor_production_junctions`: **NOT_FULLY_PROVEN**
-- `official_topology_public_constraints`: **PASS_STRUCTURAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN**
+- `official_topology_public_constraints`: **PASS_PUBLISHED_TRANSITION_STRUCTURAL_CONSTRAINTS**
+- `published_transition_topology_behavior`: **PROVEN**
 
 ## Meaning
 
-This is an honesty gate. It proves the published M4 reference convention when M18 evidence passes while keeping official 73-class numeric mapping and transition topology equivalence explicitly not proven.
+This is an honesty gate. It proves the published M4 reference convention when M18 evidence passes while keeping official 73-class numeric mapping and exact transition triangulation identity explicitly not proven.

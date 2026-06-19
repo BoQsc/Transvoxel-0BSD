@@ -46,7 +46,8 @@ Status:
 ```text
 official_73_class_mapping: NOT_PROVEN
 published_reference_sign_orientation_equivalence: PROVEN_M18
-original_topology_equivalence: NOT_PROVEN
+published_transition_topology_behavior: PROVEN_M19
+exact_official_triangulation_identity: NOT_PROVEN
 ```
 
 This track may fail, change direction, or produce new candidate generators. It should not break the independent core.

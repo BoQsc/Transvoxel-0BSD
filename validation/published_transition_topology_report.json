@@ -1,0 +1,64 @@
+{
+  "checks": {
+    "all_512_cases_have_exact_d4_inversion_membership": true,
+    "all_boundary_graphs_are_closed_degree_two_loops": true,
+    "all_cases_have_minimal_genus_zero_candidate_surfaces": true,
+    "all_published_full_and_half_face_contours_match": true,
+    "all_published_lateral_face_configurations_match": true,
+    "class_partition_is_51_plus_18_plus_4": true,
+    "m4_runtime_preserves_m3_topology_and_winding": true,
+    "published_reference_convention_is_proven": true
+  },
+  "claim_boundary": {
+    "not_proven": [
+      "identical official interior triangle diagonals",
+      "official numeric class IDs",
+      "official vertex/cache encoding",
+      "Transvoxel.cpp table bytes"
+    ],
+    "proven": "Published transition topology behavior for all 512 cases: face contours, class symmetry/inversion rules, closed boundaries, and valid minimal genus-zero fillings."
+  },
+  "failures": [],
+  "metrics": {
+    "boundary_loops": 730,
+    "boundary_segments": 4096,
+    "cases": 512,
+    "class_partition": {
+      "base_with_inversion": 29,
+      "base_without_inversion": 22,
+      "classes": 73,
+      "inverse_full_ambiguity": 18,
+      "inverse_half_ambiguity": 4,
+      "inversion_rule_failures": 0,
+      "member_cases": 512,
+      "membership_failures": 0
+    },
+    "full_face_quadrant_checks": 2048,
+    "half_face_checks": 512,
+    "lateral_configurations": {
+      "alternating_full_face_edge": 512,
+      "full_to_half": 1024,
+      "uniform": 512
+    },
+    "lateral_face_checks": 2048,
+    "surface_components": 729,
+    "topology_case_failures": 0,
+    "triangles": 2640
+  },
+  "no_copy_rule": "Uses dissertation prose/figures and clean-room derivation only; no official lookup-table arrays or array values are read.",
+  "published_transition_topology_behavior": "PROVEN",
+  "schema": "boqsc.transvoxel.published_transition_topology.v1",
+  "source_reference": {
+    "author": "Eric Lengyel",
+    "relevant_public_rules": [
+      "Section 4.3: D4 action on nine coplanar samples",
+      "Section 4.3: inversion only when full and half faces are unambiguous",
+      "Figure 3.5: preferred-polarity full/half face contours",
+      "Figure 4.10: four nontrivial lateral configurations modulo vertical flip",
+      "Section 4.3: coincident lateral faces require matching endpoints and opposite winding"
+    ],
+    "title": "Voxel-Based Terrain for Real-Time Virtual Simulations",
+    "url": "https://transvoxel.org/Lengyel-VoxelTerrain.pdf"
+  },
+  "status": "PASS_PUBLISHED_TRANSITION_TOPOLOGY_BEHAVIOR"
+}

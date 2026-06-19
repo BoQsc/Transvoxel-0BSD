@@ -579,3 +579,34 @@ Run:
 ```text
 RUN_M18.cmd
 ```
+
+## M19 result
+
+M19 proves published transition topology behavior independently of official
+lookup-table arrays:
+
+```text
+tools/validate_published_transition_topology.py
+research/official_topology/m19/
+```
+
+Current M19 result:
+
+```text
+published full/half/lateral face checks: 4608 PASS
+clean-room D4/inversion behavior classes: 73
+case coverage: 512/512
+closed boundary loops: 730
+minimal genus-zero surface components: 729
+candidate triangles: 2640
+topology failures: 0
+published transition topology behavior: PROVEN
+exact official interior triangulation identity: NOT_PROVEN
+next milestone: M20 clean-room regular-cell equivalence
+```
+
+Run:
+
+```text
+RUN_M19.cmd
+```

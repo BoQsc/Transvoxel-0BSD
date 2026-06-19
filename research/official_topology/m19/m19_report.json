@@ -1,0 +1,105 @@
+{
+  "claim_boundary": {
+    "not_proven": [
+      "identical official interior triangle diagonals",
+      "official numeric class IDs",
+      "official vertex/cache encoding",
+      "Transvoxel.cpp table bytes"
+    ],
+    "proven": "Published transition topology behavior for all 512 cases: face contours, class symmetry/inversion rules, closed boundaries, and valid minimal genus-zero fillings."
+  },
+  "default_core_replaced": false,
+  "m18_status": "PASS_M18_PUBLISHED_REFERENCE_CONVENTION_EQUIVALENCE",
+  "meaning": "M19 proves published transition topology behavior for all 512 cases from public face-contour and D4/inversion rules plus clean-room minimal genus-zero fillings.",
+  "metrics": {
+    "boundary_loops": 730,
+    "boundary_segments": 4096,
+    "cases": 512,
+    "class_partition": {
+      "base_with_inversion": 29,
+      "base_without_inversion": 22,
+      "classes": 73,
+      "inverse_full_ambiguity": 18,
+      "inverse_half_ambiguity": 4,
+      "inversion_rule_failures": 0,
+      "member_cases": 512,
+      "membership_failures": 0
+    },
+    "full_face_quadrant_checks": 2048,
+    "half_face_checks": 512,
+    "lateral_configurations": {
+      "alternating_full_face_edge": 512,
+      "full_to_half": 1024,
+      "uniform": 512
+    },
+    "lateral_face_checks": 2048,
+    "surface_components": 729,
+    "topology_case_failures": 0,
+    "triangles": 2640
+  },
+  "next_milestone": {
+    "id": "M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
+    "objective": "Prove clean-room regular-cell topology/reference behavior needed for a functional full Transvoxel.cpp replacement.",
+    "why_first": "Transition production, reference convention, and published transition topology behavior now pass. Regular-cell behavior is the next implementation blocker to a functional full replacement."
+  },
+  "official_class_id_mapping": "NOT_PROVEN",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_triangulation_identity": "NOT_PROVEN",
+  "official_vertex_encoding_equivalence": "NOT_PROVEN",
+  "outputs": {
+    "results": "research/official_topology/m19/results.md",
+    "topology_validation": "validation/published_transition_topology_report.json"
+  },
+  "published_transition_topology_behavior": "PROVEN",
+  "readiness_status": "READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED",
+  "schema": "boqsc.transvoxel.official_topology.m19.report.v1",
+  "source_reference": {
+    "author": "Eric Lengyel",
+    "relevant_public_rules": [
+      "Section 4.3: D4 action on nine coplanar samples",
+      "Section 4.3: inversion only when full and half faces are unambiguous",
+      "Figure 3.5: preferred-polarity full/half face contours",
+      "Figure 4.10: four nontrivial lateral configurations modulo vertical flip",
+      "Section 4.3: coincident lateral faces require matching endpoints and opposite winding"
+    ],
+    "title": "Voxel-Based Terrain for Real-Time Virtual Simulations",
+    "url": "https://transvoxel.org/Lengyel-VoxelTerrain.pdf"
+  },
+  "status": "PASS_M19_PUBLISHED_TRANSITION_TOPOLOGY_BEHAVIOR",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "research/official_topology/m3/run_m3.py"
+      ],
+      "output": "M3 boundary loops: PASS_BOUNDARY_LOOPS_DERIVED_OFFICIAL_TRIANGULATION_NOT_PROVEN\nresearch classes: 73\n<repo>\\research\\official_topology\\m3\\boundary_loops.json\nM3 candidate triangulations: PASS_CANDIDATE_TRIANGULATIONS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\ntriangles: 2640\n<repo>\\research\\official_topology\\m3\\candidate_triangulations.json\nM3 independent-core comparison: PASS_COMPARISON_INDEPENDENT_CORE_IS_STRUCTURALLY_DISTINCT\ncontracted connectivity: 374 match / 138 mismatch\n<repo>\\research\\official_topology\\m3\\independent_core_comparison.json\n\nM3: PASS_M3_CONSTRAINT_DERIVATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m3\\results.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "research/official_topology/m18/run_m18.py"
+      ],
+      "output": "M4 runtime candidate table: <repo>\\generated\\official_topology_candidate_tables.json\nM4 C header: <repo>\\generated\\official_topology_candidate_tables.h\nstatus: candidate_runtime_tables_official_equivalence_not_proven\nsha256: e1b833af6dbcfb0644fa9913a7104b9e64912807ef5a905cd6e9b96b0b6492b6\nM4 runtime table validation: <repo>\\research\\official_topology\\m4\\runtime_table_validation.json\nstatus: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\ntotal triangles: 2640\ntotal vertex pairs: 4096\nM4 Zig header smoke: PASS_ZIG_HEADER_SMOKE\n\nM4: PASS_M4_RUNTIME_TABLES_INTERNAL_CONSTRAINTS_OFFICIAL_EQUIVALENCE_NOT_PROVEN\n<repo>\\research\\official_topology\\m4\\results.md\nsynced godot\\generated\\regular_tables.json\nsynced godot\\generated\\transition_tables.json\nsynced godot\\generated\\transvoxel_tables.json\nsynced godot\\generated\\official_topology_candidate_tables.json\ngodot table sync: PASS\nofficial reference convention: PROVEN_PUBLISHED_ALGORITHMIC_REFERENCE_CONVENTION\n<repo>\\validation\\official_reference_convention_research.json\nreference convention matrix: PASS_PUBLISHED_REFERENCE_CONVENTION_MATRIX\n<repo>\\validation\\reference_convention_matrix.json\nreference convention audit: PASS_PUBLISHED_REFERENCE_CONVENTION_EQUIVALENCE\ncases: 512 d4 comparisons: 4096 triangles: 2640 failures: 0\nM18 C reference convention: PASS_M18_ZIG_PUBLISHED_REFERENCE_CONVENTION_API\nm18 reference cases=512 mapping_checks=512 roundtrip_checks=1024 complement_checks=512 rotation_checks=512 build_checks=512 frame_checks=6 vertices=4096 triangles=2640 failures=0\nRUN tools/validate_73_classes.py\n73-class audit: PASS_INTERNAL_DIRECT_MAPPING_NOT_OFFICIAL_73\nPASS tools/validate_73_classes.py 0.07s\nRUN tools/validate_winding_normals.py\nwinding/normals audit: PASS\nPASS tools/validate_winding_normals.py 1.06s\nRUN tools/validate_self_intersections.py\nself-intersection audit: PASS\nPASS tools/validate_self_intersections.py 4.95s\nRUN tools/validate_reference_convention.py\nreference convention audit: PASS_PUBLISHED_REFERENCE_CONVENTION_EQUIVALENCE\ncases: 512 d4 comparisons: 4096 triangles: 2640 failures: 0\nPASS tools/validate_reference_convention.py 0.17s\nRUN tools/validate_corner_junctions.py\ncorner junction audit: PASS_PARTIAL_JUNCTION_AUDIT\nPASS tools/validate_corner_junctions.py 0.01s\nRUN tools/topology_signature_analysis.py\ntopology signature analysis: RESEARCH_PASS_TOPOLOGY_CLASSES_DERIVED_OFFICIAL_EQUIVALENCE_NOT_PROVEN\nclosest-to-73: raw_d4_complement_orbit 51 classes\nPASS tools/topology_signature_analysis.py 2.18s\nstrict correctness audit: PASS_WITH_OFFICIAL_EQUIVALENCE_NOT_PROVEN\nM4 replacement readiness: READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: False\nblocking gates: 6\nnext milestone: M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE\n\nM18: PASS_M18_PUBLISHED_REFERENCE_CONVENTION_EQUIVALENCE\n<repo>\\research\\official_topology\\m18\\results.md\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_published_transition_topology.py"
+      ],
+      "output": "published transition topology: PASS_PUBLISHED_TRANSITION_TOPOLOGY_BEHAVIOR\ncases=512 classes= 73 face_checks= 4608 triangles= 2640 failures= 0\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "tools/m4_replacement_readiness.py"
+      ],
+      "output": "M4 replacement readiness: READY_M4_DEFAULT_TRANSITION_BACKEND_FUNCTIONAL_FULL_REPLACEMENT_BLOCKED\noptional backend candidate ready: True\ndefault replacement ready: True\nfunctional full replacement ready: False\nblocking gates: 6\nnext milestone: M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE\n",
+      "returncode": 0
+    }
+  ],
+  "topology_gate_status": "PASS",
+  "topology_status": "PASS_PUBLISHED_TRANSITION_TOPOLOGY_BEHAVIOR"
+}

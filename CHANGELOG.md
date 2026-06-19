@@ -8,6 +8,9 @@
 - Proved all 512 index mappings, all 4096 D4 mapping combinations, outward and
   inverse winding, and all six right-handed face frames without official table
   arrays.
+- Added M19 proof of published transition topology behavior: all public
+  face-contour rules, D4/inversion behavior classes, closed boundaries, and
+  minimal genus-zero fillings for all 512 cases.
 
 ## v34
 

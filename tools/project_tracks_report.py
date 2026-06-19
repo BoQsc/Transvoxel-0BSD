@@ -44,6 +44,9 @@ def main() -> int:
     cand73 = read_json("validation/official_73_candidate_derivation.json")
     ref_matrix = read_json("validation/reference_convention_matrix.json")
     constraints = read_json("validation/official_topology_constraints.json")
+    published_topology = read_json(
+        "validation/published_transition_topology_report.json"
+    )
 
     independent_ok = not missing_independent
     official_track_ok = not missing_official
@@ -68,6 +71,12 @@ def main() -> int:
                     "NOT_PROVEN",
                 ),
                 "original_topology_equivalence": "NOT_PROVEN",
+                "published_transition_topology_behavior": (
+                    published_topology.get(
+                        "published_transition_topology_behavior",
+                        "NOT_PROVEN",
+                    )
+                ),
             },
         },
         "supporting_reports": {
@@ -81,6 +90,9 @@ def main() -> int:
             "official_73_candidate_derivation_status": cand73.get("status"),
             "reference_convention_matrix_status": ref_matrix.get("status"),
             "official_topology_constraints_status": constraints.get("status"),
+            "published_transition_topology_status": published_topology.get(
+                "status"
+            ),
         },
         "meaning": (
             "The independent core can be released/evaluated independently. "

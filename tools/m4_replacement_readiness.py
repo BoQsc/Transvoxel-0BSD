@@ -21,6 +21,9 @@ from typing import Any, Dict, List
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_JSON = ROOT / "validation" / "m4_replacement_readiness_report.json"
 REPORT_MD = ROOT / "validation" / "m4_replacement_readiness_report.md"
+PUBLISHED_TOPOLOGY_REPORT = (
+    ROOT / "validation" / "published_transition_topology_report.json"
+)
 M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
     "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
@@ -190,6 +193,11 @@ def main() -> int:
     partition = read_json(m3_partition_path)
     triangles = read_json(m3_triangles_path)
     reference = read_json(reference_path)
+    published_topology = (
+        read_json(PUBLISHED_TOPOLOGY_REPORT)
+        if PUBLISHED_TOPOLOGY_REPORT.exists()
+        else {}
+    )
     if M15_REPORT.exists():
         try:
             m15_status = str(
@@ -307,14 +315,42 @@ def main() -> int:
         ),
         gate(
             "official_transition_topology_equivalence",
-            "Official transition triangulation/topology equivalence for all 512 cases",
+            "Published transition topology behavior for all 512 cases",
             "official_equivalence",
             ["functional_full_replacement", "exact_table_compatible_replacement"],
-            "BLOCKED",
-            [rel(m3_triangles_path)],
-            triangles.get("official_triangle_topology_equivalence", "MISSING"),
+            (
+                "PASS"
+                if published_topology.get(
+                    "published_transition_topology_behavior"
+                )
+                == "PROVEN"
+                else "BLOCKED"
+            ),
+            [
+                rel(PUBLISHED_TOPOLOGY_REPORT),
+                rel(m3_triangles_path),
+                "research/official_topology/m19/m19_report.json",
+            ],
+            published_topology.get(
+                "published_transition_topology_behavior",
+                "MISSING",
+            ),
             "PROVEN",
-            "Prove the independently derived ambiguity resolutions and triangle topology match the published algorithmic topology.",
+            (
+                "Prove the clean-room face contours, D4/inversion classes, "
+                "and minimal manifold fillings satisfy the published "
+                "algorithmic topology."
+                if published_topology.get(
+                    "published_transition_topology_behavior"
+                )
+                != "PROVEN"
+                else None
+            ),
+            (
+                "Functional behavior does not require identical official "
+                "interior diagonals; exact triangulation identity is tracked "
+                "separately."
+            ),
         ),
         gate(
             "official_class_id_mapping",
@@ -337,6 +373,27 @@ def main() -> int:
             triangles.get("official_vertex_encoding_equivalence", "MISSING"),
             "PROVEN",
             "Define and prove an independently derived vertex-code/cache-reuse encoding contract.",
+        ),
+        gate(
+            "official_triangle_triangulation_identity",
+            "Exact official transition interior triangulation identity",
+            "table_compatibility",
+            ["exact_table_compatible_replacement"],
+            "BLOCKED",
+            [rel(m3_triangles_path)],
+            triangles.get(
+                "official_triangle_topology_equivalence",
+                "MISSING",
+            ),
+            "PROVEN",
+            (
+                "Do not use official arrays as an oracle. This is not required "
+                "for a functional behavioral replacement."
+            ),
+            (
+                "Exact official interior diagonal identity is separate from "
+                "the published topology behavior proven by M19."
+            ),
         ),
         gate(
             "official_regular_cell_equivalence",
@@ -396,6 +453,7 @@ def main() -> int:
         *functional_required,
         "official_class_id_mapping",
         "official_vertex_encoding_equivalence",
+        "official_triangle_triangulation_identity",
         "official_transvoxel_cpp_byte_identity",
     }
 
@@ -416,7 +474,31 @@ def main() -> int:
     reference_proven = (
         reference.get("official_reference_equivalence") == "PROVEN"
     )
+    topology_proven = (
+        published_topology.get("published_transition_topology_behavior")
+        == "PROVEN"
+    )
     if (
+        m15_status == M15_EXPECTED_STATUS
+        and m16_status == M16_EXPECTED_STATUS
+        and m17_status == M17_EXPECTED_STATUS
+        and reference_proven
+        and topology_proven
+    ):
+        next_milestone = {
+            "id": "M20_CLEAN_ROOM_REGULAR_CELL_EQUIVALENCE",
+            "objective": (
+                "Prove clean-room regular-cell topology/reference behavior "
+                "needed for a functional full Transvoxel.cpp replacement."
+            ),
+            "why_first": (
+                "Transition production, reference convention, and published "
+                "transition topology behavior now pass. Regular-cell behavior "
+                "is the next implementation blocker to a functional full "
+                "replacement."
+            ),
+        }
+    elif (
         m15_status == M15_EXPECTED_STATUS
         and m16_status == M16_EXPECTED_STATUS
         and m17_status == M17_EXPECTED_STATUS
@@ -510,10 +592,20 @@ def main() -> int:
         "analysis_completed": analysis_ok,
         "meaning": (
             (
-                "M4 now passes the explicit default-transition-backend runtime "
-                "and production gates, but a functional full Transvoxel.cpp "
-                "replacement remains blocked on official behavior, regular-cell "
-                "equivalence, and consumer compatibility."
+                (
+                    "M4 now passes the default-transition-backend production, "
+                    "published reference-convention, and published transition-"
+                    "topology behavior gates, but a functional full "
+                    "Transvoxel.cpp replacement remains blocked on regular-cell "
+                    "equivalence and consumer compatibility."
+                    if reference_proven and topology_proven
+                    else
+                    "M4 now passes the explicit default-transition-backend "
+                    "runtime and production gates, but a functional full "
+                    "Transvoxel.cpp replacement remains blocked on published "
+                    "behavior, regular-cell equivalence, and consumer "
+                    "compatibility."
+                )
                 if default_ready
                 else
                 "The optional M4 transition backend has strong runtime/integration "

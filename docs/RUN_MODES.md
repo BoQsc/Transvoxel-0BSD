@@ -38,6 +38,8 @@ corners in Zig C and actual Godot runtime execution.
 `RUN_M17.cmd` runs the combined M4-selected production gate.
 `RUN_M18.cmd` proves the published sample/sign/case-index/face/winding
 convention through exhaustive Python and Zig C validation.
+`RUN_M19.cmd` proves the published transition face-contour, D4/inversion, and
+minimal genus-zero surface behavior for all 512 cases.
 
 ## Full release proof
 
@@ -71,4 +73,5 @@ RUN_M15.cmd  M4 all-six-face C/Godot orientation proof
 RUN_M16.cmd  M4 mapped three-face corner-junction proof
 RUN_M17.cmd  M4-selected combined production gate
 RUN_M18.cmd  published reference-convention/index-mapping proof
+RUN_M19.cmd  published transition-topology behavior proof
 ```
