@@ -15,6 +15,7 @@ Godot seam metrics report seam_open_edges = 0
 scripted auto-interaction edits keep the seam checks green
 C core compiles and runs when a C compiler is available
 optional M4 candidate backend package example compiles and runs when a C compiler is available
+optional M4 candidate backend terrain export compiles and runs when a C compiler is available
 small dist/transvoxel_0bsd_core.zip can be built
 ```
 
@@ -43,6 +44,10 @@ The package also proves an optional M4 candidate backend can be compiled from
 package files and installed explicitly through `transvoxel_m4_backend.h`.
 That candidate path is still separate from the default backend.
 
+The C terrain export proof also checks the same terrain/LOD OBJ export path with
+M4 installed. It confirms regular-cell output is unchanged while the transition
+strip uses the installed M4 backend.
+
 ## Godot's role
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.
@@ -56,6 +61,7 @@ byte-for-byte identity with Eric Lengyel's MIT Transvoxel.cpp
 field-for-field drop-in compatibility with every existing Transvoxel.cpp consumer
 official 73-class transition compression
 official topology equivalence for the optional M4 candidate backend
+Godot runtime terrain validation through the optional M4 candidate backend
 a complete game terrain engine
 chunk streaming
 physics/collision generation

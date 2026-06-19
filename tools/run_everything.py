@@ -155,6 +155,7 @@ def create_upload_bundle(run_id: str, archive_dir: Optional[Path]) -> Optional[P
                 "validation/godot_project_report.json",
                 "validation/core_c_report.json",
                 "validation/m4_backend_c_report.json",
+                "validation/m4_terrain_c_report.json",
                 "validation/dist_report.json",
                 "godot/validation/01_runtime/runtime_dump.json",
                 "godot/validation/02_mesh_api/mesh_api_dump.json",
@@ -343,6 +344,7 @@ def make_summary(report: Dict[str, Any]) -> str:
         "validation/proof_report.json",
         "validation/core_c_report.json",
         "validation/m4_backend_c_report.json",
+        "validation/m4_terrain_c_report.json",
         "validation/dist_report.json",
         "dist/transvoxel_0bsd_core.zip",
         "godot/validation/01_runtime/runtime_dump.json",
@@ -378,6 +380,8 @@ def run_core(steps: List[Dict[str, Any]], py: str) -> bool:
     steps.append(run_cmd("core C smoke test", [py, "tools/test_core_c.py"], ROOT))
     ok = ok and bool(steps[-1]["ok"])
     steps.append(run_cmd("M4 backend package C test", [py, "tools/test_m4_backend_c.py"], ROOT))
+    ok = ok and bool(steps[-1]["ok"])
+    steps.append(run_cmd("M4 terrain export C test", [py, "tools/test_m4_terrain_c.py"], ROOT))
     ok = ok and bool(steps[-1]["ok"])
     steps.append(run_cmd("build core dist", [py, "tools/build_dist.py"], ROOT))
     ok = ok and bool(steps[-1]["ok"])

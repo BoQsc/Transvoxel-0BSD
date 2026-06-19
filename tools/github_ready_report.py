@@ -44,6 +44,8 @@ REQUIRED_FILES = [
     "examples/c_minimal/main.c",
     "examples/c_terrain_export/main.c",
     "examples/c_m4_backend_switch/main.c",
+    "tools/test_m4_backend_c.py",
+    "tools/test_m4_terrain_c.py",
     "dist/transvoxel_0bsd_core.zip",
 ]
 

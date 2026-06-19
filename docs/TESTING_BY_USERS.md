@@ -63,6 +63,13 @@ terrain_lod_seam_report.txt
 
 Open `terrain_lod_seam.obj` in Blender, MeshLab, Godot, or another OBJ viewer.
 
+Optional M4 candidate terrain export:
+
+```sh
+zig cc -std=c99 -Iinclude -Igenerated -DTV_EXAMPLE_USE_M4_BACKEND_CANDIDATE src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_terrain_export/main.c -o terrain_export_m4
+./terrain_export_m4
+```
+
 The material groups are:
 
 ```text

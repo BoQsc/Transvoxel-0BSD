@@ -82,6 +82,13 @@ tv_uninstall_m4_transition_backend_candidate();
 This path remains a candidate. Official `Transvoxel.cpp` byte/table identity and
 triangle-topology equivalence are still `NOT_PROVEN`.
 
+The terrain export example can also be compiled with the M4 candidate backend:
+
+```sh
+zig cc -std=c99 -Iinclude -Igenerated -DTV_EXAMPLE_USE_M4_BACKEND_CANDIDATE src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_terrain_export/main.c -o terrain_export_m4
+./terrain_export_m4
+```
+
 ## Mental model
 
 The core is deliberately small:

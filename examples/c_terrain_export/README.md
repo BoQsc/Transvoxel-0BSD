@@ -21,6 +21,13 @@ Build with a normal C compiler:
 cc -std=c99 -I../../include -I../../generated ../../src/transvoxel.c main.c -o terrain_export
 ```
 
+Build the same terrain example with the optional M4 candidate transition
+backend:
+
+```sh
+zig cc -std=c99 -I../../include -I../../generated -DTV_EXAMPLE_USE_M4_BACKEND_CANDIDATE ../../src/transvoxel.c ../../src/transvoxel_m4_candidate.c ../../src/transvoxel_m4_backend.c main.c -o terrain_export_m4
+```
+
 Run:
 
 ```sh
@@ -45,3 +52,6 @@ blue    low LOD regular cells
 
 This is not a full streaming terrain engine. It is a readable example showing
 how to call the regular-cell and transition-cell builders from plain C.
+
+The M4 candidate mode is still opt-in and still does not prove official
+`Transvoxel.cpp` topology equivalence.

@@ -245,3 +245,36 @@ Run:
 ```text
 RUN_M8.cmd
 ```
+
+## M9 result
+
+M9 validates the selectable M4 candidate backend through the higher-level C
+terrain export path:
+
+```text
+examples/c_terrain_export/main.c
+```
+
+The validation compiles that same example twice: default backend, then M4
+backend installed through `transvoxel_m4_backend.h`. The regular high/low
+chunks stay unchanged; the transition strip changes only when M4 is installed.
+
+Current M9 result:
+
+```text
+default terrain export: PASS
+M4 terrain export through normal API: PASS
+high/low regular triangle counts unchanged: PASS
+transition strip changed under M4: PASS
+default transition triangles: 36
+M4 transition triangles: 6
+Godot runtime M4 validation: NOT_PROVEN
+official Transvoxel.cpp equivalence: NOT_PROVEN
+default core replaced by default: false
+```
+
+Run:
+
+```text
+RUN_M9.cmd
+```

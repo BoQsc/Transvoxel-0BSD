@@ -172,6 +172,29 @@ default core replaced by default: false
 official Transvoxel.cpp equivalence: NOT_PROVEN
 ```
 
+## M9
+
+`m9/` validates the selectable M4 candidate backend through the C terrain OBJ
+export path. It compiles `examples/c_terrain_export/main.c` once with the
+default backend and once with the M4 backend installed.
+
+Run:
+
+```text
+RUN_M9.cmd
+```
+
+Current M9 result:
+
+```text
+default terrain export: PASS
+M4 terrain export through normal API: PASS
+regular high/low chunk counts unchanged: PASS
+transition strip changed under M4: PASS
+Godot runtime M4 validation: NOT_PROVEN
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
 Allowed:
 
 ```text

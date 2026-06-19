@@ -28,6 +28,7 @@ The package also carries an optional M4 candidate backend for the official-topol
 Independent 0BSD core: release-candidate track
 Functional Transvoxel-style proof: PASS when the full proof gate passes
 Optional M4 official-topology candidate backend: package-validated candidate
+Optional M4 terrain export path: validated through normal C API
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -65,6 +66,13 @@ Optional M4 backend package smoke:
 ```sh
 zig cc -std=c99 -Iinclude -Igenerated src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_m4_backend_switch/main.c -o c_m4_backend_switch
 ./c_m4_backend_switch
+```
+
+Optional M4 terrain export smoke:
+
+```sh
+zig cc -std=c99 -Iinclude -Igenerated -DTV_EXAMPLE_USE_M4_BACKEND_CANDIDATE src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_terrain_export/main.c -o terrain_export_m4
+./terrain_export_m4
 ```
 
 ## Small drop-in package contents
@@ -108,6 +116,7 @@ RUN_FULL.cmd        full release proof
 RUN.cmd             same as RUN_FULL.cmd
 RUN_INTERACTIVE.cmd human sandbox evaluation
 RUN_M8.cmd          optional M4 backend package proof
+RUN_M9.cmd          optional M4 terrain export proof
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:
@@ -116,7 +125,7 @@ After a local run, this file can be uploaded for debugging or confirmation:
 proof/SEND_TO_CHATGPT.zip
 ```
 
-GitHub Actions run the generator/proof suite, default C smoke test, optional M4 backend package smoke test, dist build, release-candidate report, and GitHub-ready report. Godot runtime validation still needs a local machine with Godot installed.
+GitHub Actions run the generator/proof suite, default C smoke test, optional M4 backend package smoke test, optional M4 terrain export smoke test, dist build, release-candidate report, and GitHub-ready report. Godot runtime validation still needs a local machine with Godot installed.
 
 ## Project tracks
 
