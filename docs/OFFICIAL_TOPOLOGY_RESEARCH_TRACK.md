@@ -316,3 +316,33 @@ Run:
 ```text
 RUN_M10.cmd
 ```
+
+## M11 result
+
+M11 validates a real Godot viewer/export path for the optional M4 candidate:
+
+```text
+godot/stages/08_m4_candidate_viewer/DumpM4CandidateViewer.gd
+tools/validate_m4_godot_viewer.py
+```
+
+The stage loads the synced M4 candidate table, builds `ArrayMesh` objects for a
+case gallery and a deterministic terrain-strip-style mesh, and validates
+`MeshDataTool` readback.
+
+Current M11 result:
+
+```text
+actual Godot M4 viewer/export execution: PASS when Godot is available
+case gallery ArrayMesh: PASS
+terrain-strip-style ArrayMesh: PASS
+MeshDataTool readback: PASS
+official Transvoxel.cpp equivalence: NOT_PROVEN
+default core replaced by default: false
+```
+
+Run:
+
+```text
+RUN_M11.cmd
+```

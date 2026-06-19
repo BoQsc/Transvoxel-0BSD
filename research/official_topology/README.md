@@ -217,6 +217,29 @@ actual Godot M4 stage execution: PASS when Godot is available
 official Transvoxel.cpp equivalence: NOT_PROVEN
 ```
 
+## M11
+
+`m11/` validates the M4 candidate table through a real Godot viewer/export mesh
+path. It builds `ArrayMesh` objects from the M4 candidate cases and verifies
+`MeshDataTool` readback.
+
+Run:
+
+```text
+RUN_M11.cmd
+```
+
+Current M11 result:
+
+```text
+M4 table available in godot/generated: PASS
+Godot ArrayMesh case gallery: PASS
+Godot ArrayMesh terrain-strip-style mesh: PASS
+MeshDataTool readback: PASS
+default core replaced: false
+official Transvoxel.cpp equivalence: NOT_PROVEN
+```
+
 Allowed:
 
 ```text

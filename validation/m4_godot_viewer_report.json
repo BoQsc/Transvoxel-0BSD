@@ -1,0 +1,742 @@
+{
+  "case_gallery": {
+    "case_reports": [
+      {
+        "case": 1,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 2,
+        "vertices": 4
+      },
+      {
+        "case": 2,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 1,
+        "vertices": 3
+      },
+      {
+        "case": 3,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 7,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 15,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 31,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 63,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 85,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 8,
+        "vertices": 12
+      },
+      {
+        "case": 127,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 170,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 12
+      },
+      {
+        "case": 255,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 2,
+        "vertices": 4
+      },
+      {
+        "case": 341,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 12,
+        "vertices": 12
+      },
+      {
+        "case": 383,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 1,
+        "vertices": 3
+      },
+      {
+        "case": 447,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 2,
+        "vertices": 4
+      },
+      {
+        "case": 510,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 2,
+        "vertices": 4
+      },
+      {
+        "case": 511,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 0,
+        "vertices": 0
+      }
+    ],
+    "mesh": {
+      "array_vertex_count": 90,
+      "degenerate_triangles": 0,
+      "index_count": 162,
+      "invalid_triangles": 0,
+      "label": "m4_case_gallery",
+      "mdt_create_error": 0,
+      "mdt_edge_count": 126,
+      "mdt_face_count": 54,
+      "mdt_vertex_count": 90,
+      "open_edges_total": 90,
+      "status": "PASS",
+      "surface_count": 1,
+      "triangle_count": 54
+    },
+    "non_empty_cases": 15,
+    "selected_cases": [
+      1,
+      2,
+      3,
+      7,
+      15,
+      31,
+      63,
+      85,
+      127,
+      170,
+      255,
+      341,
+      383,
+      447,
+      510,
+      511
+    ],
+    "status": "PASS"
+  },
+  "default_core_replaced": false,
+  "godot_runtime_executed": true,
+  "issues": [],
+  "meaning": "Validates the optional M4 Godot viewer/export path. PASS requires a real Godot output that builds ArrayMesh objects and validates MeshDataTool readback.",
+  "official_transvoxel_cpp_byte_identity": "NOT_PROVEN",
+  "official_triangle_topology_equivalence": "NOT_PROVEN",
+  "runtime_output": "godot/validation/08_m4_candidate_viewer/m4_candidate_viewer.json",
+  "runtime_status": "PASS",
+  "schema": "boqsc.transvoxel.m4_godot_viewer_report.v1",
+  "stage": "godot/stages/08_m4_candidate_viewer/DumpM4CandidateViewer.gd",
+  "status": "PASS_M4_GODOT_VIEWER_EXPORT_PATH",
+  "terrain_strip": {
+    "cell_report_sample": [
+      {
+        "case": 3,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 36,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 31,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 7,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 1,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 2,
+        "vertices": 4
+      },
+      {
+        "case": 54,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 15,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 3,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 120,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 6,
+        "vertices": 8
+      },
+      {
+        "case": 312,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 6,
+        "vertices": 8
+      },
+      {
+        "case": 504,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 248,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 5,
+        "vertices": 7
+      },
+      {
+        "case": 56,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 440,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 5,
+        "vertices": 7
+      },
+      {
+        "case": 504,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 120,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 6,
+        "vertices": 8
+      },
+      {
+        "case": 1,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 2,
+        "vertices": 4
+      },
+      {
+        "case": 36,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 15,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 3,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 22,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 5,
+        "vertices": 7
+      },
+      {
+        "case": 7,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 1,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 2,
+        "vertices": 4
+      },
+      {
+        "case": 56,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 296,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 8
+      },
+      {
+        "case": 504,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 120,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 6,
+        "vertices": 8
+      },
+      {
+        "case": 24,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 432,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 248,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 5,
+        "vertices": 7
+      },
+      {
+        "case": 56,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 448,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 452,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 5,
+        "vertices": 7
+      },
+      {
+        "case": 455,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 449,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 5,
+        "vertices": 7
+      },
+      {
+        "case": 448,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 454,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 6,
+        "vertices": 8
+      },
+      {
+        "case": 451,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 6,
+        "vertices": 8
+      },
+      {
+        "case": 448,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 31,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 295,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 255,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 2,
+        "vertices": 4
+      },
+      {
+        "case": 63,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 15,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 439,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 127,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 31,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 448,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 452,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 5,
+        "vertices": 7
+      },
+      {
+        "case": 451,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 6,
+        "vertices": 8
+      },
+      {
+        "case": 448,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 448,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 454,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 6,
+        "vertices": 8
+      },
+      {
+        "case": 449,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 5,
+        "vertices": 7
+      },
+      {
+        "case": 448,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 15,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 295,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 127,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 31,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      },
+      {
+        "case": 7,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 183,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 5,
+        "vertices": 7
+      },
+      {
+        "case": 63,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 3,
+        "vertices": 5
+      },
+      {
+        "case": 15,
+        "degenerate_triangles": 0,
+        "invalid_triangles": 0,
+        "status": "PASS",
+        "triangles": 4,
+        "vertices": 6
+      }
+    ],
+    "cells": 64,
+    "empty_or_full_cells": 1,
+    "field": "wavy",
+    "grid": 8,
+    "mesh": {
+      "array_vertex_count": 373,
+      "degenerate_triangles": 0,
+      "index_count": 735,
+      "invalid_triangles": 0,
+      "label": "m4_terrain_strip",
+      "mdt_create_error": 0,
+      "mdt_edge_count": 554,
+      "mdt_face_count": 245,
+      "mdt_vertex_count": 373,
+      "open_edges_total": 373,
+      "status": "PASS",
+      "surface_count": 1,
+      "triangle_count": 245
+    },
+    "non_empty_cells": 63,
+    "seed": 3,
+    "status": "PASS",
+    "unique_cases": [
+      "0",
+      "1",
+      "120",
+      "127",
+      "15",
+      "183",
+      "22",
+      "24",
+      "248",
+      "255",
+      "295",
+      "296",
+      "3",
+      "31",
+      "312",
+      "36",
+      "432",
+      "439",
+      "440",
+      "448",
+      "449",
+      "451",
+      "452",
+      "454",
+      "455",
+      "504",
+      "54",
+      "56",
+      "63",
+      "7"
+    ]
+  }
+}

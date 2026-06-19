@@ -8,6 +8,8 @@ Each validation step has its own folder. New work should add a new numbered stag
 - `04_viewer/` is only for human visual inspection after metrics pass.
 - `05_m4_candidate_metrics/` records non-visual metrics for the optional M4
   official-topology candidate data path.
+- `08_m4_candidate_viewer/` records a real Godot ArrayMesh/MeshDataTool
+  viewer/export path for the optional M4 candidate.
 
 Rule: proof comes from JSON metrics first; screenshots are secondary.
 

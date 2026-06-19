@@ -17,6 +17,7 @@ C core compiles and runs when a C compiler is available
 optional M4 candidate backend package example compiles and runs when a C compiler is available
 optional M4 candidate backend terrain export compiles and runs when a C compiler is available
 optional M4 candidate table is synced into the Godot data path and passes Godot-style metrics without executing Godot
+optional M4 candidate table can feed a real Godot ArrayMesh/MeshDataTool viewer/export path when RUN_M11 is executed with Godot
 small dist/transvoxel_0bsd_core.zip can be built
 ```
 
@@ -54,6 +55,11 @@ table as staged generated data and that the table satisfies the same non-visual
 metrics shape used by the new M4 Godot stage. `RUN_M10.cmd` executes that stage
 too when a Godot executable is available.
 
+The M4 Godot viewer/export proof checks that the synced M4 candidate table can
+build real Godot `ArrayMesh` objects for a case gallery and deterministic
+terrain-strip-style mesh, and that `MeshDataTool` can read them back. This is
+`RUN_M11.cmd`; it still keeps M4 optional.
+
 ## Godot's role
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.
@@ -67,7 +73,7 @@ byte-for-byte identity with Eric Lengyel's MIT Transvoxel.cpp
 field-for-field drop-in compatibility with every existing Transvoxel.cpp consumer
 official 73-class transition compression
 official topology equivalence for the optional M4 candidate backend
-Godot runtime terrain validation through the optional M4 candidate backend
+finished Godot gameplay terrain/GDExtension integration through the optional M4 candidate backend
 a complete game terrain engine
 chunk streaming
 physics/collision generation

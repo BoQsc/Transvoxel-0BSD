@@ -25,14 +25,16 @@ example, and the optional M4 terrain export example when a compiler is available
 Runs the staged Godot validators and checks the production gate using the latest generated data.
 
 The optional M4 candidate Godot data-path metrics are checked by the Python
-proof suite and `RUN_M10.cmd`. Actual Godot execution of the M4 stage is still a
-separate local runtime action.
+proof suite and `RUN_M10.cmd`. `RUN_M11.cmd` additionally requires actual Godot
+runtime execution of the M4 viewer/export mesh path.
 
 ## Full release proof
 
 `RUN_FULL.cmd` or `RUN.cmd`
 
-Runs everything: Python proof, C core compile, dist build, Godot runtime dump, Godot mesh dump, seam metrics, and production gate.
+Runs everything: Python proof, C core compile, dist build, Godot runtime dump,
+Godot mesh dump, seam metrics, optional M4 Godot runtime stages, and production
+gate.
 
 Upload only:
 
@@ -50,4 +52,5 @@ Runs the deterministic Godot headless auto-interaction proof. It is for checking
 RUN_M8.cmd   optional M4 backend package proof
 RUN_M9.cmd   optional M4 terrain export proof
 RUN_M10.cmd  optional M4 Godot data-path metrics proof
+RUN_M11.cmd  optional M4 Godot viewer/export mesh proof
 ```

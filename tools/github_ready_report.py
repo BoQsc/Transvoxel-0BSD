@@ -34,6 +34,7 @@ REQUIRED_FILES = [
     "docs/CORE_PACKAGE_CONTENTS.md",
     "docs/PROJECT_TRACKS.md",
     "RUN_M10.cmd",
+    "RUN_M11.cmd",
     "include/transvoxel.h",
     "include/transvoxel_m4_candidate.h",
     "include/transvoxel_m4_backend.h",
@@ -48,9 +49,12 @@ REQUIRED_FILES = [
     "tools/test_m4_backend_c.py",
     "tools/test_m4_terrain_c.py",
     "tools/validate_m4_godot_candidate.py",
+    "tools/validate_m4_godot_viewer.py",
     "godot/generated/official_topology_candidate_tables.json",
     "godot/stages/05_m4_candidate_metrics/DumpM4CandidateMetrics.gd",
     "godot/stages/05_m4_candidate_metrics/README.md",
+    "godot/stages/08_m4_candidate_viewer/DumpM4CandidateViewer.gd",
+    "godot/stages/08_m4_candidate_viewer/README.md",
     "dist/transvoxel_0bsd_core.zip",
 ]
 

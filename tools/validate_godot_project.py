@@ -25,6 +25,7 @@ REQUIRED = [
     GODOT / "generated" / "transvoxel_tables.json",
     GODOT / "generated" / "official_topology_candidate_tables.json",
     STAGES / "05_m4_candidate_metrics" / "DumpM4CandidateMetrics.gd",
+    STAGES / "08_m4_candidate_viewer" / "DumpM4CandidateViewer.gd",
 ]
 
 EXPECTED_SCHEMAS = {
@@ -105,6 +106,14 @@ def main() -> int:
         if token not in m4_script:
             print("godot preflight: FAIL")
             print("M4 candidate script missing token", token)
+            return 1
+
+    m4_viewer_script = (STAGES / "08_m4_candidate_viewer" / "DumpM4CandidateViewer.gd").read_text(encoding="utf-8")
+    m4_viewer_tokens = ["M4_PATH", "OUT_PATH", "_build_case_gallery", "_build_terrain_strip", "_make_array_mesh", "MeshDataTool"]
+    for token in m4_viewer_tokens:
+        if token not in m4_viewer_script:
+            print("godot preflight: FAIL")
+            print("M4 viewer script missing token", token)
             return 1
 
     for gd_path in sorted(STAGES.rglob("*.gd")):
