@@ -49,9 +49,16 @@ published_reference_sign_orientation_equivalence: PROVEN_M18
 published_transition_topology_behavior: PROVEN_M19
 clean_room_regular_cell_equivalence: PROVEN_M20
 exact_official_triangulation_identity: NOT_PROVEN
+official_oracle_baseline: COMPLETE_M23
+exact_replacement_finish_line: ACTIVE
 ```
 
 This track may fail, change direction, or produce new candidate generators. It should not break the independent core.
+
+M23 uses a verified external MIT checkout only as an isolated comparison
+oracle. The repository stores case-level booleans, counts, and hashes, not
+oracle arrays. M24 targets the measured topology mismatches before any
+unchanged-consumer integration claim.
 
 ## Why this split exists
 

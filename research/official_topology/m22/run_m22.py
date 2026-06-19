@@ -131,7 +131,10 @@ def main() -> int:
         and readiness.get("decisions", {}).get("exact_table_compatible_replacement_ready") is False
         and readiness.get("decisions", {}).get("exact_compatibility_claim_boundary_documented") is True
         and readiness.get("next_milestone", {}).get("id")
-        == "M23_FUNCTIONAL_RELEASE_HARDENING_NO_LOCAL_ZIP"
+        in {
+            "M23_OFFICIAL_ORACLE_BASELINE",
+            "M24_EXACT_TOPOLOGY_CONVERGENCE",
+        }
         and set(readiness.get("blocking_gate_ids", []))
         == {
             "official_class_id_mapping",

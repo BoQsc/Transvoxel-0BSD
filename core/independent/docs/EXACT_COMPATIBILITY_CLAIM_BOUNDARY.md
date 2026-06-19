@@ -44,6 +44,23 @@ The expected report status is:
 PASS_M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY
 ```
 
-Official arrays remain forbidden as generator inputs, tuning oracles, or copied
-data sources. Exact compatibility work, if ever pursued, must remain a separate
-no-copy research track.
+Official arrays remain forbidden as generator inputs or copied data sources for
+the shipped 0BSD product. The isolated M23 comparator may return aggregate
+match/mismatch evidence but does not emit oracle table values.
+
+## Active exact-replacement goal
+
+The intended finish line is exact drop-in compatibility, not merely the
+functional API claim. M23 therefore permits one isolated external-oracle
+comparison process:
+
+```text
+read a verified external MIT Transvoxel.cpp checkout
+compare all 256 regular and 512 transition cases
+emit hashes, counts, and mismatch categories only
+never copy or package oracle arrays in the 0BSD repository
+```
+
+Exact replacement means compatible topology, table fields/encodings, exported
+symbols, and unchanged-consumer integration. Byte-identical source text is not
+required.

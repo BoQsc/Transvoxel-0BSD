@@ -5,6 +5,11 @@ M21 makes the public C/C++ API ready as a functional clean-room Transvoxel.cpp r
 M22 locks the exact-compatibility claim boundary. The functional replacement
 claim is allowed; exact official compatibility claims remain blocked.
 
+M23 confirms those exact gaps by comparing all cases with a verified external
+oracle. The current implementation is not yet an exact drop-in replacement.
+Exact replacement is the active finish line, and M24 targets topology
+convergence before field/symbol compatibility and unchanged-consumer tests.
+
 Still not claimed:
 
 ```text

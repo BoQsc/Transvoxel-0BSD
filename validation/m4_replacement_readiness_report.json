@@ -11,7 +11,9 @@
     "allowed_now": "Functional clean-room Transvoxel.cpp replacement through the public C/C++ API: default regular and transition builders use clean-room published behavior; C and C++ consumers can compile/link; callback customization is retained.",
     "byte_identity_required_for_exact_table_identity_claim": true,
     "byte_identity_required_for_functional_replacement": false,
+    "exact_replacement_finish_line": "Field/output/symbol compatibility sufficient for unchanged consumer integration. Byte-identical source text is not required.",
     "m22_claim_boundary_report": "validation/exact_compatibility_claim_boundary_report.json",
+    "m23_official_oracle_report": "validation/official_oracle_comparison_report.json",
     "not_allowed_now": "Exact official Transvoxel.cpp table layout, class-ID, vertex encoding, triangulation-identity, or byte-identity claim."
   },
   "decisions": {
@@ -384,9 +386,9 @@
   "load_errors": [],
   "meaning": "The public clean-room C/C++ API is ready to use as a functional Transvoxel.cpp replacement: default regular cells, default M4 transition cells, published behavior proofs, and consumer compile/link tests pass. Exact official table layout, class IDs, vertex encoding, triangulation identity, and byte identity remain separate blocked claims.",
   "next_milestone": {
-    "id": "M23_FUNCTIONAL_RELEASE_HARDENING_NO_LOCAL_ZIP",
-    "objective": "Keep the functional replacement evidence green and harden release-facing docs/checks without building a local zip.",
-    "why_first": "M22 locks the exact-compatibility claim boundary. The next useful work is release hardening around the functional 0BSD core while exact official compatibility remains a separate research track."
+    "id": "M24_EXACT_TOPOLOGY_CONVERGENCE",
+    "objective": "Converge all 256 regular and 512 transition cases on the verified official edge-labeled oriented topology.",
+    "why_first": "M23 measured the exact gaps. Counts and crossing-edge sets already match, while regular and transition triangulation choices still differ in many cases."
   },
   "passing_gate_ids": [
     "m4_runtime_tables",

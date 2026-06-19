@@ -78,5 +78,9 @@ RUN_M22.cmd
 
 The current expected result is a passing readiness analysis with the
 functional full replacement decision ready, exact table-compatible replacement
-blocked, the M22 claim boundary documented, and M23 functional release hardening
-without a local zip selected as the next milestone.
+blocked, the M22 claim boundary documented, the M23 exhaustive oracle baseline
+complete, and M24 exact topology convergence selected as the next milestone.
+
+The exact-replacement finish line requires field/output/symbol compatibility
+and unchanged-consumer integration. It does not require byte-identical source
+text.

@@ -136,6 +136,11 @@ machine-readable reports allow the functional public C/C++ replacement claim
 while keeping exact official table layout, 73-class IDs, vertex/reuse encoding,
 triangulation identity, and byte identity unclaimed.
 
+The M23 official-oracle baseline reads a verified external checkout of Eric
+Lengyel's MIT `Transvoxel.cpp`, compares all 256 regular and 512 transition
+cases, and records only hashes, counts, and mismatch categories. It proves that
+the exact gap is measured. It does not itself prove exact replacement.
+
 ## Godot's role
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.

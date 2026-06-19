@@ -34,6 +34,9 @@ CONSUMER_COMPATIBILITY_REPORT = (
 EXACT_CLAIM_BOUNDARY_REPORT = (
     ROOT / "validation" / "exact_compatibility_claim_boundary_report.json"
 )
+OFFICIAL_ORACLE_REPORT = (
+    ROOT / "validation" / "official_oracle_comparison_report.json"
+)
 M15_REPORT = ROOT / "research" / "official_topology" / "m15" / "m15_report.json"
 M15_EXPECTED_STATUS = (
     "PASS_M15_M4_SIX_FACE_ORIENTATION_OFFICIAL_EQUIVALENCE_NOT_PROVEN"
@@ -221,6 +224,11 @@ def main() -> int:
     exact_claim_boundary = (
         read_json(EXACT_CLAIM_BOUNDARY_REPORT)
         if EXACT_CLAIM_BOUNDARY_REPORT.exists()
+        else {}
+    )
+    official_oracle = (
+        read_json(OFFICIAL_ORACLE_REPORT)
+        if OFFICIAL_ORACLE_REPORT.exists()
         else {}
     )
     if M15_REPORT.exists():
@@ -584,19 +592,39 @@ def main() -> int:
     )
     if functional_ready:
         if claim_boundary_documented:
-            next_milestone = {
-                "id": "M23_FUNCTIONAL_RELEASE_HARDENING_NO_LOCAL_ZIP",
-                "objective": (
-                    "Keep the functional replacement evidence green and harden "
-                    "release-facing docs/checks without building a local zip."
-                ),
-                "why_first": (
-                    "M22 locks the exact-compatibility claim boundary. The next "
-                    "useful work is release hardening around the functional "
-                    "0BSD core while exact official compatibility remains a "
-                    "separate research track."
-                ),
-            }
+            if (
+                official_oracle.get("status")
+                == "PASS_M23_OFFICIAL_ORACLE_BASELINE_EXACT_REPLACEMENT_NOT_READY"
+                and official_oracle.get("decisions", {}).get(
+                    "oracle_baseline_complete"
+                )
+                is True
+            ):
+                next_milestone = {
+                    "id": "M24_EXACT_TOPOLOGY_CONVERGENCE",
+                    "objective": (
+                        "Converge all 256 regular and 512 transition cases on "
+                        "the verified official edge-labeled oriented topology."
+                    ),
+                    "why_first": (
+                        "M23 measured the exact gaps. Counts and crossing-edge "
+                        "sets already match, while regular and transition "
+                        "triangulation choices still differ in many cases."
+                    ),
+                }
+            else:
+                next_milestone = {
+                    "id": "M23_OFFICIAL_ORACLE_BASELINE",
+                    "objective": (
+                        "Compare every regular and transition case with a "
+                        "verified external official Transvoxel.cpp oracle."
+                    ),
+                    "why_first": (
+                        "Exact replacement is the intended finish line. A "
+                        "measured exhaustive baseline is required before "
+                        "changing topology, encoding, or compatibility surfaces."
+                    ),
+                }
         else:
             next_milestone = {
                 "id": "M22_EXACT_COMPATIBILITY_CLAIM_BOUNDARY",
@@ -845,6 +873,16 @@ def main() -> int:
                 rel(EXACT_CLAIM_BOUNDARY_REPORT)
                 if EXACT_CLAIM_BOUNDARY_REPORT.exists()
                 else "validation/exact_compatibility_claim_boundary_report.json"
+            ),
+            "m23_official_oracle_report": (
+                rel(OFFICIAL_ORACLE_REPORT)
+                if OFFICIAL_ORACLE_REPORT.exists()
+                else "validation/official_oracle_comparison_report.json"
+            ),
+            "exact_replacement_finish_line": (
+                "Field/output/symbol compatibility sufficient for unchanged "
+                "consumer integration. Byte-identical source text is not "
+                "required."
             ),
         },
     }

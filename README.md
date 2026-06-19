@@ -36,6 +36,8 @@ Published transition topology behavior: PROVEN by M19 for all 512 cases
 Clean-room regular-cell behavior: PROVEN and default regular table replaced by M20
 Functional full replacement readiness: READY by M21 through public C/C++ API
 Exact compatibility claim boundary: LOCKED by M22; exact official compatibility remains NOT_PROVEN
+Official oracle baseline: M23 compares all 256 regular and 512 transition cases
+Exact replacement finish line: ACTIVE; next milestone is exact topology convergence
 Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
 ```
 
@@ -140,6 +142,7 @@ RUN_M19.cmd         published transition-topology behavior proof
 RUN_M20.cmd         clean-room regular-cell replacement/equivalence proof
 RUN_M21.cmd         default M4 transition + C/C++ consumer compatibility proof
 RUN_M22.cmd         exact compatibility claim-boundary proof
+RUN_M23.cmd         exhaustive external official-oracle comparison
 ```
 
 After a local run, this file can be uploaded for debugging or confirmation:
@@ -163,6 +166,12 @@ behavior. M20 replaces the default regular table, and M21 selects the default
 clean-room M4 transition table and proves public C/C++ functional consumer
 compatibility. Exact table compatibility remains separate and currently
 `NOT_PROVEN`.
+
+The intended project finish line is now explicit: an exact drop-in replacement
+for the official table behavior and consumer surface, without depending on the
+MIT file at runtime. M23 establishes the isolated external-oracle baseline.
+This does not mean copying or packaging the MIT arrays, and it does not require
+byte-identical source text.
 
 ## What this proves
 

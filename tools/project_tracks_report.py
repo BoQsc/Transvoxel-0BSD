@@ -57,6 +57,9 @@ def main() -> int:
     claim_boundary = read_json(
         "validation/exact_compatibility_claim_boundary_report.json"
     )
+    official_oracle = read_json(
+        "validation/official_oracle_comparison_report.json"
+    )
 
     independent_ok = not missing_independent
     official_track_ok = not missing_official
@@ -109,6 +112,14 @@ def main() -> int:
                         "NOT_PROVEN",
                     )
                 ),
+                "official_oracle_baseline": official_oracle.get(
+                    "status",
+                    "NOT_RUN",
+                ),
+                "exact_replacement_ready": official_oracle.get(
+                    "decisions",
+                    {},
+                ).get("exact_replacement_ready", False),
             },
         },
         "supporting_reports": {
@@ -135,6 +146,9 @@ def main() -> int:
             "exact_compatibility_claim_boundary_status": claim_boundary.get(
                 "status"
             ),
+            "official_oracle_comparison_status": official_oracle.get(
+                "status"
+            ),
         },
         "meaning": (
             "The independent core can be released/evaluated independently. "
@@ -142,8 +156,9 @@ def main() -> int:
             "topology behavior, and clean-room regular-cell behavior are "
             "proven by M18-M20. M21 proves the default clean-room M4 "
             "transition export and public C/C++ consumer contract. M22 locks "
-            "the exact compatibility claim boundary; exact table compatibility "
-            "remains separate."
+            "the exact compatibility claim boundary. M23 measures every "
+            "regular and transition case against the verified external "
+            "official oracle; exact replacement remains active work."
         ),
     }
     VALIDATION.mkdir(exist_ok=True)

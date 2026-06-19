@@ -54,6 +54,6 @@ Status: **READY_FUNCTIONAL_FULL_TRANSVOXEL_CPP_REPLACEMENT_EXACT_COMPATIBILITY_B
 
 ## Next milestone
 
-`M23_FUNCTIONAL_RELEASE_HARDENING_NO_LOCAL_ZIP` — Keep the functional replacement evidence green and harden release-facing docs/checks without building a local zip.
+`M24_EXACT_TOPOLOGY_CONVERGENCE` — Converge all 256 regular and 512 transition cases on the verified official edge-labeled oriented topology.
 
 Byte-for-byte table identity is tracked separately. It is not required for a functional clean-room replacement, but it is required before claiming exact table-file compatibility.
