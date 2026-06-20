@@ -25,6 +25,7 @@ examples/c_m21_consumer_contract/ exhaustive C consumer contract example
 examples/cpp_consumer/            C++ include/link smoke example
 docs/API.md                       API reference
 docs/DROP_IN.md                   how to embed
+docs/CHOOSING_0BSD_OR_MIT.md      production path decision guide
 docs/WHAT_THIS_PROVES.md          proof boundary
 docs/C_COMPILER.md                C compiler notes
 docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md
@@ -43,6 +44,11 @@ clean-room M4 published-topology source in `generated/transvoxel_tables.h`. The
 separate M4 files are included for explicit direct/oriented/mapped APIs and for
 the callback-adapter compatibility example. They do not prove exact official
 `Transvoxel.cpp` table layout or byte identity.
+
+This package is a functional 0BSD path, not the MIT exact-output path. It uses
+different valid interior connectivity in 170/256 regular and 373/512
+transition cases. Read `docs/CHOOSING_0BSD_OR_MIT.md` before selecting it for a
+production terrain system.
 
 The package intentionally excludes Godot, proof outputs, generated JSON, and
 official-topology research scripts.

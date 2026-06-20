@@ -26,6 +26,14 @@ python tools/release_candidate_report.py
 python tools/github_ready_report.py
 ```
 
+When this environment should validate the unpacked package without creating or
+replacing a ZIP, use:
+
+```sh
+python tools/build_dist.py --no-zip
+python tools/release_candidate_report.py --package-dir
+```
+
 On Windows with Godot installed, run:
 
 ```text
@@ -50,6 +58,12 @@ as the small public drop-in package.
 
 Use the full source zip for people who want the generator/proof/Godot validation stack.
 
+Release notes must link `docs/CHOOSING_0BSD_OR_MIT.md` and state that MIT exact
+is the conservative choice for exact topology or existing table consumers.
+The 0BSD package should be selected deliberately for its provenance, with
+target-engine visual, collision, LOD, editing, streaming, and performance
+qualification.
+
 ## Claims to keep
 
 Safe claim:
@@ -64,6 +78,7 @@ Do not claim:
 Official Transvoxel.cpp under public domain.
 Official 73-class equivalence proven.
 Byte-identical or table-identical to Eric Lengyel's MIT tables.
+Equal production history or equal per-case interior topology to the MIT exact path.
 ```
 
 ## Tagging

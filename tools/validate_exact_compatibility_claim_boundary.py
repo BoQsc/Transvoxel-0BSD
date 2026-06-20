@@ -49,6 +49,7 @@ CLAIM_FILES = [
     "README.md",
     "README_CORE.txt",
     "docs/API.md",
+    "docs/CHOOSING_0BSD_OR_MIT.md",
     "docs/CORE_PACKAGE_CONTENTS.md",
     "docs/DROP_IN.md",
     "docs/KNOWN_LIMITS.md",
@@ -62,11 +63,17 @@ CLAIM_FILES = [
 REQUIRED_PHRASES = {
     "README.md": [
         "Functional full replacement readiness: READY by M21 through public C/C++ API",
-        "Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN",
+        "Official numeric class IDs / byte table identity: NOT_PROVEN",
     ],
     "README_CORE.txt": [
         "functional Transvoxel.cpp replacement through public C/C++ API",
         "does not claim official 73-class table or byte identity",
+    ],
+    "docs/CHOOSING_0BSD_OR_MIT.md": [
+        "Use the MIT exact path when:",
+        "Use the independent 0BSD core when:",
+        "regular cases:    86 / 256",
+        "transition cases: 139 / 512",
     ],
     "docs/KNOWN_LIMITS.md": [
         "M21 makes the public C/C++ API ready as a functional clean-room Transvoxel.cpp replacement",

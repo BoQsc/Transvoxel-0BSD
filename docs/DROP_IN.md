@@ -1,6 +1,19 @@
 # Drop-in use
 
-Use the small release zip:
+## Choose the path before embedding
+
+Use the MIT exact path if the project needs exact official per-case topology,
+the original table-consumer contract, or the most conservative production
+choice. Use this 0BSD package if independent provenance is required and the
+target engine can qualify visual, collision, LOD, editing, and performance
+behavior.
+
+The public 0BSD core matches per-case counts, crossing-edge vertex sets, and
+tested seam boundaries, but uses different valid interior connectivity in
+170/256 regular and 373/512 transition cases. Read
+`docs/CHOOSING_0BSD_OR_MIT.md` before selecting it.
+
+After selecting the 0BSD path, use the small release package:
 
 ```text
 dist/transvoxel_0bsd_core.zip
@@ -88,6 +101,10 @@ tv_uninstall_m4_transition_backend_candidate();
 This adapter uses the same clean-room M4 topology source as the default path.
 Official `Transvoxel.cpp` byte/table identity, class IDs, reuse encoding, and
 exact triangulation identity are still `NOT_PROVEN`.
+
+Code that directly reads official class IDs, packed reuse fields, or table
+layout is not source-compatible with this public API. The repository's
+separate exact path supports that integration boundary under MIT.
 
 For an explicitly oriented transition face, call the direct candidate API:
 

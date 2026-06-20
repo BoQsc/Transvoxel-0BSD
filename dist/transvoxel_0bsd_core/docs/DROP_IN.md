@@ -1,6 +1,19 @@
 # Drop-in use
 
-Use the small release zip:
+## Choose the path before embedding
+
+Use the MIT exact path if the project needs exact official per-case topology,
+the original table-consumer contract, or the most conservative production
+choice. Use this 0BSD package if independent provenance is required and the
+target engine can qualify visual, collision, LOD, editing, and performance
+behavior.
+
+The public 0BSD core matches per-case counts, crossing-edge vertex sets, and
+tested seam boundaries, but uses different valid interior connectivity in
+170/256 regular and 373/512 transition cases. Read
+`docs/CHOOSING_0BSD_OR_MIT.md` before selecting it.
+
+After selecting the 0BSD path, use the small release package:
 
 ```text
 dist/transvoxel_0bsd_core.zip
@@ -44,7 +57,76 @@ zig cc -std=c99 -Iinclude -Igenerated src/transvoxel.c examples/c_terrain_export
 It writes:
 
 ```text
-terrain_export.obj
+terrain_lod_seam.obj
+terrain_lod_seam.mtl
+terrain_lod_seam_report.txt
+```
+
+## M4 direct API and callback adapter
+
+The normal `tv_build_transition_cell()` path already uses the clean-room M4
+published-topology table by default. The package also includes explicit M4
+direct/oriented/mapped APIs and a callback adapter. These are useful for
+advanced face-frame calls, mapped edge/corner transition cells, and testing the
+public callback hook.
+
+Add these files only if you want those explicit APIs or the callback-adapter
+example:
+
+```text
+include/transvoxel_m4_candidate.h
+include/transvoxel_m4_backend.h
+src/transvoxel_m4_candidate.c
+src/transvoxel_m4_backend.c
+generated/official_topology_candidate_tables.h
+```
+
+Compile:
+
+```sh
+zig cc -std=c99 -Iinclude -Igenerated src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_m4_backend_switch/main.c -o c_m4_backend_switch
+```
+
+Install the adapter explicitly if you want to test or override the callback
+route:
+
+```c
+#include "transvoxel_m4_backend.h"
+
+tv_install_m4_transition_backend_candidate();
+/* Existing tv_build_transition_cell() calls now route through the M4 adapter. */
+tv_uninstall_m4_transition_backend_candidate();
+```
+
+This adapter uses the same clean-room M4 topology source as the default path.
+Official `Transvoxel.cpp` byte/table identity, class IDs, reuse encoding, and
+exact triangulation identity are still `NOT_PROVEN`.
+
+Code that directly reads official class IDs, packed reuse fields, or table
+layout is not source-compatible with this public API. The repository's
+separate exact path supports that integration boundary under MIT.
+
+For an explicitly oriented transition face, call the direct candidate API:
+
+```c
+TvBuildInfo info = tv_m4_build_transition_cell_candidate_oriented(
+    samples, 0.0f, TV_M4_FACE_POSITIVE_X, origin, scale,
+    vertices, TV_M4_TRANSITION_MAX_VERTICES,
+    triangles, TV_M4_TRANSITION_MAX_TRIANGLES);
+```
+
+The six built-in face frames are validated by `RUN_M15.cmd`.
+
+For edge/corner cells whose half-resolution face must be inset, generate mapped
+sample positions with `tv_m4_transition_frame_sample_positions()` and call
+`tv_m4_build_transition_cell_candidate_mapped()`. `RUN_M16.cmd` validates this
+path where three perpendicular transition faces meet.
+
+The terrain export example can also be compiled with the M4 callback adapter:
+
+```sh
+zig cc -std=c99 -Iinclude -Igenerated -DTV_EXAMPLE_USE_M4_BACKEND_CANDIDATE src/transvoxel.c src/transvoxel_m4_candidate.c src/transvoxel_m4_backend.c examples/c_terrain_export/main.c -o terrain_export_m4
+./terrain_export_m4
 ```
 
 ## Mental model
@@ -118,7 +200,11 @@ TvBuildInfo info = tv_build_transition_cell(
     TV_TRANSITION_MAX_TRIANGLES);
 ```
 
-`tv_transition_fill_derived_samples()` matches the conservative transition boundary contract used by the proof suite. If your engine has true coarse samples, you can provide all 14 transition samples yourself.
+`tv_transition_fill_derived_samples()` matches the conservative transition
+boundary contract used by the proof suite. The default M4 transition path uses
+samples `0..12`; sample `13` is kept for ABI compatibility and ignored by the
+default backend. If your engine has true coarse samples, you can provide all 14
+transition samples yourself.
 
 ## Error handling
 

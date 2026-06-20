@@ -126,3 +126,17 @@ interiors. The independent deterministic rule does not match every authored
 official interior, and the exact candidate uses MIT-oracle-calibrated choices.
 Further review requires explicit permission/relicensing or a changed project
 requirement; another automatic milestone cannot resolve this provenance fact.
+
+## Production selection
+
+Terminal readiness does not mean the two paths have equal risk. Use the MIT
+exact path when exact official per-case topology, original table-consumer
+compatibility, or established production behavior matters. Use the 0BSD path
+when independent provenance is required and the project can qualify its
+different interiors across visual output, collision, editing, LOD switching,
+streaming, and performance.
+
+The 0BSD path matches exact oriented topology in 86/256 regular and 139/512
+transition cases; the other 170 regular and 373 transition cases use different
+valid interiors while preserving the tested boundary contract. See
+`docs/CHOOSING_0BSD_OR_MIT.md`.

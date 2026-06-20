@@ -1,5 +1,22 @@
 # Known Limits
 
+## Production trust boundary
+
+The 0BSD core is usable, but it should not be presented as having the same
+production risk as the MIT exact path. Use MIT exact by default when exact
+official topology, existing table-consumer compatibility, or established
+production behavior is the priority. Choose 0BSD when independent provenance
+is a real requirement and the project accepts additional engine-level
+qualification.
+
+The independent path matches vertex counts, triangle counts, crossing-edge
+vertex sets, and tested seam boundaries for every case. Exact oriented
+interior topology matches only 86/256 regular and 139/512 transition cases.
+Different valid interiors can change local normals, lighting, interpolation,
+collision triangles, and contact response even when seams remain closed.
+
+See `docs/CHOOSING_0BSD_OR_MIT.md` for the full decision boundary.
+
 M21 makes the public C/C++ API ready as a functional clean-room Transvoxel.cpp replacement: default regular cells use the M20 clean-room table, default transition cells use the M21 clean-room M4 published-topology table, and the consumer compatibility contract is tested.
 
 M22 locks the exact-compatibility claim boundary. The functional replacement

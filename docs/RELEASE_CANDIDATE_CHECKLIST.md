@@ -15,6 +15,18 @@ release_candidate_report: PASS
 
 The `NOT_PROVEN` official-equivalence result is intentional. It prevents the project from making stronger claims than the proof supports.
 
+For the current repository-wide result, also confirm:
+
+```text
+MIT exact semantic topology/integration: PROVEN_M24_TO_M26
+exact semantic 0BSD release: NOT_ACHIEVED_M27
+production selection guide: docs/CHOOSING_0BSD_OR_MIT.md
+```
+
+The release must not imply equal production history or equal per-case interior
+topology. MIT exact is the conservative recommendation for existing production
+consumers; the 0BSD path requires target-engine qualification.
+
 The small core zip should not contain:
 
 ```text

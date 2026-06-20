@@ -97,6 +97,8 @@ comparison; it does not copy dissertation figures or official lookup arrays.
 
 The independent public core, generators, and aggregate reports use 0BSD. Exact
 selection-bearing M24-M26 artifacts use MIT; see `LICENSE_SCOPE.md`.
+This provenance split does not imply equal production behavior or risk. The
+engineering selection guidance is in `docs/CHOOSING_0BSD_OR_MIT.md`.
 
 ## External review sources added in v24
 

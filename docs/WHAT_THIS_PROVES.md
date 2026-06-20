@@ -181,6 +181,19 @@ replacement goal is not achieved. This is terminal; no M28 is selected.
 
 Godot is used as a validator and interactive sandbox, not as the main product. The main product is the engine-independent C core.
 
+## What a passing proof does not mean
+
+A passing proof means the independent core satisfies the documented functional,
+case, winding, boundary, seam, and consumer contracts. It does not establish
+equal production history, equal per-case interior topology, or equal
+integration risk with the MIT exact path.
+
+The 0BSD core differs in interior connectivity for 170/256 regular and 373/512
+transition cases. Those differences may affect local rendered or collision
+surfaces without opening a tested seam. Production users must still validate
+their normal generation, materials, collision, editing, LOD switching,
+streaming, and performance. See `docs/CHOOSING_0BSD_OR_MIT.md`.
+
 ## Not proven / not claimed
 
 This project does not claim:

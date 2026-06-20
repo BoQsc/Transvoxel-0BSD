@@ -1,6 +1,9 @@
 # Correctness Argument
 
-This project should be judged by the external Transvoxel outcome, not by byte identity with the official MIT table file.
+The public 0BSD core should be judged by its documented functional and boundary
+contract, not by byte identity with the official MIT table file. The separate
+MIT exact path should be judged by the stronger semantic compatibility evidence
+from M24-M26.
 
 ## Required outcome
 
@@ -15,11 +18,16 @@ degenerate_triangles = 0
 failed_checks = 0
 ```
 
-## Why table identity is not the proof target
+## Why table identity is not the public 0BSD proof target
 
 The official Transvoxel repository contains data tables. Those tables are useful, but copying them would carry their license and provenance. This project instead proves the same type of external seam behavior through independent generation and validation.
 
 Therefore, this project does not need to reproduce the exact official table bytes, table names, class ids, or packed encodings to be useful. It needs to prove that the generated meshes satisfy the same seam contract.
+
+Usefulness is not the same as equal production risk. The 0BSD core uses
+different valid interior connectivity in 170/256 regular and 373/512
+transition cases. This can alter local rendered or collision surfaces while
+preserving tested boundaries. See `docs/CHOOSING_0BSD_OR_MIT.md`.
 
 ## Proof layers in this repository
 
@@ -83,11 +91,17 @@ When `RUN_FULL.cmd` passes, this project has proven:
 
 The proof does not claim:
 
-- identical triangle topology to Eric Lengyel's table file;
 - official 73-class compression;
-- exact field-for-field `Transvoxel.cpp` drop-in table replacement;
+- official numeric class IDs or byte identity;
+- an exact 0BSD release of the M24-M26 MIT compatibility data;
+- equal production history or equal integration risk between the two paths;
 - final game terrain art quality;
+- production collision/contact behavior;
 - production performance in a large streaming world.
+
+M24-M26 do prove identical oriented case topology and exact semantic downstream
+integration for the isolated MIT path. M27 records that the exact data cannot
+be represented as an all-0BSD replacement under the current provenance policy.
 
 ## Current verdict
 
@@ -98,3 +112,7 @@ An independently generated 0BSD Transvoxel-style voxel LOD transition core
 that proves the main seam/transition outcome through exhaustive table checks,
 Godot runtime validation, scripted edit validation, and C core compile tests.
 ```
+
+For conservative production compatibility, use the MIT exact path. Choose the
+0BSD path deliberately when its provenance advantage justifies additional
+target-engine qualification.

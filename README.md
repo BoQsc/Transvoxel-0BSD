@@ -9,9 +9,21 @@ reports are 0BSD. The isolated exact oracle-calibrated artifacts in M24-M26
 are explicitly MIT under [`LICENSES/MIT.txt`](LICENSES/MIT.txt) and are never
 included in the 0BSD core package. See [`LICENSE_SCOPE.md`](LICENSE_SCOPE.md).
 
-## Use this first
+## Choose the implementation first
 
-Most users should start with the small release asset, not the full proof repository:
+Use the MIT exact path when conservative production compatibility, original
+`Transvoxel.cpp` topology, or the original table-consumer contract matters.
+Use the independent 0BSD core when 0BSD provenance is a real requirement and
+the integration can be qualified in the target terrain system.
+
+The MIT license already permits commercial, closed-source, and modified use
+when its copyright and permission notice are preserved. The 0BSD path is
+strongly tested and usable, but 170/256 regular cases and 373/512 transition
+cases use different valid interior connectivity than the exact MIT path. See
+[`docs/CHOOSING_0BSD_OR_MIT.md`](docs/CHOOSING_0BSD_OR_MIT.md).
+
+After choosing the 0BSD path, start with the small release asset rather than
+the full proof repository:
 
 ```text
 dist/transvoxel_0bsd_core.zip
@@ -40,7 +52,7 @@ Published transition reference convention: PROVEN by M18 through an explicit 512
 Published transition topology behavior: PROVEN by M19 for all 512 cases
 Clean-room regular-cell behavior: PROVEN and default regular table replaced by M20
 Functional full replacement readiness: READY by M21 through public C/C++ API
-Exact compatibility claim boundary: LOCKED by M22; exact official compatibility remains NOT_PROVEN
+Exact compatibility claim boundary: LOCKED by M22
 Official oracle baseline: M23 compares all 256 regular and 512 transition cases
 Exact oriented topology identity: PROVEN by M24 for all 256 + 512 cases
 M24-M26 exact candidate data license: MIT / ISOLATED_FROM_0BSD_CORE
@@ -50,7 +62,7 @@ Full Godot Voxel Windows GDExtension build with Zig: PASS by M26
 Exact semantic drop-in integration: READY
 Exact semantic drop-in 0BSD release: NOT_ACHIEVED by terminal M27 provenance decision
 Roadmap: TERMINAL at M27; no automatic M28
-Official Transvoxel.cpp / 73-class table equivalence: NOT_PROVEN
+Official numeric class IDs / byte table identity: NOT_PROVEN
 ```
 
 The public core is **not** Eric Lengyel's MIT `Transvoxel.cpp` relicensed. It
@@ -117,10 +129,12 @@ examples/c_m21_consumer_contract/
 examples/cpp_consumer/
 docs/API.md
 docs/DROP_IN.md
+docs/CHOOSING_0BSD_OR_MIT.md
 docs/WHAT_THIS_PROVES.md
 docs/C_COMPILER.md
 docs/CORE_PACKAGE_CONTENTS.md
 docs/KNOWN_LIMITS.md
+docs/TESTING_BY_USERS.md
 docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md
 LICENSE
 LICENSE_SCOPE.md
@@ -180,7 +194,8 @@ core/independent/          proven practical 0BSD core candidate
 research/official_topology/ no-copy research into official 73-class/topology equivalence
 ```
 
-The independent core is the usable product candidate. M18 proves the published
+The independent core is a usable product candidate, not a claim of equal
+production history or equal per-case topology. M18 proves the published
 transition reference convention and M19 proves published transition topology
 behavior. M20 replaces the default regular table, and M21 selects the default
 clean-room M4 transition table and proves public C/C++ functional consumer
@@ -235,6 +250,10 @@ finished game terrain visual quality
 collision, streaming, materials, gameplay, or performance certification
 ```
 
+A passing proof establishes the documented functional and boundary contract.
+It does not make the 0BSD path the lower-risk default for existing production
+consumers. See `docs/CHOOSING_0BSD_OR_MIT.md` for the operational choice.
+
 See:
 
 ```text
@@ -248,6 +267,7 @@ docs/PROJECT_TRACKS.md
 
 ```text
 docs/DROP_IN.md
+docs/CHOOSING_0BSD_OR_MIT.md
 docs/API.md
 docs/CORE_PACKAGE_CONTENTS.md
 docs/WHAT_THIS_PROVES.md

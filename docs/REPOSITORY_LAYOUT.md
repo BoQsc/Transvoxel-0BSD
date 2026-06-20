@@ -16,6 +16,8 @@ docs/                       API, proof, release, and research docs
 .github/                    CI, issue templates, PR template
 ```
 
-The product artifact is `dist/transvoxel_0bsd_core.zip`.
+The public 0BSD product artifact is `dist/transvoxel_0bsd_core.zip`. The
+isolated exact compatibility path is MIT and remains outside that artifact.
+Read `docs/CHOOSING_0BSD_OR_MIT.md` before selecting either path.
 
 The full repository is for maintainers and auditors.

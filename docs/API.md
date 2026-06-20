@@ -13,6 +13,13 @@ src/transvoxel.c
 generated/transvoxel_tables.h
 ```
 
+This API is the independent 0BSD integration surface. It is appropriate for
+new callers that consume generated vertices and triangles. It is not a
+source-level substitute for code that directly reads the original
+`Transvoxel.cpp` class IDs, packed reuse metadata, or compressed table layout.
+Use the separate MIT exact path for that contract. See
+`docs/CHOOSING_0BSD_OR_MIT.md`.
+
 ## Types
 
 ```c
@@ -281,6 +288,11 @@ default regular and transition builders. Exact official table layout, 73-class
 IDs, vertex/reuse encoding, triangulation identity, and byte identity remain
 separate unproven compatibility claims. M22 locks that claim boundary in
 `docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md`.
+
+The functional contract does not imply identical per-case interior surfaces:
+170/256 regular and 373/512 transition cases use different valid connectivity
+than the MIT exact path. Consumers that depend on exact rendered, collision,
+or table-level behavior should use or compare against the MIT path.
 
 ## Ownership
 

@@ -1,37 +1,52 @@
 # Proof Matrix
 
-This document separates two claims that must not be mixed.
+This document separates claims that must not be mixed.
 
-## Claim A — independent 0BSD Transvoxel-style core
+## Claim A - independent 0BSD Transvoxel-style core
 
-This project is intended to solve the same practical LOD seam problem using an independently generated 0BSD table/core package.
+The public core solves the practical 2:1 LOD seam problem using independently
+generated 0BSD tables and a small C API.
 
-Current proof target:
+Proven by its gates:
 
-- all 512 transition cases are generated and validated against this project's own transition-cell boundary contract;
-- transition side faces match neighboring transition cells;
-- generated cases have no duplicate triangles or zero-area triangles;
-- generated cases pass a conservative midpoint self-intersection audit;
-- complement cases expose the same geometry with opposite normals;
-- Godot seam metrics and automated scripted edits pass when run locally;
-- the public C core compiles and runs when a C compiler is available.
+- all 256 regular and 512 transition cases are generated and validated;
+- transition boundaries and neighboring transition-cell side faces match;
+- generated cases have no duplicate or zero-area triangles;
+- winding, six face orientations, and mapped corner junctions are validated;
+- Godot seam metrics and scripted edits pass in the documented runtime gates;
+- the public C and C++ consumer contracts compile and run;
+- vertex count, triangle count, and crossing-edge vertex set match the exact
+  path for every case.
 
-## Claim B — exact original Transvoxel equivalence
+The independent path matches exact oriented interior topology in 86/256 regular
+and 139/512 transition cases. The other 170 regular and 373 transition cases
+use a different valid interior while preserving the tested boundary contract.
 
-This is a stronger claim and is **not proven**.
+## Claim B - exact semantic compatibility
 
-Not proven yet:
+The isolated MIT path proves:
 
-- exact official 73 transition equivalence class mapping;
-- byte/table identity with Eric Lengyel's MIT `Transvoxel.cpp`;
-- exact same packed table layout and class IDs;
-- exact same reference sign convention and sample orientation;
-- exact same triangulation topology for every case;
-- exhaustive proof for every possible production corner/multi-neighbor streaming junction.
+- exact oriented regular topology for 256/256 cases;
+- exact oriented transition topology for 512/512 cases;
+- compatible original data structures, symbols, capacities, and packed reuse
+  semantics;
+- 781/781 records through the pinned Godot Voxel table-source API;
+- full pinned Windows GDExtension compile/link with Zig.
+
+Still not claimed:
+
+- official numeric class-ID identity;
+- byte-for-byte table/source identity;
+- 0BSD provenance for the exact oracle-calibrated selection data;
+- exhaustive production-world visual, collision, streaming, or performance
+  certification.
+
+M27 is terminal: exact semantics are technically proven in the MIT path, while
+an exact semantic 0BSD release is `NOT_ACHIEVED`.
 
 ## Audit files
 
-The strict audit writes:
+The strict functional-core audit writes:
 
 ```text
 validation/strict_correctness_audit.json
@@ -43,26 +58,19 @@ validation/reference_convention_report.json
 validation/corner_junction_report.json
 ```
 
-The intended honest status is:
+Its intentionally narrower status remains:
 
 ```text
 transvoxel_style_proof: PASS
 official_transvoxel_equivalence_proof: NOT_PROVEN
 ```
 
-That is not a failure of the 0BSD core. It is a limit on the claim we are allowed to make.
+That status describes the independent functional proof and does not erase the
+later MIT exact evidence or convert it to 0BSD.
 
-## v26 audit timing note
+## Historical v30 topology-signature result
 
-`RUN_FULL.cmd` reruns the strict correctness audit after Godot seam metrics and auto-interaction are produced. This keeps the uploaded `SEND_TO_CHATGPT.zip` from carrying stale corner-junction status from the earlier Python-only proof phase.
-
-## v30 topology-signature research
-
-v30 adds `tools/topology_signature_analysis.py`, which derives topology
-signatures from the generated transition cases without reading external table
-values.
-
-Current v30 result:
+v30 derived topology signatures without reading external table values:
 
 ```text
 exact_sample_edge_topology:          256 classes
@@ -73,9 +81,13 @@ raw_d4_complement_orbit:              51 classes
 official target:                      73 classes
 ```
 
-This means the project still reports:
+This was input to the later M23-M27 investigation, not the final
+repository-wide compatibility conclusion.
 
-```text
-transvoxel_style_proof: PASS
-official_transvoxel_equivalence_proof: NOT_PROVEN
-```
+## Production meaning
+
+Use the MIT exact path for conservative production compatibility, exact
+official topology, or existing table-layout consumers. Choose the 0BSD path
+when independent provenance is a real requirement and the project can qualify
+visual output, collision, editing, LOD switching, streaming, and performance.
+See `docs/CHOOSING_0BSD_OR_MIT.md`.

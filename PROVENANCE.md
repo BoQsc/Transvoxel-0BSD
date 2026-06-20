@@ -142,6 +142,14 @@ engine-level tests:
 - deterministic rebuilds,
 - no visual regression compared with the current MIT-table implementation.
 
+For the independent 0BSD path, production qualification must also cover
+collision/contact behavior, repeated edits, LOD switching, streaming
+boundaries, representative world-scale performance, and supported compilers.
+The 0BSD proof does not transfer the MIT path's production history. Different
+valid interior connectivity in 170/256 regular and 373/512 transition cases
+must be treated as an explicit integration decision. See
+`docs/CHOOSING_0BSD_OR_MIT.md`.
+
 ## Audit commands
 
 ```sh

@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- Added a project-wide 0BSD-versus-MIT production choice guide and aligned
+  current embedding, release, proof, provenance, and testing documentation.
+- Documented that the independent path matches counts, crossing-edge sets, and
+  tested seam boundaries for every case while using different valid interior
+  connectivity in 170/256 regular and 373/512 transition cases.
+- Made the production recommendation explicit: prefer the MIT exact path for
+  conservative compatibility; choose 0BSD deliberately when its provenance
+  benefit justifies target-engine qualification.
+- Added no-archive package refresh and validation modes:
+  `build_dist.py --no-zip` and `release_candidate_report.py --package-dir`.
+- Synchronized the tracked unpacked core package without rebuilding the ZIP.
 - Added an enforced file-level license boundary: the independent public core,
   generator/validation code, and aggregate reports remain 0BSD; six exact
   selection-bearing M24-M26 artifacts are explicitly MIT.

@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: 0BSD
 from __future__ import annotations
 
+import argparse
 import json
 import shutil
 import zipfile
@@ -21,6 +22,7 @@ CORE_FILES = [
     "SOURCES.md",
     "docs/DROP_IN.md",
     "docs/API.md",
+    "docs/CHOOSING_0BSD_OR_MIT.md",
     "docs/C_COMPILER.md",
     "docs/WHAT_THIS_PROVES.md",
     "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md",
@@ -58,6 +60,14 @@ def copy_file(rel: str) -> None:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--no-zip",
+        action="store_true",
+        help="refresh the unpacked core package without creating or replacing the zip",
+    )
+    args = parser.parse_args()
+
     if CORE_DIR.exists():
         shutil.rmtree(CORE_DIR)
     CORE_DIR.mkdir(parents=True, exist_ok=True)
@@ -70,24 +80,33 @@ def main() -> int:
         else:
             missing.append(rel)
 
-    if CORE_ZIP.exists():
-        CORE_ZIP.unlink()
-    with zipfile.ZipFile(CORE_ZIP, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
-        for path in sorted(CORE_DIR.rglob("*")):
-            if path.is_file():
-                zf.write(path, str(path.relative_to(DIST)))
+    if not args.no_zip:
+        if CORE_ZIP.exists():
+            CORE_ZIP.unlink()
+        with zipfile.ZipFile(CORE_ZIP, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
+            for path in sorted(CORE_DIR.rglob("*")):
+                if path.is_file():
+                    zf.write(path, str(path.relative_to(DIST)))
 
     report = {
         "schema": "boqsc.transvoxel.dist_report.v6",
         "status": "PASS" if not missing else "FAIL",
         "core_zip": str(CORE_ZIP),
+        "zip_built": not args.no_zip,
         "copied": copied,
         "missing": missing,
-        "note": "Core zip includes the default clean-room regular/M4 transition backend plus explicit M4 direct APIs and callback-adapter source path. It intentionally excludes generated JSON proof data. Use the full repository package for generator/proof data.",
+        "note": (
+            "The unpacked core package includes the default clean-room "
+            "regular/M4 transition backend plus explicit M4 direct APIs and "
+            "callback-adapter source path. It intentionally excludes generated "
+            "JSON proof data. Use the full repository package for "
+            "generator/proof data."
+        ),
     }
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
-    print("dist core zip:", CORE_ZIP)
+    print("dist core package:", CORE_DIR)
+    print("dist core zip:", "not built" if args.no_zip else CORE_ZIP)
     print("dist:", report["status"])
     return 0 if not missing else 1
 

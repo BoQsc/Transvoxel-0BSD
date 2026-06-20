@@ -76,37 +76,40 @@
   "meaning": "Functional clean-room replacement is allowed through the public C/C++ API. M24-M26 exact semantic data is explicitly MIT and cannot be released as 0BSD. M27 terminally records that the published rules do not uniquely derive every authored official interior and that the exact candidate uses MIT-oracle-calibrated selections. Numeric class-ID and byte identity remain separate unclaimed properties.",
   "scanned_claim_files": {
     "PROVENANCE.md": {
-      "bytes": 5952
+      "bytes": 6414
     },
     "README.md": {
-      "bytes": 10774
+      "bytes": 11797
     },
     "README_CORE.txt": {
-      "bytes": 1795
+      "bytes": 2289
     },
     "SOURCES.md": {
-      "bytes": 4985
+      "bytes": 5130
     },
     "docs/API.md": {
-      "bytes": 8314
+      "bytes": 8995
+    },
+    "docs/CHOOSING_0BSD_OR_MIT.md": {
+      "bytes": 4536
     },
     "docs/CORE_PACKAGE_CONTENTS.md": {
-      "bytes": 2236
+      "bytes": 2557
     },
     "docs/DROP_IN.md": {
-      "bytes": 5502
+      "bytes": 6356
     },
     "docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md": {
-      "bytes": 5300
+      "bytes": 5979
     },
     "docs/KNOWN_LIMITS.md": {
-      "bytes": 4173
+      "bytes": 5030
     },
     "docs/M4_REPLACEMENT_READINESS.md": {
-      "bytes": 4585
+      "bytes": 5270
     },
     "docs/WHAT_THIS_PROVES.md": {
-      "bytes": 12018
+      "bytes": 12693
     }
   },
   "schema": "boqsc.transvoxel.m22.exact_compatibility_claim_boundary.v1",

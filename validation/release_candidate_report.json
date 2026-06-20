@@ -1,12 +1,14 @@
 {
-  "core_zip": "/mnt/data/v34work/transvoxel_0bsd/dist/transvoxel_0bsd_core.zip",
-  "file_count": 19,
+  "core_zip": "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\dist\\transvoxel_0bsd_core.zip",
+  "file_count": 34,
   "forbidden": [],
   "missing": [],
   "notes": [
-    "This checks the small public core zip, not the full proof repository package.",
-    "Official Transvoxel.cpp / 73-class equivalence remains NOT_PROVEN by design."
+    "This checks the unpacked public core package, not the full proof repository package.",
+    "The package is the independent functional 0BSD path, not the isolated MIT exact path.",
+    "Production users should follow docs/CHOOSING_0BSD_OR_MIT.md."
   ],
+  "package_source": "C:\\Users\\Windows10_new\\Documents\\github_repositories\\Transvoxel-0BSD\\dist\\transvoxel_0bsd_core",
   "schema": "boqsc.transvoxel.release_candidate_report.v1",
   "status": "PASS"
 }

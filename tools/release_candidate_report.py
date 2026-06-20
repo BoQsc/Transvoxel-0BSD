@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: 0BSD
 from __future__ import annotations
 
+import argparse
 import json
 import zipfile
 from pathlib import Path
@@ -9,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "validation" / "release_candidate_report.json"
 CORE_ZIP = ROOT / "dist" / "transvoxel_0bsd_core.zip"
+CORE_DIR = ROOT / "dist" / "transvoxel_0bsd_core"
 
 REQUIRED = {
     "transvoxel_0bsd_core/LICENSE",
@@ -33,6 +35,7 @@ REQUIRED = {
     "transvoxel_0bsd_core/examples/cpp_consumer/main.cpp",
     "transvoxel_0bsd_core/docs/API.md",
     "transvoxel_0bsd_core/docs/DROP_IN.md",
+    "transvoxel_0bsd_core/docs/CHOOSING_0BSD_OR_MIT.md",
     "transvoxel_0bsd_core/docs/WHAT_THIS_PROVES.md",
     "transvoxel_0bsd_core/docs/C_COMPILER.md",
     "transvoxel_0bsd_core/docs/EXACT_COMPATIBILITY_CLAIM_BOUNDARY.md",
@@ -55,20 +58,54 @@ FORBIDDEN_PARTS = [
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--package-dir",
+        action="store_true",
+        help="validate the unpacked package directory instead of the zip",
+    )
+    args = parser.parse_args()
+
     report = {
         "schema": "boqsc.transvoxel.release_candidate_report.v1",
         "core_zip": str(CORE_ZIP),
+        "package_source": str(CORE_DIR if args.package_dir else CORE_ZIP),
         "status": "FAIL",
         "missing": [],
         "forbidden": [],
         "file_count": 0,
         "notes": [
-            "This checks the small public core zip, not the full proof repository package.",
-            "Official Transvoxel.cpp / 73-class equivalence remains NOT_PROVEN by design.",
+            (
+                "This checks the unpacked public core package, not the full "
+                "proof repository package."
+                if args.package_dir
+                else "This checks the small public core zip, not the full proof repository package."
+            ),
+            "The package is the independent functional 0BSD path, not the isolated MIT exact path.",
+            "Production users should follow docs/CHOOSING_0BSD_OR_MIT.md.",
         ],
     }
-    if not CORE_ZIP.exists():
+    if args.package_dir and not CORE_DIR.exists():
+        report["missing"] = ["dist/transvoxel_0bsd_core"]
+    elif not args.package_dir and not CORE_ZIP.exists():
         report["missing"] = ["dist/transvoxel_0bsd_core.zip"]
+    elif args.package_dir:
+        names = {
+            "transvoxel_0bsd_core/"
+            + str(path.relative_to(CORE_DIR)).replace("\\", "/")
+            for path in CORE_DIR.rglob("*")
+            if path.is_file()
+        }
+        report["file_count"] = len(names)
+        report["missing"] = sorted(REQUIRED - names)
+        forbidden = []
+        for name in sorted(names):
+            norm = "/" + name
+            for part in FORBIDDEN_PARTS:
+                if part in norm or norm.endswith("/" + part):
+                    forbidden.append(name)
+                    break
+        report["forbidden"] = forbidden
     else:
         with zipfile.ZipFile(CORE_ZIP, "r") as zf:
             names = set(zf.namelist())

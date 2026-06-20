@@ -19,6 +19,7 @@ Examples:
 
 Read first:
 
+  docs/CHOOSING_0BSD_OR_MIT.md
   docs/DROP_IN.md
   docs/API.md
   docs/WHAT_THIS_PROVES.md
@@ -33,6 +34,14 @@ LICENSE_SCOPE.md for the enforced boundary used by the full repository.
 Important: this is an independent clean-room Transvoxel-style core. It is not a relicensed copy of Eric Lengyel's MIT Transvoxel.cpp and does not claim official 73-class table or byte identity.
 
 Current public claim: functional Transvoxel.cpp replacement through public C/C++ API.
+
+Production choice: use the MIT exact path when exact official topology,
+existing table-consumer compatibility, or established production behavior is
+the priority. Use this 0BSD core when independent provenance is required and
+the target terrain system can qualify visual, collision, LOD, editing, and
+performance behavior. The 0BSD path has different valid interior connectivity
+in 170/256 regular and 373/512 transition cases. See
+docs/CHOOSING_0BSD_OR_MIT.md.
 
 M22 locks the exact compatibility claim boundary: exact official table layout,
 73-class IDs, vertex/reuse encoding, triangulation identity, and byte identity

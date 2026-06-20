@@ -23,7 +23,7 @@ independent_core: PASS candidate
 official_transvoxel_equivalence: NOT_CLAIMED
 ```
 
-This track is allowed to be used as a product candidate because it has its own proof gate: generator proof, C compile proof, Godot seam proof, scripted edit proof, and external alignment reports.
+This track is allowed to be used as a product candidate because it has its own proof gate: generator proof, C compile proof, Godot seam proof, scripted edit proof, and external alignment reports. Product-candidate status does not imply the same per-case topology, production history, or integration risk as the MIT exact path.
 
 It must not be silently mutated by official-equivalence experiments.
 
@@ -94,6 +94,10 @@ explicitly MIT and isolated from the 0BSD core. There is no automatic M28.
 v30 showed that the current independent tetrahedralized transition topology does not naturally collapse to the official 73-class target. That means official-equivalence research should be treated as a separate topology research problem, not as a small patch to the working core.
 
 ## Release wording
+
+Operational selection guidance is in `docs/CHOOSING_0BSD_OR_MIT.md`. Release
+text must not turn a passing functional proof into a claim of equal production
+maturity or exact official output.
 
 Acceptable wording:
 
