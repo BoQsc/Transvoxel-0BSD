@@ -113,6 +113,6 @@ that proves the main seam/transition outcome through exhaustive table checks,
 Godot runtime validation, scripted edit validation, and C core compile tests.
 ```
 
-For conservative production compatibility, use the MIT exact path. Choose the
-0BSD path deliberately when its provenance advantage justifies additional
-target-engine qualification.
+For conservative production compatibility, start with the official upstream
+MIT `Transvoxel.cpp`. Keep 0BSD behind the same adapter and switch only after
+it passes equivalent long-term target-engine qualification.

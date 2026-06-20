@@ -3,11 +3,10 @@
 ## Production trust boundary
 
 The 0BSD core is usable, but it should not be presented as having the same
-production risk as the MIT exact path. Use MIT exact by default when exact
-official topology, existing table-consumer compatibility, or established
-production behavior is the priority. Choose 0BSD when independent provenance
-is a real requirement and the project accepts additional engine-level
-qualification.
+production risk as the official upstream MIT implementation. Start production
+with upstream `Transvoxel.cpp` behind a stable adapter, establish a long-term
+baseline, and move to 0BSD only after equivalent engine-level qualification.
+Choose 0BSD earlier only when independent provenance is a hard requirement.
 
 The independent path matches vertex counts, triangle counts, crossing-edge
 vertex sets, and tested seam boundaries for every case. Exact oriented

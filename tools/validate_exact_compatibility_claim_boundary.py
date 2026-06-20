@@ -70,7 +70,8 @@ REQUIRED_PHRASES = {
         "does not claim official 73-class table or byte identity",
     ],
     "docs/CHOOSING_0BSD_OR_MIT.md": [
-        "Use the MIT exact path when:",
+        "Start production with the official upstream MIT",
+        "Use the official upstream MIT path when:",
         "Use the independent 0BSD core when:",
         "regular cases:    86 / 256",
         "transition cases: 139 / 512",

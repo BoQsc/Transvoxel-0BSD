@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Made the root README's primary production recommendation explicit: begin
+  with official upstream MIT `Transvoxel.cpp` behind a stable adapter, build a
+  battle-tested baseline, and switch to 0BSD only after equivalent real-world
+  qualification.
 - Added a project-wide 0BSD-versus-MIT production choice guide and aligned
   current embedding, release, proof, provenance, and testing documentation.
 - Documented that the independent path matches counts, crossing-edge sets, and

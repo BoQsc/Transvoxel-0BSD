@@ -1,10 +1,17 @@
 # Choosing the 0BSD or MIT Path
 
-This repository contains two deliberately separate implementation paths.
+The production decision is between the official upstream MIT implementation
+and this independent 0BSD core. This repository also contains isolated,
+generated MIT exact artifacts for proof and integration testing.
 
 ## Recommendation
 
-Use the MIT exact path when:
+Start production with the official upstream MIT
+[`Transvoxel.cpp`](https://github.com/EricLengyel/Transvoxel). Integrate it
+behind a stable project-owned adapter and establish long-term terrain,
+rendering, collision, editing, LOD, streaming, and performance baselines.
+
+Use the official upstream MIT path when:
 
 - production conservatism is more important than an all-0BSD dependency set;
 - an existing consumer expects the original `Transvoxel.cpp` data contract;
@@ -19,11 +26,15 @@ Use the independent 0BSD core when:
 - the project can perform engine-level visual, collision, LOD, editing, and
   performance qualification.
 
+Keep the 0BSD core available behind the same adapter as an optional comparison
+backend. Switch only after it passes the same production acceptance tests
+against the established upstream baseline.
+
 The MIT license permits commercial, closed-source, and modified use. Its
 practical distribution obligation is to preserve the copyright and permission
 notice in copies or substantial portions.
 
-The exact MIT integration artifacts are:
+The generated exact MIT integration artifacts in this repository are:
 
 ```text
 research/official_topology/m25/generated/Transvoxel.cpp
@@ -37,6 +48,10 @@ research/official_topology/MIT_ARTIFACTS.json
 ```
 
 The accompanying license is `LICENSES/MIT.txt`.
+
+These files prove compatibility and support controlled integration tests. They
+are not the recommended initial production source when the actual official
+upstream implementation can be used directly.
 
 ## What the 0BSD path matches
 
@@ -103,15 +118,15 @@ Before selecting the 0BSD path for a shipped terrain system, test:
 - memory, build time, and runtime performance at production scale;
 - deterministic output across supported compilers and platforms.
 
-Compare against the MIT exact path where practical. Treat any accepted visual,
-collision, or performance difference as a project-owned compatibility
+Compare against the pinned official upstream backend. Treat any accepted
+visual, collision, or performance difference as a project-owned compatibility
 decision.
 
 ## Bottom line
 
 The 0BSD core is usable and has strong exhaustive case and seam evidence. It
 does not have the same topology in every case or the same production history
-as the MIT exact path. Use MIT exact by default when conservative production
-compatibility is the priority. Choose 0BSD deliberately when its independent
-provenance is valuable enough to justify the additional integration
-qualification.
+as the official upstream MIT implementation. Start with upstream MIT, build a
+battle-tested baseline, and move to 0BSD only after equivalent real-world
+qualification. Choose 0BSD earlier only when its independent provenance is a
+hard requirement.

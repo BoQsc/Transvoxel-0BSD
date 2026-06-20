@@ -86,8 +86,7 @@ repository-wide compatibility conclusion.
 
 ## Production meaning
 
-Use the MIT exact path for conservative production compatibility, exact
-official topology, or existing table-layout consumers. Choose the 0BSD path
-when independent provenance is a real requirement and the project can qualify
-visual output, collision, editing, LOD switching, streaming, and performance.
-See `docs/CHOOSING_0BSD_OR_MIT.md`.
+Start with the official upstream MIT `Transvoxel.cpp` for production. Keep both
+backends behind a stable adapter, build a battle-tested baseline, and switch to
+0BSD only after equivalent visual, collision, editing, LOD, streaming, and
+performance qualification. See `docs/CHOOSING_0BSD_OR_MIT.md`.

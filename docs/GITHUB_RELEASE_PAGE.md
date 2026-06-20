@@ -12,10 +12,10 @@ transvoxel_0bsd_core.zip
 
 The full repository includes generators, validators, Godot proof stages, scripted auto-interaction tests, and official-equivalence research reports.
 
-For conservative production compatibility, exact official topology, or an
-existing `Transvoxel.cpp` table consumer, use the repository's MIT exact path
-instead. Select the 0BSD core when independent provenance is a real requirement
-and the target terrain system can perform additional qualification. See
+For production, start with the official upstream MIT `Transvoxel.cpp` behind a
+stable adapter. Keep this 0BSD core as an optional comparison backend and
+switch only after equivalent long-term terrain, collision, editing, LOD,
+streaming, and performance qualification. See
 `docs/CHOOSING_0BSD_OR_MIT.md`.
 
 ## What is included in the core zip

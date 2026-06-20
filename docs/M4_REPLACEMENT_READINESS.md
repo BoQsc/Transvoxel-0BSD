@@ -129,12 +129,11 @@ requirement; another automatic milestone cannot resolve this provenance fact.
 
 ## Production selection
 
-Terminal readiness does not mean the two paths have equal risk. Use the MIT
-exact path when exact official per-case topology, original table-consumer
-compatibility, or established production behavior matters. Use the 0BSD path
-when independent provenance is required and the project can qualify its
-different interiors across visual output, collision, editing, LOD switching,
-streaming, and performance.
+Terminal readiness does not mean the two paths have equal risk. Start
+production with the official upstream MIT `Transvoxel.cpp` behind a stable
+adapter and establish a long-term baseline. Keep 0BSD as an optional backend,
+then switch only after its different interiors pass equivalent visual,
+collision, editing, LOD, streaming, and performance qualification.
 
 The 0BSD path matches exact oriented topology in 86/256 regular and 139/512
 transition cases; the other 170 regular and 373 transition cases use different

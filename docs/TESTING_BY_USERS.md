@@ -4,10 +4,10 @@ This document is for people testing the independent 0BSD core outside the origin
 
 The goal is to collect useful correctness reports, not vague screenshots.
 
-Read `docs/CHOOSING_0BSD_OR_MIT.md` first. The MIT exact path is the
-conservative choice when exact official output or existing table-consumer
-compatibility matters. Testing the 0BSD path should specifically cover the
-project's reasons for accepting different valid interior connectivity.
+Read `docs/CHOOSING_0BSD_OR_MIT.md` first. Establish the official upstream MIT
+`Transvoxel.cpp` as the production baseline behind a stable adapter. Testing
+the 0BSD path should specifically determine whether it can replace that
+battle-tested baseline despite its different valid interior connectivity.
 
 ## Fast path for normal users
 
@@ -120,7 +120,7 @@ exact command line used
 console output
 whether OBJ files were created
 whether cracks, holes, duplicate triangles, wrong normals, or degenerate triangles were observed
-whether rendered normals, lighting, collision, or contact behavior differs from the MIT exact path
+whether rendered normals, lighting, collision, or contact behavior differs from the official upstream baseline
 whether repeated edits or LOD switches produce visible or physical popping
 representative streaming and performance results
 smallest reproducible case if something fails

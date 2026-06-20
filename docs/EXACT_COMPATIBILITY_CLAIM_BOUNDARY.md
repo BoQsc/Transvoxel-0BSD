@@ -83,12 +83,11 @@ changed project requirement.
 
 ## Operational consequence
 
-The terminal result does not make the public 0BSD core unusable. It means the
-MIT exact path is the conservative default when exact official output,
-existing table-layout consumers, or established production behavior matters.
-The 0BSD path remains appropriate when independent provenance is a real
-requirement and the target project can qualify its different interiors across
-rendering, collision, editing, LOD switching, streaming, and performance.
+The terminal result does not make the public 0BSD core unusable. For production,
+start with the official upstream MIT `Transvoxel.cpp` behind a stable adapter
+and establish a long-term baseline. Keep 0BSD as an optional backend and switch
+only after equivalent rendering, collision, editing, LOD, streaming, and
+performance qualification.
 
 The two paths must remain separate. Exact oracle-calibrated data stays MIT;
 aggregate comparison evidence and the independent functional implementation

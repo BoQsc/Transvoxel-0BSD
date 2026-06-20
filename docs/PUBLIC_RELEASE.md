@@ -4,11 +4,11 @@ This package has two audiences.
 
 ## Normal users
 
-Choose the path before downloading. Use the MIT exact path for conservative
-production compatibility, exact official topology, or existing table-layout
-consumers. Use this 0BSD package when independent provenance is required and
-the target terrain system can qualify the different interior connectivity.
-See `docs/CHOOSING_0BSD_OR_MIT.md`.
+Start production with the official upstream MIT `Transvoxel.cpp` behind a
+stable adapter. Use this package as an optional comparison backend and switch
+only after it passes equivalent long-term terrain-system qualification. Choose
+0BSD earlier only when independent provenance is a hard requirement. See
+`docs/CHOOSING_0BSD_OR_MIT.md`.
 
 For the 0BSD path, use:
 

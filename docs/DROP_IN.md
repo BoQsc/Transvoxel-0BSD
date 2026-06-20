@@ -2,11 +2,10 @@
 
 ## Choose the path before embedding
 
-Use the MIT exact path if the project needs exact official per-case topology,
-the original table-consumer contract, or the most conservative production
-choice. Use this 0BSD package if independent provenance is required and the
-target engine can qualify visual, collision, LOD, editing, and performance
-behavior.
+Start with the official upstream MIT `Transvoxel.cpp` behind a stable adapter
+for the most conservative production path. Establish a long-term baseline
+before considering this 0BSD package. Switch only after the 0BSD backend passes
+equivalent visual, collision, LOD, editing, streaming, and performance tests.
 
 The public 0BSD core matches per-case counts, crossing-edge vertex sets, and
 tested seam boundaries, but uses different valid interior connectivity in

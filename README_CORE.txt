@@ -35,13 +35,12 @@ Important: this is an independent clean-room Transvoxel-style core. It is not a 
 
 Current public claim: functional Transvoxel.cpp replacement through public C/C++ API.
 
-Production choice: use the MIT exact path when exact official topology,
-existing table-consumer compatibility, or established production behavior is
-the priority. Use this 0BSD core when independent provenance is required and
-the target terrain system can qualify visual, collision, LOD, editing, and
-performance behavior. The 0BSD path has different valid interior connectivity
-in 170/256 regular and 373/512 transition cases. See
-docs/CHOOSING_0BSD_OR_MIT.md.
+Production choice: start with the official upstream MIT Transvoxel.cpp behind
+a stable adapter and establish a long-term production baseline. Keep this 0BSD
+core as an optional comparison backend, then switch only after equivalent
+visual, collision, LOD, editing, streaming, and performance qualification. The
+0BSD path has different valid interior connectivity in 170/256 regular and
+373/512 transition cases. See docs/CHOOSING_0BSD_OR_MIT.md.
 
 M22 locks the exact compatibility claim boundary: exact official table layout,
 73-class IDs, vertex/reuse encoding, triangulation identity, and byte identity

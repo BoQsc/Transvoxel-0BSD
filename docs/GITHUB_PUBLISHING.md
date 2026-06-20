@@ -58,11 +58,11 @@ as the small public drop-in package.
 
 Use the full source zip for people who want the generator/proof/Godot validation stack.
 
-Release notes must link `docs/CHOOSING_0BSD_OR_MIT.md` and state that MIT exact
-is the conservative choice for exact topology or existing table consumers.
-The 0BSD package should be selected deliberately for its provenance, with
-target-engine visual, collision, LOD, editing, streaming, and performance
-qualification.
+Release notes must link `docs/CHOOSING_0BSD_OR_MIT.md` and state that production
+should begin with the official upstream MIT `Transvoxel.cpp` behind a stable
+adapter. The 0BSD package remains an optional backend until it passes
+equivalent long-term visual, collision, LOD, editing, streaming, and
+performance qualification.
 
 ## Claims to keep
 

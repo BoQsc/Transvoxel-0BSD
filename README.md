@@ -4,22 +4,36 @@
 
 Engine-independent, dependency-free C core for an independently generated **Transvoxel-style voxel LOD transition system** under 0BSD.
 
+## Production recommendation
+
+**Start with the official upstream MIT
+[`Transvoxel.cpp`](https://github.com/EricLengyel/Transvoxel) as the initial
+production backend.** Put it behind a stable project-owned adapter, then
+establish long-term terrain, rendering, collision, editing, LOD, streaming,
+and performance baselines.
+
+Keep this 0BSD implementation as an optional comparison backend. Consider
+switching only after it passes the same real-world acceptance tests against
+that battle-tested baseline. The generated MIT exact artifacts in this
+repository are proof and integration outputs; they are not preferred over
+starting from the actual upstream implementation.
+
 License boundary: the public core, generator/validation code, and aggregate
 reports are 0BSD. The isolated exact oracle-calibrated artifacts in M24-M26
 are explicitly MIT under [`LICENSES/MIT.txt`](LICENSES/MIT.txt) and are never
 included in the 0BSD core package. See [`LICENSE_SCOPE.md`](LICENSE_SCOPE.md).
 
-## Choose the implementation first
+## Why this is the default
 
-Use the MIT exact path when conservative production compatibility, original
-`Transvoxel.cpp` topology, or the original table-consumer contract matters.
-Use the independent 0BSD core when 0BSD provenance is a real requirement and
-the integration can be qualified in the target terrain system.
+The official upstream MIT implementation has the original topology and the
+longest production history. Its license already permits commercial,
+closed-source, and modified use when its copyright and permission notice are
+preserved.
 
-The MIT license already permits commercial, closed-source, and modified use
-when its copyright and permission notice are preserved. The 0BSD path is
-strongly tested and usable, but 170/256 regular cases and 373/512 transition
-cases use different valid interior connectivity than the exact MIT path. See
+The 0BSD path is strongly tested and usable, but 170/256 regular cases and
+373/512 transition cases use different valid interior connectivity. Use it
+first only when independent 0BSD provenance is a hard requirement and the
+integration can absorb the additional qualification. See
 [`docs/CHOOSING_0BSD_OR_MIT.md`](docs/CHOOSING_0BSD_OR_MIT.md).
 
 After choosing the 0BSD path, start with the small release asset rather than

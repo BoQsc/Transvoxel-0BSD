@@ -24,8 +24,9 @@ production selection guide: docs/CHOOSING_0BSD_OR_MIT.md
 ```
 
 The release must not imply equal production history or equal per-case interior
-topology. MIT exact is the conservative recommendation for existing production
-consumers; the 0BSD path requires target-engine qualification.
+topology. The main recommendation is to start with the official upstream MIT
+`Transvoxel.cpp`, build a battle-tested baseline behind an adapter, and move to
+0BSD only after equivalent target-engine qualification.
 
 The small core zip should not contain:
 
